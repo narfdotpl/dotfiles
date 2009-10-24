@@ -1,0 +1,17 @@
+[user]
+    name = Maciej Konieczny
+    email = hello@narf.pl
+[core]
+    editor = mvim --nofork
+    excludesfile = /Users/narf/.gitglobalignore
+[alias]
+    a = add .
+    c = commit --all --verbose
+    co = checkout
+    l = log --graph --pretty=oneline --abbrev-commit
+    s = status
+    web = instaweb
+    who = shortlog --summary --numbered --email
+[instaweb]
+    httpd = webrick  # OS X love
+

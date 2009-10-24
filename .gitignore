@@ -1,0 +1,30 @@
+# protect me from `git add .` and ignore everything by default...
+*
+
+# ...apart from the file you're reading atm
+!.gitignore
+
+
+#-----------------
+#  indexed files
+#-----------------
+
+# readme
+!README.markdown
+
+# git
+!.gitconfig
+!.gitglobalignore
+
+# python
+!.pythonrc.py
+
+# shell
+!.bashrc
+!.profile
+!.zshrc
+
+# scripts
+!.scripts/
+!.scripts/*.py
+

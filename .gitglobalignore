@@ -1,0 +1,18 @@
+# backup
+*~
+
+# OS X directory metadata
+.DS_Store
+
+# compiled/optimized Python code
+*.py[co]
+
+# Python code coverage
+.coverage
+
+# TextMate project
+*.tmproj
+
+# Vim swap
+*.swp
+
