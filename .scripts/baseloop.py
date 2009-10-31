@@ -14,14 +14,14 @@ from time import sleep
 
 def get_files_and_args():
     """
-    $ alias runme="python sth_that_imports_baserun.py"  # see: runp.py
+    $ alias loop="python sth_that_imports_baseloop.py"  # see: loop_python.py
 
-    $ runme myfile
+    $ loop myfile
     => tracked_files = set(['myfile'])
        main_file = 'myfile'
        args = ''
 
-    $ runme `find . -name "*.py"` foo.py -my args
+    $ loop `find . -name "*.py"` foo.py -my args
     => tracked_files = set(['foo.py', 'bar.py'])
        main_file = 'foo.py'
        args = '-my args'
@@ -44,7 +44,7 @@ def get_files_and_args():
     return tracked_files, main_file, args
 
 
-def run(tracked_files, command):
+def loop(tracked_files, command):
     """
     Check every second whether any of the tracked files has been modified.
     If it has, clear the screen and run `command`.
