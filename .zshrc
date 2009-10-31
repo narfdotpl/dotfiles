@@ -167,5 +167,5 @@ export PYTHONSTARTUP=~/.pythonrc.py
 #  private stuff (SSH aliases etc.)
 #------------------------------------
 
-source ~/.zsh/private
+[[ -f ~/.zsh/private ]] && source ~/.zsh/private
 
