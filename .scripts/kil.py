@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Print `top` table trimmed to four heaviest process ordered by CPU usage and
+Print `top` table trimmed to four heaviest processes ordered by CPU usage and
 copy to the clipboard command killing the heaviest one.
 """
 
