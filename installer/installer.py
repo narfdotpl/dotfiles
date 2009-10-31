@@ -116,7 +116,7 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
 
     for path in sorted(fresh):
         destination = join(home_dir, basename(path))
-        name = pretty_basename(path)
+        name = _pretty_basename(path)
         installed = False
         while not installed:
             try:
@@ -136,7 +136,7 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                     while exists(new_destination):
                         new_destination += '~'
                     rename(destination, new_destination)
-                    print 'renamed to %s' % pretty_basename(new_destination)
+                    print 'renamed to %s' % _pretty_basename(new_destination)
                 else:
                     if isdir(destination):
                         rmtree(destination)
@@ -147,6 +147,13 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                 print '%s installed' % name
 
 
+def _pretty_basename(path):
+    name = basename(path)
+    if isdir(path):
+        name += '/'
+    return name
+
+
 def uninstall(obsolete):
     """
     Remove obsolete links from previous installations.
@@ -154,14 +161,7 @@ def uninstall(obsolete):
 
     for link in obsolete:
         remove(link)
-        print '%s uninstalled' % basename(link)
-
-
-def pretty_basename(path):
-    name = basename(path)
-    if isdir(path):
-        name += '/'
-    return name
+        print '%s uninstalled' % _pretty_basename(link)
 
 
 def main():
