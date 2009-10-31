@@ -161,6 +161,14 @@ alias mp3='python ~/.scripts/rename_mp3s.py'
 alias o='python ~/.scripts/proxy_open.py'
 
 
+#------------
+#  Keychain
+#------------
+
+# http://github.com/funtoo/keychain
+eval `keychain --eval --quiet --agents ssh id_rsa`
+
+
 #----------
 #  Python
 #----------
