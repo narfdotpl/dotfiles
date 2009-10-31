@@ -57,10 +57,15 @@ def get_dotfiles(dotfiles_dir=None):
             for line in f:
                 if line != '\n' and not line.startswith('#'):
                     pattern = line.rstrip('\n')
-                    for path in iglob(pattern):
-                        name = basename(path)
-                        if name in dotfiles_names:
-                            dotfiles_names.remove(name)
+                    patterns = [pattern]
+                    # `*foo == *foo and .*foo` in git but not in python
+                    if pattern.startswith('*'):
+                        patterns.append('.' + pattern)
+                    for pattern in patterns:
+                        for path in iglob(pattern):
+                            name = basename(path)
+                            if name in dotfiles_names:
+                                dotfiles_names.remove(name)
 
     # return absolute paths
     return [join(dotfiles_dir, name) for name in dotfiles_names]
