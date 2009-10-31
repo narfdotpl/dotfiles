@@ -159,7 +159,7 @@ alias lcs='python ~/.scripts/loop_c-sharp.py'
 alias lp='python ~/.scripts/loop_python.py'
 alias lp3='python ~/.scripts/loop_python3.py'
 alias lr='python ~/.scripts/loop_ruby.py'
-alias mp3='python ~/.scripts/mp3.py'
+alias mp3='python ~/.scripts/rename_mp3s.py'
 
 
 #----------
