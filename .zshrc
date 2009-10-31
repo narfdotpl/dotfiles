@@ -122,6 +122,12 @@ alias l/='ls -dF *(/)'  # directories
 alias l.='ls -dF *(.)'  # files
 alias l@='ls -dF *(@)'  # links
 
+# list directory contents that begin with a dot
+alias .l='ls -dF .*'
+alias .l/='ls -dF .*(/)'  # directories
+alias .l.='ls -dF .*(.)'  # files
+alias .l@='ls -dF .*(@)'  # links
+
 # open directory in finder
 alias lo='open `pwd`'
 
