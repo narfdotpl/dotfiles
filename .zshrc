@@ -58,10 +58,10 @@ setopt hist_save_no_dups
 # put git branch name in shell prompt
 #
 # example:
-#     ~ $ cd code/mungdaal
-#     ~/code/mungdaal(master) $ cd tests
-#     ~/code/mungdaal/tests(master) $ touch dummy; git add dummy
-#     ~/code/mungdaal/tests(master+) $
+#     ~ $ cd dotfiles
+#     ~/dotfiles(master) $ cd .scripts
+#     ~/dotfiles/.scripts(master) $ touch dummy; git add dummy
+#     ~/dotfiles/.scripts(master+) $
 
 git_status() {
     # original function: http://gist.github.com/31631
