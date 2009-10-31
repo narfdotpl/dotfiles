@@ -137,9 +137,6 @@ m() {
     cd $1
 }
 
-# open
-alias o='open'
-
 # run Python
 alias p='python'
 alias p3='python3'
@@ -161,6 +158,7 @@ alias lp='python ~/.scripts/loop_python.py'
 alias lp3='python ~/.scripts/loop_python3.py'
 alias lr='python ~/.scripts/loop_ruby.py'
 alias mp3='python ~/.scripts/rename_mp3s.py'
+alias o='python ~/.scripts/proxy_open.py'
 
 
 #----------
