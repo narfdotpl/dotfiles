@@ -142,7 +142,7 @@ alias o='open'
 
 # run Python
 alias p='python'
-alias p3='python3.1'
+alias p3='python3'
 
 # remove *.pyc files
 alias pyc='rm `find . -name "*.pyc"`'
