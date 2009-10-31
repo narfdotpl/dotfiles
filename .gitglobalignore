@@ -14,5 +14,5 @@
 *.tmproj
 
 # Vim swap
-*.swp
+*.sw[nop]
 
