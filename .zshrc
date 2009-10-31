@@ -30,8 +30,8 @@ setopt list_packed
 #  history
 #-----------
 
-# remember 200 commands
-HISTSIZE=200
+# remember 2000 commands
+HISTSIZE=2000
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh/history
 
