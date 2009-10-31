@@ -156,6 +156,7 @@ alias r='ruby'
 # run scripts
 alias kil='python ~/.scripts/kil.py'
 alias lcs='python ~/.scripts/loop_c-sharp.py'
+alias lnt='python ~/.scripts/loop_nosetests.py `find . -name "*.py"`'
 alias lp='python ~/.scripts/loop_python.py'
 alias lp3='python ~/.scripts/loop_python3.py'
 alias lr='python ~/.scripts/loop_ruby.py'
