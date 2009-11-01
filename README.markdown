@@ -7,7 +7,7 @@ Some of my configuration files and scripts used mostly on OS X.
 
 
 Installation
-============
+------------
 
     cd ~
     git clone git://github.com/narfdotpl/dotfiles
