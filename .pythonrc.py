@@ -1,3 +1,3 @@
-# dir() alternative. Homepage: http://inky.github.com/see/
+# dir() alternative http://inky.github.com/see
 from see import see
 

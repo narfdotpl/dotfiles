@@ -63,25 +63,23 @@ setopt hist_save_no_dups
 #     ~/dotfiles/.scripts(master) $ touch dummy; git add dummy
 #     ~/dotfiles/.scripts(master+) $
 
-_git_status() {
-    # original function: http://gist.github.com/31631
-    if [[ \
-        `git status 2> /dev/null | tail -n 1` \
-            != 'nothing to commit (working directory clean)'
-    ]]; then
-        echo '+'
-    fi
-}
-
-_git_branch_name() {
+_git_branch() {
     # original function: http://gist.github.com/5129
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
+_git_dirty() {
+    # original function: http://gist.github.com/31631
+    local status_="`git status 2> /dev/null | tail -n 1`"
+    if [[ $status_ != 'nothing to commit (working directory clean)' ]]; then
+        echo '+'
+    fi
+}
+
 _git_prompt() {
-    typeset current_git_branch_name=`_git_branch_name`
-    if [[ $current_git_branch_name != '' ]]; then
-        echo "($current_git_branch_name`_git_status`)"
+    local branch=`_git_branch`
+    if [[ $branch != '' ]]; then
+        echo "($branch`_git_dirty`)"
     fi
 }
 
@@ -137,17 +135,17 @@ m() {
     cd $1
 }
 
-# run Python
+# run python
 alias p='python'
 alias p3='python3'
 
 # remove *.pyc files
 alias pyc='rm `find . -name "*.pyc"`'
 
-# run PyFlakes
+# run pyflakes
 alias pyf='pyflakes `find . -name "*.py"`'
 
-# run Ruby
+# run ruby
 alias r='ruby'
 
 # run scripts
@@ -162,7 +160,7 @@ alias o='python ~/.scripts/proxy_open.py'
 
 
 #------------
-#  Keychain
+#  keychain
 #------------
 
 # http://github.com/funtoo/keychain
@@ -170,14 +168,14 @@ eval `keychain --eval --quiet --agents ssh id_rsa`
 
 
 #----------
-#  Python
+#  python
 #----------
 
 export PYTHONSTARTUP=~/.pythonrc.py
 
 
 #------------------------------------
-#  private stuff (SSH aliases etc.)
+#  private stuff (ssh aliases etc.)
 #------------------------------------
 
 [[ -f ~/.zsh/private ]] && source ~/.zsh/private
