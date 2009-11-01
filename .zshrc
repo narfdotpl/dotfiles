@@ -55,13 +55,17 @@ setopt hist_save_no_dups
 #  prompt
 #----------
 
-# put git branch name in shell prompt
+# Show git information in shell prompt.
+#
+# Show current branch name. If there were any changes since last commit, show
+# a plus sign. If you are not in the top-level directory of the repository,
+# precede branch name with one dot for every directory below the top.
 #
 # example:
 #     ~ $ cd dotfiles
 #     ~/dotfiles(master) $ cd .scripts
-#     ~/dotfiles/.scripts(master) $ touch dummy; git add dummy
-#     ~/dotfiles/.scripts(master+) $
+#     ~/dotfiles/.scripts(.master) $ touch dummy; git add dummy
+#     ~/dotfiles/.scripts(.master+) $
 
 _git_branch() {
     # original function: http://gist.github.com/5129
@@ -76,10 +80,18 @@ _git_dirty() {
     fi
 }
 
+_git_distance() {
+    local prefix=".`git rev-parse --show-prefix 2> /dev/null`"
+    while [[ $prefix != '.' ]]; do
+        echo -n '.'
+        prefix="`dirname $prefix`"
+    done
+}
+
 _git_prompt() {
     local branch="`_git_branch`"
     if [[ $branch != '' ]]; then
-        echo "($branch`_git_dirty`)"
+        echo "(`_git_distance`$branch`_git_dirty`)"
     fi
 }
 
