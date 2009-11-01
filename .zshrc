@@ -77,7 +77,7 @@ _git_dirty() {
 }
 
 _git_prompt() {
-    local branch=`_git_branch`
+    local branch="`_git_branch`"
     if [[ $branch != '' ]]; then
         echo "($branch`_git_dirty`)"
     fi
