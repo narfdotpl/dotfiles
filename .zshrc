@@ -66,7 +66,7 @@ setopt hist_save_no_dups
 _git_status() {
     # original function: http://gist.github.com/31631
     if [[ \
-        $(git status 2> /dev/null | tail -n 1) \
+        `git status 2> /dev/null | tail -n 1` \
             != 'nothing to commit (working directory clean)'
     ]]; then
         echo '+'
@@ -79,9 +79,9 @@ _git_branch_name() {
 }
 
 _git_prompt() {
-    typeset current_git_branch_name=$(_git_branch_name)
+    typeset current_git_branch_name=`_git_branch_name`
     if [[ $current_git_branch_name != '' ]]; then
-        echo "($current_git_branch_name$(_git_status))"
+        echo "($current_git_branch_name`_git_status`)"
     fi
 }
 
@@ -91,7 +91,7 @@ setopt prompt_subst
 
 # show three trailing components of current path (replace $HOME with ~),
 # git prompt and dollar sign
-PROMPT='%3~$(_git_prompt) $ '
+PROMPT='%3~`_git_prompt` $ '
 
 
 #-----------
