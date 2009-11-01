@@ -6,9 +6,14 @@
     excludesfile = /Users/narf/.gitglobalignore
 [alias]
     a = add .
+    b = branch
     c = commit --all --verbose
     co = checkout
+    d = diff
+    i = init
     l = log --graph --pretty=oneline --abbrev-commit
+    r = rebase --interactive HEAD~10
+    rc = rebase --continue
     s = status
     web = instaweb
     who = shortlog --summary --numbered --email
