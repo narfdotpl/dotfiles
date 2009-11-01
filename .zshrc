@@ -63,7 +63,7 @@ setopt hist_save_no_dups
 #     ~/dotfiles/.scripts(master) $ touch dummy; git add dummy
 #     ~/dotfiles/.scripts(master+) $
 
-git_status() {
+_git_status() {
     # original function: http://gist.github.com/31631
     if [[ \
         $(git status 2> /dev/null | tail -n 1) \
@@ -73,15 +73,15 @@ git_status() {
     fi
 }
 
-git_branch_name() {
+_git_branch_name() {
     # original function: http://gist.github.com/5129
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-git_prompt() {
-    typeset current_git_branch_name=$(git_branch_name)
+_git_prompt() {
+    typeset current_git_branch_name=$(_git_branch_name)
     if [[ $current_git_branch_name != '' ]]; then
-        echo "($current_git_branch_name$(git_status))"
+        echo "($current_git_branch_name$(_git_status))"
     fi
 }
 
@@ -91,7 +91,7 @@ setopt prompt_subst
 
 # show three trailing components of current path (replace $HOME with ~),
 # git prompt and dollar sign
-PROMPT='%3~$(git_prompt) $ '
+PROMPT='%3~$(_git_prompt) $ '
 
 
 #-----------
