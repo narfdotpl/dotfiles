@@ -8,6 +8,7 @@
     a = add .
     b = branch
     c = commit --all --verbose
+    ca = commit --all --verbose --amend 
     co = checkout
     d = diff
     i = init
