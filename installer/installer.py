@@ -116,9 +116,6 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
 
     home_dir = home_dir or expanduser('~')
 
-    if not fresh:
-        print 'nothing fresh to install'
-
     for path in sorted(fresh):
         destination = join(home_dir, basename(path))
         name = _pretty_basename(path)
@@ -150,6 +147,11 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
             else:
                 installed = True
                 print '%s installed' % name
+
+    if fresh:
+        print 'installation/update complete, consider restarting terminal'
+    else:
+        print 'nothing fresh to install'
 
 
 def _pretty_basename(path):
