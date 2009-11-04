@@ -138,9 +138,6 @@ alias .l/='ls -dF .*(/)'  # directories
 alias .l.='ls -dF .*(.)'  # files
 alias .l@='ls -dF .*(@)'  # links
 
-# open directory in finder
-alias lo='open `pwd`'
-
 # create directory (and intermediate directories) and go there
 m() {
     mkdir -p $1
