@@ -160,6 +160,9 @@ alias pyf='pyflakes `find . -name "*.py"`'
 # run ruby
 alias r='ruby'
 
+# run less
+alias s='less'
+
 # run scripts
 alias kil='python ~/.scripts/kil.py'
 alias lcs='python ~/.scripts/loop_c-sharp.py'
