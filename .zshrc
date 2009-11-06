@@ -157,9 +157,6 @@ alias pyc='rm `find . -name "*.pyc"`'
 # run pyflakes
 alias pyf='pyflakes `find . -name "*.py"`'
 
-# run ruby
-alias r='ruby'
-
 # run less
 alias s='less'
 
@@ -172,6 +169,7 @@ alias lp3='python ~/.scripts/loop_python3.py'
 alias lr='python ~/.scripts/loop_ruby.py'
 alias mp3='python ~/.scripts/rename_mp3s.py'
 alias o='python ~/.scripts/proxy_open.py'
+alias r='python ~/.scripts/run_ruby.py'
 
 
 #------------
