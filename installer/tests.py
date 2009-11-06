@@ -110,36 +110,20 @@ class TestContainer:
         already_installed = get_already_installed(self.dotfiles, self.home_dir)
         assert_no_difference(already_installed, expected)
 
-    def test__get_fresh(self):
-        expected = self.fresh
-        fresh = _get_fresh(self.dotfiles, self.already_installed)
-        assert_no_difference(fresh, expected)
-
     def test_get_dotfiles(self):
         expected = self.dotfiles
         dotfiles = get_dotfiles(self.dotfiles_dir)
         assert_no_difference(dotfiles, expected)
 
+    def test__get_fresh(self):
+        expected = self.fresh
+        fresh = _get_fresh(self.dotfiles, self.already_installed)
+        assert_no_difference(fresh, expected)
+
     def test__get_obsolete(self):
         expected = self.obsolete
         obsolete = _get_obsolete(self.dotfiles, self.already_installed)
         assert_no_difference(obsolete, expected)
-
-    def test_install_without_backup(self):
-        expected = self.get_homefiles()
-        new_links = []
-        for path in self.fresh:
-            new_path = join(self.home_dir, basename(path))
-            new_links.append(new_path)
-            if new_path not in expected:
-                expected.append(new_path)
-
-        install_and_ask_whether_to_backup(self.fresh, self.home_dir, False)
-        homefiles = self.get_homefiles()
-        assert_no_difference(homefiles, expected)
-
-        for link in new_links:
-            assert islink(link)
 
     def test_install_and_backup(self):
         expected = self.get_homefiles()
@@ -152,6 +136,22 @@ class TestContainer:
             expected.append(new_path)
 
         install_and_ask_whether_to_backup(self.fresh, self.home_dir, True)
+        homefiles = self.get_homefiles()
+        assert_no_difference(homefiles, expected)
+
+        for link in new_links:
+            assert islink(link)
+
+    def test_install_without_backup(self):
+        expected = self.get_homefiles()
+        new_links = []
+        for path in self.fresh:
+            new_path = join(self.home_dir, basename(path))
+            new_links.append(new_path)
+            if new_path not in expected:
+                expected.append(new_path)
+
+        install_and_ask_whether_to_backup(self.fresh, self.home_dir, False)
         homefiles = self.get_homefiles()
         assert_no_difference(homefiles, expected)
 
