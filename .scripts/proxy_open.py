@@ -10,9 +10,9 @@ from sys import argv
 
 
 def main():
-    args = argv[1:]
+    args = ' '.join(argv[1:])
     if args:
-        system('open %s' % ' '.join(args))
+        system('open ' + args)
     else:
         system('open `pwd`')
 
