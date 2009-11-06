@@ -8,11 +8,11 @@
     a = add .
     b = branch
     c = commit --all --verbose
-    ca = commit --all --verbose --amend 
+    ca = commit --all --verbose --amend
     co = checkout
-    d = diff
+    d = !git diff | mvim --nofork -
     i = init
-    l = log --graph --pretty=oneline --abbrev-commit
+    l = !git log --graph --pretty=oneline --abbrev-commit | less
     r = rebase --interactive HEAD~10
     rc = rebase --continue
     s = status
