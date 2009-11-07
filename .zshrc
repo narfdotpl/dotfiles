@@ -120,6 +120,9 @@ alias cl='clear'
 # copy working directory path
 alias cpwd='pwd | tr -d "\n" | pbcopy'
 
+# show date (example: 2009-11-07 01:16:21, Saturday)
+alias d='date "+%Y-%m-%d %H:%M:%S, %A"'
+
 # run MacVim
 alias e='mvim'
 
