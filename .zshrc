@@ -127,7 +127,7 @@ alias d='date "+%Y-%m-%d %H:%M:%S, %A"'
 alias e='mvim'
 
 # show shell history
-alias h='history -i'
+alias h='history -i 1 | less +G'
 
 # list directory contents
 alias l='ls -F'
