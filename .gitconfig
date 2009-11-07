@@ -12,7 +12,9 @@
     co = checkout
     d = !git diff | mvim --nofork -
     i = init
-    l = !git log --graph --oneline | less
+    l = !git log origin..HEAD --graph --oneline | less
+    la = !git log --graph --oneline | less
+    lo = !git log origin --graph --oneline | less
     r = rebase --interactive HEAD~10
     rc = rebase --continue
     s = status
