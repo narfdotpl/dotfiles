@@ -58,9 +58,13 @@ def get_dotfiles(dotfiles_dir=None):
                 if line != '\n' and not line.startswith('#'):
                     pattern = line.rstrip('\n')
                     patterns = [pattern]
-                    # `*foo == *foo and .*foo` in git but not in python
+
+                    # use git smart wildcards
                     if pattern.startswith('*'):
-                        patterns.append('.' + pattern)
+                        patterns.append('.' + pattern)  # *a == *a and .*a
+                    if pattern.startswith('*.'):
+                        patterns.append(pattern[1:])  # *.b == *.b and .b
+
                     for pattern in patterns:
                         for path in iglob(pattern):
                             name = basename(path)
