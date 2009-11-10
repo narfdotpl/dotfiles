@@ -51,6 +51,14 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 
 
+#--------
+#  MOTD
+#--------
+
+# example: MacBook.local (Darwin), up 61 days
+python ~/.scripts/show_machine_info.py
+
+
 #----------
 #  prompt
 #----------
