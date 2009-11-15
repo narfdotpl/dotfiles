@@ -11,7 +11,7 @@
     ca = commit --all --verbose --amend
     co = checkout
     d = !git diff | mvim --nofork -
-    i = init
+    i = !git init && git add . && git commit --message='initial commit'
     l = !git log origin..HEAD --graph --oneline | less
     la = !git log --graph --oneline | less
     lo = !git log origin --graph --oneline | less
