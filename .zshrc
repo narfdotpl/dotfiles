@@ -175,6 +175,7 @@ alias s='less'
 
 # run scripts
 alias kil='python ~/.scripts/kil.py'
+alias la='python ~/.scripts/loop_nasm.py'
 alias lcs='python ~/.scripts/loop_c-sharp.py'
 alias lnt='python ~/.scripts/loop_nosetests.py `find . -name "*.py"`'
 alias lp='python ~/.scripts/loop_python.py'
