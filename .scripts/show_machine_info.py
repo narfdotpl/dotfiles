@@ -12,7 +12,7 @@ example:
 from os import popen
 
 
-def main():
+def _main():
     with popen('uname -n') as f:
         name = f.read().rstrip('\n')
 
@@ -30,5 +30,5 @@ def main():
     print '{0} ({1}), up {2}'.format(name, os, uptime)
 
 if __name__ == '__main__':
-    main()
+    _main()
 

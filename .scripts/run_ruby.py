@@ -9,7 +9,7 @@ from os import system
 from sys import argv
 
 
-def main():
+def _main():
     args = ' '.join(argv[1:])
     if args:
         system('ruby -w ' + args)
@@ -17,5 +17,5 @@ def main():
         system('irb --simple-prompt')
 
 if __name__ == '__main__':
-    main()
+    _main()
 

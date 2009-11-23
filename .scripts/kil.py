@@ -8,7 +8,7 @@ copy to the clipboard command killing the heaviest one.
 import os
 
 
-def main():
+def _main():
     how_many = 4
 
     # get list of processes ordered by CPU usage (ascending)
@@ -35,5 +35,5 @@ def main():
     )
 
 if __name__ == '__main__':
-    main()
+    _main()
 

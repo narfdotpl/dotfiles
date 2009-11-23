@@ -177,7 +177,7 @@ def uninstall(obsolete):
         print name + ' uninstalled'
 
 
-def main():
+def _main():
     # get all the info
     dotfiles = get_dotfiles()
     already_installed = get_already_installed(dotfiles)
@@ -188,5 +188,5 @@ def main():
     install_and_ask_whether_to_backup(fresh)
 
 if __name__ == '__main__':
-    main()
+    _main()
 

@@ -10,7 +10,7 @@ import re
 from baseloop import get_files_and_args, loop
 
 
-def main():
+def _main():
     tracked_files, main_file, args = get_files_and_args()
     out = re.sub(r'\.asm$', '.o', main_file)
     bin = re.sub(r'\.asm$', '', main_file)
@@ -23,5 +23,5 @@ def main():
     loop(tracked_files, command)
 
 if __name__ == '__main__':
-    main()
+    _main()
 
