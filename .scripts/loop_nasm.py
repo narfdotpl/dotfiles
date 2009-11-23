@@ -15,10 +15,10 @@ def main():
     out = re.sub(r'\.asm$', '.o', main_file)
     bin = re.sub(r'\.asm$', '', main_file)
     command = ';'.join([
-        'nasm -f macho -o %s %s -DMAC' % (out, main_file),
-        'ld -o %s %s' % (bin, out),
-        './%s' % bin,
-        'rm %s %s' % (bin, out)
+        'nasm -f macho -o {0} {1} -DMAC'.format(out, main_file),
+        'ld -o {0} {1}'.format(bin, out),
+        './' + bin,
+        'rm {0} {1}'.format(bin, out)
     ])
     loop(tracked_files, command)
 

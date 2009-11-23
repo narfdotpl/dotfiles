@@ -131,8 +131,9 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                 if forced_answer is None:
                     answer = None
                     while answer not in ['yes', 'y', 'no', 'n']:
-                        answer = raw_input('backup %s? yes/no: ' % name). \
-                                                                       lower()
+                        answer = raw_input(
+                            'backup {0}? yes/no: '.format(name)
+                        ).lower()
                     backup = True if answer[0] == 'y' else False
                 else:
                     backup = forced_answer
@@ -142,7 +143,7 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                     while exists(new_destination):
                         new_destination += '~'
                     rename(destination, new_destination)
-                    print 'renamed to %s' % _pretty_basename(new_destination)
+                    print 'renamed to ' + _pretty_basename(new_destination)
                 else:
                     if isdir(destination):
                         rmtree(destination)
@@ -150,7 +151,7 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                         remove(destination)
             else:
                 installed = True
-                print '%s installed' % name
+                print name + ' installed'
 
     if fresh:
         print 'installation/update complete, consider restarting terminal'
@@ -172,7 +173,8 @@ def uninstall(obsolete):
 
     for link in obsolete:
         remove(link)
-        print '%s uninstalled' % _pretty_basename(link)
+        name = _pretty_basename(link)
+        print name + ' uninstalled'
 
 
 def main():

@@ -27,7 +27,7 @@ def main():
         # => 5 days
         uptime = ' '.join(f.read().split(',')[0].split()[2:])
 
-    print '%s (%s), up %s' % (name, os, uptime)
+    print '{0} ({1}), up {2}'.format(name, os, uptime)
 
 if __name__ == '__main__':
     main()

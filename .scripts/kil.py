@@ -30,7 +30,9 @@ def main():
 
     # copy to clipboard command killing the heaviest process
     pid, name, cpu = top[-1].split()[:3]
-    os.system('echo -n "kill %s  # %s (%s CPU)" | pbcopy' % (pid, name, cpu))
+    os.system(
+        'echo -n "kill {0}  # {1} ({2} CPU)" | pbcopy'.format(pid, name, cpu)
+    )
 
 if __name__ == '__main__':
     main()
