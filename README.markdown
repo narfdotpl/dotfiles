@@ -15,4 +15,3 @@ Installation
     ./install
 
 Installer asks whether to backup files that otherwise would be replaced.
-

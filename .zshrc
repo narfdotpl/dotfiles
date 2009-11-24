@@ -206,4 +206,3 @@ export PYTHONSTARTUP=~/.pythonrc.py
 #------------------------------------
 
 [[ -f ~/.zsh/private ]] && source ~/.zsh/private
-

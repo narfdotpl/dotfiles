@@ -22,4 +22,3 @@
     who = shortlog --summary --numbered --email
 [instaweb]
     httpd = webrick  # OS X love
-

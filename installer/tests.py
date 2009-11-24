@@ -164,4 +164,3 @@ class TestContainer:
         uninstall(self.obsolete)
         whats_left = self.get_homefiles()
         assert_no_difference(whats_left, expected)
-

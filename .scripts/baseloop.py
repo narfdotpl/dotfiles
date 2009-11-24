@@ -60,4 +60,3 @@ def loop(tracked_files, command):
             old_mtime_sum = new_mtime_sum
             os.system('clear;' + command)
         sleep(1)  # time in seconds
-
