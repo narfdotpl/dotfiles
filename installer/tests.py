@@ -6,8 +6,7 @@ Test suite for dotfiles installer.
 from os import listdir, mkdir, symlink
 from os.path import basename, islink, join
 from shutil import rmtree
-import tempfile
-from tempfile import NamedTemporaryFile as NTF
+from tempfile import mkdtemp, NamedTemporaryFile as NTF
 
 from nose.tools import assert_equals
 
@@ -31,7 +30,7 @@ class TestContainer:
 
         # dotfiles
         # ========
-        self.dotfiles_dir = tempfile.mkdtemp()
+        self.dotfiles_dir = mkdtemp()
 
         how_many_dotfiles = 6
         random_dotfiles = [
@@ -47,7 +46,7 @@ class TestContainer:
 
         # $HOME
         # =====
-        self.home_dir = tempfile.mkdtemp()
+        self.home_dir = mkdtemp()
 
         how_many_homefiles = 4
         random_homefiles = [
