@@ -12,13 +12,13 @@ from baseloop import get_files_and_args, loop
 
 def _main():
     tracked_files, main_file, args = get_files_and_args()
-    out = sub(r'\.asm$', '.o', main_file)
-    bin = sub(r'\.asm$', '', main_file)
+    output = sub(r'\.asm$', '.o', main_file)
+    binary = sub(r'\.asm$', '', main_file)
     command = ';'.join([
-        'nasm -f macho -o {0} {1} -DMAC'.format(out, main_file),
-        'ld -o {0} {1}'.format(bin, out),
-        './' + bin,
-        'rm {0} {1}'.format(bin, out)
+        'nasm -f macho -o {0} {1} -DMAC'.format(output, main_file),
+        'ld -o {0} {1}'.format(binary, output),
+        './' + binary,
+        'rm {0} {1}'.format(binary, output)
     ])
     loop(tracked_files, command)
 

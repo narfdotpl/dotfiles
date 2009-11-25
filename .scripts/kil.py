@@ -15,16 +15,16 @@ def _main():
     with popen('top -l 2 -o +cpu') as f:
         top = f.readlines()
 
-    # get valid line numbers (trim `top` table to `how_many` processes)
-    first_row_id = 7
-    stop = length = len(top)
-    start = length - how_many
-    if start <= first_row_id:  # if how_many is too many
-        start = first_row_id + 1
-    line_numbers = [first_row_id]
+    # get line numbers (trim `top` table to `how_many` processes)
+    first_row_line_number = 7
+    stop = len(top)
+    start = stop - how_many
+    if start <= first_row_line_number:  # if how_many is too many
+        start = first_row_line_number + 1
+    line_numbers = [first_row_line_number]
     line_numbers.extend(range(start, stop))
 
-    # print trimmed `top` table
+    # print trimmed table
     for i in line_numbers:
         print top[i],
 

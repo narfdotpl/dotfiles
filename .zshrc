@@ -31,7 +31,7 @@ setopt list_packed
 #  history
 #-----------
 
-# remember 2000 commands
+# log 2000 commands
 HISTSIZE=2000
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh/history
@@ -39,16 +39,16 @@ HISTFILE=~/.zsh/history
 # append to HISTFILE when command is typed
 setopt inc_append_history
 
-# save timestamps
+# log timestamps
 setopt extended_history
 
-# don't log commands that begin with a space
+# if command is preceded with a space, don't log it
 setopt hist_ignore_space
 
-# if command duplicates any older one, don't show the older one
+# if command duplicates any older one, don't show older ones
 setopt hist_ignore_all_dups
 
-# if command duplicates the *previous* one, don't add it to the HISTFILE
+# if command duplicates the *previous* one, don't log it
 setopt hist_save_no_dups
 
 
@@ -71,10 +71,12 @@ python ~/.scripts/show_machine_info.py
 # precede branch name with one dot for every directory below the top.
 #
 # example:
+#
 #     ~ $ cd dotfiles
 #     ~/dotfiles(master) $ cd .scripts
 #     ~/dotfiles/.scripts(.master) $ touch dummy; git add dummy
 #     ~/dotfiles/.scripts(.master+) $
+#
 
 _git_branch() {
     # original function: http://gist.github.com/5129
@@ -104,12 +106,12 @@ _git_prompt() {
     fi
 }
 
-# subject PROMPT string to parameter expansion, command substitution
+# subject PROMPT string to parameter expansion, command substitution,
 # and arithmetic expansion
 setopt prompt_subst
 
 # show three trailing components of current path (replace $HOME with ~),
-# git prompt and dollar sign
+# git prompt, and dollar sign
 PROMPT='%3~`_git_prompt` $ '
 
 
@@ -123,7 +125,7 @@ alias .='cd ..'
 alias ..='.; .'
 alias ...='.; .; .'
 
-# clear
+# clear the terminal screen
 alias cl='clear'
 
 # copy working directory path

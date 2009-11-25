@@ -17,7 +17,7 @@ def _main():
         name = f.read().rstrip('\n')
 
     with popen('uname -s') as f:
-        os = f.read().rstrip('\n')
+        system = f.read().rstrip('\n')
 
     with popen('uptime') as f:
         # 21:49  up  8:49, 6 users, load averages: 0.43 0.35 0.38
@@ -27,7 +27,7 @@ def _main():
         # => 5 days
         uptime = ' '.join(f.read().split(',')[0].split()[2:])
 
-    print '{0} ({1}), up {2}'.format(name, os, uptime)
+    print '{0} ({1}), up {2}'.format(name, system, uptime)
 
 if __name__ == '__main__':
     _main()

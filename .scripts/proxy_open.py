@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Proxy `open` command; if used without arguments, open working directory
-in finder.
+Proxy `open` command.
+
+If used without arguments, open working directory in finder.
 """
 
 from os import system

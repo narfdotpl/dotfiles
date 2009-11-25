@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Run Ruby with warnings turned on. If used without arguments, run Interactive
-Ruby with simple prompt.
+Run Ruby with warnings turned on.
+
+If used without arguments, run Interactive Ruby with simple prompt.
 """
 
 from os import system

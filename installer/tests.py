@@ -24,8 +24,10 @@ class TestContainer:
 
     def setup(self):
         """
-        Fake dotfiles and $HOME directories. Name groups of files after
-        functions' output to avoid choosing files manually in each test.
+        Fake dotfiles and $HOME directories.
+
+        Name groups of files after functions' output to avoid choosing files
+        manually in each test.
         """
 
         # dotfiles

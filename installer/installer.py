@@ -178,7 +178,7 @@ def uninstall(obsolete):
 
 
 def _main():
-    # get all the info
+    # get all info
     dotfiles = get_dotfiles()
     already_installed = get_already_installed(dotfiles)
     fresh, obsolete = get_fresh_and_obsolete(dotfiles, already_installed)
