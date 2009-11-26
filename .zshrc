@@ -166,6 +166,9 @@ m() {
 alias p='python'
 alias p3='python3'
 
+# serve file via http (http://www.home.unix-ag.org/simon/woof.html)
+alias pub='woof'
+
 # remove *.pyc files
 alias pyc='rm `find . -name "*.pyc"`'
 
