@@ -5,7 +5,7 @@
     editor = mvim --nofork
     excludesfile = /Users/narf/.gitglobalignore
 [alias]
-    a = add .
+    a = add . --verbose
     b = branch
     c = commit --all --verbose
     ca = commit --all --verbose --amend
