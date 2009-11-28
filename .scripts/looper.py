@@ -1,7 +1,22 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Base script for automatically running commands on files modification.
+Base script for automatically running commands on file modification.
+
+example:
+
+    $ alias loop="python sth_that_imports_looper.py"  # see: loop_python.py
+
+    $ loop myfile
+    => tracked_files = ['myfile']
+       main_file = 'myfile'
+       args = ''
+
+    $ loop `find . -name "*.py"` foo.py -my args
+    => tracked_files = ['./foo.py', './bar.py', 'foo.py']
+       main_file = 'foo.py'
+       args = '-my args'
+
 """
 
 import os
@@ -13,35 +28,24 @@ from time import sleep
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
-def get_files_and_args():
+class LoopParameters(object):
     """
-    $ alias loop="python sth_that_imports_baseloop.py"  # see: loop_python.py
-
-    $ loop myfile
-    => tracked_files = ['myfile']
-       main_file = 'myfile'
-       args = ''
-
-    $ loop `find . -name "*.py"` foo.py -my args
-    => tracked_files = ['./foo.py', './bar.py', 'foo.py']
-       main_file = 'foo.py'
-       args = '-my args'
+    Attributes: args, main_file, tracked_files.
     """
 
-    # get args
-    for i, word in enumerate(argv):
-        if word.startswith('-'):
-            args = ' '.join(argv[i:])
-            break
-    else:  # if no break
-        args = ''
-        i += 1
+    def __init__(self):
+        # get args
+        for i, word in enumerate(argv):
+            if word.startswith('-'):
+                self.args = ' '.join(argv[i:])
+                break
+        else:  # if no break
+            self.args = ''
+            i += 1
 
-    # get tracked files and main file paths
-    tracked_files = argv[1:i]
-    main_file = tracked_files[-1]
-
-    return tracked_files, main_file, args
+        # get tracked files and main file paths
+        self.tracked_files = argv[1:i]
+        self.main_file = self.tracked_files[-1]
 
 
 def loop(tracked_files, command):

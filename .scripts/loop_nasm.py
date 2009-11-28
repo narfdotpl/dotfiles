@@ -7,20 +7,20 @@ source afterwards.
 
 from re import sub
 
-from baseloop import get_files_and_args, loop
+from looper import LoopParameters, loop
 
 
 def _main():
-    tracked_files, main_file, args = get_files_and_args()
-    output = sub(r'\.asm$', '.o', main_file)
-    binary = sub(r'\.asm$', '', main_file)
+    lp = LoopParameters()
+    output = sub(r'\.asm$', '.o', lp.main_file)
+    binary = sub(r'\.asm$', '', lp.main_file)
     command = ';'.join([
-        'nasm -f macho -o {0} {1} -DMAC'.format(output, main_file),
+        'nasm -f macho -o {0} {1} -DMAC'.format(output, lp.main_file),
         'ld -o {0} {1}'.format(binary, output),
         './' + binary,
         'rm {0} {1}'.format(binary, output)
     ])
-    loop(tracked_files, command)
+    loop(lp.tracked_files, command)
 
 if __name__ == '__main__':
     _main()
