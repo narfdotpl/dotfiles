@@ -1,2 +1,17 @@
-#!/bin/bash
-python installer/installer.py
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+Run installer.
+"""
+
+from os import system
+from os.path import dirname, join, realpath
+
+
+def _main():
+    dotfiles_dir = realpath(dirname(__file__))
+    installer = join(dotfiles_dir, 'installer/installer.py')
+    system('python ' + installer)
+
+if __name__ == '__main__':
+    _main()

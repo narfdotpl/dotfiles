@@ -40,7 +40,7 @@ def get_dotfiles(dotfiles_dir=None):
     everything that matches .gitglobalignore patterns.
     """
 
-    dotfiles_dir = dotfiles_dir or join(dirname(realpath(__file__)), '..')
+    dotfiles_dir = dotfiles_dir or realpath(join(dirname(__file__), '..'))
 
     # get everything
     dotfiles_names = listdir(dotfiles_dir)
@@ -66,7 +66,7 @@ def get_dotfiles(dotfiles_dir=None):
                         patterns.append(pattern[1:])  # *.b == *.b and .b
 
                     for pattern in patterns:
-                        for path in iglob(pattern):
+                        for path in iglob(join(dotfiles_dir, pattern)):
                             name = basename(path)
                             if name in dotfiles_names:
                                 dotfiles_names.remove(name)
