@@ -13,7 +13,7 @@ PORT_PATH=/opt/local/bin:/opt/local/sbin
 POSTGRES_PATH=/Library/PostgreSQL/8.3/bin/
 PYTHON_PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin
 
-PATH=$USER_PATH:$PORT_PATH:$POSTGRES_PATH:$PYTHON_PATH:$PATH
+export PATH=$USER_PATH:$PORT_PATH:$POSTGRES_PATH:$PYTHON_PATH:$PATH
 
 
 #--------------
