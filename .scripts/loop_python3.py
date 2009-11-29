@@ -11,7 +11,7 @@ def _main():
     lp = LoopParameters()
 
     if lp.passed_special_parameter:
-        create_if_doesnt_exist(lp.main_file)
+        create_if_doesnt_exist(lp.main_file, 'python3')
         open_in_editor(lp.main_file)
 
     command = 'python3 {0} {1}'.format(lp.args, lp.main_file)
