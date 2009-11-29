@@ -7,13 +7,14 @@ source afterwards.
 
 from re import sub
 
-from looper import loop, LoopParameters, open_in_editor
+from looper import create_if_doesnt_exist, loop, LoopParameters, open_in_editor
 
 
 def _main():
     lp = LoopParameters()
 
     if lp.passed_special_parameter:
+        create_if_doesnt_exist(lp.main_file)
         open_in_editor(lp.main_file)
 
     macho = sub(r'\.asm$', '.o', lp.main_file)

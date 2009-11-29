@@ -31,6 +31,7 @@ example:
 
 import os
 from os import system
+from os.path import dirname, exists, join, realpath
 import stat
 import sys
 from time import sleep
@@ -66,6 +67,16 @@ class LoopParameters(object):
         # get tracked files and main file paths
         self.tracked_files = parameters[:i]
         self.main_file = self.tracked_files[-1]
+
+
+def create_if_doesnt_exist(path, template=None):
+    if not exists(path):
+        if template:
+            templates_dir = join(dirname(realpath(__file__)), 'templates')
+            template_path = join(templates_dir, template + '.txt')
+            system('cp {0} {1}'.format(template_path, path))
+        else:
+            system('touch ' + path)
 
 
 def loop(tracked_files, command):
