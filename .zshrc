@@ -122,6 +122,15 @@ setopt prompt_subst
 PROMPT='%3~`_git_prompt` $ '
 
 
+#------------
+#  bindings
+#------------
+
+# alt + right/left arrow
+bindkey '^[f' forward-word
+bindkey '^[b' backward-word
+
+
 #-----------
 #  aliases
 #-----------
