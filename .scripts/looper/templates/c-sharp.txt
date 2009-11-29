@@ -1,0 +1,13 @@
+// Maciej Konieczny <m.j.konieczny@gmail.com>
+
+using System;
+
+
+class Program
+{
+    static void
+    Main()
+    {
+        // Console.ReadLine();
+    }
+}

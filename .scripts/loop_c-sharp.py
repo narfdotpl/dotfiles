@@ -13,7 +13,7 @@ def _main():
     lp = LoopParameters()
 
     if lp.passed_special_parameter:
-        create_if_doesnt_exist(lp.main_file)
+        create_if_doesnt_exist(lp.main_file, 'c-sharp')
         open_in_editor(lp.main_file)
 
     exe = sub(r'\.cs$', '.exe', lp.main_file)
