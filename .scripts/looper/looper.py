@@ -30,6 +30,7 @@ example:
 """
 
 import os
+from os import system
 import stat
 import sys
 from time import sleep
@@ -82,3 +83,7 @@ def loop(tracked_files, command):
             old_mtime_sum = new_mtime_sum
             os.system('clear;' + command)
         sleep(1)  # one second
+
+
+def open_in_editor(path):
+    system('$EDITOR ' + path)

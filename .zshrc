@@ -16,6 +16,13 @@ PYTHON_PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin
 export PATH=$USER_PATH:$PORT_PATH:$POSTGRES_PATH:$PYTHON_PATH:$PATH
 
 
+#----------
+#  editor
+#----------
+
+export EDITOR=mvim
+
+
 #--------------
 #  completion
 #--------------
