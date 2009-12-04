@@ -19,11 +19,13 @@ def _main():
 
     macho = sub(r'\.asm$', '.o', lp.main_file)
     binary = sub(r'\.asm$', '', lp.main_file)
+
     command = ';'.join([
         'nasm -f macho -o {0} {1} -DMAC'.format(macho, lp.main_file),
         'ld -o {0} {1}'.format(binary, macho),
         './' + binary,
-        'rm {0} {1}'.format(binary, macho)
+        'rm {0} {1}'.format(binary, macho),
+        'echo; echo; echo "--- --- --- --- ---"; echo -n "END "'
     ])
 
     loop(lp.tracked_files, command)
