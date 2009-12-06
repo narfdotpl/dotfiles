@@ -12,9 +12,10 @@
     co = checkout
     d = !git diff | mvim --nofork -
     i = !git init && git add . && git commit --message='initial commit'
-    l = !git log origin..HEAD --graph --oneline | less
-    la = !git log --graph --oneline | less
-    lo = !git log origin --graph --oneline | less
+    l = !git log origin..HEAD --graph --pretty=format:'%cd %s' --date=short \
+        | less
+    la = !git log --graph --pretty=format:'%cd %s' --date=short | less
+    lo = !git log origin --graph --pretty=format:'%cd %s' --date=short | less
     r = rebase --interactive HEAD~10
     rc = rebase --continue
     s = status
