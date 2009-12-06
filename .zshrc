@@ -222,6 +222,10 @@ eval `keychain --eval --quiet --agents ssh id_rsa`
 
 export PYTHONSTARTUP=~/.pythonrc.py
 
+# pip
+export PIP_RESPECT_VIRTUALENV=true
+eval `pip completion --zsh`
+
 # virtualenv
 source ~/.virtualenvs/virtualenvwrapper_bashrc
 
