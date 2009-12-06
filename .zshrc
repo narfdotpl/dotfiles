@@ -222,6 +222,9 @@ eval `keychain --eval --quiet --agents ssh id_rsa`
 
 export PYTHONSTARTUP=~/.pythonrc.py
 
+# virtualenv
+source ~/.virtualenvs/virtualenvwrapper_bashrc
+
 
 #------------------------------------
 #  private stuff (ssh aliases etc.)
