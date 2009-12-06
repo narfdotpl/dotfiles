@@ -12,7 +12,7 @@ def _main():
     lp = LoopParameters()
 
     # dirty hack
-    args = ' '.join(lp.tracked_files)
+    args = ' '.join(lp.tracked_files) + ' ' + lp.args
     lp.main_file = 'fabfile.py'
     lp.tracked_files = [lp.main_file]
 
@@ -20,7 +20,7 @@ def _main():
         create_if_doesnt_exist(lp.main_file, 'python')
         open_in_editor(lp.main_file)
 
-    command = 'fab {0}; pyflakes fabfile.py'.format(args)
+    command = 'fab {0}; pyflakes {1}'.format(args, lp.main_file)
     loop(lp.tracked_files, command)
 
 if __name__ == '__main__':
