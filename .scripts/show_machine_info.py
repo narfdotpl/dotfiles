@@ -3,13 +3,20 @@
 """
 Show machine name, os name and uptime.
 
+If machine name matches the first passed argument, show only uptime.
+
 example:
 
+    $ python show_machine_info.py
     MacBook.local (Darwin), up 61 days
+
+    $ python show_machine_info.py MacBook.local
+    up 61 days
 
 """
 
 from os import popen
+from sys import argv
 
 
 def _main():
@@ -27,7 +34,10 @@ def _main():
         # => 5 days
         uptime = ' '.join(f.read().split(',')[0].split()[2:])
 
-    print '{0} ({1}), up {2}'.format(name, system, uptime)
+    if len(argv) > 1 and argv[1] == name:
+        print 'up ' + uptime
+    else:
+        print '{0} ({1}), up {2}'.format(name, system, uptime)
 
 if __name__ == '__main__':
     _main()

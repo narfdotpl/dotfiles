@@ -63,8 +63,8 @@ setopt hist_save_no_dups
 #  MOTD
 #--------
 
-# example: MacBook.local (Darwin), up 61 days
-python ~/.scripts/show_machine_info.py
+# example: stallman (Linux), up 29 days
+python ~/.scripts/show_machine_info.py MacBook.local
 
 
 #----------
