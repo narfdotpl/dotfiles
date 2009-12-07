@@ -157,6 +157,10 @@ alias d1='du -h -d1'  # first-level subdirectories
 # run MacVim
 alias e='mvim'
 
+# run grep
+alias g='grep'
+alias gi='grep --ignore-case'
+
 # show shell history
 alias h='history -i 1 | less +G'
 
