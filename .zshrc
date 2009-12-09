@@ -195,6 +195,9 @@ alias pyc='rm `find . -name "*.pyc"`'
 # run pyflakes
 alias pyf='pyflakes `find . -name "*.py"`'
 
+# brutally remove
+alias rf='rm -rf'
+
 # run less
 alias s='less'
 
