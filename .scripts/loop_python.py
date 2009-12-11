@@ -14,7 +14,7 @@ def _main():
         create_if_doesnt_exist(lp.main_file, 'python')
         open_in_editor(lp.main_file)
 
-    command = 'python {0} {1}; pyflakes {2}' \
+    command = 'python -3 {0} {1}; pyflakes {2}' \
               .format(lp.args, lp.main_file, ' '.join(lp.tracked_files))
     loop(lp.tracked_files, command)
 

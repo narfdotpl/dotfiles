@@ -194,7 +194,7 @@ m() {
 }
 
 # run python
-alias p='python'
+alias p='python -3'
 alias p3='python3'
 
 # serve file via http (http://www.home.unix-ag.org/simon/woof.html)
