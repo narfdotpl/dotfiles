@@ -202,6 +202,7 @@ alias rf='rm -rf'
 alias s='less'
 
 # run scripts
+alias duration='python ~/.scripts/show_movie_duration.py'
 alias kil='python ~/.scripts/kil.py'
 alias la='python ~/.scripts/loop_nasm_dos.py'
 alias lcs='python ~/.scripts/loop_c-sharp.py'
