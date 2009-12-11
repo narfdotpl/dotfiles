@@ -133,6 +133,10 @@ PROMPT='%3~`_git_prompt` $ '
 #  bindings
 #------------
 
+# ctrl + a/e
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
 # alt + right/left arrow
 bindkey '^[f' forward-word
 bindkey '^[b' backward-word
