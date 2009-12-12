@@ -93,12 +93,12 @@ python ~/.scripts/show_machine_info.py MacBook.local
 #
 
 _git_branch() {
-    # original function: http://gist.github.com/5129
+    # http://gist.github.com/5129
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 _git_dirty() {
-    # original function: http://gist.github.com/31631
+    # http://gist.github.com/31631
     local status_="`git status 2> /dev/null | tail -n 1`"
     if [[ $status_ != 'nothing to commit (working directory clean)' ]]; then
         echo '+'
@@ -197,7 +197,7 @@ m() {
 alias p='python -3'
 alias p3='python3'
 
-# serve file via http (http://www.home.unix-ag.org/simon/woof.html)
+# serve file via http http://www.home.unix-ag.org/simon/woof.html
 alias pub='woof'
 
 # remove *.pyc files
@@ -212,7 +212,7 @@ alias rf='rm -rf'
 # run less
 alias s='less'
 
-# remove trailing whitespace (http://gist.github.com/227361)
+# remove trailing whitespace http://gist.github.com/227361
 alias ws="perl -pi -e 's/ +$//'"
 
 

@@ -11,7 +11,7 @@ from sys import argv
 
 
 def get_duration(path):
-    # thanks to http://superuser.com/questions/81903#81960
+    # http://superuser.com/questions/81903#81960
     command = 'ffmpeg -i {0} 2>&1 | grep Duration'.format(path)
 
     with popen(command) as f:
