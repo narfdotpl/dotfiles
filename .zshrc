@@ -212,6 +212,9 @@ alias rf='rm -rf'
 # run less
 alias s='less'
 
+# remove trailing whitespace (http://gist.github.com/227361)
+alias ws="perl -pi -e 's/ +$//'"
+
 
 #-----------
 #  scripts
