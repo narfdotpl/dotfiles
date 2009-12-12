@@ -212,19 +212,36 @@ alias rf='rm -rf'
 # run less
 alias s='less'
 
-# run scripts
-alias duration='python ~/.scripts/show_movie_duration.py'
-alias kil='python ~/.scripts/kil.py'
-alias la='python ~/.scripts/loop_nasm_dos.py'
-alias lcs='python ~/.scripts/loop_c-sharp.py'
-alias lf='python ~/.scripts/loop_fabric.py'
-alias lp='python ~/.scripts/loop_python.py'
-alias lp3='python ~/.scripts/loop_python3.py'
-alias lr='python ~/.scripts/loop_ruby.py'
-alias lt='python ~/.scripts/loop_nosetests.py `find . -name "*.py"`'
-alias mp3='python ~/.scripts/rename_mp3s.py'
-alias o='python ~/.scripts/proxy_open.py'
-alias r='python ~/.scripts/run_ruby.py'
+
+#-----------
+#  scripts
+#-----------
+
+# run script
+_script() {
+    python ~/.scripts/$@
+}
+
+# run loop
+_loop() {
+    _script loops/$@
+}
+
+# alias "regular" scripts
+alias duration='_script show_movie_duration.py'
+alias kil='_script kil.py'
+alias mp3='_script rename_mp3s.py'
+alias o='_script proxy_open.py'
+alias r='_script run_ruby.py'
+
+# alias loops
+alias la='_loop nasm_dos.py'
+alias lcs='_loop c-sharp.py'
+alias lf='_loop fabric.py'
+alias lp='_loop python.py'
+alias lp3='_loop python3.py'
+alias lr='_loop ruby.py'
+alias lt='_loop nosetests.py `find . -name "*.py"`'
 
 
 #------------
