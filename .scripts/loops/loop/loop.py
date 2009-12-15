@@ -6,7 +6,7 @@ Run command on file modification.
 
 from itertools import imap
 import os
-from os import system
+from os import popen, system
 from os.path import exists
 import stat
 import sys
@@ -52,6 +52,7 @@ class Loop(object):
     def run(self, command, enable_special=True):
         if enable_special and self.passed_special_parameter:
             create_file_if_it_doesnt_exist(self.main_file)
+            open_file_in_editor(self.main_file)
 
         old_mtime_sum = -1
 
@@ -70,3 +71,27 @@ def create_file_if_it_doesnt_exist(filepath):
 
 def get_mtime(filepath):
     return os.stat(filepath)[stat.ST_MTIME]
+
+
+def open_file_in_editor(filepath, edit=None):
+    """
+    Open file in editor.
+
+    Use environment variable $EDIT.  It should be set according to $EDITOR and
+    should open editor in background -- $EDITOR usually opens editor in
+    foreground, which holds the loop.
+    """
+
+    if edit is None:
+        with popen('echo -n "$EDIT"') as f:
+            edit = f.read()
+
+    if edit:
+        system(edit + ' ' + filepath)
+    else:
+        import inspect
+        docstring_line_number = inspect.currentframe().f_lineno - 13
+        raise EnvironmentError(
+            'Environment variable $EDIT not set; see {0}, line {1}' \
+            .format(__file__, docstring_line_number)
+        )

@@ -11,9 +11,10 @@ from shutil import rmtree
 from tempfile import mkdtemp
 from time import sleep
 
-from nose.tools import assert_equals
+from nose.tools import assert_equals, raises
 
-from loop import Loop, create_file_if_it_doesnt_exist, get_mtime
+from loop import Loop, create_file_if_it_doesnt_exist, get_mtime, \
+                 open_file_in_editor
 
 
 class TestDefaultParameters:
@@ -80,3 +81,10 @@ class TestCreateFile:
         target = join(self.directory, 'foo')
         create_file_if_it_doesnt_exist(target)
         assert exists(target), 'File not created'
+
+
+class TestOpenFile:
+
+    @raises(EnvironmentError)
+    def test_raise_exception_if_EDIT_is_not_set(self):
+        open_file_in_editor(filepath=None, edit='')
