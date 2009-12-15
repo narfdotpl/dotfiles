@@ -5,9 +5,15 @@ Test suite.
 Run with nose http://somethingaboutorange.com/mrl/projects/nose
 """
 
+from os import system
+from os.path import exists, join
+from shutil import rmtree
+from tempfile import mkdtemp
+from time import sleep
+
 from nose.tools import assert_equals
 
-from loop import Loop
+from loop import Loop, create_file_if_it_doesnt_exist, get_mtime
 
 
 class TestDefaultParameters:
@@ -39,3 +45,38 @@ class TestDefaultParameters:
             (loop.args, args),
         ]:
             assert_equals(actual, expected)
+
+
+class TestCreateFile:
+
+    def setup(self):
+        """
+        Make temporary directory.
+        """
+
+        self.directory = mkdtemp()
+
+    def teardown(self):
+        """
+        Remove temporary directory.
+        """
+
+        rmtree(self.directory)
+
+
+    def test_dont_create_file(self):
+        # create test target
+        filepath = join(self.directory, 'foo')
+        system('touch ' + filepath)
+        mtime_before = get_mtime(filepath)
+        sleep(1)  # one second
+
+        create_file_if_it_doesnt_exist(filepath)
+        mtime_after = get_mtime(filepath)
+
+        assert_equals(mtime_before, mtime_after)
+
+    def test_create_file(self):
+        target = join(self.directory, 'foo')
+        create_file_if_it_doesnt_exist(target)
+        assert exists(target), 'File not created'

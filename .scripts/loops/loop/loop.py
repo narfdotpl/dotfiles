@@ -7,6 +7,7 @@ Run command on file modification.
 from itertools import imap
 import os
 from os import system
+from os.path import exists
 import stat
 import sys
 from time import sleep
@@ -48,8 +49,10 @@ class Loop(object):
         if self.tracked_files and isinstance(self.tracked_files, list):
             return self.tracked_files[-1]
 
-    def run(self, command):
-        get_mtime = lambda path: os.stat(path)[stat.ST_MTIME]
+    def run(self, command, enable_special=True):
+        if enable_special and self.passed_special_parameter:
+            create_file_if_it_doesnt_exist(self.main_file)
+
         old_mtime_sum = -1
 
         while True:
@@ -58,3 +61,12 @@ class Loop(object):
                 old_mtime_sum = new_mtime_sum
                 system('clear;' + command)
             sleep(1)  # one second
+
+
+def create_file_if_it_doesnt_exist(filepath):
+    if not exists(filepath):
+        system('touch ' + filepath)
+
+
+def get_mtime(filepath):
+    return os.stat(filepath)[stat.ST_MTIME]
