@@ -22,7 +22,7 @@ class Loop(object):
         self.passed_special_parameter = False
         self.tracked_files = None
         self.main_file = None
-        self.args = None
+        self.args = ''
 
         # special parameter
         if parameters and parameters[0] == '+':

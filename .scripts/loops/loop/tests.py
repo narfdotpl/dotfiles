@@ -18,7 +18,7 @@ class TestDefaultParameters:
             (loop.passed_special_parameter, False),
             (loop.tracked_files, None),
             (loop.main_file, None),
-            (loop.args, None),
+            (loop.args, ''),
         ]:
             assert_equals(actual, expected)
 
