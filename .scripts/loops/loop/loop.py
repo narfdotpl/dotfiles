@@ -21,7 +21,6 @@ class Loop(object):
         # be pesimistic
         self.passed_special_parameter = False
         self.tracked_files = None
-        self.main_file = None
         self.args = ''
 
         # special parameter
@@ -38,12 +37,16 @@ class Loop(object):
             else:  # if no break
                 i += 1
 
-            # tracked files and main file
+            # tracked files
             self.tracked_files = parameters[:i]
-            self.main_file = self.tracked_files[-1]
 
         if command:
             self.run(command)
+
+    @property
+    def main_file(self):
+        if self.tracked_files and isinstance(self.tracked_files, list):
+            return self.tracked_files[-1]
 
     def run(self, command):
         get_mtime = lambda path: os.stat(path)[stat.ST_MTIME]
