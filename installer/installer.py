@@ -24,20 +24,22 @@ def get_already_installed(dotfiles, home_dir=None):
 
     home_dir = home_dir or expanduser('~')
     dotfiles_dir = dirname(dotfiles[0])
-
     already_installed = []
+
     for name in listdir(home_dir):
         path = join(home_dir, name)
-        if islink(path):
-            if readlink(path).startswith(dotfiles_dir):
-                already_installed.append(path)
+        if islink(path) and readlink(path).startswith(dotfiles_dir):
+            already_installed.append(path)
+
     return already_installed
 
 
 def get_dotfiles(dotfiles_dir=None):
     """
-    List absolute paths to dotfiles; ignore .git/, installer, readme and
-    everything that matches .gitglobalignore patterns.
+    List absolute paths to dotfiles.
+
+    Ignore .git/, installer, readme and everything that matches
+    .gitglobalignore patterns.
     """
 
     dotfiles_dir = dotfiles_dir or realpath(join(dirname(__file__), '..'))
@@ -82,7 +84,7 @@ def get_fresh_and_obsolete(dotfiles, already_installed):
 
 def _get_fresh(dotfiles, already_installed):
     """
-    List dotfiles that are not installed yet.
+    List dotfiles that are not installed (linked) yet.
     """
 
     # create (name, path) pairs
@@ -94,6 +96,7 @@ def _get_fresh(dotfiles, already_installed):
             if link_name == dotfile_name and destination == dotfile_path:
                 del files[i]
                 break
+
     return [path for name, path in files]
 
 def _get_obsolete(dotfiles, already_installed):
@@ -101,13 +104,15 @@ def _get_obsolete(dotfiles, already_installed):
     List links that do not point at proper dotfiles.
     """
 
-    obsolete = []
     dotfiles_names = map(basename, dotfiles)
+    obsolete = []
+
     for link in already_installed:
         name = basename(link)
         destination = readlink(link)
         if destination not in dotfiles or name not in dotfiles_names:
             obsolete.append(link)
+
     return obsolete
 
 
@@ -115,7 +120,9 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                                       forced_answer=None):
     """
     Create symbolic links in $HOME directory and ask whether to backup files
-    that would be replaced. Backup by appending "~" to the name.
+    that would be replaced.
+
+    Backup by appending "~" to the name.
     """
 
     home_dir = home_dir or expanduser('~')
@@ -124,24 +131,26 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
         destination = join(home_dir, basename(path))
         name = _pretty_basename(path)
         installed = False
+
         while not installed:
             try:
                 symlink(path, destination)
             except OSError:  # if destination already exists
-                if forced_answer is None:
+                if forced_answer is not None:
+                    backup = forced_answer
+                else:
                     answer = None
                     while answer not in ['yes', 'y', 'no', 'n']:
                         answer = raw_input(
                             'backup {0}? yes/no: '.format(name)
                         ).lower()
-                    backup = True if answer[0] == 'y' else False
-                else:
-                    backup = forced_answer
+                    backup = answer.startswith('y')
 
                 if backup:
-                    new_destination = destination + '~'
+                    suffix = '~'
+                    new_destination = destination + suffix
                     while exists(new_destination):
-                        new_destination += '~'
+                        new_destination += suffix
                     rename(destination, new_destination)
                     print 'renamed to ' + _pretty_basename(new_destination)
                 else:

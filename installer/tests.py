@@ -1,6 +1,8 @@
 # encoding: utf-8
 """
 Test suite for dotfiles installer.
+
+Run with nose http://somethingaboutorange.com/mrl/projects/nose
 """
 
 from os import listdir, mkdir, symlink
@@ -24,7 +26,7 @@ class TestContainer:
 
     def setup(self):
         """
-        Fake dotfiles and $HOME directories.
+        Create fake dotfiles and $HOME directories.
 
         Name groups of files after functions' output to avoid choosing files
         manually in each test.
@@ -32,67 +34,74 @@ class TestContainer:
 
         # dotfiles
         # ========
-        self.dotfiles_dir = mkdtemp()
 
+        self.dotfiles_dir = mkdtemp()
         how_many_dotfiles = 6
+
+        # create random dotfiles
         random_dotfiles = [
             NTF(dir=self.dotfiles_dir, delete=False)
-            for i in range(how_many_dotfiles)
+            for i in xrange(how_many_dotfiles)
         ]
         self.dotfiles = [f.name for f in random_dotfiles]
-
-        # create ignored stuff (installer and readme)
-        for filename in ['.git', 'install', 'installer', 'README.markdown']:
-            with open(join(self.dotfiles_dir, filename), 'w') as f:
-                pass
-
-        # $HOME
-        # =====
-        self.home_dir = mkdtemp()
-
-        how_many_homefiles = 4
-        random_homefiles = [
-            NTF(dir=self.home_dir, delete=False)
-            for i in range(how_many_homefiles)
-        ]
 
         # divide dotfiles into three groups
         one_third = how_many_dotfiles // 3
         first_group = self.dotfiles[:one_third]
         second_group = self.dotfiles[one_third:-one_third]
         third_group = self.dotfiles[-one_third:]
-
-        # don't symlink the first group and don't use the second group to
-        # create correct links
+        # 1st -- not installed
+        # 2nd -- not installed, used to create incorrect symlinks
+        # 3rd -- installed, used to create incorrect symlinks
         self.fresh = first_group + second_group
+
+        # create ignored stuff
+        for filename in ['.git', 'install', 'installer', 'README.markdown']:
+            with open(join(self.dotfiles_dir, filename), 'w'):
+                pass
+
+        # $HOME
+        # =====
+
+        self.home_dir = mkdtemp()
+        how_many_homefiles = 4
+
+        # create random homefiles
+        for i in xrange(how_many_homefiles):
+            NTF(dir=self.home_dir, delete=False)
+
+        # create already installed directory to test if installer can remove
+        # both files and directories
+        mkdir(join(self.home_dir, basename(first_group[0])))
+
+        # symlinks in $HOME
+        # -----------------
 
         self.already_installed = []
         self.obsolete = []
 
-        obsolete_dir = join(self.home_dir, basename(self.dotfiles[0]))
-        mkdir(obsolete_dir)
-
-        # create incorrect symlinks
+        # create incorrect symlinks (inexistent dotfile, correct name)
         for dotfile in second_group:
-            # inexistent dotfile, correct name
-            dotfile_name = basename(dotfile)
-            inexistent_dotfile = join(self.dotfiles_dir, dotfile_name[-3:])
-            destination = join(self.home_dir, dotfile_name)
-            self.obsolete.append(destination)
+            name = basename(dotfile)
+            inexistent_dotfile = join(self.dotfiles_dir, name[-3:])
+            destination = join(self.home_dir, name)
             symlink(inexistent_dotfile, destination)
+            self.obsolete.append(destination)
+
+        # create incorrect symlinks (valid dotfile, incorrect name)
         for dotfile in third_group:
-            # valid dotfile, incorrect name
             incorrect_name = ''.join(reversed(basename(dotfile)))
             destination = join(self.home_dir, incorrect_name)
-            self.obsolete.append(destination)
             symlink(dotfile, destination)
+            self.obsolete.append(destination)
+
         self.already_installed.extend(self.obsolete)
 
         # create correct symlinks
         for dotfile in third_group:
             destination = join(self.home_dir, basename(dotfile))
-            self.already_installed.append(destination)
             symlink(dotfile, destination)
+            self.already_installed.append(destination)
 
     def teardown(self):
         """
