@@ -14,7 +14,7 @@ def _main():
         create_if_doesnt_exist(lp.main_file)
         open_in_editor(lp.main_file)
 
-    command = 'nosetests --with-coverage {0}; pyflakes {1}' \
+    command = 'python `which nosetests` --with-coverage {0}; pyflakes {1}' \
               .format(lp.args, ' '.join(lp.tracked_files))
     loop(lp.tracked_files, command)
 
