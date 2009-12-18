@@ -27,7 +27,13 @@ export LANG=en_US.UTF-8
 #  editor
 #----------
 
-export EDITOR=mvim
+if [[ -x `which mvim` ]]; then
+    export EDIT='mvim -p'  # -p == open tab for each file
+    export EDITOR=$EDIT' --nofork'
+else
+    export EDIT='vim'
+    export EDITOR=$EDIT
+fi
 
 
 #--------------
@@ -165,8 +171,8 @@ alias d='date "+%Y-%m-%d %H:%M:%S, %A"'
 alias d0='du -h -d0'  # current directory
 alias d1='du -h -d1'  # first-level subdirectories
 
-# run MacVim
-alias e='mvim'
+# edit
+alias e=$EDIT
 
 # run grep
 alias g='grep'

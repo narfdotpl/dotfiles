@@ -2,7 +2,6 @@
     name = Maciej Konieczny
     email = hello@narf.pl
 [core]
-    editor = mvim --nofork
     excludesfile = /Users/narf/.gitglobalignore
 [alias]
     a = add . --verbose
@@ -10,7 +9,7 @@
     c = commit --all --verbose
     ca = commit --all --verbose --amend
     co = checkout
-    d = !git diff | mvim --nofork -
+    d = !git diff | $EDITOR -
     i = !git init && git add . && git commit --message='initial commit'
     l = !git log origin..HEAD --graph --pretty=format:'%cd %s' --date=short \
         | less
