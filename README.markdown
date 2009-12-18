@@ -2,6 +2,7 @@
 ========================
 
 Some of my configuration files and scripts used mostly on OS X.
+Plus installer.
 
   [narfdotpl]: http://narf.pl/
 
@@ -14,4 +15,8 @@ Installation
     cd dotfiles
     ./install
 
-Installer asks whether to backup files that otherwise would be replaced.
+Installer creates symbolic links in your `$HOME`.  It asks whether to backup
+files that otherwise would be replaced.  Requires [Python][] (2.6 <= version
+< 3.0).
+
+  [Python]: http://python.org/
