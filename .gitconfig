@@ -17,7 +17,7 @@
     lo = !git log origin --graph --pretty=format:'%cd %s' --date=short | less
     r = rebase --interactive HEAD~10
     rc = rebase --continue
-    s = status
+    st = status
     web = instaweb
     who = shortlog --summary --numbered --email
 [instaweb]
