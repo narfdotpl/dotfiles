@@ -15,6 +15,7 @@
         | less
     la = !git log --graph --pretty=format:'%cd %s' --date=short | less
     lo = !git log origin --graph --pretty=format:'%cd %s' --date=short | less
+    m = rebase master
     p = stash pop
     r = rebase --interactive HEAD~10
     rc = rebase --continue
