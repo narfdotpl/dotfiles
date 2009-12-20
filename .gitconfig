@@ -15,8 +15,11 @@
         | less
     la = !git log --graph --pretty=format:'%cd %s' --date=short | less
     lo = !git log origin --graph --pretty=format:'%cd %s' --date=short | less
+    p = stash pop
     r = rebase --interactive HEAD~10
     rc = rebase --continue
+    s = stash save
+    sl = stash list
     st = status
     web = instaweb
     who = shortlog --summary --numbered --email
