@@ -11,10 +11,10 @@
     co = checkout
     d = !git diff | $EDITOR -
     i = !git init && git add . && git commit --message='initial commit'
-    l = !git log origin..HEAD --graph --pretty=format:'%cd %s' --date=short \
+    l = !git log origin..HEAD --graph --pretty=format:'%ad %s' --date=short \
         | less
-    la = !git log --graph --pretty=format:'%cd %s' --date=short | less
-    lo = !git log origin --graph --pretty=format:'%cd %s' --date=short | less
+    la = !git log --graph --pretty=format:'%ad %s' --date=short | less
+    lo = !git log origin --graph --pretty=format:'%ad %s' --date=short | less
     m = rebase master
     p = stash pop
     r = rebase --interactive HEAD~10
