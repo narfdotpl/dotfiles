@@ -3,17 +3,35 @@
 """
 Proxy `open` command.
 
-If called without arguments, open working directory in finder.
+If called without arguments, open working directory in finder.  If argument is an archive, extract it.
 """
 
 from os import system
+from os.path import isfile
 from sys import argv
 
 
 def _main():
-    args = ' '.join(argv[1:])
+    args = argv[1:]
+
     if args:
-        system('open ' + args)
+        for i, arg in enumerate(args):
+            if isfile(arg):
+                for extension, command in [
+                    ('.tar', 'tar xvf'),
+                    ('.tar.bz2', 'tar xvjf'),  # <- order...
+                    ('.tar.gz', 'tar xvzf'),
+                    ('.bz2', 'bunzip2'),  # <- ...matters
+                    ('.gz', 'gunzip'),
+                    ('.zip', 'unzip'),
+                ]:
+                    if arg.endswith(extension):
+                        system(command + ' ' + arg)
+                        args.pop(i)
+                        break
+
+        if args:
+            system('open ' + ' '.join(args))
     else:
         system('open .')
 
