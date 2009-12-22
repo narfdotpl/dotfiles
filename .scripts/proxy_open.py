@@ -3,7 +3,7 @@
 """
 Proxy `open` command.
 
-If used without arguments, open working directory in finder.
+If called without arguments, open working directory in finder.
 """
 
 from os import system
@@ -15,7 +15,7 @@ def _main():
     if args:
         system('open ' + args)
     else:
-        system('open `pwd`')
+        system('open .')
 
 if __name__ == '__main__':
     _main()
