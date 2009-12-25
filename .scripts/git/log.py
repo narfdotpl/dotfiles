@@ -14,34 +14,22 @@ Formatting example:
 
 """
 
-from os import popen, system
+from subprocess import call
+
+from git import Git
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
-def get_branch():
-    with popen('git branch 2> /dev/null') as f:
-        for line in f:
-            if line.startswith('*'):
-                return line[len('* '):-len('\n')]
-
-
-def has_origin():
-    with popen('git remote') as f:
-        return 'origin\n' in f
-
-
 def _main():
-    branch = get_branch()
-    if branch:
-        if branch != 'master':
-            log_range = 'master..' + branch
-        else:
-            log_range = 'origin..HEAD' if has_origin() else '--max-count=7'
-
-        system('git log {0} --graph --pretty=format:"%ad %s" --date=short' \
-               .format(log_range))
+    git = Git()
+    command = ' '.join([
+        'git log',
+        git.minimal_commit_range or '--max-count=7',
+        '--graph --pretty=format:"%ad %s" --date=short'
+    ])
+    call(command, shell=True)
 
 if __name__ == '__main__':
     _main()
