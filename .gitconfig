@@ -17,8 +17,8 @@
     p = stash pop
     r = rebase --interactive HEAD~10
     rc = rebase --continue
-    s = stash save
-    sl = stash list
+    s = !git add . && git stash save
+    sl = !git stash list | less
     web = instaweb
     who = shortlog --summary --numbered --email
 [instaweb]
