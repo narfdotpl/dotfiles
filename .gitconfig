@@ -19,7 +19,6 @@
     rc = rebase --continue
     s = stash save
     sl = stash list
-    st = status
     web = instaweb
     who = shortlog --summary --numbered --email
 [instaweb]
