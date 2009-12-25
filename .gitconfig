@@ -11,7 +11,7 @@
     co = checkout
     d = !git diff | $EDITOR -
     i = !git init && git add . && git commit --message='initial commit'
-    l = !python ~/dotfiles/.scripts/git-narflog.py | less
+    l = !python ~/.scripts/git/log.py | less
     la = !git log --graph --pretty=format:'%ad %s' --date=short | less
     m = rebase master
     p = stash pop
