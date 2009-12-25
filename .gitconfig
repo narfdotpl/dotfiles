@@ -15,8 +15,7 @@
     la = !git log --graph --pretty=format:'%ad %s' --date=short | less
     m = rebase master
     p = stash pop
-    r = rebase --interactive HEAD~10
-    rc = rebase --continue
+    r = !python ~/.scripts/git/rebase.py
     s = !git add . && git stash save
     sl = !git stash list | less
     web = instaweb
