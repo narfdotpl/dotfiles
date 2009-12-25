@@ -84,55 +84,13 @@ python ~/.scripts/show_machine_info.py MacBook.local
 #  prompt
 #----------
 
-# Show git information in shell prompt.
-#
-# Show current branch name. If there were any changes since last commit, show
-# a plus sign. If you are not in the top-level directory of the repository,
-# precede branch name with one dot for every directory below the top.
-#
-# example:
-#
-#     ~ $ cd dotfiles
-#     ~/dotfiles(master) $ cd .scripts
-#     ~/dotfiles/.scripts(.master) $ touch dummy; git add dummy
-#     ~/dotfiles/.scripts(.master+) $
-#
-
-_git_branch() {
-    # http://gist.github.com/5129
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
-}
-
-_git_dirty() {
-    # http://gist.github.com/31631
-    local status_="`git status 2> /dev/null | tail -n 1`"
-    if [[ $status_ != 'nothing to commit (working directory clean)' ]]; then
-        echo '+'
-    fi
-}
-
-_git_distance() {
-    local prefix=".`git rev-parse --show-prefix 2> /dev/null`"
-    while [[ $prefix != '.' ]]; do
-        echo -n '.'
-        prefix="`dirname $prefix`"
-    done
-}
-
-_git_prompt() {
-    local branch="`_git_branch`"
-    if [[ $branch != '' ]]; then
-        echo "(`_git_distance`$branch`_git_dirty`)"
-    fi
-}
-
 # subject PROMPT string to parameter expansion, command substitution,
 # and arithmetic expansion
 setopt prompt_subst
 
 # show three trailing components of current path (replace $HOME with ~),
 # git prompt, and dollar sign
-PROMPT='%3~`_git_prompt` $ '
+PROMPT='%3~$(python ~/.scripts/git/prompt.py) $ '
 
 
 #------------
