@@ -19,6 +19,9 @@ from subprocess import PIPE, Popen
 from sys import argv
 
 
+__author__ = 'Maciej Konieczny <hello@narf.pl>'
+
+
 def read_stdout(command):
     return Popen(command, shell=True, stdout=PIPE).stdout.read().rstrip('\n')
 

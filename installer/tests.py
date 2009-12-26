@@ -17,6 +17,9 @@ from installer import get_already_installed, get_dotfiles, _get_fresh, \
                       uninstall
 
 
+__author__ = 'Maciej Konieczny <hello@narf.pl>'
+
+
 class TestGitglobalignorePatterns:
 
     def setup(self):

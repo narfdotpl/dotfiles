@@ -17,6 +17,9 @@ from loop import Loop, create_file_if_it_doesnt_exist, get_mtime, \
                  open_file_in_editor
 
 
+__author__ = 'Maciej Konieczny <hello@narf.pl>'
+
+
 class TestDefaultParameters:
 
     def test_get_all_clean_on_clean_init(self):

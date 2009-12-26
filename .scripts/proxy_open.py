@@ -11,6 +11,9 @@ from subprocess import call
 from sys import argv
 
 
+__author__ = 'Maciej Konieczny <hello@narf.pl>'
+
+
 def _main():
     args = argv[1:]
 

@@ -10,6 +10,9 @@ from subprocess import PIPE, Popen
 from sys import argv
 
 
+__author__ = 'Maciej Konieczny <hello@narf.pl>'
+
+
 def get_duration(path):
     # http://superuser.com/questions/81903#81960
     command = 'ffmpeg -i {0} 2>&1 | grep Duration'.format(path)

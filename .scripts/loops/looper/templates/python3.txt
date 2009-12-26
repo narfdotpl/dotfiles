@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+__author__ = 'Maciej Konieczny <hello@narf.pl>'
+
 
 def _main():
     pass

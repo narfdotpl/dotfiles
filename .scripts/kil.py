@@ -8,6 +8,9 @@ copy to the clipboard command killing the heaviest one.
 from subprocess import PIPE, Popen, call
 
 
+__author__ = 'Maciej Konieczny <hello@narf.pl>'
+
+
 def _main():
     how_many = 4
 
