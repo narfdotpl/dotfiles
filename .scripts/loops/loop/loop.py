@@ -6,7 +6,6 @@ Run command on file modification.
 
 from itertools import imap
 import os
-from os.path import exists
 import stat
 from subprocess import PIPE, Popen, call
 import sys
@@ -65,8 +64,8 @@ class Loop(object):
 
 
 def create_file_if_it_doesnt_exist(filepath):
-    if not exists(filepath):
-        call('touch ' + filepath, shell=True)
+    with open(filepath, 'a'):
+        pass
 
 
 def get_mtime(filepath):
