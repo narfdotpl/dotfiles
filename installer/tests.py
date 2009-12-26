@@ -17,9 +17,51 @@ from installer import get_already_installed, get_dotfiles, _get_fresh, \
                       uninstall
 
 
-def assert_no_difference(seq1, seq2):
-    difference = list(set(seq1).symmetric_difference(set(seq2)))
-    return assert_equals(difference, [])
+class TestGitglobalignorePatterns:
+
+    def setup(self):
+        """
+        Create fake dotfiles directory.
+        """
+
+        self.dotfiles_dir = mkdtemp()
+        self.gitglobalignore = join(self.dotfiles_dir, '.gitglobalignore')
+
+    def teardown(self):
+        """
+        Remove fake directory.
+        """
+
+        rmtree(self.dotfiles_dir)
+
+
+    def test_patterns_that_start_with_a_star(self):
+        # create pattern
+        with open(self.gitglobalignore, 'w') as f:
+            f.write('*foo')
+
+        # create files matching pattern
+        for filename in ['foo', 'BARfoo', '.foo', '.BARfoo']:
+            with open(join(self.dotfiles_dir, filename), 'w'):
+                pass
+
+        dotfiles = get_dotfiles(self.dotfiles_dir)
+        expected = [self.gitglobalignore]
+        assert_no_difference(dotfiles, expected)
+
+    def test_patterns_that_start_with_a_star_and_dot(self):
+        # create pattern
+        with open(self.gitglobalignore, 'w') as f:
+            f.write('*.foo')
+
+        # create files matching pattern
+        for filename in ['.foo', 'BAR.foo', '.BAR.foo']:
+            with open(join(self.dotfiles_dir, filename), 'w'):
+                pass
+
+        dotfiles = get_dotfiles(self.dotfiles_dir)
+        expected = [self.gitglobalignore]
+        assert_no_difference(dotfiles, expected)
 
 
 class TestMajority:
@@ -176,48 +218,6 @@ class TestMajority:
         assert_no_difference(whats_left, expected)
 
 
-class TestGitglobalignorePatterns:
-
-    def setup(self):
-        """
-        Create fake dotfiles directory.
-        """
-
-        self.dotfiles_dir = mkdtemp()
-        self.gitglobalignore = join(self.dotfiles_dir, '.gitglobalignore')
-
-    def teardown(self):
-        """
-        Remove fake directory.
-        """
-
-        rmtree(self.dotfiles_dir)
-
-
-    def test_patterns_that_start_with_a_star(self):
-        # create pattern
-        with open(self.gitglobalignore, 'w') as f:
-            f.write('*foo')
-
-        # create files matching pattern
-        for filename in ['foo', 'BARfoo', '.foo', '.BARfoo']:
-            with open(join(self.dotfiles_dir, filename), 'w'):
-                pass
-
-        dotfiles = get_dotfiles(self.dotfiles_dir)
-        expected = [self.gitglobalignore]
-        assert_no_difference(dotfiles, expected)
-
-    def test_patterns_that_start_with_a_star_and_dot(self):
-        # create pattern
-        with open(self.gitglobalignore, 'w') as f:
-            f.write('*.foo')
-
-        # create files matching pattern
-        for filename in ['.foo', 'BAR.foo', '.BAR.foo']:
-            with open(join(self.dotfiles_dir, filename), 'w'):
-                pass
-
-        dotfiles = get_dotfiles(self.dotfiles_dir)
-        expected = [self.gitglobalignore]
-        assert_no_difference(dotfiles, expected)
+def assert_no_difference(seq1, seq2):
+    difference = list(set(seq1).symmetric_difference(set(seq2)))
+    return assert_equals(difference, [])
