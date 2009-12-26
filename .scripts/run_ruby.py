@@ -6,16 +6,17 @@ Run Ruby with warnings turned on.
 If used without arguments, run Interactive Ruby with simple prompt.
 """
 
-from os import system
+from subprocess import call
 from sys import argv
 
 
 def _main():
     args = ' '.join(argv[1:])
     if args:
-        system('ruby -w ' + args)
+        command = 'ruby -w ' + args
     else:
-        system('irb --simple-prompt')
+        command = 'irb --simple-prompt'
+    call(command, shell=True)
 
 if __name__ == '__main__':
     _main()

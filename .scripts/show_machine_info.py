@@ -15,29 +15,30 @@ example:
 
 """
 
-from os import popen
+from subprocess import PIPE, Popen
 from sys import argv
 
 
+def read_stdout(command):
+    return Popen(command, shell=True, stdout=PIPE).stdout.read().rstrip('\n')
+
+
 def _main():
-    with popen('uname -n') as f:
-        name = f.read().rstrip('\n')
+    name = read_stdout('uname -n')
+    system = read_stdout('uname -s')
 
-    with popen('uname -s') as f:
-        system = f.read().rstrip('\n')
+    # 21:49  up  8:49, 6 users, load averages: 0.43 0.35 0.38
+    # => 8:49
+    #
+    #  21:52:27 up 5 days, 15:51,  1 user,  load average: 0.02, 0.03, 0.01
+    # => 5 days
+    uptime = ' '.join(read_stdout('uptime').split(',')[0].split()[2:])
 
-    with popen('uptime') as f:
-        # 21:49  up  8:49, 6 users, load averages: 0.43 0.35 0.38
-        # => 8:49
-        #
-        #  21:52:27 up 5 days, 15:51,  1 user,  load average: 0.02, 0.03, 0.01
-        # => 5 days
-        uptime = ' '.join(f.read().split(',')[0].split()[2:])
-
-    if len(argv) > 1 and argv[1] == name:
+    args = argv[1:]
+    if args and args[0] == name:
         print 'up ' + uptime
     else:
-        print '{0} ({1}), up {2}'.format(name, system, uptime)
+        print '{name} ({system}), up {uptime}'.format(**locals())
 
 if __name__ == '__main__':
     _main()

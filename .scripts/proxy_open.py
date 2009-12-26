@@ -6,8 +6,8 @@ Proxy `open` command.
 If called without arguments, open working directory in finder.  If argument is an archive, extract it.
 """
 
-from os import system
 from os.path import isfile
+from subprocess import call
 from sys import argv
 
 
@@ -27,14 +27,16 @@ def _main():
                     ('.zip', 'unzip'),
                 ]:
                     if arg.endswith(extension):
-                        system(command + ' ' + arg)
+                        call(command + ' ' + arg, shell=True)
                         args.pop(i)
                         break
 
         if args:
-            system('open ' + ' '.join(args))
+            command = 'open ' + ' '.join(args)
     else:
-        system('open .')
+        command = 'open .'
+
+    call(command, shell=True)
 
 if __name__ == '__main__':
     _main()

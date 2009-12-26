@@ -6,9 +6,9 @@ Run command on file modification.
 
 from itertools import imap
 import os
-from os import popen, system
 from os.path import exists
 import stat
+from subprocess import PIPE, Popen, call
 import sys
 from time import sleep
 
@@ -60,13 +60,13 @@ class Loop(object):
             new_mtime_sum = sum(imap(get_mtime, self.tracked_files))
             if old_mtime_sum != new_mtime_sum:
                 old_mtime_sum = new_mtime_sum
-                system('clear;' + command)
+                call('clear;' + command, shell=True)
             sleep(1)  # one second
 
 
 def create_file_if_it_doesnt_exist(filepath):
     if not exists(filepath):
-        system('touch ' + filepath)
+        call('touch ' + filepath, shell=True)
 
 
 def get_mtime(filepath):
@@ -83,14 +83,13 @@ def open_file_in_editor(filepath, edit=None):
     """
 
     if edit is None:
-        with popen('echo -n "$EDIT"') as f:
-            edit = f.read()
+        edit = Popen('echo -n "$EDIT"', shell=True, stdout=PIPE).stdout.read()
 
     if edit:
-        system(edit + ' ' + filepath)
+        call(edit + ' ' + filepath, shell=True)
     else:
         import inspect
-        docstring_line_number = inspect.currentframe().f_lineno - 13
+        docstring_line_number = inspect.currentframe().f_lineno - 12
         raise EnvironmentError(
             'Environment variable $EDIT not set; see {0}, line {1}' \
             .format(__file__, docstring_line_number)

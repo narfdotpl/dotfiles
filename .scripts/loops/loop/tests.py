@@ -5,9 +5,9 @@ Test suite.
 Run with nose http://somethingaboutorange.com/mrl/projects/nose
 """
 
-from os import system
 from os.path import exists, join
 from shutil import rmtree
+from subprocess import call
 from tempfile import mkdtemp
 from time import sleep
 
@@ -68,7 +68,7 @@ class TestCreateFile:
     def test_dont_create_file(self):
         # create test target
         filepath = join(self.directory, 'foo')
-        system('touch ' + filepath)
+        call('touch ' + filepath, shell=True)
         mtime_before = get_mtime(filepath)
         sleep(1)  # one second
 

@@ -4,14 +4,14 @@
 Run installer.
 """
 
-from os import system
 from os.path import dirname, join, realpath
+from subprocess import call
 
 
 def _main():
     dotfiles_dir = realpath(dirname(__file__))
     installer = join(dotfiles_dir, 'installer/installer.py')
-    system('python ' + installer)
+    call('python ' + installer, shell=True)
 
 if __name__ == '__main__':
     _main()

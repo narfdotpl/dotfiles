@@ -5,15 +5,14 @@ Print `top` table trimmed to four heaviest processes ordered by CPU usage and
 copy to the clipboard command killing the heaviest one.
 """
 
-from os import popen, system
+from subprocess import PIPE, Popen, call
 
 
 def _main():
     how_many = 4
 
     # get list of processes ordered by CPU usage (ascending)
-    with popen('top -l 2 -o +cpu') as f:
-        top = f.readlines()
+    top = Popen('top -l 2 -o +cpu', shell=True, stdout=PIPE).stdout.readlines()
 
     # get line numbers (trim `top` table to `how_many` processes)
     first_row_line_number = 7
@@ -30,9 +29,8 @@ def _main():
 
     # copy to clipboard command killing the heaviest process
     pid, name, cpu = top[-1].split()[:3]
-    system(
-        'echo -n "kill {0}  # {1} ({2} CPU)" | pbcopy'.format(pid, name, cpu)
-    )
+    call('echo -n "kill {pid}  # {name} ({cpu} CPU)" | pbcopy' \
+         .format(**locals()), shell=True)
 
 if __name__ == '__main__':
     _main()
