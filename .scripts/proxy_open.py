@@ -21,6 +21,7 @@ def _main():
                     ('.tar', 'tar xvf'),
                     ('.tar.bz2', 'tar xvjf'),  # <- order...
                     ('.tar.gz', 'tar xvzf'),
+                    ('.tgz', 'tar xvzf'),
                     ('.bz2', 'bunzip2'),  # <- ...matters
                     ('.gz', 'gunzip'),
                     ('.zip', 'unzip'),
