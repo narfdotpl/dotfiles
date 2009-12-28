@@ -12,8 +12,8 @@ from time import sleep
 
 from nose.tools import assert_equals, raises
 
-from loop import Loop, create_file_if_it_doesnt_exist, get_mtime, \
-                 open_file_in_editor
+from loop import Loop, create_file_if_it_doesnt_exist, _get_caller_filename, \
+                 get_mtime, open_file_in_editor
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -65,6 +65,9 @@ class TestCreateFile:
 
         with open(filepath) as f:
             assert_equals(f.read(), content)
+
+    def test_caller_name(self):
+        assert_equals(_get_caller_filename(), 'nosetests')
 
 
 class TestDefaultAttributes:

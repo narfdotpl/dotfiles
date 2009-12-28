@@ -4,9 +4,10 @@
 Execute shell command on file modification.
 """
 
+from inspect import stack
 from itertools import imap
 import os
-from os.path import isfile
+from os.path import basename, dirname, isfile, join, realpath, splitext
 from shutil import copy
 import stat
 from subprocess import PIPE, Popen, call
@@ -50,8 +51,17 @@ class Loop(object):
         if self.tracked_files and isinstance(self.tracked_files, list):
             return self.tracked_files[-1]
 
-    def run(self, command, template=None, enable_special=True):
+    def run(self, command, template=None, enable_autotemplate=True,
+            enable_special=True):
         if enable_special and self.passed_special:
+            if enable_autotemplate and template is None:
+                templates_dir = realpath(join(
+                    dirname(__file__), '../templates'
+                ))
+                caller_filename = _get_caller_filename()
+                template_filename = splitext(caller_filename)[0] + '.txt'
+                template = join(templates_dir, template_filename)
+
             create_file_if_it_doesnt_exist(self.main_file, template)
             open_file_in_editor(self.main_file)
 
@@ -73,6 +83,10 @@ def create_file_if_it_doesnt_exist(filepath, template=None):
             pass
 
 
+def _get_caller_filename():
+    return basename(stack()[-1][1])
+
+
 def get_mtime(filepath):
     return os.stat(filepath)[stat.ST_MTIME]
 
@@ -92,8 +106,7 @@ def open_file_in_editor(filepath, edit=None):
     if edit:
         call(edit + ' ' + filepath, shell=True)
     else:
-        import inspect
-        docstring_line_number = inspect.currentframe().f_lineno - 12
+        docstring_line_number = stack()[0][2] - 11
         raise EnvironmentError(
             'Environment variable $EDIT not set; see {0}, line {1}' \
             .format(__file__, docstring_line_number)

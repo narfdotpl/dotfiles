@@ -72,7 +72,7 @@ class LoopParameters(object):
 def create_if_doesnt_exist(path, template=None):
     if not exists(path):
         if template:
-            templates_dir = realpath(join(dirname(__file__), 'templates'))
+            templates_dir = realpath(join(dirname(__file__), '../templates'))
             template_path = join(templates_dir, template + '.txt')
             system('cp {0} {1}'.format(template_path, path))
         else:
