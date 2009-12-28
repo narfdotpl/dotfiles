@@ -5,10 +5,9 @@
     excludesfile = /Users/narf/.gitglobalignore
 [alias]
     a = add . --verbose
-    b = branch
+    b = !python ~/.scripts/git/branch.py
     c = commit --all --verbose
     ca = commit --all --verbose --amend
-    co = checkout
     d = !git diff | $EDITOR -
     i = !git init && git add . && git commit --message='initial commit'
     l = !python ~/.scripts/git/log.py | less
