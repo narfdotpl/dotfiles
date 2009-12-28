@@ -32,19 +32,26 @@ def _main():
         if git.branch == '(no branch)':
             command += '--continue'
         else:
-            commit_range = git.minimal_commit_range
+            commit_range = git.minimal_commit_range or ''
 
-            if commit_range:
-                count = 0
-                for line in Popen(
-                    ['git', 'shortlog', commit_range, '--summary'],
-                    stdout=PIPE
-                ).stdout:
-                    count += int(line.split()[0])
-            else:
-                count = 7
+            # get number of commits
+            number_of_commits = 0
+            for line in Popen(
+                'git shortlog {0} --summary'.format(commit_range),
+                shell=True,
+                stdout=PIPE
+            ).stdout:
+                number_of_commits += int(line.split()[0])
 
-            command += '--interactive HEAD~' + str(count)
+            # if there is no origin, rebase last seven commits
+            if not commit_range:
+                # can't rebase initial commit
+                number_of_commits -= 1
+                max_number = 7
+                if number_of_commits > max_number:
+                    number_of_commits = max_number
+
+            command += '--interactive HEAD~' + str(number_of_commits)
 
     call(command, shell=True)
 
