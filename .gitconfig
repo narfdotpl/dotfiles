@@ -13,6 +13,7 @@
     l = !python ~/.scripts/git/log.py | less
     la = !git log --graph --pretty=format:'%ad %s' --date=short | less
     m = rebase master
+    msg = commit --allow-empty --message
     p = stash pop
     r = !python ~/.scripts/git/rebase.py
     s = !git add . && git stash save
