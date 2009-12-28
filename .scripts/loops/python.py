@@ -15,7 +15,7 @@ def _main():
         open_in_editor(lp.main_file)
 
     command = 'python -3 {0} {1}; pyflakes {2}' \
-              .format(lp.args, lp.main_file, ' '.join(lp.tracked_files))
+              .format(lp.main_file, lp.args, ' '.join(lp.tracked_files))
     loop(lp.tracked_files, command)
 
 if __name__ == '__main__':

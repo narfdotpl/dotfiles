@@ -17,7 +17,8 @@ def _main():
         open_in_editor(lp.main_file)
 
     exe = sub(r'\.cs$', '.exe', lp.main_file)
-    command = 'gmcs {0}; mono {1}; rm {1}'.format(lp.main_file, exe)
+    command = 'gmcs {0}; mono {1} {2}; rm {1}' \
+              .format(lp.main_file, exe, lp.args)
     loop(lp.tracked_files, command)
 
 if __name__ == '__main__':
