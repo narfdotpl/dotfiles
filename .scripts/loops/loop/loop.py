@@ -6,6 +6,8 @@ Execute shell command on file modification.
 
 from itertools import imap
 import os
+from os.path import isfile
+from shutil import copy
 import stat
 from subprocess import PIPE, Popen, call
 import sys
@@ -48,9 +50,9 @@ class Loop(object):
         if self.tracked_files and isinstance(self.tracked_files, list):
             return self.tracked_files[-1]
 
-    def run(self, command, enable_special=True):
+    def run(self, command, template=None, enable_special=True):
         if enable_special and self.passed_special:
-            create_file_if_it_doesnt_exist(self.main_file)
+            create_file_if_it_doesnt_exist(self.main_file, template)
             open_file_in_editor(self.main_file)
 
         old_mtime_sum = -1
@@ -63,9 +65,12 @@ class Loop(object):
             sleep(1)  # one second
 
 
-def create_file_if_it_doesnt_exist(filepath):
-    with open(filepath, 'a'):
-        pass
+def create_file_if_it_doesnt_exist(filepath, template=None):
+    if template is not None and isfile(template) and not isfile(filepath):
+        copy(template, filepath)
+    else:
+        with open(filepath, 'a'):
+            pass
 
 
 def get_mtime(filepath):

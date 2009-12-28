@@ -54,6 +54,18 @@ class TestCreateFile:
         create_file_if_it_doesnt_exist(filepath)
         assert isfile(filepath), 'File not created'
 
+    def test_use_template(self):
+        template = join(self.directory, 'template')
+        content = 'waka waka waka'
+        with open(template, 'w') as f:
+            f.write(content)
+
+        filepath = join(self.directory, 'foo')
+        create_file_if_it_doesnt_exist(filepath, template)
+
+        with open(filepath) as f:
+            assert_equals(f.read(), content)
+
 
 class TestDefaultAttributes:
 
