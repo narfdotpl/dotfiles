@@ -22,6 +22,7 @@ class Loop(object):
 
     def __init__(self, command=None, parameters=sys.argv[1:]):
         # be pesimistic
+        self.raw = ' '.join(imap(backslash_spaces, parameters))
         self.passed_special = False
         self.tracked_files = []
         self.args = ''

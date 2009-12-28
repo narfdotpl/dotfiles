@@ -24,6 +24,7 @@ class TestAttributes:
     def test_all_clean_on_clean_init(self):
         loop = Loop(parameters=[])
         for actual, expected in [
+            (loop.raw, ''),
             (loop.passed_special, False),
             (loop.tracked_files, []),
             (loop.main_file, ''),
@@ -42,6 +43,7 @@ class TestAttributes:
 
         loop = Loop(parameters=parameters)
         for actual, expected in [
+            (loop.raw, ' '.join(parameters)),
             (loop.passed_special, True),
             (loop.tracked_files, tracked_files),
             (loop.main_file, main_file),
@@ -51,9 +53,10 @@ class TestAttributes:
 
     def test_format_attributes(self):
         expected = {
+            'raw': 'foo bar baz --waka -waka waka',
             'passed_special': 'False',
-            'tracked_files': 'baz bar foo',
-            'main_file': 'foo',
+            'tracked_files': 'foo bar baz',
+            'main_file': 'baz',
             'args': '--waka -waka waka',
         }
         loop = Loop(parameters=
@@ -61,6 +64,12 @@ class TestAttributes:
             + expected['args'].split()
         )
         actual = loop._get_attrs_as_dict_of_strs()
+        assert_equals(actual, expected)
+
+    def test_backslash_parameters(self):
+        expected = 'foo\ bar baz'
+        actual = Loop(parameters=['foo bar', 'baz']) \
+                 ._get_attrs_as_dict_of_strs()['raw']
         assert_equals(actual, expected)
 
     def test_backslash_paths(self):
