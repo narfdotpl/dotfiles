@@ -202,7 +202,7 @@ alias o='_script proxy_open.py'
 alias r='_script run_ruby.py'
 
 # alias loops
-alias la='_loop nasm_dos.py'
+alias la='_loop assembler.py'
 alias lcs='_loop c-sharp.py'
 alias lf='_loop fabric.py'
 alias lp='_loop python.py'
