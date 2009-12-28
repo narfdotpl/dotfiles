@@ -23,7 +23,7 @@ class Loop(object):
     def __init__(self, command=None, parameters=sys.argv[1:]):
         # be pesimistic
         self.passed_special = False
-        self.tracked_files = None
+        self.tracked_files = []
         self.args = ''
 
         # special
@@ -46,10 +46,26 @@ class Loop(object):
         if command:
             self.run(command)
 
+    def _get_attrs_as_dict_of_strs(self):
+        attrs = self.__dict__.copy()
+
+        attrs['tracked_files'] = ' '.join(imap(
+            backslash_spaces, self.tracked_files
+        ))
+        attrs['main_file'] = backslash_spaces(self.main_file)
+
+        for k, v in attrs.iteritems():
+            if not isinstance(v, str):
+                attrs[k] = str(v)
+
+        return attrs
+
     @property
     def main_file(self):
         if self.tracked_files and isinstance(self.tracked_files, list):
             return self.tracked_files[-1]
+        else:
+            return ''
 
     def run(self, command, template=None, enable_autotemplate=True,
             enable_special=True):
@@ -65,6 +81,7 @@ class Loop(object):
             create_file_if_it_doesnt_exist(self.main_file, template)
             open_file_in_editor(self.main_file)
 
+        command = command.format(**self._get_attrs_as_dict_of_strs())
         old_mtime_sum = -1
 
         while True:
@@ -73,6 +90,10 @@ class Loop(object):
                 old_mtime_sum = new_mtime_sum
                 call('clear;' + command, shell=True)
             sleep(1)  # one second
+
+
+def backslash_spaces(s):
+    return s.replace(' ', '\ ')
 
 
 def create_file_if_it_doesnt_exist(filepath, template=None):

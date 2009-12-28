@@ -19,6 +19,70 @@ from loop import Loop, create_file_if_it_doesnt_exist, _get_caller_filename, \
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
+class TestAttributes:
+
+    def test_all_clean_on_clean_init(self):
+        loop = Loop(parameters=[])
+        for actual, expected in [
+            (loop.passed_special, False),
+            (loop.tracked_files, []),
+            (loop.main_file, ''),
+            (loop.args, ''),
+        ]:
+            assert_equals(actual, expected)
+
+    def test_all_parsed_correctly(self):
+        # prepare parameters
+        parameters = ['+']  # passed_special = True
+        tracked_files = ['foo', 'bar']
+        parameters.extend(tracked_files)
+        main_file = tracked_files[-1]
+        args = '-3 --verbose reset --hard'
+        parameters.extend(args.split())
+
+        loop = Loop(parameters=parameters)
+        for actual, expected in [
+            (loop.passed_special, True),
+            (loop.tracked_files, tracked_files),
+            (loop.main_file, main_file),
+            (loop.args, args),
+        ]:
+            assert_equals(actual, expected)
+
+    def test_format_attributes(self):
+        expected = {
+            'passed_special': 'False',
+            'tracked_files': 'baz bar foo',
+            'main_file': 'foo',
+            'args': '--waka -waka waka',
+        }
+        loop = Loop(parameters=
+            expected['tracked_files'].split() \
+            + expected['args'].split()
+        )
+        actual = loop._get_attrs_as_dict_of_strs()
+        assert_equals(actual, expected)
+
+    def test_backslash_paths(self):
+        loop = Loop(parameters=['some file', 'main file'])
+        attrs = loop._get_attrs_as_dict_of_strs()
+        for key, expected in [
+            ('tracked_files', 'some\ file main\ file'),
+            ('main_file', 'main\ file'),
+        ]:
+            actual = attrs[key]
+            assert_equals(actual, expected)
+
+    def test_user_defined_attributes(self):
+        loop = Loop(parameters=[])
+        loop.foo = None
+
+        expected = 'None'
+        actual = loop._get_attrs_as_dict_of_strs()['foo']
+
+        assert_equals(actual, expected)
+
+
 class TestCreateFile:
 
     def setup(self):
@@ -68,37 +132,6 @@ class TestCreateFile:
 
     def test_caller_name(self):
         assert_equals(_get_caller_filename(), 'nosetests')
-
-
-class TestDefaultAttributes:
-
-    def test_all_clean_on_clean_init(self):
-        loop = Loop(parameters=[])
-        for actual, expected in [
-            (loop.passed_special, False),
-            (loop.tracked_files, None),
-            (loop.main_file, None),
-            (loop.args, ''),
-        ]:
-            assert_equals(actual, expected)
-
-    def test_all_parsed_correctly(self):
-        # prepare parameters
-        parameters = ['+']  # passed_special = True
-        tracked_files = ['foo', 'bar']
-        parameters.extend(tracked_files)
-        main_file = tracked_files[-1]
-        args = '-3 --verbose reset --hard'
-        parameters.extend(args.split())
-
-        loop = Loop(parameters=parameters)
-        for actual, expected in [
-            (loop.passed_special, True),
-            (loop.tracked_files, tracked_files),
-            (loop.main_file, main_file),
-            (loop.args, args),
-        ]:
-            assert_equals(actual, expected)
 
 
 class TestOpenFile:
