@@ -1,21 +1,14 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Run Ruby any time any tracked file is modified.
+Run Ruby.
 """
 
-from looper import create_if_doesnt_exist, loop, LoopParameters, open_in_editor
+from loop import Loop
 
 
 def _main():
-    lp = LoopParameters()
-
-    if lp.passed_special_parameter:
-        create_if_doesnt_exist(lp.main_file)
-        open_in_editor(lp.main_file)
-
-    command = 'ruby {0} {1}'.format(lp.main_file, lp.args)
-    loop(lp.tracked_files, command)
+    Loop('ruby {main_file} {args}')
 
 if __name__ == '__main__':
     _main()

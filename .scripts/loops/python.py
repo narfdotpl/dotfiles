@@ -1,22 +1,16 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Run Python and PyFlakes any time any tracked file is modified.
+Run Python with warnings about nontrivial Python 3 incompatibilities and
+check all files with PyFlakes.
 """
 
-from looper import create_if_doesnt_exist, loop, LoopParameters, open_in_editor
+from loop import Loop
 
 
 def _main():
-    lp = LoopParameters()
-
-    if lp.passed_special_parameter:
-        create_if_doesnt_exist(lp.main_file, 'python')
-        open_in_editor(lp.main_file)
-
-    command = 'python -3 {0} {1}; pyflakes {2}' \
-              .format(lp.main_file, lp.args, ' '.join(lp.tracked_files))
-    loop(lp.tracked_files, command)
+    Loop('python -3 {main_file} {args};'
+         'pyflakes {tracked_files}')
 
 if __name__ == '__main__':
     _main()

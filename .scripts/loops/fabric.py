@@ -1,27 +1,17 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Run Fabric with given arguments and check `fabfile.py` with PyFlakes any
-time it is modified.
+Run Fabric with given arguments and check `fabfile.py` with PyFlakes.
 """
 
-from looper import create_if_doesnt_exist, loop, LoopParameters, open_in_editor
+from loop import Loop
 
 
 def _main():
-    lp = LoopParameters()
-
-    # dirty hack
-    args = ' '.join(lp.tracked_files) + ' ' + lp.args
-    lp.main_file = 'fabfile.py'
-    lp.tracked_files = [lp.main_file]
-
-    if lp.passed_special_parameter:
-        create_if_doesnt_exist(lp.main_file, 'python')
-        open_in_editor(lp.main_file)
-
-    command = 'fab {0}; pyflakes {1}'.format(args, lp.main_file)
-    loop(lp.tracked_files, command)
+    loop = Loop()
+    loop.tracked_files = ['fabfile.py']
+    loop.run('fab {raw};'
+             'pyflakes {main_file}')
 
 if __name__ == '__main__':
     _main()

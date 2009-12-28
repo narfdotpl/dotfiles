@@ -1,25 +1,19 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Compile .cs file, run .exe and remove it any time any tracked file is modified.
+Compile and run C#; remove everything but source.
 """
 
-from re import sub
+from os.path import splitext
 
-from looper import create_if_doesnt_exist, loop, LoopParameters, open_in_editor
+from loop import Loop
 
 
 def _main():
-    lp = LoopParameters()
-
-    if lp.passed_special_parameter:
-        create_if_doesnt_exist(lp.main_file, 'c-sharp')
-        open_in_editor(lp.main_file)
-
-    exe = sub(r'\.cs$', '.exe', lp.main_file)
-    command = 'gmcs {0}; mono {1} {2}; rm {1}' \
-              .format(lp.main_file, exe, lp.args)
-    loop(lp.tracked_files, command)
+    loop = Loop()
+    loop.exe = splitext(loop.main_file)[0] + '.exe'
+    loop.run('gmcs {main_file} && mono {exe} {args};'
+             '[[ -f {exe} ]] && rm {exe}')
 
 if __name__ == '__main__':
     _main()
