@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Run command on file modification.
+Execute shell command on file modification.
 """
 
 from itertools import imap
@@ -19,13 +19,13 @@ class Loop(object):
 
     def __init__(self, command=None, parameters=sys.argv[1:]):
         # be pesimistic
-        self.passed_special_parameter = False
+        self.passed_special = False
         self.tracked_files = None
         self.args = ''
 
-        # special parameter
+        # special
         if parameters and parameters[0] == '+':
-            self.passed_special_parameter = True
+            self.passed_special = True
             parameters = parameters[1:]
 
         if parameters:
@@ -49,7 +49,7 @@ class Loop(object):
             return self.tracked_files[-1]
 
     def run(self, command, enable_special=True):
-        if enable_special and self.passed_special_parameter:
+        if enable_special and self.passed_special:
             create_file_if_it_doesnt_exist(self.main_file)
             open_file_in_editor(self.main_file)
 

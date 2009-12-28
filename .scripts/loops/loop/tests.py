@@ -5,7 +5,7 @@ Test suite.
 Run with nose http://somethingaboutorange.com/mrl/projects/nose
 """
 
-from os.path import exists, join
+from os.path import isfile, join
 from shutil import rmtree
 from tempfile import mkdtemp
 from time import sleep
@@ -17,37 +17,6 @@ from loop import Loop, create_file_if_it_doesnt_exist, get_mtime, \
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
-
-
-class TestDefaultParameters:
-
-    def test_get_all_clean_on_clean_init(self):
-        loop = Loop(parameters=[])
-        for actual, expected in [
-            (loop.passed_special_parameter, False),
-            (loop.tracked_files, None),
-            (loop.main_file, None),
-            (loop.args, ''),
-        ]:
-            assert_equals(actual, expected)
-
-    def test_get_all_properly_parsed(self):
-        # prepare parameters
-        parameters = ['+']  # passed_special_parameter = True
-        tracked_files = ['foo', 'bar']
-        parameters.extend(tracked_files)
-        main_file = tracked_files[-1]
-        args = '-3 --verbose reset --hard'
-        parameters.extend(args.split())
-
-        loop = Loop(parameters=parameters)
-        for actual, expected in [
-            (loop.passed_special_parameter, True),
-            (loop.tracked_files, tracked_files),
-            (loop.main_file, main_file),
-            (loop.args, args),
-        ]:
-            assert_equals(actual, expected)
 
 
 class TestCreateFile:
@@ -67,8 +36,8 @@ class TestCreateFile:
         rmtree(self.directory)
 
 
-    def test_dont_create_file(self):
-        # create test target
+    def test_dont_create_file_if_it_already_exists(self):
+        # create test file
         filepath = join(self.directory, 'foo')
         with open(filepath, 'w'):
             pass
@@ -80,10 +49,41 @@ class TestCreateFile:
 
         assert_equals(mtime_before, mtime_after)
 
-    def test_create_file(self):
-        target = join(self.directory, 'foo')
-        create_file_if_it_doesnt_exist(target)
-        assert exists(target), 'File not created'
+    def test_create_file_if_it_doesnt_exist(self):
+        filepath = join(self.directory, 'foo')
+        create_file_if_it_doesnt_exist(filepath)
+        assert isfile(filepath), 'File not created'
+
+
+class TestDefaultAttributes:
+
+    def test_all_clean_on_clean_init(self):
+        loop = Loop(parameters=[])
+        for actual, expected in [
+            (loop.passed_special, False),
+            (loop.tracked_files, None),
+            (loop.main_file, None),
+            (loop.args, ''),
+        ]:
+            assert_equals(actual, expected)
+
+    def test_all_parsed_correctly(self):
+        # prepare parameters
+        parameters = ['+']  # passed_special = True
+        tracked_files = ['foo', 'bar']
+        parameters.extend(tracked_files)
+        main_file = tracked_files[-1]
+        args = '-3 --verbose reset --hard'
+        parameters.extend(args.split())
+
+        loop = Loop(parameters=parameters)
+        for actual, expected in [
+            (loop.passed_special, True),
+            (loop.tracked_files, tracked_files),
+            (loop.main_file, main_file),
+            (loop.args, args),
+        ]:
+            assert_equals(actual, expected)
 
 
 class TestOpenFile:
