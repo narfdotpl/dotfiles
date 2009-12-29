@@ -208,6 +208,7 @@ alias lf='_loop fabric.py'
 alias lp='_loop python.py'
 alias lp3='_loop python3.py'
 alias lr='_loop ruby.py'
+alias lsa='_loop safari.py'
 alias lt='_loop nose.py `find . -name "*.py"`'
 
 
