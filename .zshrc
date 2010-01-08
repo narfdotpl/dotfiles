@@ -138,6 +138,26 @@ alias g='git'
 # run grep
 alias gr='grep --ignore-case'
 
+# experiment using GraphicsMagick convert
+#
+# example:
+#
+#     gmc photo.jpg -rotate 90
+#     gmc photo.jpg -rotate 90 -resize 50%
+#     gmc apply photo.jpg -rotate 90 -resize 50%
+#
+gmc() {
+    if [[ $1 == 'apply' ]]; then
+        shift
+        local destination=$1
+    else
+        local destination='/tmp/gmc.jpg'
+    fi
+
+    gm convert $@ $destination
+    open $destination
+}
+
 # show shell history
 alias h='history -i 1 | less +G'
 
