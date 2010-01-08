@@ -196,6 +196,7 @@ _script() {
 }
 
 alias duration='_script show_movie_duration.py'
+alias g1='_script rename_g1_photos.py'
 alias kil='_script kil.py'
 alias mp3='_script rename_mp3s.py'
 alias o='_script proxy_open.py'
