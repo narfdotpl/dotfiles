@@ -205,11 +205,11 @@ alias r='_script run_ruby.py'
 alias la='_loop assembler.py'
 alias lcs='_loop c-sharp.py'
 alias lf='_loop fabric.py'
+alias lno='_loop nose.py `find . -name "*.py"`'
 alias lp='_loop python.py'
 alias lp3='_loop python3.py'
 alias lr='_loop ruby.py'
 alias lsa='_loop safari.py'
-alias lt='_loop nose.py `find . -name "*.py"`'
 
 
 #------------
