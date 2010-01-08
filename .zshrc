@@ -51,8 +51,8 @@ setopt list_packed
 #  history
 #-----------
 
-# log 2000 commands
-HISTSIZE=2000
+# log 10k commands
+HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh/history
 
