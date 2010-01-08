@@ -132,9 +132,11 @@ alias d1='du -h -d1'  # first-level subdirectories
 # edit
 alias e=$EDIT
 
+# run git
+alias g='git'
+
 # run grep
-alias g='grep'
-alias gi='grep --ignore-case'
+alias gr='grep --ignore-case'
 
 # show shell history
 alias h='history -i 1 | less +G'
