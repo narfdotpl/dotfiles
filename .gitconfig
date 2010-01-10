@@ -4,7 +4,7 @@
 [core]
     excludesfile = /Users/narf/.gitglobalignore
 [alias]
-    a = add . --verbose
+    a = !git add . && git commit --all --verbose
     b = !python ~/.scripts/git/branch.py
     c = commit --all --verbose
     ca = commit --all --verbose --amend
