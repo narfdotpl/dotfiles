@@ -1,0 +1,10 @@
+/* Maciej Konieczny <hello@narf.pl> */
+
+#include <stdio.h>
+
+
+int
+main()
+{
+    return 0;
+}
