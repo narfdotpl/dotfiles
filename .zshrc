@@ -206,6 +206,9 @@ alias rf='rm -rf'
 # run less
 alias s='less'
 
+# convert tabs to 4 spaces
+alias t4s="perl -pi -e 's/\t/    /g'"
+
 # remove trailing whitespace http://gist.github.com/227361
 alias ws="perl -pi -e 's/ +$//'"
 
