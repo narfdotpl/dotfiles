@@ -112,6 +112,7 @@ bindkey '^[b' backward-word
 
 # change directory
 alias c='cd'
+alias ,='cd - > /dev/null'
 alias .='cd ..'
 alias ..='.; .'
 alias ...='.; .; .'
