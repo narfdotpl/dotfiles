@@ -16,6 +16,7 @@
     msg = commit --allow-empty --message
     p = stash pop
     r = !python ~/.scripts/git/rebase.py
+    rh = reset --hard
     s = !git add . && git stash save
     sl = !git stash list | less
     web = instaweb
