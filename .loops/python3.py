@@ -4,7 +4,7 @@
 Run Python 3.
 """
 
-from loop import Loop
+from loopozorg import Loop
 
 
 def _main():

@@ -6,7 +6,7 @@ Check, compile and run C; remove everything but source.
 
 from os.path import splitext
 
-from loop import Loop
+from loopozorg import Loop
 
 
 def _main():

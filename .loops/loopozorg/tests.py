@@ -12,8 +12,8 @@ from time import sleep
 
 from nose.tools import assert_equals, raises
 
-from loop import Loop, create_file_if_it_doesnt_exist, _get_caller_filename, \
-                 get_mtime, open_file_in_editor
+from loopozorg import Loop, create_file_if_it_doesnt_exist, \
+                      _get_caller_filename, get_mtime, open_file_in_editor
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'

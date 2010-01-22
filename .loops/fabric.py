@@ -4,7 +4,7 @@
 Run Fabric with given arguments and check `fabfile.py` with PyFlakes.
 """
 
-from loop import Loop
+from loopozorg import Loop
 
 
 def _main():

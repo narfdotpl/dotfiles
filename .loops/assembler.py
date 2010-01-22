@@ -6,7 +6,7 @@ Compile assembly and run it in DOSBox; remove everything but source.
 
 from os.path import splitext
 
-from loop import Loop
+from loopozorg import Loop
 
 
 def _main():
