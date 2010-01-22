@@ -191,7 +191,7 @@ _script() {
 
 # run loop
 _loop() {
-    _script loops/$@
+    python ~/.loops/$@
 }
 
 # alias "regular" scripts
