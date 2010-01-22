@@ -12,8 +12,9 @@ USER_PATH=~/bin
 PORT_PATH=/opt/local/bin:/opt/local/sbin
 POSTGRES_PATH=/Library/PostgreSQL/8.3/bin/
 PYTHON_PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin
+RUBY_PATH=~/.gem/ruby/1.8/bin
 
-export PATH=$USER_PATH:$PORT_PATH:$POSTGRES_PATH:$PYTHON_PATH:$PATH
+export PATH=$USER_PATH:$PORT_PATH:$POSTGRES_PATH:$PYTHON_PATH:$RUBY_PATH:$PATH
 
 
 #------------
