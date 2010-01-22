@@ -151,6 +151,9 @@ alias .l/='ls -dF .*(/)'  # directories
 alias .l.='ls -dF .*(.)'  # files
 alias .l@='ls -dF .*(@)'  # links
 
+# run loopozorg script
+alias loop='python ~/.loops/loopozorg/script_runner.py'
+
 # create directory (and intermediate directories) and go there
 m() {
     mkdir -p $1
@@ -189,28 +192,26 @@ _script() {
     python ~/.scripts/$@
 }
 
-# run loop
-_loop() {
-    python ~/.loops/$@
-}
-
-# alias "regular" scripts
 alias duration='_script show_movie_duration.py'
 alias kil='_script kil.py'
 alias mp3='_script rename_mp3s.py'
 alias o='_script proxy_open.py'
 alias r='_script run_ruby.py'
 
-# alias loops
-alias la='_loop assembler.py'
-alias lc='_loop c.py'
-alias lcs='_loop c-sharp.py'
-alias lf='_loop fabric.py'
-alias lno='_loop nose.py `find . -name "*.py"`'
-alias lp='_loop python.py'
-alias lp3='_loop python3.py'
-alias lr='_loop ruby.py'
-alias lsa='_loop safari.py'
+
+#---------
+#  loops
+#---------
+
+alias la='loop assembler'
+alias lc='loop c'
+alias lcs='loop c-sharp'
+alias lf='loop fabric'
+alias lno='loop nose `find . -name "*.py"`'
+alias lp='loop python'
+alias lp3='loop python3'
+alias lr='loop ruby'
+alias lsa='loop safari'
 
 
 #------------
