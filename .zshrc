@@ -212,6 +212,7 @@ alias lp='loop python'
 alias lp3='loop python3'
 alias lr='loop ruby'
 alias lsa='loop safari'
+alias lx='loop xetex'
 
 
 #------------
