@@ -162,6 +162,7 @@ m() {
 
 # run python
 alias p='python -3'
+alias py='python'
 alias p3='python3'
 
 # serve file via http http://www.home.unix-ag.org/simon/woof.html
@@ -209,6 +210,7 @@ alias lcs='loop c-sharp'
 alias lf='loop fabric'
 alias lno='loop nose `find . -name "*.py"`'
 alias lp='loop python'
+alias lpy='loop python_wo_p3_warnings'
 alias lp3='loop python3'
 alias lr='loop ruby'
 alias lsa='loop safari'
