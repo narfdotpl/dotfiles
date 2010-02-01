@@ -10,6 +10,15 @@ from subprocess import call
 
 def _main():
     dotfiles_dir = realpath(dirname(__file__))
+
+    # 'install' submodules
+    call(';'.join([
+        'cd ' + dotfiles_dir,
+        'git submodule init',
+        'git submodule update'
+    ]), shell=True)
+
+    # run installer
     installer = join(dotfiles_dir, 'installer/installer.py')
     call('python ' + installer, shell=True)
 

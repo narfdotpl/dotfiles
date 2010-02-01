@@ -1,0 +1,3 @@
+[submodule ".loops/loopozorg"]
+	path = .loops/loopozorg
+	url = git://github.com/narfdotpl/loopozorg.git

@@ -47,8 +47,9 @@ def get_dotfiles(dotfiles_dir=None):
     # get everything
     dotfiles_names = listdir(dotfiles_dir)
 
-    # ignore .git/, installer and readme
-    for name in ['.git', 'install', 'installer', 'README.markdown']:
+    # ignore git, installer and readme
+    for name in ['.git', '.gitmodules', 'install', 'installer',
+                 'README.markdown']:
         if name in dotfiles_names:
             dotfiles_names.remove(name)
 
