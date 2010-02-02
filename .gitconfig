@@ -6,6 +6,7 @@
 [alias]
     a = !git add . && git commit --all --verbose
     b = !python ~/.scripts/git/branch.py
+    bm = checkout master
     c = commit --all --verbose
     ca = commit --all --verbose --amend
     d = !git diff | $EDITOR -
