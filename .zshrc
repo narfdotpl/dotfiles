@@ -127,10 +127,6 @@ alias cpwd='pwd | tr -d "\n" | pbcopy'
 # go to Desktop
 alias d='cd ~/Desktop'
 
-# show disk usage
-alias d0='du -h -d0'  # current directory
-alias d1='du -h -d1'  # first-level subdirectories
-
 # show date (example: 2009-11-07 01:16:21, Saturday)
 alias da='date "+%Y-%m-%d %H:%M:%S, %A"'
 
