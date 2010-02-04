@@ -219,6 +219,7 @@ _script() {
     python ~/.scripts/$@
 }
 
+alias a2='_script a2.py'
 alias duration='_script show_movie_duration.py'
 alias g1='_script rename_g1_photos.py'
 alias kil='_script kil.py'
