@@ -2,15 +2,27 @@
 # encoding: utf-8
 """
 Show movie duration.
+
+Usage:
+
+    python show_movie_duration.py moviepath1 moviepath2 ...
+
+The script ignores all command line arguments that are not paths to
+existing files.
 """
 
-from itertools import ifilter
-from os.path import exists
+from itertools import ifilter, imap
+from os.path import isfile
+from pipes import quote
 from subprocess import PIPE, Popen
 from sys import argv
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
+
+
+def usage():
+    print __doc__.lstrip('\n').rstrip('\n')
 
 
 def get_duration(path):
@@ -24,11 +36,14 @@ def get_duration(path):
 
 
 def _main():
-    paths = [path.replace(' ', '\ ') for path in ifilter(exists, argv[1:])]
-
+    # get movie paths
+    # `list(imap(...))` is better than `map(...)`, because it's more py3ish :)
+    paths = list(imap(quote, ifilter(isfile, argv[1:])))
     if not paths:
-        print 'Please pass at least one valid path.'
-    elif len(paths) == 1:
+        usage()
+        exit()
+
+    if len(paths) == 1:
         print get_duration(paths[0])
     else:
         for path in paths:

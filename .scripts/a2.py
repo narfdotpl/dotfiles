@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Enlarge the first page of an A4 PDF to an (almost) A2 sized poster
+Enlarge the first page of an A4 PDF to an (almost) A2-sized poster
 divided into four A4 pages.
 
-Call this script like this
+Run this script like this
 
     python a2.py a4document.pdf
 
@@ -14,6 +14,7 @@ after printing).
 """
 
 from os.path import join, realpath
+from pipes import quote
 from shutil import rmtree
 from string import Template
 from subprocess import PIPE, Popen
@@ -22,6 +23,7 @@ from tempfile import mkdtemp
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
+
 
 SCALE = 1.9  # > 0 and <= 2
 
@@ -37,7 +39,7 @@ def usage():
 def _main():
     # take hostage
     try:
-        pdf_to_enlarge = realpath(argv[1])
+        pdf_to_enlarge = quote(realpath(argv[1]))
     except IndexError:
         usage()
         exit()

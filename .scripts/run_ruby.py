@@ -3,7 +3,7 @@
 """
 Run Ruby with warnings turned on.
 
-If used without arguments, run Interactive Ruby with simple prompt.
+If called without arguments, run Interactive Ruby with simple prompt.
 """
 
 from subprocess import call

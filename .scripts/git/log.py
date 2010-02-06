@@ -3,9 +3,9 @@
 """
 Show minimal Git log.
 
-When working on a non-master branch, show `master..branch` log.  When working
-on master, show `origin..HEAD` log; if there is no origin, show last seven
-commits.
+When working on a non-master branch, show `master..branch` log.  When
+working on master, show `origin..HEAD` log; if there is no origin, show
+last seven commits.
 
 Formatting example:
 

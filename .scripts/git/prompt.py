@@ -3,10 +3,10 @@
 """
 Parse Git information for shell prompt.
 
-Show current branch name.  If there were any changes since last commit, show
-a plus sign.  If there are any stashed changes, show an ampersand.  If current
-directory is not the top-level directory of the repository, precede branch name
-with one dot for each directory below the top.
+Show current branch name.  If there were any changes since last commit,
+show a plus sign.  If there are any stashed changes, show an ampersand.
+If current directory is not the toplevel directory of the repository,
+precede branch name with one dot for each directory below the top.
 
 example:
 
@@ -43,7 +43,7 @@ def _main():
             prompt += '+'
 
         # stashed
-        if Popen(['git', 'stash', 'list'], stdout=PIPE).stdout.readlines():
+        if Popen('git stash list', shell=True, stdout=PIPE).stdout.readlines():
             prompt += '&'
 
         print '(' + prompt + ')',

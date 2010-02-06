@@ -3,12 +3,12 @@
 """
 Run minimal interactive Git rebase.
 
-When working on a non-master branch, rebase `master..branch`.  When working on
-master, rebase `origin..HEAD`; if there is no origin, rebase last seven
-commits.
+When working on a non-master branch, rebase `master..branch`.  When
+working on master, rebase `origin..HEAD`; if there is no origin, rebase
+last seven commits.
 
-If called during a rebase, run `rebase --continue`.  If called with arguments,
-act as an alias.
+If called during a rebase, run `rebase --continue`.  If called with
+arguments, act as an alias.
 """
 
 from subprocess import PIPE, Popen, call
@@ -38,15 +38,13 @@ def _main():
             number_of_commits = 0
             for line in Popen(
                 'git shortlog {0} --summary'.format(commit_range),
-                shell=True,
-                stdout=PIPE
+                shell=True, stdout=PIPE
             ).stdout:
                 number_of_commits += int(line.split()[0])
 
             # if there is no origin, rebase last seven commits
             if not commit_range:
-                # can't rebase initial commit
-                number_of_commits -= 1
+                number_of_commits -= 1  # can't rebase initial commit
                 max_number = 7
                 if number_of_commits > max_number:
                     number_of_commits = max_number

@@ -3,8 +3,9 @@
 """
 Work with Git branches using one command.
 
-Act as an alias, unless called with one argument: assume then it's a branch
-name and try to checkout it; if it doesn't exist, ask whether to create it.
+Act as an alias, unless called with one argument: assume then it's a
+branch name and try to checkout it; if it doesn't exist, ask whether to
+create it.
 """
 
 from subprocess import PIPE, Popen, call
@@ -17,7 +18,8 @@ __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
 def _main():
-    git = Git()
+    # don't go further, if there is no git repository
+    Git()
 
     # get args
     if len(argv) == 2:
