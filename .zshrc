@@ -240,6 +240,7 @@ alias duration='script show_movie_duration'
 alias g1='script rename_g1_photos'
 alias kil='script kil'
 alias mp3='script rename_mp3s'
+alias mp4='script 3 convert_to_iphone_mp4'
 alias o='script proxy_open'
 alias r='script run_ruby'
 
