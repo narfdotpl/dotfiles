@@ -203,6 +203,9 @@ alias rf='rm -rf'
 # run less
 alias s='less'
 
+# edit todo list
+alias t="$EDIT ~/todo.taskpaper"
+
 # convert tabs to 4 spaces
 alias t4s="perl -pi -e 's/\t/    /g'"
 
