@@ -219,9 +219,20 @@ alias ws="perl -pi -e 's/ +$//'"
 
 # run script
 script() {
+    # get python version
+    if [[ $1 == '3' ]]; then
+        local ver='3'
+        shift
+    else
+        local ver=''
+    fi
+
+    # get script name
     local name=$1
     shift
-    python ~/.scripts/$name.py $@
+
+    # run
+    python$ver ~/.scripts/$name.py $@
 }
 
 alias a2='script a2'
