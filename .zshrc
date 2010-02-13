@@ -174,9 +174,6 @@ alias .l/='ls -dF .*(/)'  # directories
 alias .l.='ls -dF .*(.)'  # files
 alias .l@='ls -dF .*(@)'  # links
 
-# run loopozorg script
-alias loop='python ~/.loops/loopozorg/script_runner.py'
-
 # create directory (and intermediate directories) and go there
 m() {
     mkdir -p $1
@@ -221,22 +218,27 @@ alias ws="perl -pi -e 's/ +$//'"
 #-----------
 
 # run script
-_script() {
-    python ~/.scripts/$@
+script() {
+    local name=$1
+    shift
+    python ~/.scripts/$name.py $@
 }
 
-alias a2='_script a2.py'
-alias duration='_script show_movie_duration.py'
-alias g1='_script rename_g1_photos.py'
-alias kil='_script kil.py'
-alias mp3='_script rename_mp3s.py'
-alias o='_script proxy_open.py'
-alias r='_script run_ruby.py'
+alias a2='script a2'
+alias duration='script show_movie_duration'
+alias g1='script rename_g1_photos'
+alias kil='script kil'
+alias mp3='script rename_mp3s'
+alias o='script proxy_open'
+alias r='script run_ruby'
 
 
 #---------
 #  loops
 #---------
+
+# run loopozorg script
+alias loop='python ~/.loops/loopozorg/script_runner.py'
 
 alias la='loop assembler'
 alias lc='loop c'
