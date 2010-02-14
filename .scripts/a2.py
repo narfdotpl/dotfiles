@@ -11,6 +11,15 @@ Run this script like this
 and you will get an `a2.pdf` file in your working directory.  The
 original PDF should have proper margins (everything should be visible
 after printing).
+
+Dependencies:
+
+  - `pdflatex`
+  - `geometry` package
+  - `tikz` package
+
+I don't know the numbers of the lowest versions that do the job, I use
+[TeX Live](http://www.tug.org/texlive/).
 """
 
 from os.path import join, realpath

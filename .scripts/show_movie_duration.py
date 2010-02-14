@@ -9,6 +9,13 @@ Usage:
 
 The script ignores all command line arguments that are not paths to
 existing files.
+
+Dependencies:
+
+  - [FFmpeg][] (I don't know the number of the lowest version that does
+    the job, I use 0.5)
+
+  [FFmpeg]: http://ffmpeg.org/
 """
 
 from itertools import ifilter, imap

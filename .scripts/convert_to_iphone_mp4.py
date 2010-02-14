@@ -13,6 +13,13 @@ My ffmpeg can't do its work in silence, so I redirect both stdout and
 stderr to a PIPE, that I never read.  Obviously this is not very smart
 and if something goes wrong, there are no error messages -- you've been
 warned!
+
+Dependencies:
+
+  - [FFmpeg][] (I don't know the number of the lowest version that does
+    the job, I use 0.5)
+
+  [FFmpeg]: http://ffmpeg.org/
 """
 
 from datetime import datetime
