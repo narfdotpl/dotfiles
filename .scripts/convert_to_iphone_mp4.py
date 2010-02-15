@@ -4,7 +4,7 @@ Convert movies to iPhone mp4s.
 
 Usage:
 
-    python convert_to_iphone_mp4.py moviepath1 moviepath2 ...
+    python3 convert_to_iphone_mp4.py moviepath1 moviepath2 ...
 
 The script ignores all command line arguments that are not paths to
 existing files.
