@@ -27,7 +27,7 @@ from os.path import abspath, basename, dirname, isfile, join, splitext
 from pipes import quote
 from re import compile, findall
 from subprocess import PIPE, Popen
-from sys import argv, stdout
+from sys import argv, stderr, stdout
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -44,7 +44,7 @@ COMMAND = 'ffmpeg -i {infile} -f mp4 -b {bitrate}k -ab 128k ' \
 
 
 def usage():
-    print(__doc__.lstrip('\n').rstrip('\n'))
+    return __doc__.lstrip('\n').rstrip('\n')
 
 
 def compute_bitrate(width, height):
@@ -65,8 +65,8 @@ def _main():
     # get movie paths
     paths = list(map(quote, map(abspath, filter(isfile, argv[1:]))))
     if not paths:
-        usage()
-        exit()
+        print(usage(), file=stderr)
+        exit(1)
 
     # (width, height)
     pattern = compile(r'(\d+)x(\d+)')

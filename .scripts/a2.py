@@ -27,7 +27,7 @@ from pipes import quote
 from shutil import rmtree
 from string import Template
 from subprocess import PIPE, Popen
-from sys import argv, exit
+from sys import argv, exit, stderr
 from tempfile import mkdtemp
 
 
@@ -42,7 +42,7 @@ def cm(fraction):
 
 
 def usage():
-    print __doc__.lstrip('\n').rstrip('\n')
+    return __doc__.lstrip('\n').rstrip('\n')
 
 
 def _main():
@@ -50,8 +50,8 @@ def _main():
     try:
         pdf_to_enlarge = quote(realpath(argv[1]))
     except IndexError:
-        usage()
-        exit()
+        print >> stderr, usage()
+        exit(1)
 
     # get your gun
     width = 10.5

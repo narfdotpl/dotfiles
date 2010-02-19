@@ -22,14 +22,14 @@ from itertools import ifilter, imap
 from os.path import isfile
 from pipes import quote
 from subprocess import PIPE, Popen
-from sys import argv
+from sys import argv, stderr
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
 def usage():
-    print __doc__.lstrip('\n').rstrip('\n')
+    return __doc__.lstrip('\n').rstrip('\n')
 
 
 def get_duration(path):
@@ -47,8 +47,8 @@ def _main():
     # `list(imap(...))` is better than `map(...)`, because it's more py3ish :)
     paths = list(imap(quote, ifilter(isfile, argv[1:])))
     if not paths:
-        usage()
-        exit()
+        print >> stderr, usage()
+        exit(1)
 
     if len(paths) == 1:
         print get_duration(paths[0])
