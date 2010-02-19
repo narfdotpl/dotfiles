@@ -93,6 +93,9 @@ setopt prompt_subst
 # git prompt, and dollar sign
 PROMPT='%3~$(python ~/.scripts/git/prompt.py) $ '
 
+# show non-zero exit code
+RPROMPT='%(0?..%?)'
+
 
 #------------
 #  bindings
