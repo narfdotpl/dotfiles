@@ -203,6 +203,9 @@ alias pyf='pyflakes `find . -name "*.py"`'
 # brutally remove
 alias rf='rm -rf'
 
+# remove TeX mess
+alias rmx='rm *.(aux|fdb_latexmk|log|nav|out|snm|synctex.gz|toc)'
+
 # run less
 alias s='less'
 
