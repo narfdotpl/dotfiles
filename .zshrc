@@ -297,6 +297,13 @@ eval `pip completion --zsh`
 source ~/.virtualenvs/virtualenvwrapper_bashrc
 
 
+#--------
+#  ruby
+#--------
+
+export RUBYOPT=rubygems
+
+
 #------------------------------------
 #  private stuff (ssh aliases etc.)
 #------------------------------------
