@@ -4,19 +4,6 @@
 # http://github.com/narfdotpl/dotfiles
 
 
-#--------
-#  PATH
-#--------
-
-USER_PATH=~/bin
-PORT_PATH=/opt/local/bin:/opt/local/sbin
-POSTGRES_PATH=/Library/PostgreSQL/8.3/bin/
-PYTHON_PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin
-RUBY_PATH=~/.gem/ruby/1.8/bin
-
-export PATH=$USER_PATH:$PORT_PATH:$POSTGRES_PATH:$PYTHON_PATH:$RUBY_PATH:$PATH
-
-
 #------------
 #  language
 #------------
@@ -287,6 +274,7 @@ eval `keychain --eval --quiet --agents ssh id_rsa`
 #  python
 #----------
 
+PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin:$PATH
 export PYTHONSTARTUP=~/.pythonrc.py
 
 # pip
@@ -301,8 +289,19 @@ source ~/.virtualenvs/virtualenvwrapper_bashrc
 #  ruby
 #--------
 
+PATH=~/.gem/ruby/1.8/bin:$PATH
 export RUBYOPT=rubygems
 
+
+#--------
+#  PATH
+#--------
+
+export PATH=~/bin\
+:/opt/local/bin\
+:/opt/local/sbin\
+:/Library/PostgreSQL/8.3/bin\
+:$PATH
 
 #------------------------------------
 #  private stuff (ssh aliases etc.)
