@@ -45,6 +45,7 @@ def extract_archives(args):
         ('.tgz', tar('--gzip')),
         ('.bz2', 'bunzip2'),  # <- ...matters
         ('.gz', 'gunzip'),
+        ('.rar', 'unrar e'),
         ('.zip', 'unzip'),
     ]
 
