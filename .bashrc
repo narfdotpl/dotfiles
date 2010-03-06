@@ -1,2 +1,7 @@
 # run Z shell
-[ -f $HOME/bin/zsh ] && exec $HOME/bin/zsh -l
+zsh_bin="`which zsh`"
+if [[ -x $zsh_bin ]]; then
+    exec $zsh_bin --login
+else
+    echo "zsh not found, get it at http://www.zsh.org/"
+fi
