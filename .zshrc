@@ -112,6 +112,12 @@ bindkey '^[b' backward-word
 #  aliases
 #-----------
 
+# run homebrew
+alias b='brew'
+
+# quietly update homebrew and list outdated tools
+alias bu='brew update 2> /dev/null; brew outdated'
+
 # change directory
 alias c='cd'
 alias ,='cd - > /dev/null'
