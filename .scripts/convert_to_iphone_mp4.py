@@ -43,10 +43,6 @@ COMMAND = 'ffmpeg -i {infile} -f mp4 -b {bitrate}k -ab 128k ' \
           '-s {width}x{height} {outfile}'
 
 
-def usage():
-    return __doc__.lstrip('\n').rstrip('\n')
-
-
 def compute_bitrate(width, height):
     area = width * height
     max_area = WIDTH * HEIGHT
@@ -59,6 +55,10 @@ def get_time_str():
 
 def multiple_of_16(integer):
     return int(round(integer / 16)) * 16
+
+
+def usage():
+    return __doc__.lstrip('\n').rstrip('\n')
 
 
 def _main():

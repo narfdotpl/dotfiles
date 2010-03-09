@@ -28,10 +28,6 @@ from sys import argv, stderr
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
-def usage():
-    return __doc__.lstrip('\n').rstrip('\n')
-
-
 def get_duration(path):
     # http://superuser.com/questions/81903#81960
     command = 'ffmpeg -i {0} 2>&1 | grep Duration'.format(path)
@@ -40,6 +36,10 @@ def get_duration(path):
     # => 00:27:36.90
     output = Popen(command, shell=True, stdout=PIPE).stdout.read()
     return output.split(',')[0].split()[-1]
+
+
+def usage():
+    return __doc__.lstrip('\n').rstrip('\n')
 
 
 def _main():
