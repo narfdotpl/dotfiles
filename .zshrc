@@ -256,6 +256,7 @@ alias mp3='script rename_mp3s'
 alias mp4='script 3 convert_to_iphone_mp4'
 alias o='script proxy_open'
 alias r='script run_ruby'
+alias rt='script move_to_trash'
 
 
 #---------

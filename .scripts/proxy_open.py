@@ -8,10 +8,12 @@ argument is an archive, extract it and optionally move to Trash.
 """
 
 from itertools import imap
-from os.path import isfile, realpath
+from os.path import isfile
 from pipes import quote
 from subprocess import call
 from sys import argv
+
+from move_to_trash import move_to_trash
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -82,14 +84,6 @@ def extract_archives(args):
             for archive in extracted:
                 if ask('Move {0} to Trash?'.format(archive)):
                     move_to_trash(archive)
-
-
-def move_to_trash(path):
-    call_in_the_shell("""
-        osascript -e '
-            tell application "Finder" to delete POSIX file "{0}"
-        ' > /dev/null
-    """.format(realpath(path)))
 
 
 def _main():
