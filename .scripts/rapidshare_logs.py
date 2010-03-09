@@ -188,7 +188,8 @@ def update(d1, d2):
 
 
 def usage():
-    return __doc__.lstrip('\n').rstrip('\n')
+    # strip preceding and trailing \n
+    return __doc__[1:-1]
 
 
 def _main():
