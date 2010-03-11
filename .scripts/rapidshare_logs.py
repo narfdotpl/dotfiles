@@ -116,11 +116,14 @@ def plot(logs, last_x_days=None):
         set xlabel "days"
         set ylabel "gigabytes"
 
-        set grid
-        set nokey
         set xdata time
         set timefmt "%Y-%m-%d"
         set format x "%m-%d"
+
+        set grid
+        set nokey
+        set style data boxes
+        set style fill solid 0.3
     """.format(png)
 
     # make tomorrow the last day in the plot (empty)
@@ -150,8 +153,7 @@ def plot(logs, last_x_days=None):
         # save gnuplot config and plotting instructions in a temporary file
         with NamedTemporaryFile() as gnuplot:
             gnuplot.write(config)
-            gnuplot.write('plot "{0}" using 1:2 with boxes 3 fillstyle ' \
-                          'solid 0.3'.format(data.name))
+            gnuplot.write('plot "{0}" using 1:2 lt 3'.format(data.name))
             gnuplot.flush()
 
             # run gnuplot
