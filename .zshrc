@@ -222,6 +222,9 @@ alias t="$EDIT ~/todo.taskpaper"
 # convert tabs to 4 spaces
 alias t4s="perl -pi -e 's/\t/    /g'"
 
+# locate program
+alias wh='which'
+
 # remove trailing whitespace http://gist.github.com/227361
 alias ws="perl -pi -e 's/ +$//'"
 
