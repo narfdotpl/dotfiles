@@ -13,7 +13,7 @@ preview window.  Pressing space or escape closes the preview window.
 """
 
 from pipes import quote
-from subprocess import PIPE, Popen, call
+from subprocess import PIPE, Popen
 from sys import argv, stderr
 from threading import Thread
 from time import sleep
