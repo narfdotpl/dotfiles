@@ -42,7 +42,7 @@ def extract_archives(args):
     patterns_and_commads = []
     for extension, command in [
         ('tar', tar()),
-        ('tar.bz2', tar('--bzip')),  # <- order...
+        ('tar.bz2|tbz|tb2', tar('--bzip')),  # <- order...
         ('tar.gz|tgz', tar('--gzip')),
         ('bz2', 'bunzip2'),  # <- ...matters
         ('gz', 'gunzip'),
