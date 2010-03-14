@@ -10,6 +10,7 @@ argument is an archive, extract it and optionally move to Trash.
 from itertools import imap
 from os.path import isfile
 from pipes import quote
+import re
 from subprocess import call
 from sys import argv
 
@@ -38,16 +39,23 @@ def extract_archives(args):
 
     # pair archive extensions with extraction commands
     tar = lambda s='': 'tar --extract --verbose {0} --file'.format(s)
-    extensions_and_commads = [
-        ('.tar', tar()),
-        ('.tar.bz2', tar('--bzip')),  # <- order...
-        ('.tar.gz', tar('--gzip')),
-        ('.tgz', tar('--gzip')),
-        ('.bz2', 'bunzip2'),  # <- ...matters
-        ('.gz', 'gunzip'),
-        ('.rar', 'unrar e'),
-        ('.zip', 'unzip'),
-    ]
+    patterns_and_commads = []
+    for extension, command in [
+        ('tar', tar()),
+        ('tar.bz2', tar('--bzip')),  # <- order...
+        ('tar.gz|tgz', tar('--gzip')),
+        ('bz2', 'bunzip2'),  # <- ...matters
+        ('gz', 'gunzip'),
+        ('rar', 'unrar e'),
+        ('zip', 'unzip'),
+    ]:
+        pattern = re.compile(
+            r'^'
+            r'(?P<name>.*)'
+            r'\.(?P<extension>{0})'.format(extension.replace('.', r'\.')) +
+            r'$'
+        )
+        patterns_and_commads.append((pattern, command))
 
     # extract archives and pop them from the original list
     extracted = []
@@ -56,8 +64,8 @@ def extract_archives(args):
         path = args[i]
         popped = False
         if isfile(path):
-            for extension, command in extensions_and_commads:
-                if path.endswith(extension):
+            for pattern, command in patterns_and_commads:
+                if re.match(pattern, path):
                     # extract
                     return_code = call_in_the_shell(command + ' ' + path)
                     if return_code == 0:
