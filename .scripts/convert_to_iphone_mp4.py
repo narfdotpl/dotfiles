@@ -4,10 +4,11 @@ Convert movies to iPhone mp4s.
 
 Usage:
 
-    python3 convert_to_iphone_mp4.py moviepath1 moviepath2 ...
+    python3 convert_to_iphone_mp4.py moviepath1 [moviepath2 ...]
 
-The script ignores all command line arguments that are not paths to
-existing files.
+
+The script saves mp4s in the working directory and ignores all command
+line arguments that are not paths to existing files.
 
 My ffmpeg can't do its work in silence, so I redirect both stdout and
 stderr to a PIPE, that I never read.  Obviously this is not very smart
@@ -17,13 +18,13 @@ warned!
 Dependencies:
 
   - [FFmpeg][] (I don't know the number of the lowest version that does
-    the job, I use 0.5)
+    the job, I use trunk r20701)
 
   [FFmpeg]: http://ffmpeg.org/
 """
 
 from datetime import datetime
-from os.path import abspath, basename, dirname, isfile, join, splitext
+from os.path import abspath, basename, isfile, splitext
 from pipes import quote
 from re import compile, findall
 from subprocess import PIPE, Popen
@@ -90,10 +91,8 @@ def _main():
                 width = multiple_of_16(height * aspect)
 
         # set outfile name
-        directory = dirname(path)
         name = basename(path)
-        new_name = '{0}.iphone.mp4'.format(splitext(name)[0])
-        outfile = join(directory, new_name)
+        outfile = '{0}.iphone.mp4'.format(splitext(name)[0])
 
         # convert
         print('{0} converting {1}...'.format(get_time_str(), name), end='')
@@ -105,7 +104,7 @@ def _main():
             height=height,
             bitrate=_compute_bitrate(width, height)
         ), shell=True, stdout=PIPE, stderr=PIPE).communicate()
-        print('-> ' + new_name)
+        print(' -> ./' + outfile)
 
     # finish
     print('{0} finished'.format(get_time_str()))
