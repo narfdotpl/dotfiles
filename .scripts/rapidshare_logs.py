@@ -24,7 +24,7 @@ BeautifulSoup 3.0.8 and gnuplot 4.2.
 from datetime import datetime, timedelta
 import json
 from os.path import expanduser, realpath
-from subprocess import PIPE, Popen, call
+from subprocess import call
 from sys import argv, stderr
 from tempfile import NamedTemporaryFile
 from urllib import urlencode
@@ -32,7 +32,7 @@ from urllib2 import urlopen
 
 from BeautifulSoup import BeautifulSoup
 
-from quicklook import preview
+from utils import preview, which
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -191,12 +191,6 @@ def update(d1, d2):
             return True
 
     return False
-
-
-def which(app):
-    return ''.join(
-        Popen('which ' + app, shell=True, stdout=PIPE).stdout.readlines()
-    )
 
 
 def usage():

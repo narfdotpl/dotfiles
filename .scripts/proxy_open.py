@@ -13,7 +13,7 @@ from pipes import quote
 from subprocess import call
 from sys import argv
 
-from move_to_trash import move_to_trash
+from utils import move_to_trash
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
