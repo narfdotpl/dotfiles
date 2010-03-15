@@ -24,7 +24,6 @@ BeautifulSoup 3.0.8 and gnuplot 4.2.
 from datetime import datetime, timedelta
 import json
 from os.path import expanduser, realpath
-from subprocess import call
 from sys import argv
 from tempfile import NamedTemporaryFile
 from urllib import urlencode
@@ -32,7 +31,7 @@ from urllib2 import urlopen
 
 from BeautifulSoup import BeautifulSoup
 
-from utils import exit1, preview, which
+from utils import exit1, preview, system, which
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -159,13 +158,13 @@ def _plot(logs, last_x_days=None):
             gnuplot.flush()
 
             # run gnuplot
-            call('cat "{0}" | gnuplot'.format(gnuplot.name), shell=True)
+            system('cat "{0}" | gnuplot'.format(gnuplot.name))
 
     # try to open PNG
     if which('qlmanage'):
         preview(png)
     elif which('open'):
-        call('open ' + png, shell=True)
+        system('open ' + png)
     else:
         print 'see ' + png
 

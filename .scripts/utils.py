@@ -17,6 +17,10 @@ def exit1(message):
     exit(1)
 
 
+def system(command):
+    return call(command, shell=True)
+
+
 def which(app):
     """
     `which $app`

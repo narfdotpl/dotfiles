@@ -11,21 +11,20 @@ Usage:
 
 from itertools import ifilter
 from os.path import exists, realpath
-from subprocess import call
 from sys import argv
 
-from utils import exit1
+from utils import exit1, system
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
 def move_to_trash(path):
-    call("""
+    system("""
         osascript -e '
             tell application "Finder" to delete POSIX file "{0}"
         ' > /dev/null
-    """.format(realpath(path)), shell=True)
+    """.format(realpath(path)))
 
 
 def _main():

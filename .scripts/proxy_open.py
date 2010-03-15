@@ -14,10 +14,9 @@ from os import listdir
 from os.path import basename, dirname, isfile, join
 from pipes import quote
 import re
-from subprocess import call
 from sys import argv
 
-from utils import move_to_trash
+from utils import move_to_trash, system
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -28,10 +27,6 @@ def ask(question):
     while answer not in ['yes', 'y', 'no', 'n']:
         answer = raw_input(question + ' ').lower()
     return answer.startswith('y')
-
-
-def call_in_the_shell(command):
-    return call(command, shell=True)
 
 
 def extract_archives(args):
@@ -75,7 +70,7 @@ def extract_archives(args):
                 match = re.match(pattern, path)
                 if match:
                     # extract
-                    return_code = call_in_the_shell(command + ' ' + path)
+                    return_code = system(command + ' ' + path)
                     if return_code == 0:
                         # use "./filename" path format
                         directory = dirname(path) or '.'
@@ -126,11 +121,11 @@ def _main():
     # `list(imap(...))` is better than `map(...)`, because it's more py3ish :)
     args = list(imap(quote, argv[1:]))
     if not args:
-        call_in_the_shell('open .')
+        system('open .')
     else:
         extract_archives(args)
         if args:
-            call_in_the_shell('open ' + ' '.join(args))
+            system('open ' + ' '.join(args))
 
 if __name__ == '__main__':
     _main()
