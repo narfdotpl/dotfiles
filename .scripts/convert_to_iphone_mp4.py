@@ -43,7 +43,7 @@ COMMAND = 'ffmpeg -i {infile} -f mp4 -b {bitrate}k -ab 128k ' \
           '-s {width}x{height} {outfile}'
 
 
-def compute_bitrate(width, height):
+def _compute_bitrate(width, height):
     area = width * height
     max_area = WIDTH * HEIGHT
     return int(FULLSCREEN_BITRATE * area / max_area)
@@ -57,7 +57,7 @@ def multiple_of_16(integer):
     return int(round(integer / 16)) * 16
 
 
-def usage():
+def _usage():
     # strip preceding and trailing \n
     return __doc__[1:-1]
 
@@ -66,7 +66,7 @@ def _main():
     # get movie paths
     paths = list(map(quote, map(abspath, filter(isfile, argv[1:]))))
     if not paths:
-        print(usage(), file=stderr)
+        print(_usage(), file=stderr)
         exit(1)
 
     # (width, height)
@@ -103,7 +103,7 @@ def _main():
             outfile=outfile,
             width=width,
             height=height,
-            bitrate=compute_bitrate(width, height)
+            bitrate=_compute_bitrate(width, height)
         ), shell=True, stdout=PIPE, stderr=PIPE).communicate()
         print('-> ' + new_name)
 

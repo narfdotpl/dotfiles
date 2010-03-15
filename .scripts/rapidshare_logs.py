@@ -96,7 +96,7 @@ def _get_logs_from_web(username, password):
     return logs
 
 
-def plot(logs, last_x_days=None):
+def _plot(logs, last_x_days=None):
     """
     Create a PNG plot showing downloads from `last_x_days` or since the
     first day in the log file.
@@ -241,7 +241,7 @@ def _main():
         # plot filelogs
         logs = _get_logs_from_file(path)
         try:
-            plot(logs, last_x_days)
+            _plot(logs, last_x_days)
         except ValueError:
             print >> stderr, 'Number of days has to be a number (sic!) ' \
                              'greater than zero.'
