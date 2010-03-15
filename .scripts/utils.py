@@ -6,9 +6,15 @@ functions from this module, not from each other.
 """
 
 from subprocess import call
+from sys import stderr
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
+
+
+def exit1(message):
+    print >> stderr, message
+    exit(1)
 
 
 def which(app):

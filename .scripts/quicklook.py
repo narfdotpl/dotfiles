@@ -14,9 +14,11 @@ preview window.  Pressing space or escape closes the preview window.
 
 from pipes import quote
 from subprocess import PIPE, Popen
-from sys import argv, stderr
+from sys import argv
 from threading import Thread
 from time import sleep
+
+from utils import exit1
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -79,17 +81,10 @@ def preview(item):
         sleep(interval)
 
 
-def usage():
-    # strip preceding and trailing \n
-    return __doc__[1:-1]
-
-
 def _main():
-    # parse command-line arguments
     item = ' '.join(map(quote, argv[1:]))
     if not item:
-        print >> stderr, usage()
-        exit(1)
+        exit1(__doc__[1:-1])
 
     preview(item)
 

@@ -22,7 +22,9 @@ from itertools import ifilter, imap
 from os.path import isfile
 from pipes import quote
 from subprocess import PIPE, Popen
-from sys import argv, stderr
+from sys import argv
+
+from utils import exit1
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -38,17 +40,12 @@ def get_duration(path):
     return output.split(',')[0].split()[-1]
 
 
-def usage():
-    return __doc__.lstrip('\n').rstrip('\n')
-
-
 def _main():
     # get movie paths
     # `list(imap(...))` is better than `map(...)`, because it's more py3ish :)
     paths = list(imap(quote, ifilter(isfile, argv[1:])))
     if not paths:
-        print >> stderr, usage()
-        exit(1)
+        exit1(__doc__[1:-1])
 
     if len(paths) == 1:
         print get_duration(paths[0])

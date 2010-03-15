@@ -12,7 +12,9 @@ Usage:
 from itertools import ifilter
 from os.path import exists, realpath
 from subprocess import call
-from sys import argv, stderr
+from sys import argv
+
+from utils import exit1
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -26,16 +28,10 @@ def move_to_trash(path):
     """.format(realpath(path)), shell=True)
 
 
-def usage():
-    # strip preceding and trailing \n
-    return __doc__[1:-1]
-
-
 def _main():
     paths = list(ifilter(exists, argv[1:]))
     if not paths:
-        print >> stderr, usage()
-        exit(1)
+        exit1(__doc__[1:-1])
 
     for path in paths:
         move_to_trash(path)

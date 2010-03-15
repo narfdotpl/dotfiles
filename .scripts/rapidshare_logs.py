@@ -25,14 +25,14 @@ from datetime import datetime, timedelta
 import json
 from os.path import expanduser, realpath
 from subprocess import call
-from sys import argv, stderr
+from sys import argv
 from tempfile import NamedTemporaryFile
 from urllib import urlencode
 from urllib2 import urlopen
 
 from BeautifulSoup import BeautifulSoup
 
-from utils import preview, which
+from utils import exit1, preview, which
 
 
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
@@ -193,11 +193,6 @@ def update(d1, d2):
     return False
 
 
-def usage():
-    # strip preceding and trailing \n
-    return __doc__[1:-1]
-
-
 def _main():
     # parse command-line arguments
     args = argv[1:]
@@ -205,8 +200,7 @@ def _main():
         action = args.pop(0)
         path = realpath(expanduser(args.pop(0)))
     except IndexError:
-        print >> stderr, usage()
-        exit(1)
+        exit1(__doc__[1:-1])
 
     # act!
     if action == 'get':
@@ -215,16 +209,14 @@ def _main():
             username = args.pop(0)
             password = args.pop(0)
         except IndexError:
-            print >> stderr, usage()
-            exit(1)
+            exit1(__doc__[1:-1])
 
         # get logs
         filelogs = _get_logs_from_file(path)
         try:
             weblogs = _get_logs_from_web(username, password)
         except InvalidLoginInformation:
-            print >> stderr, 'Invalid username or password.'
-            exit(1)
+            exit1('Invalid username or password.')
 
         # update and save filelogs
         if update(filelogs, weblogs):
@@ -243,13 +235,11 @@ def _main():
         try:
             _plot(logs, last_x_days)
         except ValueError:
-            print >> stderr, 'Number of days has to be a number (sic!) ' \
-                             'greater than zero.'
-            exit(1)
+            exit1('Number of days has to be a number (sic!) greater than ' \
+                  'zero.')
 
     else:
-        print >> stderr, "Unknown action '{0}'.".format(action)
-        exit(1)
+        exit1("Unknown action '{0}'.".format(action))
 
 if __name__ == '__main__':
     _main()
