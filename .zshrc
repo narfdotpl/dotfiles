@@ -10,7 +10,6 @@
 
 export PATH=~/bin\
 :/Library/Frameworks/Python.framework/Versions/2.6/bin\
-:~/.gem/ruby/1.8/bin\
 :/Library/PostgreSQL/8.4/bin\
 :$PATH
 
