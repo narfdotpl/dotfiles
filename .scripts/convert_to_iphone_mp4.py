@@ -24,7 +24,7 @@ Dependencies:
 """
 
 from datetime import datetime
-from os.path import abspath, basename, isfile, splitext
+from os.path import abspath, basename, exists, isfile, splitext
 from pipes import quote
 from re import compile, findall
 from subprocess import PIPE, Popen
@@ -92,7 +92,13 @@ def _main():
 
         # set outfile name
         name = basename(path)
-        outfile = '{0}.iphone.mp4'.format(splitext(name)[0])
+        outfile = './{0}.iphone.mp4'.format(splitext(name)[0])
+
+        # omit convertion if outfile already exists
+        if exists(outfile):
+            print('{0} omitting {1}: {2} already exists' \
+                  .format(get_time_str(), name, outfile))
+            continue
 
         # convert
         print('{0} converting {1}...'.format(get_time_str(), name), end='')
@@ -104,7 +110,7 @@ def _main():
             height=height,
             bitrate=_compute_bitrate(width, height)
         ), shell=True, stdout=PIPE, stderr=PIPE).communicate()
-        print(' -> ./' + outfile)
+        print(' -> ' + outfile)
 
     # finish
     print('{0} finished'.format(get_time_str()))
