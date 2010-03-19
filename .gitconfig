@@ -10,6 +10,7 @@
     c = commit --all --verbose
     ca = commit --all --verbose --amend
     d = !git diff | $EDITOR -
+    h = help
     i = !git init && git add . && git commit --message='initial commit'
     l = !python ~/.scripts/git/log.py | less
     la = !git log --graph --pretty=format:'%ad %s' --date=short | less
