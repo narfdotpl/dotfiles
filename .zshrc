@@ -215,6 +215,9 @@ alias rmx='rm *.(aux|fdb_latexmk|log|nav|out|snm|synctex.gz|toc)'
 # run less
 alias s='less'
 
+# save workspace
+alias save='save_workspace'
+
 # edit todo list
 alias t="$EDIT ~/todo.taskpaper"
 
@@ -316,3 +319,23 @@ export RUBYOPT=rubygems
 #------------------------------------
 
 [[ -f ~/.zsh/private ]] && source ~/.zsh/private
+
+
+#-------------
+#  workspace
+#-------------
+
+workspace=~/.workspace
+
+# restore workspace (working directory and virtual env) on startup
+if [[ -f $workspace ]]; then
+    source $workspace
+    rm $workspace
+fi
+
+save_workspace() {
+    echo "cd '`pwd`'" > $workspace
+    if [[ $VIRTUAL_ENV != '' ]]; then
+        echo "source '$VIRTUAL_ENV/bin/activate'" >> $workspace
+    fi
+}
