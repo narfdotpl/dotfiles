@@ -70,14 +70,6 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 
 
-#--------
-#  MOTD
-#--------
-
-# example: stallman (Linux), up 29 days
-python ~/.scripts/show_machine_info.py MacBook.local
-
-
 #----------
 #  prompt
 #----------
@@ -319,6 +311,14 @@ export RUBYOPT=rubygems
 #------------------------------------
 
 [[ -f ~/.zsh/private ]] && source ~/.zsh/private
+
+
+#--------
+#  MOTD
+#--------
+
+# example: stallman (Linux), up 29 days
+python ~/.scripts/show_machine_info.py MacBook.local
 
 
 #-------------
