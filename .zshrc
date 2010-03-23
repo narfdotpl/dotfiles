@@ -189,9 +189,6 @@ alias p3='python3'
 # ping google
 alias pg='ping -c 5 google.com'
 
-# serve file via http http://www.home.unix-ag.org/simon/woof.html
-alias pub='woof'
-
 # remove *.pyc files
 alias pyc='rm `find . -name "*.pyc"`'
 
