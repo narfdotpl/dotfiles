@@ -120,7 +120,18 @@ alias ...='.; .; .'
 alias cl='clear'
 
 # copy working directory path
-alias cpwd='pwd | tr -d "\n" | pbcopy'
+cpwd() {
+    # get working directory path
+    local _path="`pwd`"
+
+    # join path with first argument
+    if [[ "$1" != '' ]]; then
+        _path="$_path/$1"
+    fi
+
+    # copy quoted path to clipboard
+    echo -n "'$_path'" | pbcopy
+}
 
 # go to Desktop
 alias d='cd ~/Desktop'
