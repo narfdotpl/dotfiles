@@ -139,6 +139,15 @@ alias d='cd ~/Desktop'
 # show date (example: 2009-11-07 01:16:21, Saturday)
 alias da='date "+%Y-%m-%d %H:%M:%S, %A"'
 
+# cp/mv file to dropbox and copy public link to clipboard
+alias dcp='dropbox cp'
+alias dmv='dropbox mv'
+dropbox() {
+    $1 $2 ~/Dropbox/Public
+    echo -n "http://▲.narf.pl/`basename $2`" | pbcopy
+    # ▲.narf.pl/foo == dl.dropbox.com/u/2618196/foo
+}
+
 # edit
 alias e=$EDIT
 
