@@ -62,8 +62,7 @@ def _main():
     # create archive
     archive = '{directory}.{extension}'.format(**locals())
     system('git archive --format={format} --prefix={directory}/ HEAD ' \
-           '{pipe} > {archive} && echo created archive {archive}' \
-           .format(**locals()))
+           '{pipe} > {archive} && echo {archive}'.format(**locals()))
 
     # remove repository
     if no_repo:
