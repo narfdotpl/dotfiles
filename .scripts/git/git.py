@@ -28,7 +28,7 @@ class Git(object):
 
         process = Popen('git status', shell=True, stderr=PIPE, stdout=PIPE)
         return_code = process.wait()
-        error = ''.join(process.stderr.readlines())
+        error = process.stderr.read()
         if error:
             raise EnvironmentError(return_code, error)
 

@@ -32,9 +32,9 @@ def _main():
     if args is not None:
         call('git branch ' + args, shell=True)
     else:
-        message = ''.join(Popen(
+        message = Popen(
             'git checkout ' + branch, shell=True, stderr=PIPE
-        ).stderr.readlines()).rstrip('\n')
+        ).stderr.read().rstrip('\n')
 
         if 'did not match' in message:
             print "Branch '{0}' doesn't exist.".format(branch),

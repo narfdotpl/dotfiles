@@ -52,8 +52,7 @@ def _get_html(username, password):
         'password': password,
         'showlogs': 1
     })
-    response = urlopen(url, data)
-    return ''.join(response.readlines())
+    return urlopen(url, data).read()
 
 
 def _get_logs_from_file(path):

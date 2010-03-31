@@ -51,7 +51,7 @@ def _main():
     cached = False
     if isfile(mp3_path) and isfile(txt_path):
         with open(txt_path) as f:
-            old_phrase = ' '.join(f.readlines())
+            old_phrase = f.read()
         cached = phrase == old_phrase
 
     # download mp3 and save phrase
