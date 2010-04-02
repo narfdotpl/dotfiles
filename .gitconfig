@@ -17,6 +17,7 @@
     lsha = !git log --oneline | less
     m = rebase master
     msg = commit --allow-empty --message
+    ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     p = stash pop
     r = !python ~/.scripts/git/rebase.py
     rh = reset --hard
