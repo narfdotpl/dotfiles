@@ -103,6 +103,9 @@ bindkey '^[b' backward-word
 #  aliases
 #-----------
 
+# run less
+alias :='less'
+
 # run homebrew
 alias b='brew'
 
@@ -220,9 +223,6 @@ alias rf='rm -rf'
 
 # remove TeX mess
 alias rmx='rm *.(aux|fdb_latexmk|log|nav|out|snm|synctex.gz|toc)'
-
-# run less
-alias s='less'
 
 # save workspace
 alias save='save_workspace'
