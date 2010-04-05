@@ -224,6 +224,9 @@ alias rf='rm -rf'
 # remove TeX mess
 alias rmx='rm *.(aux|fdb_latexmk|log|nav|out|snm|synctex.gz|toc)'
 
+# go to sandbox
+alias s='cd ~/sandbox'
+
 # save workspace
 alias save='save_workspace'
 
