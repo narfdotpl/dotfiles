@@ -26,3 +26,4 @@
     sl = !git stash list | less
     st = status
     who = shortlog --summary --numbered --email
+    x = !open -a gitx .
