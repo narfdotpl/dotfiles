@@ -25,7 +25,4 @@
     s = !git add . && git stash save
     sl = !git stash list | less
     st = status
-    web = instaweb
     who = shortlog --summary --numbered --email
-[instaweb]
-    httpd = webrick  # OS X love
