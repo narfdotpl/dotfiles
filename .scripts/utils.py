@@ -31,6 +31,6 @@ def which(app):
 
 
 # scripts import from this module, not from each other
-from git import Git
+from git import Git, prompt as git_prompt
 from move_to_trash import move_to_trash
 from quicklook import preview

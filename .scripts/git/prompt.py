@@ -26,11 +26,11 @@ from git import Git
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
-def _main():
+def prompt():
     try:
         git = Git()
     except EnvironmentError:
-        pass
+        return ''
     else:
         # depth
         prompt = '.' * git.depth
@@ -46,7 +46,11 @@ def _main():
         if Popen('git stash list', shell=True, stdout=PIPE).stdout.readlines():
             prompt += '&'
 
-        print '(' + prompt + ')',
+        return prompt
+
+
+def _main():
+    print prompt()
 
 if __name__ == '__main__':
     _main()

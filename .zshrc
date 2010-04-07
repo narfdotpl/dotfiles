@@ -14,6 +14,14 @@ export PATH=~/bin\
 :$PATH
 
 
+#----------
+#  CDPATH
+#----------
+
+# put handy symlinks here
+export CDPATH=~/⚡
+
+
 #------------
 #  language
 #------------
@@ -78,9 +86,7 @@ setopt hist_save_no_dups
 # and arithmetic expansion
 setopt prompt_subst
 
-# show three trailing components of current path (replace $HOME with ~),
-# git prompt, and dollar sign
-PROMPT='%3~$(python ~/.scripts/git/prompt.py) $ '
+PROMPT='$(python ~/.scripts/prompt.py "$(pwd)")'
 
 # show non-zero exit code
 RPROMPT='%(0?..%?)'
@@ -113,8 +119,9 @@ alias b='brew'
 alias bu='brew update 2> /dev/null; brew outdated'
 
 # change directory
-alias c='cd'
-alias ,='cd - > /dev/null'
+c() {cd $1 > /dev/null}
+compdef c=cd
+alias ,='c -'
 alias .='cd ..'
 alias ..='.; .'
 alias ...='.; .; .'
