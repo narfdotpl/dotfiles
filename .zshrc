@@ -288,6 +288,7 @@ alias loop='python ~/.loops/loopozorg/script_runner.py'
 
 alias la='loop assembler'
 alias lc='loop c'
+alias lch='loop chrome'
 alias lcs='loop c-sharp'
 alias lf='loop fabric'
 alias lj='loop javascript'
