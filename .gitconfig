@@ -24,6 +24,7 @@
     push-upto = !python ~/.scripts/git/push-upto.py
     r = !python ~/.scripts/git/rebase.py
     rh = reset --hard
+    root-branch = !python ~/.scripts/git/root-branch.py
     s = !git add . && git stash save
     sl = !git stash list | less
     st = status
