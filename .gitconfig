@@ -20,6 +20,7 @@
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     p = stash pop
+    push-upto = !python ~/.scripts/git/push-upto.py
     r = !python ~/.scripts/git/rebase.py
     rh = reset --hard
     s = !git add . && git stash save
