@@ -163,6 +163,7 @@ alias e=$EDIT
 
 # run git
 alias g='git'
+git() {hub "$@"}  # http://github.com/defunkt/hub
 
 # run grep
 alias gr='grep --ignore-case'
