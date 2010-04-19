@@ -1,8 +1,10 @@
 [user]
     name = Maciej Konieczny
     email = hello@narf.pl
+
 [core]
     excludesfile = /Users/narf/.gitglobalignore
+
 [alias]
     a = !git add . && git commit --all --verbose
     b = !python ~/.scripts/git/branch.py
