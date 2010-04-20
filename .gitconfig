@@ -2,6 +2,11 @@
     name = Maciej Konieczny
     email = hello@narf.pl
 
+[github]
+    user = narfdotpl
+    token = !security 2>&1 >/dev/null find-generic-password -gs github.token \
+            | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+
 [core]
     excludesfile = /Users/narf/.gitglobalignore
 
