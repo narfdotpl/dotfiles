@@ -194,17 +194,20 @@ alias h='history -i 1 | less +G'
 # run JSLint
 alias jslint='java -jar ~/tools/rhino.jar ~/tools/jslint.js'
 
+# append type indicator and list by lines
+alias ls='ls -Fx'
+
 # list directory contents
-alias l='ls -F'
-alias l/='ls -dF *(/)'  # directories
-alias l.='ls -dF *(.)'  # files
-alias l@='ls -dF *(@)'  # links
+alias l='ls'
+alias l/='ls -d *(/)'    # directories
+alias l.='ls -d *(.)'    # files
+alias l@='ls -d *(@)'    # links
 
 # list directory contents that begin with a dot
-alias .l='ls -dF .*'
-alias .l/='ls -dF .*(/)'  # directories
-alias .l.='ls -dF .*(.)'  # files
-alias .l@='ls -dF .*(@)'  # links
+alias .l='ls -d .*'
+alias .l/='ls -d .*(/)'  # directories
+alias .l.='ls -d .*(.)'  # files
+alias .l@='ls -d .*(@)'  # links
 
 # create directory (and intermediate directories) and go there
 m() {
