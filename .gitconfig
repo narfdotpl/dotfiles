@@ -20,7 +20,8 @@
     d = !git diff | $EDITOR -
     gh = !hub browse
     h = help
-    i = !git init && git add . && git commit --message='initial commit'
+    i = !git init && git add . && \
+        git commit --allow-empty --message='initial commit'
     l = !python ~/.scripts/git/log.py | less
     la = !git log --graph --pretty=format:'%ad %s' --date=short | less
     lsha = !git log --oneline -n $(expr 1 + $(git l | wc -l))
