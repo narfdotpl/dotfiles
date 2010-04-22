@@ -199,15 +199,11 @@ alias ls='ls -Fx'
 
 # list directory contents
 alias l='ls'
-alias l/='ls -d *(/)'    # directories
-alias l.='ls -d *(.)'    # files
-alias l@='ls -d *(@)'    # links
+alias l/='ls -d *(/)'  # directories
+alias l.='ls -d *(.)'  # files
+alias l@='ls -d *(@)'  # links
+alias .l='ls -d .*'    # hidden stuff
 
-# list directory contents that begin with a dot
-alias .l='ls -d .*'
-alias .l/='ls -d .*(/)'  # directories
-alias .l.='ls -d .*(.)'  # files
-alias .l@='ls -d .*(@)'  # links
 
 # create directory (and intermediate directories) and go there
 m() {
