@@ -46,13 +46,27 @@ fi
 #  ls
 #------
 
+# try to use linux ls:
+# check if `ls --version` exits with 0 status
+ls --version > /dev/null 2>&1
+if [[ $? = 0 ]]; then
+    GNU_LS=true
 # check if `gls` is present
-if [[ -x `which gls` ]]; then
+elif [[ -x `which gls` ]]; then
+    GNU_LS=true
     ls() {gls "$@"}
+else
+    GNU_LS=false
 fi
 
-# add default arguments: append type indicator and list by lines
-alias ls='ls -Fx'
+# add default arguments
+if [[ $GNU_LS = true ]]; then
+    # append type indicator, list by lines
+    # and ignore compiled/optimized Python code
+    alias ls='ls -Fx --ignore="*.py[co]"'
+else
+    alias ls='ls -Fx'
+fi
 
 
 #--------------
