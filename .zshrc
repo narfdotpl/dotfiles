@@ -42,6 +42,19 @@ else
 fi
 
 
+#------
+#  ls
+#------
+
+# check if `gls` is present
+if [[ -x `which gls` ]]; then
+    ls() {gls "$@"}
+fi
+
+# add default arguments: append type indicator and list by lines
+alias ls='ls -Fx'
+
+
 #--------------
 #  completion
 #--------------
@@ -193,9 +206,6 @@ alias h='history -i 1 | less +G'
 
 # run JSLint
 alias jslint='java -jar ~/tools/rhino.jar ~/tools/jslint.js'
-
-# append type indicator and list by lines
-alias ls='ls -Fx'
 
 # list directory contents
 alias l='ls'
