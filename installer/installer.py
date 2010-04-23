@@ -17,18 +17,23 @@ from shutil import rmtree
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
-def get_already_installed(dotfiles, home_dir=None):
+HOME_DIR = expanduser('~')
+REPO_DIR = realpath(join(dirname(__file__), '..'))
+DOTFILES_DIR = join(REPO_DIR, 'home')
+
+
+def get_already_installed(dotfiles, home_dir=None, repo_dir=None):
     """
     List links that already point at things in dotfiles directory.
     """
 
-    home_dir = home_dir or expanduser('~')
-    dotfiles_dir = dirname(dotfiles[0])
+    home_dir = home_dir or HOME_DIR
+    repo_dir = repo_dir or REPO_DIR
     already_installed = []
 
     for name in listdir(home_dir):
         path = join(home_dir, name)
-        if islink(path) and readlink(path).startswith(dotfiles_dir):
+        if islink(path) and readlink(path).startswith(repo_dir):
             already_installed.append(path)
 
     return already_installed
@@ -38,20 +43,13 @@ def get_dotfiles(dotfiles_dir=None):
     """
     List absolute paths to dotfiles.
 
-    Ignore .git/, installer, readme and everything that matches
-    .gitglobalignore patterns.
+    Ignore everything that matches .gitglobalignore patterns.
     """
 
-    dotfiles_dir = dotfiles_dir or realpath(join(dirname(__file__), '..'))
+    dotfiles_dir = dotfiles_dir or DOTFILES_DIR
 
     # get everything
     dotfiles_names = listdir(dotfiles_dir)
-
-    # ignore git, installer and readme
-    for name in ['.git', '.gitmodules', 'install', 'installer',
-                 'README.markdown']:
-        if name in dotfiles_names:
-            dotfiles_names.remove(name)
 
     # ignore everything that matches .gitglobalignore patterns
     gitglobalignore = join(dotfiles_dir, '.gitglobalignore')
@@ -126,7 +124,7 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
     Backup by appending "~" to the name.
     """
 
-    home_dir = home_dir or expanduser('~')
+    home_dir = home_dir or HOME_DIR
 
     for path in sorted(fresh):
         destination = join(home_dir, basename(path))

@@ -6,7 +6,7 @@ Run with nose http://somethingaboutorange.com/mrl/projects/nose
 """
 
 from os import listdir, mkdir, symlink
-from os.path import basename, islink, join
+from os.path import basename, dirname, islink, join
 from shutil import rmtree
 from tempfile import mkdtemp, NamedTemporaryFile as NTF
 
@@ -100,11 +100,6 @@ class TestMajority:
         # 3rd -- installed, used to create incorrect symlinks
         self.fresh = first_group + second_group
 
-        # create ignored stuff
-        for filename in ['.git', 'install', 'installer', 'README.markdown']:
-            with open(join(self.dotfiles_dir, filename), 'w'):
-                pass
-
         # $HOME
         # =====
 
@@ -162,7 +157,8 @@ class TestMajority:
 
     def test_get_already_installed(self):
         expected = self.already_installed
-        already_installed = get_already_installed(self.dotfiles, self.home_dir)
+        already_installed = get_already_installed(self.dotfiles, self.home_dir,
+                                                  dirname(self.dotfiles[0]))
         assert_no_difference(already_installed, expected)
 
     def test_get_dotfiles(self):
