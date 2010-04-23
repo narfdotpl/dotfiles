@@ -216,7 +216,7 @@ gmc() {
 }
 
 # show shell history
-alias h='history -i 1 | less +G'
+alias hi='history -i 1 | less +G'
 
 # run JSLint
 alias jslint='java -jar ~/tools/rhino.jar ~/tools/jslint.js'
