@@ -215,6 +215,9 @@ gmc() {
     open $destination
 }
 
+# go to ~/dotfiles/home
+alias h='c home'
+
 # show shell history
 alias hi='history -i 1 | less +G'
 
