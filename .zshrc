@@ -273,6 +273,9 @@ alias wh='which'
 # remove trailing whitespace http://gist.github.com/227361
 alias ws="perl -pi -e 's/ +$//'"
 
+# edit .zshrc
+alias z="$EDIT ~/.zshrc"
+
 
 #-----------
 #  scripts
