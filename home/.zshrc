@@ -284,8 +284,23 @@ alias s='cd ~/sandbox'
 # save workspace
 alias save='save_workspace'
 
-# edit todo list
-alias t='edit ~/todo.taskpaper'
+# edit todo list and commit previous changes
+t() {
+    # set paths
+    local dir="$HOME/todo"
+    local list="$dir/list.taskpaper"
+    local gdir="--git-dir=$dir/.git"
+    local wtree="--work-tree=$dir"
+
+    # commit previous changes
+    local mtime="`stat -f %m $list`"
+    local isomtime="`date -j -f %s $mtime '+%Y-%m-%d %H:%M:%S'`"
+    local diffstat="`git $gdir $wtree diff --stat | head -n 1 | cut -c 19-80`"
+    git $gdir $wtree commit --all --message "$isomtime $diffstat" > /dev/null
+
+    # edit list
+    edit $list
+}
 
 # convert tabs to 4 spaces
 alias t4s="perl -pi -e 's/\t/    /g'"
