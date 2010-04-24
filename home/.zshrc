@@ -41,6 +41,22 @@ else
     export EDITOR=$EDIT
 fi
 
+edit() {
+    if [[ "$@" = "" ]]; then
+        local stdin
+        local part
+
+        read stdin
+        while read part; do
+            stdin+="\n"$part
+        done
+
+        echo "$stdin" | eval "$EDIT -"
+    else
+        eval "$EDIT $@"
+    fi
+}
+
 
 #------
 #  ls
@@ -186,7 +202,7 @@ dropbox() {
 }
 
 # edit
-alias e=$EDIT
+alias e='edit'
 
 # run git
 alias g='git'
@@ -269,7 +285,7 @@ alias s='cd ~/sandbox'
 alias save='save_workspace'
 
 # edit todo list
-alias t="$EDIT ~/todo.taskpaper"
+alias t='edit ~/todo.taskpaper'
 
 # convert tabs to 4 spaces
 alias t4s="perl -pi -e 's/\t/    /g'"
@@ -281,7 +297,7 @@ alias wh='which'
 alias ws="perl -pi -e 's/ +$//'"
 
 # edit .zshrc
-alias z="$EDIT ~/.zshrc"
+alias z='edit ~/.zshrc'
 
 
 #-----------
