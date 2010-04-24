@@ -28,13 +28,13 @@
     m = rebase master
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
-    p = stash pop
     push-upto = !python ~/.scripts/git/push-upto.py
     r = !python ~/.scripts/git/rebase.py
     rh = reset --hard
     root-branch = !python ~/.scripts/git/root-branch.py
-    s = !git add . && git stash save
     sl = !git stash list | less
+    sp = stash pop
+    ss = !git add . && git stash save
     st = status
     who = shortlog --summary --numbered --email
     x = !open -a gitx .
