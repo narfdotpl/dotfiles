@@ -32,9 +32,9 @@
     r = !python ~/.scripts/git/rebase.py
     rh = reset --hard
     root-branch = !python ~/.scripts/git/root-branch.py
+    s = status
     sl = !git stash list | less
     sp = stash pop
     ss = !git add . && git stash save
-    st = status
     who = shortlog --summary --numbered --email
     x = !open -a gitx .
