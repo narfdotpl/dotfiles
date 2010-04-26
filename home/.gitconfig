@@ -23,7 +23,7 @@
     i = !git init && git add . && \
         git commit --allow-empty --message='initial commit'
     l = !python ~/.scripts/git/log.py | less
-    la = !git log --graph --pretty=format:'%ad %s' --date=short | less
+    ll = !git log --graph --pretty=format:'%ad %s' --date=short | less
     lsha = !git log --oneline -n $(expr 1 + $(git l | wc -l))
     m = rebase master
     msg = commit --allow-empty --message
