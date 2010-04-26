@@ -35,7 +35,8 @@ export LANG=en_US.UTF-8
 
 if [[ -x `which mvim` ]]; then
     export EDIT='mvim -p'  # -p == open tab for each file
-    export EDITOR=$EDIT' --nofork'
+    # go back to terminal after closing editor
+    export EDITOR='sh -c "'$EDIT' --nofork $@ && open -a terminal"'
 else
     export EDIT='vim'
     export EDITOR=$EDIT
