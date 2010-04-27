@@ -56,7 +56,7 @@ def _main():
 
     for path in paths:
         # set outfile name
-        name = basename(path)
+        name = basename(path).rstrip("'")
         outfile = './{0}.mp3'.format(splitext(name)[0])
 
         # omit convertion if outfile already exists
@@ -69,7 +69,7 @@ def _main():
         print('{0} converting {1}...'.format(get_time_str(), name), end='')
         stdout.flush()
         Popen(
-            COMMAND.format(infile=path, outfile=outfile),
+            COMMAND.format(infile=path, outfile=quote(outfile)),
             shell=True, stdout=PIPE, stderr=PIPE
         ).communicate()
         print(' -> ' + outfile)

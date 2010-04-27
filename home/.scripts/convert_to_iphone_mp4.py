@@ -91,7 +91,7 @@ def _main():
                 width = multiple_of_16(height * aspect)
 
         # set outfile name
-        name = basename(path)
+        name = basename(path).rstrip("'")
         outfile = './{0}.iphone.mp4'.format(splitext(name)[0])
 
         # omit convertion if outfile already exists
@@ -105,7 +105,7 @@ def _main():
         stdout.flush()
         Popen(COMMAND.format(
             infile=path,
-            outfile=outfile,
+            outfile=quote(outfile),
             width=width,
             height=height,
             bitrate=_compute_bitrate(width, height)
