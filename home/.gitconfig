@@ -16,6 +16,7 @@
     bm = checkout master
     c = commit --all --verbose
     ca = commit --all --verbose --amend
+    car = !git commit --all --verbose --amend && git rebase --continue
     cl = clean -d --force
     d = !python ~/.scripts/git/diff.py
     gh = !hub browse
