@@ -96,6 +96,9 @@ compinit
 # make completion lists as compact as possible
 setopt list_packed
 
+# list by lines
+setopt list_rows_first
+
 
 #-----------
 #  history
