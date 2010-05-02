@@ -167,8 +167,8 @@ c() {cd $1 > /dev/null}
 compdef c=cd
 alias ,='c -'
 alias .='cd ..'
-alias ..='.; .'
-alias ...='.; .; .'
+alias ..='cd ../..'
+alias ...='cd ../../..'
 
 # clear the terminal screen
 alias cl='clear'
