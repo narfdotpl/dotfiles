@@ -17,7 +17,7 @@
     c = commit --all --verbose
     ca = commit --all --verbose --amend
     cl = clean -d --force
-    d = !git diff | $EDITOR -
+    d = !python ~/.scripts/git/diff.py
     gh = !hub browse
     h = help
     i = !git init && git add . && \
