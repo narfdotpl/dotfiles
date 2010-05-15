@@ -35,7 +35,7 @@ __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 # ffmpeg has a sick number of options.  Instead of studying them, I just
 # use defaults.
-COMMAND = 'ffmpeg -i {infile} -f mp3 -ab 128k {outfile}'
+COMMAND = 'ffmpeg -i {infile} -f mp3 -ab 192k {outfile}'
 
 
 def get_time_str():
