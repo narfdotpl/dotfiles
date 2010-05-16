@@ -31,8 +31,16 @@ def _x_to_public_dropbox(copy_or_move, filepath):
     # copy/move
     copy_or_move(filepath, expanduser('~/Dropbox/Public'))
 
-    # prepare public link (▲.narf.pl/foo == dl.dropbox.com/u/2618196/foo)
-    link = 'http://▲.narf.pl/' + basename(filepath)
+    # prepare public link (▲.narf.pl/f.oo == dl.dropbox.com/u/2618196/f.oo)
+    link = 'http://▲.narf.pl/'
+    name_and_extension = basename(filepath)
+    name, extension = splitext(name_and_extension)
+
+    # use .png as default extension
+    if extension == '.png':
+        link += name
+    else:
+        link += name_and_extension
 
     # copy public link to clipboard
     system("echo '{0}' | tr -d '\n' | pbcopy".format(link))
