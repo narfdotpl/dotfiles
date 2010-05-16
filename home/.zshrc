@@ -147,10 +147,6 @@ RPROMPT='%(0?..%?)'
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# alt + right/left arrow
-bindkey '^[f' forward-word
-bindkey '^[b' backward-word
-
 
 #-----------
 #  aliases
