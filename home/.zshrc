@@ -192,15 +192,6 @@ alias d='cd ~/Desktop'
 # show date (example: 2009-11-07 01:16:21, Saturday)
 alias da='date "+%Y-%m-%d %H:%M:%S, %A"'
 
-# cp/mv file to dropbox and copy public link to clipboard
-alias dcp='dropbox cp'
-alias dmv='dropbox mv'
-dropbox() {
-    $1 $2 ~/Dropbox/Public
-    echo -n "http://▲.narf.pl/`basename $2`" | pbcopy
-    # ▲.narf.pl/foo == dl.dropbox.com/u/2618196/foo
-}
-
 # edit
 alias e='edit'
 
@@ -343,7 +334,9 @@ script() {
 alias .tar.bz2='script create_archive tar.bz2'
 alias .zip='script create_archive zip'
 alias a2='script a2'
+alias dcp='script public_dropbox copy'
 alias dl='script download'
+alias dmv='script public_dropbox move'
 alias duration='script show_movie_duration'
 alias gsay='script google_say'
 alias kil='script kil'
