@@ -321,9 +321,6 @@ alias r='script run_ruby'
 #  loops
 #---------
 
-# run loopozorg script
-alias loop='python ~/.loops/loopozorg/script_runner.py'
-
 alias la='loop assembler'
 alias lc='loop c'
 alias lch='loop chrome'
