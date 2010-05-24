@@ -258,6 +258,9 @@ m() {
     cd $1
 }
 
+# optimize png
+alias op='optipng'
+
 # run python
 alias p='python -3'
 alias py='python'
