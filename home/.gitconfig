@@ -18,6 +18,7 @@
     ca = commit --all --verbose --amend
     car = !git commit --all --verbose --amend && git rebase --continue
     cl = clean -d --force
+    clx = clean -d --force -x
     d = !python ~/.scripts/git/diff.py
     gh = !hub browse
     h = help
