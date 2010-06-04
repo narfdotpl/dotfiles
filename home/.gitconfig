@@ -8,7 +8,7 @@
             | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
 
 [core]
-    excludesfile = /Users/narf/.gitglobalignore
+    excludesfile = ~/.gitglobalignore
 
 [alias]
     a = !git add . && git commit --all --verbose
