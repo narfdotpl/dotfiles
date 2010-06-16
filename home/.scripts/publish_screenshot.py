@@ -6,10 +6,11 @@ copy public link to clipboard.
 
 Usage:
 
-    python publish_screenshot.py new_name_word1 [word2 ...]
+    python publish_screenshot.py [new_name_word1 [word2 ...]]
 
 """
 
+from datetime import datetime as dt
 from os import listdir
 from os.path import basename, dirname, expanduser, join, realpath, splitext
 from shutil import move
@@ -42,10 +43,8 @@ def rename(full_path, new_name):
 
 
 def _main():
-    # get new name
-    new_name = '-'.join(argv[1:])
-    if not new_name:
-        exit1(__doc__[1:-1])
+    # get new name or use current datetime
+    new_name = '-'.join(argv[1:]) or dt.strftime(dt.now(), '%y%m%d-%H%M%S')
 
     # get latest screenshot
     screenshot = get_latest_screenshot()
