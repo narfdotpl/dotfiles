@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # run Z shell
 zsh_bin="`which zsh`"
 if [[ -x $zsh_bin ]]; then

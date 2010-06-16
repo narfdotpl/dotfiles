@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # .zshrc -- Z shell configuration file
 #
 # Maciej Konieczny <hello@narf.pl>
