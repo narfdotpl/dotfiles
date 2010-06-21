@@ -195,6 +195,9 @@ alias d='cd ~/Desktop'
 # show date (example: 2009-11-07 01:16:21, Saturday)
 alias da='date "+%Y-%m-%d %H:%M:%S, %A"'
 
+# deactivate virtualenv
+alias de='deactivate'
+
 # edit
 alias e='edit'
 
