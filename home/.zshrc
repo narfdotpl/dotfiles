@@ -401,11 +401,11 @@ source ~/.virtualenvs/virtualenvwrapper_bashrc
 export RUBYOPT=rubygems
 
 
-#------------------------------------
-#  private stuff (ssh aliases etc.)
-#------------------------------------
+#---------------
+#  local stuff
+#---------------
 
-[[ -f ~/.zsh/private ]] && source ~/.zsh/private
+[[ -f ~/.local ]] && source ~/.local
 
 
 #--------
