@@ -110,7 +110,7 @@ setopt list_rows_first
 # log 10k commands
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
-HISTFILE=~/.zsh/history
+HISTFILE=~/.zsh_history
 
 # append to HISTFILE when command is typed
 setopt inc_append_history
