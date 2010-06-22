@@ -408,7 +408,7 @@ export RUBYOPT=rubygems
 #  local stuff
 #---------------
 
-[[ -f ~/.local ]] && source ~/.local
+[[ -f ~/.localrc ]] && source ~/.localrc
 
 
 #--------
