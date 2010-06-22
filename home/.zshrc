@@ -171,6 +171,7 @@ alias ,='c -'
 alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
+alias c.='cd -P .'
 
 # clear the terminal screen
 alias cl='clear'
