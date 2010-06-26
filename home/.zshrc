@@ -71,11 +71,12 @@ if [[ -x `which gls` ]]; then
     ls() {gls "$@"}
 fi
 
-# append type indicator, ignore "./", "../" and compiled/optimized Python code
+# append type indicator, ignore "./", "../", compiled/optimized Python code
+# and Vim swap
 column_ls() {
     ls -F $@ | awk '{
         for (i=1; i<=NF; i++)
-            if (!($i ~ /(^\.\.?\/|\.py[co])$/))
+            if (!($i ~ /(^\.\.?\/|\.(py[co]|sw[nop]))$/))
                 printf("%s\n", $i)
     }' | more
 }
