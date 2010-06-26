@@ -36,10 +36,14 @@ export LANG=en_US.UTF-8
 #  editor
 #----------
 
-if [[ -x `which mvim` ]]; then
-    export EDIT='mvim -p'  # -p == open tab for each file
-    # go back to terminal after closing editor
-    export EDITOR='sh -c "'$EDIT' --nofork $@ && open -a terminal"'
+if [[ -x `which gvim` ]]; then
+    export EDIT='gvim -p'  # -p == open tab for each file
+    if [[ -x `which mvim` ]]; then  # gvim is symlink to mvim on my mac
+        # go back to terminal after closing editor
+        export EDITOR='sh -c "'$EDIT' --nofork $@ && open -a terminal"'
+    else
+        export EDITOR=$EDIT' --nofork'
+    fi
 else
     export EDIT='vim'
     export EDITOR=$EDIT

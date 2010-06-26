@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Show (in MacVim) changes from a specific commit or changes in working
+Show (in gvim) changes from a specific commit or changes in working
 tree relative to the latest commit (sha^..sha or HEAD).
 
 Usage:
@@ -34,7 +34,7 @@ def _main():
         diff_argument ='{sha}^..{sha}'.format(sha=argv[1])
 
     # do the magic
-    call('git diff {0} | mvim -R -'.format(diff_argument), shell=True)
+    call('git diff {0} | gvim -R -'.format(diff_argument), shell=True)
 
 if __name__ == '__main__':
     _main()
