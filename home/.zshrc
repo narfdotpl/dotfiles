@@ -66,27 +66,19 @@ edit() {
 #  ls
 #------
 
-# try to use linux ls:
-# check if `ls --version` exits with 0 status
-ls --version > /dev/null 2>&1
-if [[ $? = 0 ]]; then
-    GNU_LS=true
-# check if `gls` is present
-elif [[ -x `which gls` ]]; then
-    GNU_LS=true
+# try to use GNU ls
+if [[ -x `which gls` ]]; then
     ls() {gls "$@"}
-else
-    GNU_LS=false
 fi
 
-# add default arguments
-if [[ $GNU_LS = true ]]; then
-    # append type indicator, list by lines
-    # and ignore compiled/optimized Python code
-    alias ls='ls -Fx --ignore="*.py[co]"'
-else
-    alias ls='ls -Fx'
-fi
+# append type indicator, ignore "./", "../" and compiled/optimized Python code
+column_ls() {
+    ls -F $@ | awk '{
+        for (i=1; i<=NF; i++)
+            if (!($i ~ /(^\.\.?\/|\.py[co])$/))
+                printf("%s\n", $i)
+    }' | more
+}
 
 
 #--------------
@@ -239,11 +231,11 @@ alias hi='history -i 1 | less +G'
 alias jslint='java -jar ~/tools/rhino.jar ~/tools/jslint.js'
 
 # list directory contents
-alias l='ls'
-alias l/='ls -d *(/)'  # directories
-alias l.='ls -d *(.)'  # files
-alias l@='ls -d *(@)'  # links
-alias .l='ls -d .*'    # hidden stuff
+alias l='column_ls'
+alias l/='column_ls -d *(/)'  # directories
+alias l.='column_ls -d *(.)'  # files
+alias l@='column_ls -d *(@)'  # links
+alias .l='column_ls -d .*'    # hidden stuff
 
 # list directory contents using long listing format, don't ignore hidden
 # files, don't list owner nor group, print sizes in human readable
