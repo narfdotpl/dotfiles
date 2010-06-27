@@ -2,7 +2,7 @@
 # encoding: utf-8
 """
 Show (in gvim) changes from a specific commit or changes in working
-tree relative to the latest commit (sha^..sha or HEAD).
+tree relative to the latest commit (`show sha` or `diff HEAD`).
 
 Usage:
 
@@ -19,6 +19,10 @@ from git import Git
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
+def system(command):
+    return call(command, shell=True)
+
+
 def _main():
     # stop if there's no repo
     Git()
@@ -29,12 +33,11 @@ def _main():
         exit(1)
 
     # get sha
-    diff_argument = 'HEAD'
     if len(argv) > 1:
-        diff_argument ='{sha}^..{sha}'.format(sha=argv[1])
-
-    # do the magic
-    call('git diff {0} | gvim -R -'.format(diff_argument), shell=True)
+        sha = argv[1]
+        system('git show {0} | gvim -R -'.format(sha))
+    else:
+        system('git diff HEAD | gvim -R -')
 
 if __name__ == '__main__':
     _main()
