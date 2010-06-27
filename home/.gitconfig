@@ -10,6 +10,9 @@
 [core]
     excludesfile = ~/.gitglobalignore
 
+[diff]
+    tool = gvimdiff
+
 [alias]
     a = !git add . && git commit --all --verbose
     ar = !git add . && git rebase --continue
@@ -21,6 +24,7 @@
     cl = clean -d --force
     clx = clean -d --force -x
     d = !python ~/.scripts/git/diff.py
+    dt = difftool --no-prompt
     gh = !hub browse
     h = help
     i = !git init && git add . && \
