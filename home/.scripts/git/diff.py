@@ -3,7 +3,8 @@
 """
 Show (in gvim) changes from specific commit (`show <sha>` or
 `show HEAD@{<n>}`) or changes in working tree relative to the latest
-commit (`diff HEAD`).
+commit (`diff HEAD`).  If working tree is clean, show changes from the
+latest commit (`show HEAD@{0}`).
 
 Usage:
 
@@ -45,12 +46,15 @@ def validate_n(string):
 
 def _main():
     # stop if there's no repo
-    Git()
+    git = Git()
 
     # parse arguments
     arguments = argv[1:]
     if not arguments:
-        command = 'diff HEAD'
+        if git.is_clean:
+            command = 'show HEAD@{0}'
+        else:
+            command = 'diff HEAD'
     else:
         argument = arguments.pop(0)
         if len(argument) <= 2:  # n
