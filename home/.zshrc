@@ -204,7 +204,7 @@ alias g='git'
 git() {hub "$@"}  # http://github.com/defunkt/hub
 
 # run grep
-alias gr='grep --ignore-case'
+alias gr='grep --ignore-case --line-number'
 
 # experiment using GraphicsMagick convert
 #
