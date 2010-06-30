@@ -32,7 +32,7 @@
     l = !python ~/.scripts/git/log.py | less
     ll = !git log --graph --pretty=format:'%ad %s' --date=short | less
     lo = log --oneline
-    lsha = !git log --oneline -n $(expr 1 + $(git l | wc -l))
+    lsha = !git log --oneline --max-count=$(expr 1 + $(git l | wc -l))
     m = !python ~/.scripts/git/update-branch.py
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
