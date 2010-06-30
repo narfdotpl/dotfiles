@@ -45,5 +45,6 @@
     sp = stash pop
     ss = !git add . && git stash save
     t = tag -a
+    when-joined = !python ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
     x = !open -a gitx .
