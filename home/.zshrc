@@ -155,6 +155,9 @@ bindkey '^e' end-of-line
 # run less
 alias :='less'
 
+# find html files
+alias -g .html='`find . -name "*.html"`'
+
 # find python files
 alias -g .py='`find . -name "*.py"`'
 
