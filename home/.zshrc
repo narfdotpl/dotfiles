@@ -155,6 +155,9 @@ bindkey '^e' end-of-line
 # run less
 alias :='less'
 
+# find python files
+alias -g .py='`find . -name "*.py"`'
+
 # run homebrew
 alias b='brew'
 
