@@ -206,6 +206,9 @@ git() {hub "$@"}  # http://github.com/defunkt/hub
 # run grep
 alias gr='grep --ignore-case --line-number'
 
+# grep for file names
+alias gf='grep --ignore-case --files-with-matches'
+
 # experiment using GraphicsMagick convert
 #
 # example:
