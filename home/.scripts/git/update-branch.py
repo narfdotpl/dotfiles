@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Pull master (and rebase current branch against it).
+Pull (fetch and rebase) master (and rebase current branch against it).
 
 Usage:
 
@@ -34,10 +34,10 @@ def _main():
     # do the magic
     branch = git.branch
     if branch == 'master':
-        system('git pull')
+        system('git pull --rebase')
     else:
         system('git checkout master')
-        system('git pull')
+        system('git pull --rebase')
         system('git checkout ' + branch)
         system('git rebase master')
 
