@@ -11,7 +11,7 @@
 #--------
 
 export PATH=~/bin\
-:/Library/Frameworks/Python.framework/Versions/2.6/bin\
+:/usr/local/Cellar/python/2.7/bin\
 :/Library/PostgreSQL/8.4/bin\
 :/usr/local/bin\
 :$PATH
