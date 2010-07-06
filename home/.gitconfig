@@ -25,6 +25,7 @@
     clx = clean -d --force -x
     d = !python ~/.scripts/git/diff.py
     dt = difftool --no-prompt
+    e = blame
     gh = !hub browse
     h = help
     i = !git init && git add . && \
