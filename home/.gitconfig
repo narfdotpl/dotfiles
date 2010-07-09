@@ -17,6 +17,7 @@
     a = !git add . && git commit --all --verbose
     ar = !git add . && git rebase --continue
     b = !python ~/.scripts/git/branch.py
+    bb = checkout @{-1}
     bm = checkout master
     c = commit --all --verbose
     ca = commit --all --verbose --amend
