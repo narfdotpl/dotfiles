@@ -20,8 +20,9 @@
     bb = checkout @{-1}
     bm = checkout master
     c = commit --all --verbose
-    ca = commit --all --verbose --amend
-    car = !git commit --all --verbose --amend && git rebase --continue
+    ca = !git diff HEAD | gvim -R --nofork - && \
+         git commit --all --verbose --amend
+    car = !git ca && git rebase --continue
     cl = clean -d --force
     clx = clean -d --force -x
     d = !python ~/.scripts/git/diff.py
