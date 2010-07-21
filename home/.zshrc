@@ -147,6 +147,10 @@ RPROMPT='%(0?..%?)'
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
+# up/down arrow: ipython-like history
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+
 
 #-----------
 #  aliases
