@@ -133,7 +133,15 @@ setopt hist_save_no_dups
 # and arithmetic expansion
 setopt prompt_subst
 
-PROMPT='$(python ~/.scripts/prompt.py "$(pwd)")'
+# set colors
+DEFAULT_COLOR=$'\e[0m'
+GREY=$'\e[0;37m'
+BLUE=$'\e[0;36m'  # I'm color blind, k?
+
+# show short path, git repo info and ">" sign, e.g. "foo/bar/baz master > "
+get_short_path() {python ~/.scripts/short_path.py "$(pwd)"}
+get_git_prompt() {python ~/.scripts/git/prompt.py}
+PROMPT='${BLUE}$(get_short_path)${GREY}$(get_git_prompt) ${DEFAULT_COLOR}> '
 
 # show non-zero exit code
 RPROMPT='%(0?..%?)'

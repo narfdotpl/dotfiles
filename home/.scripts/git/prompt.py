@@ -32,8 +32,11 @@ def prompt():
     except EnvironmentError:
         return ''
     else:
+        # initial space
+        prompt = ' '
+
         # depth
-        prompt = '.' * git.depth
+        prompt += '.' * git.depth
 
         # branch name
         prompt += git.branch
