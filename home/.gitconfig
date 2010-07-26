@@ -34,6 +34,7 @@
     h = help
     i = !git init && git add . && \
         git commit --allow-empty --message='initial commit'
+    ignored = !git status --short --ignored | grep '!!' | more
     l = !python ~/.scripts/git/log.py | less
     ll = !git log --graph --pretty=format:'%ad %s' --date=short | less
     lm = !git log --oneline --author=\"$(git config user.name)\" | less
