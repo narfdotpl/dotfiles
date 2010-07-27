@@ -134,9 +134,9 @@ setopt hist_save_no_dups
 setopt prompt_subst
 
 # set colors
-DEFAULT_COLOR=$'\e[0m'
-GREY=$'\e[0;37m'
-BLUE=$'\e[0;36m'  # I'm color blind, k?
+DEFAULT_COLOR=$'%{\e[0m%}'
+GREY=$'%{\e[0;37m%}'
+BLUE=$'%{\e[0;36m%}'  # I'm color blind, k?
 
 # show short path, git repo info and ">" sign, e.g. "foo/bar/baz master > "
 get_short_path() {python ~/.scripts/short_path.py "$(pwd)"}
