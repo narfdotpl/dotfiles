@@ -11,7 +11,7 @@ Usage:
 
 Dependencies:
 
-    - [Git], duh
+    - [Git][], duh
 
  [Git]: http://git-scm.com/
 """

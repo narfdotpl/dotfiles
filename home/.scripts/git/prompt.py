@@ -3,12 +3,16 @@
 """
 Parse Git information for shell prompt.
 
+Usage:
+
+    python prompt.py
+
 Show current branch name.  If there were any changes since last commit,
 show a plus sign.  If there are any stashed changes, show an ampersand.
 If current directory is not the toplevel directory of the repository,
 precede branch name with one dot for each directory below the top.
 
-example:
+Example:
 
     ~ $ cd dotfiles
     ~/dotfiles(master) $ cd .scripts
@@ -19,6 +23,7 @@ example:
 """
 
 from subprocess import PIPE, Popen
+from sys import argv, stderr
 
 from git import Git
 
@@ -53,6 +58,12 @@ def prompt():
 
 
 def _main():
+    # show usage info if there any arguments
+    if len(argv) > 1:
+        print >> stderr, __doc__[1:-1]
+        exit(1)
+
+    # show parsed git info
     print prompt()
 
 if __name__ == '__main__':

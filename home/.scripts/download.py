@@ -5,7 +5,7 @@ Download file showing only its name, total size and progress bar.
 
 Usage:
 
-    python download.py url [url ...]
+    python download.py <url> [<other urls>]
 
 """
 

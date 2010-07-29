@@ -14,32 +14,30 @@
     tool = gvimdiff
 
 [alias]
-    a = !git add . && git commit --all --verbose
-    ar = !git add . && git rebase --continue
+    a = !git add . && git c
+    ar = !git add . && git r
     b = !python ~/.scripts/git/branch.py
     backup = !python ~/.scripts/git/backup.py
     bb = checkout @{-1}
     bm = checkout master
     c = commit --all --verbose
-    ca = !git diff HEAD | gvim -R --nofork - && \
-         git commit --all --verbose --amend
-    car = !git ca && git rebase --continue
+    ca = !git diff HEAD | gvim -R --nofork - && git c --amend
+    car = !git ca && git r
     cl = clean -d --force
-    clx = clean -d --force -x
+    clx = !git cl -x
     d = !python ~/.scripts/git/diff.py
     dt = difftool --no-prompt
     e = blame
     gca = gc --aggressive
     gh = !hub browse
     h = help
-    i = !git init && git add . && \
-        git commit --allow-empty --message='initial commit'
+    i = !git init && git add . && git msg 'initial commit'
     ignored = !git status --short --ignored | grep '!!' | more
     l = !python ~/.scripts/git/log.py | less
     ll = !git log --graph --pretty=format:'%ad %s' --date=short | less
-    lm = !git log --oneline --author=\"$(git config user.name)\" | less
+    lm = !git lo --author=\"$(git config user.name)\" | less
     lo = log --oneline
-    lsha = !git log --oneline --max-count=$(expr 1 + $(git l | wc -l))
+    lsha = !git lo --max-count=$(expr 1 + $(git l | wc -l))
     m = !python ~/.scripts/git/update-branch.py
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master

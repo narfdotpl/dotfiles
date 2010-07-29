@@ -3,6 +3,10 @@
 """
 Work with Git branches using one command.
 
+Usage:
+
+    python branch.py [<branch name>|<other arguments>]
+
 Act as an alias, unless called with one argument: assume then it's a
 branch name and try to checkout it; if it doesn't exist, ask whether to
 create it.
@@ -18,7 +22,7 @@ __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
 def _main():
-    # don't go further, if there is no git repository
+    # stop if there's no repo
     Git()
 
     # get args

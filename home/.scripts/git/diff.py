@@ -8,7 +8,7 @@ latest commit (`show HEAD@{0}`).
 
 Usage:
 
-    python diff.py [<sha>/<n>]
+    python diff.py [<sha>|<n>]
 
 <n> can be integer from [0; 99] range.
 """

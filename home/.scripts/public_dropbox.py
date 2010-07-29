@@ -5,7 +5,7 @@ Copy/move file to ~/Dropbox/Public and copy public link to clipboard.
 
 Usage:
 
-    python public_dropbox.py copy/move filepath
+    python public_dropbox.py (copy|move) <filepath>
 
 """
 

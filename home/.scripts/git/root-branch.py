@@ -5,7 +5,7 @@ Create root branch.
 
 Usage:
 
-    python root-branch.py name
+    python root-branch.py <name>
 
 """
 

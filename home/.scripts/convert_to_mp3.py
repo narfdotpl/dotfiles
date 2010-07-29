@@ -4,8 +4,7 @@ Convert movies and music in other formats to mp3s.
 
 Usage:
 
-    python3 convert_to_mp3.py path1 [path2 ...]
-
+    python3 convert_to_mp3.py <path> [<other paths>]
 
 The script saves mp3s in the working directory and ignores all command
 line arguments that are not paths to existing files.

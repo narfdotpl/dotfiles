@@ -6,7 +6,7 @@ text-to-speech service.
 
 Usage:
 
-    python google_say.py word [word ...]
+    python google_say.py <words>
 
 """
 

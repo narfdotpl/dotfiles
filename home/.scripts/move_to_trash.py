@@ -5,8 +5,10 @@ Move files and directories to Trash (OS X only).
 
 Usage:
 
-    python move_to_trash.py existing_path_1 [existing_path_2 ...]
+    python move_to_trash.py <path> [<other paths>]
 
+The script ignores all command line arguments that are not paths to
+existing files.
 """
 
 from itertools import ifilter

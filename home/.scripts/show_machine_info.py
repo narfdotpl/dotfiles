@@ -3,9 +3,13 @@
 """
 Show machine name, os name and uptime.
 
-If machine name matches the first passed argument, show only uptime.
+If machine name matches first passed argument, show only uptime.
 
-example:
+Usage:
+
+    python show_machine_info.py [<machine name>]
+
+Example:
 
     $ python show_machine_info.py
     MacBook.local (Darwin), up 61 days

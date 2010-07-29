@@ -5,7 +5,7 @@ Invoke the OS X Quick Look preview from the command line.
 
 Usage:
 
-    python quicklook.py path1 [path2 ...]
+    python quicklook.py <path> [<other paths>]
 
 
 This process is blocking.  To terminate it, press any key or close the

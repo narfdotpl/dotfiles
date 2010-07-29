@@ -6,7 +6,7 @@ copy public link to clipboard.
 
 Usage:
 
-    python publish_screenshot.py [new_name_word1 [word2 ...]]
+    python publish_screenshot.py [<new name>]
 
 """
 

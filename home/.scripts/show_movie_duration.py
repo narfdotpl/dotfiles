@@ -5,7 +5,7 @@ Show movie duration.
 
 Usage:
 
-    python show_movie_duration.py moviepath1 moviepath2 ...
+    python show_movie_duration.py <path> [<other paths>]
 
 The script ignores all command line arguments that are not paths to
 existing files.

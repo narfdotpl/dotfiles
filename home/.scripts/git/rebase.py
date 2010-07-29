@@ -3,6 +3,10 @@
 """
 Run minimal interactive Git rebase.
 
+Usage:
+
+    python rebase.py [<arguments>]
+
 When working on a non-master branch, rebase `master..branch`.  When
 working on master, rebase `origin..HEAD`; if there is no origin, rebase
 last seven commits.
@@ -21,8 +25,10 @@ __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
 def _main():
+    # stop if there's no repo
     git = Git()
 
+    # set command and read commandline arguments
     command = 'git rebase '
     args = ' '.join(argv[1:])
 

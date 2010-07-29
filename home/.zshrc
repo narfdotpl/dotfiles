@@ -12,7 +12,6 @@
 
 export PATH=~/bin\
 :/usr/local/Cellar/python/2.7/bin\
-:/Library/PostgreSQL/8.4/bin\
 :/usr/local/bin\
 :$PATH
 
@@ -90,8 +89,7 @@ column_ls() {
 #  completion
 #--------------
 
-autoload -U compinit
-compinit
+autoload -U compinit && compinit
 
 # make completion lists as compact as possible
 setopt list_packed
@@ -182,21 +180,21 @@ alias bu='brew update 2> /dev/null; brew outdated'
 # change directory
 c() {cd $1 > /dev/null}
 compdef c=cd
+alias c.='cd -P .'
 alias ,='c -'
 alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
-alias c.='cd -P .'
 
-# clear the terminal screen
+# clear terminal screen
 alias cl='clear'
 
-# copy working directory path
+# copy (working directory) path
 cpwd() {
     # get working directory path
     local _path="`pwd`"
 
-    # join path with first argument
+    # append first argument to path
     if [[ "$1" != '' ]]; then
         _path="$_path/$1"
     fi
@@ -205,7 +203,7 @@ cpwd() {
     echo -n "'$_path'" | pbcopy
 }
 
-# go to Desktop
+# go to desktop
 alias d='cd ~/Desktop'
 
 # show date (example: 2009-11-07 01:16:21, Saturday)
@@ -221,31 +219,11 @@ alias e='edit'
 alias g='git'
 git() {hub "$@"}  # http://github.com/defunkt/hub
 
-# run grep
-alias gr='grep --ignore-case --line-number'
-
 # grep for file names
 alias gf='grep --ignore-case --files-with-matches'
 
-# experiment using GraphicsMagick convert
-#
-# example:
-#
-#     gmc photo.jpg -rotate 90
-#     gmc photo.jpg -rotate 90 -resize 50%
-#     gmc apply photo.jpg -rotate 90 -resize 50%
-#
-gmc() {
-    if [[ $1 == 'apply' ]]; then
-        shift
-        local destination=$1
-    else
-        local destination='/tmp/gmc.jpg'
-    fi
-
-    gm convert $@ $destination
-    open $destination
-}
+# grep
+alias gr='grep --ignore-case --line-number'
 
 # go to ~/dotfiles/home
 alias h='c home'
@@ -273,9 +251,6 @@ m() {
     mkdir -p $1
     cd $1
 }
-
-# optimize png
-alias op='optipng'
 
 # run python
 alias p='python -3'
@@ -321,16 +296,10 @@ t() {
     edit $list
 }
 
-# convert tabs to 4 spaces
-alias t4s="perl -pi -e 's/\t/    /g'"
-
-# locate program
+# locate app
 alias wh='which'
 
-# remove trailing whitespace http://gist.github.com/227361
-alias ws="perl -pi -e 's/ +$//'"
-
-# edit .zshrc
+# edit *this* file
 alias z='edit ~/.zshrc'
 
 
@@ -371,7 +340,6 @@ alias mp4='script 3 convert_to_iphone_mp4'
 alias mvt='script move_to_trash'
 alias o='script proxy_open'
 alias q='script quicklook'
-alias r='script run_ruby'
 
 
 #---------
@@ -382,24 +350,14 @@ alias la='loop assembler'
 alias lc='loop c'
 alias lch='loop chrome'
 alias lcs='loop c-sharp'
-alias lj='loop javascript'
 alias lm='loop markdown'
 alias lno='loop nose `find . -name "*.py"`'
 alias lo='loop octave'
 alias lp='loop python'
 alias lpy='loop python_wo_p3_warnings'
 alias lp3='loop python3'
-alias lr='loop ruby'
 alias lsa='loop safari'
 alias lx='loop xetex'
-
-
-#------------
-#  keychain
-#------------
-
-# http://github.com/funtoo/keychain
-eval `keychain --eval --quiet --agents ssh id_rsa`
 
 
 #----------
@@ -438,13 +396,21 @@ export RUBYOPT=rubygems
 python ~/.scripts/show_machine_info.py MacBook.local
 
 
+#------------
+#  keychain
+#------------
+
+# http://github.com/funtoo/keychain
+eval `keychain --eval --quiet --agents ssh id_rsa`
+
+
 #-------------
 #  workspace
 #-------------
 
 workspace=~/.workspace
 
-# restore workspace (working directory and virtual env) on startup
+# restore workspace (working directory and virtualenv) on startup
 if [[ -f $workspace ]]; then
     source $workspace
     rm $workspace
