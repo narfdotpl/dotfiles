@@ -123,6 +123,13 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 
 
+#-------------
+#  zsh magic
+#-------------
+
+autoload -U zmv
+
+
 #----------
 #  prompt
 #----------
