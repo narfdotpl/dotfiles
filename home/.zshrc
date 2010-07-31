@@ -162,6 +162,10 @@ bindkey '^[[B' history-beginning-search-forward
 #  aliases
 #-----------
 
+# load loop and script aliases
+source ~/.loops/aliases.zsh
+source ~/.scripts/aliases.zsh
+
 # run less
 alias :='less'
 
@@ -301,63 +305,6 @@ alias wh='which'
 
 # edit *this* file
 alias z='edit ~/.zshrc'
-
-
-#-----------
-#  scripts
-#-----------
-
-# run script
-script() {
-    # get python version
-    if [[ $1 == '3' ]]; then
-        local ver='3'
-        shift
-    else
-        local ver=''
-    fi
-
-    # get script name
-    local name=$1
-    shift
-
-    # run
-    python$ver ~/.scripts/$name.py $@
-}
-
-alias .tar.bz2='script create_archive tar.bz2'
-alias .zip='script create_archive zip'
-alias 3='script publish_screenshot'
-alias a2='script a2'
-alias dcp='script public_dropbox copy'
-alias dl='script download'
-alias dmv='script public_dropbox move'
-alias duration='script show_movie_duration'
-alias gsay='script google_say'
-alias kil='script kil'
-alias mp3='script 3 convert_to_mp3'
-alias mp4='script 3 convert_to_iphone_mp4'
-alias mvt='script move_to_trash'
-alias o='script proxy_open'
-alias q='script quicklook'
-
-
-#---------
-#  loops
-#---------
-
-alias la='loop assembler'
-alias lc='loop c'
-alias lch='loop chrome'
-alias lcs='loop c-sharp'
-alias lm='loop markdown'
-alias lno='loop nose `find . -name "*.py"`'
-alias lo='loop octave'
-alias lp='loop python'
-alias lpy='loop python_wo_p3_warnings'
-alias lp3='loop python3'
-alias lsa='loop safari'
-alias lx='loop xetex'
 
 
 #----------
