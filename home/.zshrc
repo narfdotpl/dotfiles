@@ -226,6 +226,9 @@ git() {hub "$@"}  # http://github.com/defunkt/hub
 # grep for file names
 alias gf='grep --ignore-case --files-with-matches'
 
+# grep through shell history
+alias gh='history -i 1 | grep --ignore-case'
+
 # grep
 alias gr='grep --ignore-case --line-number'
 
