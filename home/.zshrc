@@ -233,7 +233,7 @@ alias gr='grep --ignore-case --line-number'
 alias h='c home'
 
 # show shell history
-alias hi='history -i 1 | less +G'
+alias his='history -i 1 | less +G'
 
 # run JSLint
 alias jslint='java -jar ~/tools/rhino.jar ~/tools/jslint.js'
