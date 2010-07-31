@@ -35,9 +35,9 @@
     i = !git init && git add . && git msg 'initial commit'
     ignored = !git status --short --ignored | grep '!!' | more
     l = !python ~/.scripts/git/log.py | less
-    ll = !git log --graph --pretty=format:'%ad %s' --date=short | less
-    lm = !git lo --author=\"$(git config user.name)\" | less
-    lo = log --oneline
+    ll = !git log --reverse --pretty=format:'%ad %s' --date=short | less +G
+    lm = !git lo --author=\"$(git config user.name)\" | less +G
+    lo = log --oneline --reverse
     lsha = !git lo --max-count=$(expr 1 + $(git l | wc -l))
     m = !python ~/.scripts/git/update-branch.py
     msg = commit --allow-empty --message

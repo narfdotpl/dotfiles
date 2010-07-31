@@ -13,8 +13,8 @@ last seven commits.
 
 Formatting example:
 
-    * 2009-12-18 moved editor settings to one place
-    * 2009-12-12 simplified references to websites
+    2009-12-12 simplified references to websites
+    2009-12-18 moved editor settings to one place
 
 """
 
@@ -40,7 +40,7 @@ def _main():
     command = ' '.join([
         'git log',
         git.minimal_commit_range or '--max-count=7',
-        '--graph --pretty=format:"%ad %s" --date=short'
+        '--reverse --pretty=format:"%ad %s" --date=short'
     ])
     call(command, shell=True)
 
