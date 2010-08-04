@@ -231,13 +231,16 @@ alias g='git'
 git() {hub "$@"}  # http://github.com/defunkt/hub
 
 # grep for file names
-alias gf='grep --ignore-case --files-with-matches'
+alias GF='grep --files-with-matches'
+alias gf='GF --ignore-case'
 
 # grep through shell history
-alias gh='history -i 1 | grep --ignore-case'
+alias GH='history -i 1 | grep'
+alias gh='GH --ignore-case'
 
 # grep
-alias gr='grep --ignore-case --line-number'
+alias GR='grep --line-number'
+alias gr='GR --ignore-case'
 
 # go to ~/dotfiles/home
 alias h='c home'
