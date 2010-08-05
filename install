@@ -4,6 +4,7 @@
 Run installer.
 """
 
+from os import environ
 from os.path import dirname, join, realpath
 from subprocess import call
 
@@ -21,6 +22,12 @@ def _main():
     # run installer
     installer = join(dotfiles_dir, 'installer/installer.py')
     call('python ' + installer, shell=True)
+
+    # tell how to switch to zsh
+    shell = environ.get('SHELL')
+    if not shell or not shell.endswith('zsh'):
+        print 'switch to zsh (you may need to relog): ' \
+              'chsh -s `which zsh` $USER'
 
 if __name__ == '__main__':
     _main()
