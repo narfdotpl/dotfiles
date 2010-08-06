@@ -10,6 +10,7 @@ from os.path import basename, dirname, islink, join
 from shutil import rmtree
 from tempfile import mkdtemp, NamedTemporaryFile as NTF
 
+from nose.core import run
 from nose.tools import assert_equals
 
 from installer import get_already_installed, get_dotfiles, _get_fresh, \
@@ -21,6 +22,11 @@ __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
 class TestGitglobalignorePatterns:
+    """
+    Assure that files matching patterns listed in ".gitglobalignore" are
+    not recognized as dotfiles and that installer understands these patterns
+    the same way Git does.
+    """
 
     def setup(self):
         """
@@ -39,7 +45,7 @@ class TestGitglobalignorePatterns:
 
 
     def test_patterns_that_start_with_a_star(self):
-        # create pattern
+        # add pattern
         with open(self.gitglobalignore, 'w') as f:
             f.write('*foo')
 
@@ -48,20 +54,22 @@ class TestGitglobalignorePatterns:
             with open(join(self.dotfiles_dir, filename), 'w'):
                 pass
 
+        # expect these files to get ignored
         dotfiles = get_dotfiles(self.dotfiles_dir)
         expected = [self.gitglobalignore]
         assert_no_difference(dotfiles, expected)
 
     def test_patterns_that_start_with_a_star_and_dot(self):
-        # create pattern
+        # add pattern
         with open(self.gitglobalignore, 'w') as f:
-            f.write('*.foo')
+            f.write('*.bar')
 
         # create files matching pattern
-        for filename in ['.foo', 'BAR.foo', '.BAR.foo']:
+        for filename in ['.bar', 'FOO.bar', '.FOO.bar']:
             with open(join(self.dotfiles_dir, filename), 'w'):
                 pass
 
+        # expect these files to get ignored
         dotfiles = get_dotfiles(self.dotfiles_dir)
         expected = [self.gitglobalignore]
         assert_no_difference(dotfiles, expected)
@@ -73,12 +81,13 @@ class TestMajority:
         """
         Create fake dotfiles and $HOME directories.
 
-        Name groups of files after functions' output to avoid choosing files
+        Name groups of files after functions' output to avoid picking files
         manually in each test.
         """
 
-        # dotfiles
-        # ========
+        #------------
+        #  dotfiles
+        #------------
 
         self.dotfiles_dir = mkdtemp()
         how_many_dotfiles = 6
@@ -90,18 +99,20 @@ class TestMajority:
         ]
         self.dotfiles = [f.name for f in random_dotfiles]
 
-        # divide dotfiles into three groups
+        # divide dotfiles into three groups:
+        #   1. not yet installed
+        #   2. not yet installed, used to create incorrect symlinks
+        #   3. already installed, used to create incorrect symlinks
         one_third = how_many_dotfiles // 3
         first_group = self.dotfiles[:one_third]
         second_group = self.dotfiles[one_third:-one_third]
         third_group = self.dotfiles[-one_third:]
-        # 1st -- not installed
-        # 2nd -- not installed, used to create incorrect symlinks
-        # 3rd -- installed, used to create incorrect symlinks
         self.fresh = first_group + second_group
 
-        # $HOME
-        # =====
+
+        #---------
+        #  $HOME
+        #---------
 
         self.home_dir = mkdtemp()
         how_many_homefiles = 4
@@ -114,8 +125,10 @@ class TestMajority:
         # both files and directories
         mkdir(join(self.home_dir, basename(first_group[0])))
 
-        # symlinks in $HOME
-        # -----------------
+
+        #---------------------
+        #  symlinks in $HOME
+        #---------------------
 
         self.already_installed = []
         self.obsolete = []
@@ -145,7 +158,7 @@ class TestMajority:
 
     def teardown(self):
         """
-        Remove fake directories and files.
+        Remove fake directories.
         """
 
         for directory in [self.dotfiles_dir, self.home_dir]:
@@ -157,8 +170,9 @@ class TestMajority:
 
     def test_get_already_installed(self):
         expected = self.already_installed
+        repo_dir = dirname(self.dotfiles[0])
         already_installed = get_already_installed(self.dotfiles, self.home_dir,
-                                                  dirname(self.dotfiles[0]))
+                                                  repo_dir)
         assert_no_difference(already_installed, expected)
 
     def test_get_dotfiles(self):
@@ -186,7 +200,8 @@ class TestMajority:
                 new_path += '~'
             expected.append(new_path)
 
-        install_and_ask_whether_to_backup(self.fresh, self.home_dir, True)
+        ask = True
+        install_and_ask_whether_to_backup(self.fresh, self.home_dir, ask)
         homefiles = self.get_homefiles()
         assert_no_difference(homefiles, expected)
 
@@ -202,7 +217,8 @@ class TestMajority:
             if new_path not in expected:
                 expected.append(new_path)
 
-        install_and_ask_whether_to_backup(self.fresh, self.home_dir, False)
+        ask = False
+        install_and_ask_whether_to_backup(self.fresh, self.home_dir, ask)
         homefiles = self.get_homefiles()
         assert_no_difference(homefiles, expected)
 
@@ -220,3 +236,7 @@ class TestMajority:
 def assert_no_difference(seq1, seq2):
     difference = list(set(seq1).symmetric_difference(set(seq2)))
     return assert_equals(difference, [])
+
+
+if __name__ == '__main__':
+    run()
