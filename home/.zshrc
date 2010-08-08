@@ -379,6 +379,6 @@ fi
 save_workspace() {
     echo "cd '`pwd`'" > $workspace
     if [[ $VIRTUAL_ENV != '' ]]; then
-        echo "source '$VIRTUAL_ENV/bin/activate'" >> $workspace
+        echo "workon `basename $VIRTUAL_ENV`" >> $workspace
     fi
 }
