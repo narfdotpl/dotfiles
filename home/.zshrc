@@ -191,11 +191,11 @@ alias bu='brew update 2> /dev/null; brew outdated'
 # change directory
 c() {cd $1 > /dev/null}
 compdef c=cd
-alias c.='cd -P .'
 alias ,='c -'
 alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
+alias /='cd -P .'
 
 # clear terminal screen
 alias cl='clear'
