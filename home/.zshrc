@@ -224,6 +224,10 @@ alias de='deactivate'
 # edit
 alias e='edit'
 
+# edit files (and directories) returned by previous command (I use this
+# after `grep --files-with-matches`)
+alias ee='edit $(fc -e - 2> /dev/null)'
+
 # find in working directory
 alias f='find . -name'
 
