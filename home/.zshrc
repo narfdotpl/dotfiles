@@ -226,6 +226,9 @@ alias de='deactivate'
 # edit
 alias e='edit'
 
+# find in working directory
+alias f='find . -name'
+
 # run git
 alias g='git'
 git() {hub "$@"}  # http://github.com/defunkt/hub
