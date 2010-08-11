@@ -48,19 +48,17 @@ else
     export EDITOR=$EDIT
 fi
 
+# `edit .zshrc`, `echo foo | edit`, `edit` == `edit .`
 edit() {
-    if [[ "$@" = "" ]]; then
-        local stdin
-        local part
-
-        read stdin
-        while read part; do
-            stdin+="\n"$part
-        done
-
-        echo "$stdin" | eval "$EDIT -"
+    # check if stdin refers to terminal
+    if [[ -t 0 ]]; then
+        if [[ "$@" = "" ]]; then
+            eval "$EDIT ."
+        else
+            eval "$EDIT $@"
+        fi
     else
-        eval "$EDIT $@"
+        eval "$EDIT -"
     fi
 }
 
