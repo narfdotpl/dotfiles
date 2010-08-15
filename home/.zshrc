@@ -320,6 +320,9 @@ t() {
 # locate app
 alias wh='which'
 
+# activate virtualenv
+alias wo='workon'
+
 # edit *this* file
 alias z='edit ~/.zshrc'
 
