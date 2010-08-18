@@ -33,7 +33,8 @@
     gh = !hub browse
     h = help
     i = !git init && git add . && git msg 'initial commit'
-    ignored = !git status --short --ignored | grep '!!' | more
+    ignored = !git status --short --ignored | grep '!!' | \
+               awk '{ print substr($0, 4) }' | more
     l = !python ~/.scripts/git/log.py | less
     ll = !git log --reverse --pretty=format:'%ad %s' --date=short | less +G
     lm = !git lo --author=\"$(git config user.name)\" | less +G
