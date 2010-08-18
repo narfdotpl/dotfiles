@@ -38,9 +38,25 @@ class Git(object):
         Get name of current branch.
         """
 
+        return self.branches.current
+
+    @property
+    def branches(self):
+        """
+        List branches, highlight current one.
+        """
+
+        branches = []
+        current = None
+
         for line in Popen('git branch', shell=True, stdout=PIPE).stdout:
-            if line.startswith('*'):
-                return line.lstrip('* ').rstrip('\n')
+            branch = line.lstrip().rstrip()
+            if branch.startswith('*'):
+                current = branch = branch.lstrip('* ')
+
+            branches.append(branch)
+
+        return ListWithAttributes(branches, current=current)
 
     @property
     def depth(self):
@@ -86,3 +102,18 @@ class Git(object):
             commit_range = 'origin..HEAD'
 
         return commit_range
+
+
+class ListWithAttributes(list):
+    """
+    Create list from given sequence and augment it with attributes given as
+    keyword arguments.
+    """
+
+    def __init__(self, sequence, **kwargs):
+        # set attributes
+        for attribute, value in kwargs.iteritems():
+            setattr(self, attribute, value)
+
+        # create list
+        return super(self.__class__, self).__init__(sequence)

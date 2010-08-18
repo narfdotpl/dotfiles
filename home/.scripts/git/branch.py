@@ -12,7 +12,7 @@ branch name and try to checkout it; if it doesn't exist, ask whether to
 create it.
 """
 
-from subprocess import PIPE, Popen, call
+from subprocess import call
 from sys import argv
 
 from git import Git
@@ -23,7 +23,7 @@ __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 def _main():
     # stop if there's no repo
-    Git()
+    git = Git()
 
     # get args
     if len(argv) == 2:
@@ -36,11 +36,9 @@ def _main():
     if args is not None:
         call('git branch ' + args, shell=True)
     else:
-        message = Popen(
-            'git checkout ' + branch, shell=True, stderr=PIPE
-        ).stderr.read().rstrip('\n')
-
-        if 'did not match' in message:
+        if branch in git.branches:
+            call('git checkout ' + branch, shell=True)
+        else:
             print "Branch '{0}' doesn't exist.".format(branch),
 
             answer = None
@@ -49,8 +47,6 @@ def _main():
 
             if answer.startswith('y'):
                 call('git checkout -b ' + branch, shell=True)
-        elif message:
-            print message
 
 if __name__ == '__main__':
     _main()
