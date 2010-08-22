@@ -10,13 +10,23 @@ Plus installer.
 Installation
 ------------
 
-    cd ~
-    git clone git://github.com/narfdotpl/dotfiles
-    cd dotfiles
-    ./install
-
 Installer creates symbolic links in your `$HOME`.  It asks whether to backup
 files that otherwise would be replaced.  Requires [Python][] (2.6 <= version
 < 3.0).
 
   [Python]: http://python.org/
+
+
+### Fresh
+
+    cd ~
+    git clone git://github.com/narfdotpl/dotfiles
+    cd dotfiles
+    ./install
+
+
+### Update
+
+    cd ~/dotfiles
+    git checkout master
+    ./install
