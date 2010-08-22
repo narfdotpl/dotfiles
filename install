@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Run installer.
+Update repo, run installer and tell how to switch to zsh.
 """
 
 from os import environ
@@ -13,9 +13,10 @@ def _main():
     # get dotfiles directory
     dotfiles_dir = dirname(realpath(__file__))
 
-    # 'install' submodules
+    # update repo and "install" submodules
     call(' && '.join([
         'cd ' + dotfiles_dir,
+        'git pull --rebase',
         'git submodule init',
         'git submodule update'
     ]), shell=True)
