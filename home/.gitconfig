@@ -26,6 +26,7 @@
     car = !git ca && git r
     cl = clean -d --force
     clx = !git cl -x
+    co = checkout
     d = !python ~/.scripts/git/diff.py
     dt = difftool --no-prompt
     e = blame
