@@ -176,6 +176,9 @@ alias :='less'
 # find html files
 alias -g .html='`find . -name "*.html"`'
 
+# find javascript files
+alias -g .js='`find . -name "*.js"`'
+
 # find python files
 alias -g .py='`find . -name "*.py"`'
 
