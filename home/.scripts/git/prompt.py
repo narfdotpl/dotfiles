@@ -36,25 +36,25 @@ def prompt():
         git = Git()
     except EnvironmentError:
         return ''
-    else:
-        # initial space
-        prompt = ' '
 
-        # depth
-        prompt += '.' * git.depth
+    # initial space
+    prompt = ' '
 
-        # branch name
-        prompt += git.branch
+    # depth
+    prompt += '.' * git.depth
 
-        # changes
-        if not git.is_clean:
-            prompt += '+'
+    # branch name
+    prompt += git.branch
 
-        # stashed
-        if Popen('git stash list', shell=True, stdout=PIPE).stdout.readlines():
-            prompt += '&'
+    # changes
+    if not git.is_clean:
+        prompt += '+'
 
-        return prompt
+    # stash
+    if Popen('git stash list', shell=True, stdout=PIPE).stdout.readlines():
+        prompt += '&'
+
+    return prompt
 
 
 def _main():

@@ -9,7 +9,7 @@ Usage:
 
 """
 
-from subprocess import PIPE, Popen, call
+from subprocess import call
 from sys import argv, stderr
 
 from git import Git
@@ -43,28 +43,26 @@ def _main():
     # get new branch name
     if len(argv) != 2:
         exit1(__doc__[1:-1])
-    name = argv[1]
+    branch = argv[1]
 
     # check if branch exists
-    output = Popen('git branch', shell=True, stdout=PIPE).stdout.readlines()
-    branches = [line.lstrip('*').lstrip().rstrip() for line in output]
-    if name in branches:
-        exit1('Branch "{0}" already exists.'.format(name))
+    if branch in git.branches:
+        exit1('Branch "{0}" already exists.'.format(branch))
 
     # go to toplevel dir (this doesn't work if the script is used as a git
     # alias, because git invokes them from toplevel dir)
     safe('cd ..;' * git.depth)
 
     # create new ref
-    safe('git symbolic-ref HEAD refs/heads/' + name)
+    safe('git symbolic-ref HEAD refs/heads/' + branch)
 
-    # remove everything
+    # clear index
     safe('rm .git/index')
     safe('git clean --force -d -x')
 
-    # create empty info-commit
+    # create (empty) informational commit
     safe('git commit --allow-empty --message "created root branch {0}"'
-         .format(name))
+         .format(branch))
 
 if __name__ == '__main__':
     _main()

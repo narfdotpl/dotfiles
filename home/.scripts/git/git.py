@@ -50,7 +50,7 @@ class Git(object):
         current = None
 
         for line in Popen('git branch', shell=True, stdout=PIPE).stdout:
-            branch = line.lstrip().rstrip()
+            branch = line.strip()
             if branch.startswith('*'):
                 current = branch = branch.lstrip('* ')
 
