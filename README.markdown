@@ -7,6 +7,12 @@ Plus installer.
   [narfdotpl]: http://narf.pl/
 
 
+Glimpse
+-------
+
+![screenshot](http://▲.narf.pl/dotfiles)
+
+
 Installation
 ------------
 
