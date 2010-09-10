@@ -33,7 +33,7 @@
     gca = gc --aggressive
     gh = !hub browse
     h = help
-    i = !git init && git add . && git msg 'initial commit'
+    i = !git init && git add . && git msg 'created repo'
     ignored = !git status --short --ignored | grep '!!' | \
                awk '{ print substr($0, 4) }' | more
     l = !python ~/.scripts/git/log.py | less
