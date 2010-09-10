@@ -10,7 +10,7 @@ Plus installer.
 Glimpse
 -------
 
-![screenshot](http://▲.narf.pl/dotfiles)
+![screenshot](http://dl.dropbox.com/u/2618196/dotfiles.png)
 
 
 Installation
