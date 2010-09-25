@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Run Python and check all files with PyFlakes.
+Run Python.
 """
 
 from loopozorg import Loop
@@ -9,8 +9,7 @@ from loopozorg import Loop
 
 def _main():
     loop = Loop()
-    loop.run('python {main_file} {args};'
-             'pyflakes {tracked_files}',
+    loop.run('python {main_file} {args}',
              template='~/.loops/templates/python.txt')
 
 if __name__ == '__main__':
