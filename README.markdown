@@ -24,7 +24,7 @@ to backup files that otherwise would be replaced.  Requires Python
 ### Fresh
 
     cd ~
-    git clone git://github.com/narfdotpl/dotfiles
+    git clone http://github.com/narfdotpl/dotfiles.git
     cd dotfiles
     ./install
 
