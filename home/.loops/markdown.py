@@ -2,12 +2,12 @@
 # encoding: utf-8
 """
 Compile [Markdown][], enhance it with [SmartyPants][], add [GitHub][]
-styling and show everything in [Chrome][].
+styling and show everything in [Safari][].
 
   [Markdown]: http://daringfireball.net/projects/markdown/
   [SmartyPants]: http://daringfireball.net/projects/smartypants/
   [GitHub]: http://github.com/
-  [Chrome]: http://google.com/chrome
+  [Safari]: http://apple.com/safari/
 """
 
 from subprocess import call
@@ -20,23 +20,18 @@ def _main():
     loop = Loop()
     loop.html = '/tmp/markdown.html'
 
-    # create empty html file and open it in chrome
-    call('touch {0}; open -a "google chrome" {0}'.format(loop.html),
-         shell=True)
+    # touch html file and open it in safari
+    call('touch {0}; open -a safari {0}'.format(loop.html), shell=True)
 
     # compile markdown, enhance it with smartypants, add github styling and
-    # refresh chrome
+    # refresh safari
     loop.run("""
         echo '<!DOCTYPE html><html lang="en"><head><meta content="text/html;charset=utf-8" http-equiv="content-type"><title>Markdown preview</title><link href="http://assets1.github.com/stylesheets/bundle_common.css" rel="stylesheet"><link href="http://assets1.github.com/stylesheets/bundle_github.css" rel="stylesheet"></head><body><div class="site"><div id="files"><div class="file"><div id="readme" class="blob"><div class="wikistyle">' > {html};
         markdown {main_file} | smartypants >> {html};
         echo '</div></div></div></div></div></body></html>' >> {html};
         osascript -e '
-            tell application "Google Chrome"
-                activate
-                tell application "System Events"
-                    keystroke "r" using command down
-                    keystroke tab using command down
-                end tell
+            tell application "Safari"
+                do JavaScript "window.location.reload()" in front document
             end tell
         '
     """)
