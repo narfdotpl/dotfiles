@@ -262,11 +262,6 @@ alias l.='column_ls -d *(.)'  # files
 alias l@='column_ls -d *(@)'  # links
 alias .l='column_ls -d .*'    # hidden stuff
 
-# list directory contents using long listing format, don't ignore hidden
-# files, don't list owner nor group, print sizes in human readable
-# format (use powers of 1000 not 1024)
-alias ll='ls --almost-all -g --no-group --si | less'
-
 # create directory (and intermediate directories) and go there
 m() {
     mkdir -p $1
