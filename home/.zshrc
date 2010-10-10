@@ -170,9 +170,6 @@ bindkey '^[[B' history-beginning-search-forward
 source ~/.loops/aliases.zsh
 source ~/.scripts/aliases.zsh
 
-# run less
-alias :='less'
-
 # find html files
 alias -g .html='`find . -name "*.html"`'
 
