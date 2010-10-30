@@ -279,6 +279,9 @@ m() {
     cd $1
 }
 
+# refresh memory http://github.com/jpalardy/forgetful
+alias mem='rlwrap forgetful `ls ~/forgetful/*.csv | sort --random-sort`'
+
 # run python
 alias p='python -3'
 alias py='python'
