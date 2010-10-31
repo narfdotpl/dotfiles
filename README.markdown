@@ -1,7 +1,7 @@
 [narfdotpl][]'s dotfiles
 ========================
 
-Some of my configuration files and scripts used on OS X and Ubuntu.
+Some of my configuration files and scripts used on OS X.
 Plus installer.
 
   [narfdotpl]: http://narf.pl/
