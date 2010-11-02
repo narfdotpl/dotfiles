@@ -32,6 +32,21 @@ export CDPATH=~/⚡
 export LANG=en_US.UTF-8
 
 
+#-----------------
+#  GNU coreutils
+#-----------------
+
+# try to use GNU ls
+if [[ -x "`which gls`" ]]; then
+    ls() {gls "$@"}
+fi
+
+# try to use GNU sort
+if [[ -x "`which gsort`" ]]; then
+    sort() {gsort "$@"}
+fi
+
+
 #----------
 #  editor
 #----------
@@ -67,11 +82,6 @@ edit() {
 #------
 #  ls
 #------
-
-# try to use GNU ls
-if [[ -x `which gls` ]]; then
-    ls() {gls "$@"}
-fi
 
 # display names in column, append type indicators and ignore
 # compiled/optimized Python code and Vim swap
