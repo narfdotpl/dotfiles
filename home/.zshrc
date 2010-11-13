@@ -290,6 +290,9 @@ alias p3='python3'
 # ping google
 alias pg='ping -c 5 google.com'
 
+# install python package
+alias pi='pip install'
+
 # remove *.pyc files
 alias pyc='rm `find . -name "*.pyc"`'
 
