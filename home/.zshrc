@@ -239,6 +239,9 @@ alias d='cd ~/Desktop'
 # deactivate virtualenv
 alias de='deactivate'
 
+# run django
+alias dj='clear; pyc; open -a safari; python manage.py runserver'
+
 # show date and time (example: 2011-06-04 09:54:07, Saturday)
 alias dt='date "+%Y-%m-%d %H:%M:%S, %A"'
 
