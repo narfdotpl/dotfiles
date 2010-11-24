@@ -6,7 +6,7 @@ styling and show everything in [Safari][].
 
   [Markdown]: http://daringfireball.net/projects/markdown/
   [SmartyPants]: http://daringfireball.net/projects/smartypants/
-  [GitHub]: http://github.com/
+  [GitHub]: https://github.com/
   [Safari]: http://apple.com/safari/
 """
 

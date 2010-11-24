@@ -3,7 +3,7 @@
 # .zshrc -- Z shell configuration file
 #
 # Maciej Konieczny <hello@narf.pl>
-# http://github.com/narfdotpl/dotfiles
+# https://github.com/narfdotpl/dotfiles
 
 
 #--------
@@ -251,7 +251,7 @@ alias flushdns='dscacheutil -flushcache'
 
 # run git
 alias g='git'
-git() {hub "$@"}  # http://github.com/defunkt/hub
+git() {hub "$@"}  # https://github.com/defunkt/hub
 
 # grep for file names
 alias GF='grep --files-with-matches'
@@ -284,7 +284,7 @@ alias .l='column_ls -d .*'    # hidden stuff
 # create directory (and intermediate directories) and go there
 m() {mkdir -p $1 && cd $1}
 
-# refresh memory http://github.com/jpalardy/forgetful
+# refresh memory https://github.com/jpalardy/forgetful
 alias mem='rlwrap forgetful `ls ~/forgetful/*.csv | sort --random-sort`'
 
 # run python
@@ -369,7 +369,7 @@ python ~/.scripts/show_machine_info.py MacBook.local
 #  keychain
 #------------
 
-# http://github.com/funtoo/keychain
+# https://github.com/funtoo/keychain
 eval `keychain --eval --quiet --agents ssh id_rsa`
 
 

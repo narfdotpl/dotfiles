@@ -1,1 +1,1 @@
-[loopozorg](http://github.com/narfdotpl/loopozorg) loops
+[loopozorg](https://github.com/narfdotpl/loopozorg) loops
