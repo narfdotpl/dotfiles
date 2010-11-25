@@ -294,7 +294,7 @@ alias pg='ping -c 5 google.com'
 alias pi='pip install'
 
 # remove *.pyc files
-alias pyc='rm `find . -name "*.pyc"`'
+alias pyc='find . -name "*.pyc" -delete'
 
 # run pyflakes
 alias pyf='pyflakes `find . -name "*.py"`'
