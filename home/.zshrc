@@ -241,6 +241,9 @@ alias ee='edit $(fc -e - 2> /dev/null)'
 # find in working directory
 alias f='find . -name'
 
+# flush dns
+alias flushdns='dscacheutil -flushcache'
+
 # run git
 alias g='git'
 git() {hub "$@"}  # http://github.com/defunkt/hub
