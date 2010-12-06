@@ -238,8 +238,13 @@ alias e='edit'
 # after `grep --files-with-matches`)
 alias ee='edit $(fc -e - 2> /dev/null)'
 
-# find in working directory
-alias f='find . -name'
+# find in working directory without expanding wildcards
+# http://www.chiark.greenend.org.uk/~sgtatham/aliases.html
+f_helper() {
+    find . -name "$@"
+    setopt glob
+}
+alias f='setopt noglob; f_helper'
 
 # flush dns
 alias flushdns='dscacheutil -flushcache'
