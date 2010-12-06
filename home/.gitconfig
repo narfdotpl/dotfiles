@@ -27,6 +27,7 @@
     cl = clean -d --force
     clx = !git cl -x
     co = checkout
+    cp = cherry-pick
     d = !python ~/.scripts/git/diff.py
     dt = difftool --no-prompt
     e = blame
