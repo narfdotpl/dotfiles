@@ -55,6 +55,7 @@
     s = status --short
     sl = !git stash list | less
     sp = stash pop
+    sr = svn rebase
     ss = !git add . && git stash save
     t = commit --amend --cleanup=whitespace
     ta = tag -a
