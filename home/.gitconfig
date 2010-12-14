@@ -53,6 +53,7 @@
     rh = reset --hard
     root-branch = !python ~/.scripts/git/root-branch.py
     s = status --short
+    sd = svn dcommit
     sl = !git stash list | less
     sp = stash pop
     sr = svn rebase
