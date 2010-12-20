@@ -13,6 +13,9 @@
 [diff]
     tool = gvimdiff
 
+[push]
+    default = current
+
 [alias]
     a = !git add . && git c
     aa = !git add . && git ca
