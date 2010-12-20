@@ -282,10 +282,7 @@ alias l@='column_ls -d *(@)'  # links
 alias .l='column_ls -d .*'    # hidden stuff
 
 # create directory (and intermediate directories) and go there
-m() {
-    mkdir -p $1
-    cd $1
-}
+m() {mkdir -p $1 && cd $1}
 
 # refresh memory http://github.com/jpalardy/forgetful
 alias mem='rlwrap forgetful `ls ~/forgetful/*.csv | sort --random-sort`'
