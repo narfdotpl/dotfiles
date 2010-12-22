@@ -45,7 +45,7 @@
     m = !python ~/.scripts/git/update-branch.py
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
-    push-upto = !python ~/.scripts/git/push-upto.py
+    pu2 = !python ~/.scripts/git/push-upto.py
     r = !python ~/.scripts/git/rebase.py
     rh = reset --hard
     root-branch = !python ~/.scripts/git/root-branch.py
