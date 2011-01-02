@@ -172,6 +172,9 @@ bindkey '^e' end-of-line
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
+# forward delete
+bindkey '^[[3~' delete-char
+
 
 #-----------
 #  aliases
