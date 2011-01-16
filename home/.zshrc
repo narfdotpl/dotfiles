@@ -331,6 +331,11 @@ alias wo='workon'
 # edit *this* file
 alias z='edit ~/.zshrc'
 
+# schedule sleep
+zzz() {
+    echo "osascript -e 'tell application \"System Events\" to sleep'" | at $@
+}
+
 
 #----------
 #  python
