@@ -331,9 +331,14 @@ alias wo='workon'
 # edit *this* file
 alias z='edit ~/.zshrc'
 
-# schedule sleep
+# (schedule) sleep
 zzz() {
-    echo "osascript -e 'tell application \"System Events\" to sleep'" | at $@
+    local cmd="osascript -e 'tell application \"System Events\" to sleep'"
+    if [[ "$@" = "" ]]; then
+        eval $cmd
+    else
+        echo $cmd | at $@
+    fi
 }
 
 
