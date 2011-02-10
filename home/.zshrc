@@ -193,6 +193,10 @@ alias -g .js='`find . -name "*.js"`'
 # find python files
 alias -g .py='`find . -name "*.py"`'
 
+# go to login screen
+alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/'\
+'Resources/CGSession -suspend'
+
 # run homebrew
 alias b='brew'
 
