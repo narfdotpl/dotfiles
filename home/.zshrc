@@ -201,6 +201,9 @@ alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/'\
 # run homebrew
 alias b='brew'
 
+# smack my bishop
+alias bitch,='sudo'
+
 # quietly update homebrew and list outdated tools
 alias bu='brew update 2> /dev/null; brew outdated'
 
