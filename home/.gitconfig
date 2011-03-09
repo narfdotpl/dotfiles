@@ -22,6 +22,7 @@
 [alias]
     a = !git add . && git c
     aa = !git add . && git ca
+    ap = !git add --patch && git cv
     ar = !git add . && git r
     b = !python ~/.scripts/git/branch.py
     backup = !python ~/.scripts/git/backup.py
