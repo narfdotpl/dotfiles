@@ -27,13 +27,14 @@
     backup = !python ~/.scripts/git/backup.py
     bb = checkout @{-1}
     bm = checkout master
-    c = commit --all --verbose
+    c = !git cv --all
     ca = !git diff HEAD | gvim -R --nofork - && git c --amend
     car = !git ca && git r
     cl = clean -d --force
     clx = !git cl -x
     co = checkout
     cp = cherry-pick
+    cv = commit --verbose
     d = !python ~/.scripts/git/diff.py
     dt = difftool --no-prompt
     e = blame
