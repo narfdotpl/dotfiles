@@ -285,6 +285,9 @@ alias h='c home'
 # show shell history
 alias his='history -i 1 | less +G'
 
+# start http server
+alias http='open http://localhost:8000/; python -m SimpleHTTPServer'
+
 # run JSLint
 alias jslint='java -jar ~/tools/rhino.jar ~/tools/jslint.js'
 
