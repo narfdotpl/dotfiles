@@ -1,0 +1,134 @@
+snippet -
+	__${1:file}__
+snippet .f
+	.format(${1})
+snippet 1
+	#!/usr/bin/env python
+	# encoding: utf-8
+
+	from __future__ import division
+
+
+	__author__ = 'Maciej Konieczny <hello@narf.pl>'${1}
+
+
+	def _main():
+	    pass
+
+	if __name__ == '__main__':
+	    _main()
+snippet 8
+	*args, **kwargs
+snippet *
+	args, kwargs
+snippet F
+	False
+snippet N
+	None
+snippet T
+	True
+snippet a
+	append(${1})
+snippet ae
+	AttributeError(${1})
+snippet b
+	break${1}
+snippet c
+	class ${1}(${2:object})
+snippet d
+	def ${1}()
+snippet dn
+	DoesNotExist${1}
+snippet doc
+	"""
+	${1}
+	"""
+snippet e
+	else:
+	    ${1}
+snippet en
+	enumerate(${1})
+snippet ew
+	endswith(${1})
+snippet ex
+	except ${1:Exception}
+snippet f
+	from ${1} import ${2}
+snippet fi
+	finally:
+	    ${1}
+snippet ga
+	getattr(${1}, None)
+snippet get
+	get(${1})
+snippet ha
+	hasattr(${1})
+snippet i
+	def __init__(self${1})
+snippet id
+	import debug${1}
+snippet ii
+	iteritems(${1})
+snippet ik
+	iterkeys(${1})
+snippet im
+	import ${1}
+snippet is
+	isinstance(${1})
+snippet iv
+	itervalues(${1})
+snippet j
+	join(${1})
+snippet ke
+	KeyError(${1})
+snippet l
+	lambda ${1}
+snippet n
+	is None${1}
+snippet nn
+	is not None${1}
+snippet o
+	objects.${1}
+snippet p
+	print ${1}
+snippet pop
+	pop(${1}, None)
+snippet pp
+
+	print
+	print
+	print ${1}
+	print
+	print
+
+snippet r
+	return ${1}
+snippet ra
+	raise ${1}
+snippet re
+	reversed(${1})
+snippet ri
+	raise ${1}
+snippet s
+	super(self.__class__, self).${1:__init__}(*args, **kwargs)
+snippet sa
+	setattr(${1})
+snippet so
+	sorted(${1})
+snippet sw
+	startswith(${1})
+snippet t
+	def test_${1}(self)
+snippet te
+	TypeError(${1})
+snippet tr
+	try:
+	    ${1}
+snippet ve
+	ValueError(${1})
+snippet w
+	while ${1:True}
+snippet wi
+	with ${1:open}
+snippet y
+	yield ${1}
