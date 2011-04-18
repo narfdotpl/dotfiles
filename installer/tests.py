@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # encoding: utf-8
 """
 Test suite for dotfiles installer.
@@ -125,6 +126,11 @@ class TestMajority:
         # both files and directories
         mkdir(join(self.home_dir, basename(first_group[0])))
 
+        # create directory and symlink it with dotfile name
+        self.symlinked_dir = mkdtemp()
+        symlink(self.symlinked_dir,
+                join(self.home_dir, basename(first_group[1])))
+
 
         #---------------------
         #  symlinks in $HOME
@@ -161,8 +167,8 @@ class TestMajority:
         Remove fake directories.
         """
 
-        for directory in [self.dotfiles_dir, self.home_dir]:
-            rmtree(directory)
+        for dir_ in [self.dotfiles_dir, self.home_dir, self.symlinked_dir]:
+            rmtree(dir_)
 
     def get_homefiles(self):
         return [join(self.home_dir, name) for name in listdir(self.home_dir)]

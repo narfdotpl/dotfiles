@@ -155,7 +155,7 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                     new_name = _pretty_basename(new_destination)
                     print '{0} -> {1}'.format(name, new_name)
                 else:
-                    if isdir(destination):
+                    if isdir(destination) and not islink(destination):
                         rmtree(destination)
                     else:
                         remove(destination)
