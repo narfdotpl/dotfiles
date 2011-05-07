@@ -55,6 +55,7 @@
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     pu2 = !python ~/.scripts/git/push-upto.py
     r = !python ~/.scripts/git/rebase.py
+    ra = rebase --abort
     rh = reset --hard
     root-branch = !python ~/.scripts/git/root-branch.py
     s = status --short
