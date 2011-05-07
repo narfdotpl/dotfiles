@@ -62,6 +62,7 @@
     sd = svn dcommit
     sl = !git stash list | less
     sp = stash pop
+    spull = submodule foreach git pull --rebase
     sr = svn rebase
     ss = !git add . && git stash save
     t = commit --amend --cleanup=whitespace
