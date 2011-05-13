@@ -286,6 +286,7 @@ alias his='history -i 1 | less +G'
 alias jslint='java -jar ~/tools/rhino.jar ~/tools/jslint.js'
 
 # list directory contents
+alias ll='ls -Fal --time-style=long-iso | more'
 alias l='column_ls'
 alias l/='column_ls -d *(/)'  # directories
 alias l.='column_ls -d *(.)'  # files
