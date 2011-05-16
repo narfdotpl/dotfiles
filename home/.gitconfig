@@ -43,8 +43,7 @@
     gh = !hub browse
     h = help
     i = !git init && git add . && git msg 'created repo'
-    ignored = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | \
-               more
+    ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
     is = !git gh -- issues
     l = !python ~/.scripts/git/log.py | less
     ll = !git log --reverse --pretty=format:'%ad %s' --date=short | less +G
