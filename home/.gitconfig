@@ -49,7 +49,7 @@
     ll = !git log --reverse --pretty=format:'%ad %s' --date=short | less +G
     lm = !git lo --author=\"$(git config user.name)\" | less +G
     lo = log --oneline --reverse
-    lsha = !git lo --max-count=$(expr 1 + $(git l | wc -l))
+    ls = !git lo --max-count=$(expr 1 + $(git l | wc -l))
     m = !python ~/.scripts/git/update-branch.py
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
