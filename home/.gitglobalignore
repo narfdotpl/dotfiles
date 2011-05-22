@@ -16,5 +16,8 @@
 # Vim swap
 *.sw[nop]
 
+# tags (mostly Vim-related)
+tags
+
 # sass cache
 .sass-cache
