@@ -337,10 +337,8 @@ alias wh='which'
 # activate virtualenv
 alias wo='workon'
 
-# edit *this* file
-alias z='edit ~/.zshrc'
-
 # (schedule) sleep
+alias z='zzz'
 zzz() {
     local cmd="osascript -e 'tell application \"System Events\" to sleep'"
     if [[ "$@" = "" ]]; then
