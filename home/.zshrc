@@ -184,13 +184,10 @@ bindkey '^[[3~' delete-char
 source ~/.loops/aliases.zsh
 source ~/.scripts/aliases.zsh
 
-# find html files
+# find webdev files
+alias -g .css='`find . -name "*.css"`'
 alias -g .html='`find . -name "*.html"`'
-
-# find javascript files
 alias -g .js='`find . -name "*.js"`'
-
-# find python files
 alias -g .py='`find . -name "*.py"`'
 
 # go to login screen
