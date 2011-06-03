@@ -302,6 +302,9 @@ m() {mkdir -p $1 && cd $1}
 # refresh memory https://github.com/jpalardy/forgetful
 alias mem='rlwrap forgetful `ls ~/forgetful/*.csv | sort --random-sort`'
 
+# exclude matching lines
+alias not='grep --ignore-case --invert-match --perl-regexp'
+
 # run python
 alias p='python -3'
 alias py='python'
