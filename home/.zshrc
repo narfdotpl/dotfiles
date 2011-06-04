@@ -265,15 +265,15 @@ alias g='git'
 git() {hub "$@"}  # https://github.com/defunkt/hub
 
 # grep for file names
-alias GF='grep --files-with-matches'
+alias GF='grep --files-with-matches --perl-regexp'
 alias gf='GF --ignore-case'
 
 # grep through shell history
-alias GH='history -i 1 | grep'
+alias GH='history -i 1 | grep --perl-regexp'
 alias gh='GH --ignore-case'
 
 # grep
-alias GR='grep'
+alias GR='grep --perl-regexp'
 alias gr='GR --ignore-case'
 
 # go to ~/dotfiles/home
