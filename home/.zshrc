@@ -273,7 +273,7 @@ alias GH='history -i 1 | grep'
 alias gh='GH --ignore-case'
 
 # grep
-alias GR='grep --line-number'
+alias GR='grep'
 alias gr='GR --ignore-case'
 
 # go to ~/dotfiles/home
