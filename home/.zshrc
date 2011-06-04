@@ -236,11 +236,11 @@ cpwd() {
 # go to desktop
 alias d='cd ~/Desktop'
 
-# show date (example: 2009-11-07 01:16:21, Saturday)
-alias da='date "+%Y-%m-%d %H:%M:%S, %A"'
-
 # deactivate virtualenv
 alias de='deactivate'
+
+# show date and time (example: 2011-06-04 09:54:07, Saturday)
+alias dt='date "+%Y-%m-%d %H:%M:%S, %A"'
 
 # edit
 alias e='edit'
