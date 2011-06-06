@@ -16,6 +16,9 @@
 [diff]
     tool = gvimdiff
 
+[hub]
+    http-clone = true
+
 [push]
     default = current
 
