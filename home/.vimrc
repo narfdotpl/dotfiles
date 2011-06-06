@@ -208,6 +208,7 @@ inoremap <D-BS> <Esc>d0xi
 " use cmd + enter like in TextMate
 nnoremap <D-Enter> o
 imap <D-Enter> <Esc><D-Enter>
+smap <D-Enter> <Esc><D-Enter>
 
 " move current line/selection with alt + up/down
 nnoremap <A-Up> :m-2<Enter>
