@@ -18,6 +18,7 @@
 
 # tags (mostly Vim-related)
 tags
+!tags/
 
 # sass cache
 .sass-cache
