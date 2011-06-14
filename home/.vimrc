@@ -291,6 +291,9 @@ map <Leader>b :buffers<Enter>
 " show marks
 map <Leader>m :marks<Enter>
 
+" format paragraph
+nnoremap <Space> :call Preserve(':normal gqip')<Enter>
+
 " insert colon at the end of a line
 inoremap <S-Enter> <Esc>:call Preserve('s/\s*$/;/')<Enter>a
 
