@@ -62,6 +62,10 @@ set cursorline
 " show matching brackets
 set showmatch
 
+" switch between the sides of the force
+map <Leader><F1> :set background=dark<Enter>
+map <Leader><F2> :set background=light<Enter>
+
 
 "--------------
 "  whitespace
