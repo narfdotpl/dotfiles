@@ -53,6 +53,7 @@ autocmd BufEnter * :syntax sync fromstart
 
 " fight for your eyes
 set background=dark
+let g:solarized_visibility='low'
 colorscheme solarized
 
 " highlight current line
