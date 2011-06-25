@@ -33,6 +33,7 @@ def _main():
 
     # tell how to deal with mvim
     print 'run ":Helptags" in MacVim'
+    print 'comment out /etc/zshenv contents to get correct $PATH in MacVim'
 
 if __name__ == '__main__':
     _main()
