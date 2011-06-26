@@ -31,5 +31,8 @@ def _main():
         print 'switch to zsh (you may need to relog): ' \
               'chsh -s `which zsh` $USER'
 
+    # tell how to deal with mvim
+    print 'run ":Helptags" in MacVim'
+
 if __name__ == '__main__':
     _main()
