@@ -29,7 +29,7 @@
     ar = !git add . && git r
     b = !python ~/.scripts/git/branch.py
     backup = !python ~/.scripts/git/backup.py
-    bb = checkout @{-1}
+    bb = checkout -
     bm = checkout master
     c = !git cv --all
     ca = !git diff HEAD | gvim -R --nofork - && git c --amend
