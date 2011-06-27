@@ -19,6 +19,9 @@
 [hub]
     http-clone = true
 
+[merge]
+    ff = only
+
 [push]
     default = current
 
