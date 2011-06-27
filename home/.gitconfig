@@ -41,7 +41,6 @@
     cv = commit --verbose
     d = !python ~/.scripts/git/diff.py
     dt = difftool --no-prompt
-    e = blame
     gca = gc --aggressive
     gh = !hub browse
     h = help
