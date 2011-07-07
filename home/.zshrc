@@ -360,6 +360,7 @@ zzz() {
 export PYTHONSTARTUP=~/.pythonrc.py
 
 # pip
+export PIP_DOWNLOAD_CACHE=~/.pip/download-cache
 export PIP_RESPECT_VIRTUALENV=true
 eval `pip completion --zsh`
 
