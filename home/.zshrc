@@ -186,7 +186,7 @@ source ~/.scripts/aliases.zsh
 alias -g .css='`find . -name "*.css"`'
 alias -g .html='`find . -name "*.html"`'
 alias -g .js='`find . -name "*.js"`'
-alias -g .py='`find . -name "*.py"`'
+alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
 
 # go to login screen
 alias a='afk'
@@ -318,7 +318,7 @@ alias pi='pip install'
 alias pyc='find . -name "*.pyc" -delete'
 
 # run pyflakes
-alias pyf='pyflakes `find . -name "*.py"`'
+alias pyf='pyflakes .py'
 
 # brutally remove
 alias rf='rm -rf'
