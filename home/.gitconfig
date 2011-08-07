@@ -31,6 +31,7 @@
     ap = !git add --patch && git cv
     ar = !git add . && git r
     b = !python ~/.scripts/git/branch.py
+    ba = !git backup --force
     backup = !python ~/.scripts/git/backup.py
     bb = checkout -
     bm = checkout master
