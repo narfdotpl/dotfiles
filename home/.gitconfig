@@ -41,6 +41,7 @@
     cp = cherry-pick
     cv = commit --verbose
     d = !python ~/.scripts/git/diff.py
+    e = !$EDIT $(git u)
     gca = gc --aggressive
     gh = !hub browse
     h = help
