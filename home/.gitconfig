@@ -13,9 +13,6 @@
 [core]
     excludesfile = ~/.gitglobalignore
 
-[diff]
-    tool = gvimdiff
-
 [hub]
     http-clone = true
 
@@ -44,7 +41,6 @@
     cp = cherry-pick
     cv = commit --verbose
     d = !python ~/.scripts/git/diff.py
-    dt = difftool --no-prompt
     gca = gc --aggressive
     gh = !hub browse
     h = help
