@@ -1,5 +1,5 @@
 " don't special-highlight exceptions
-let python_no_exception_highlight=1
+let python_no_exception_highlight = 1
 
 " use magic colon
 autocmd FileType python :inoremap <buffer> : <Esc>$a:<Esc>o
