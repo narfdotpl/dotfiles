@@ -30,9 +30,14 @@ export CDPATH=~/⚡
 export LANG=en_US.UTF-8
 
 
-#-----------------
-#  GNU coreutils
-#-----------------
+#-------------
+#  GNU stuff
+#-------------
+
+# try to use GNU cal
+if [[ -x "`which gcal`" ]]; then
+    cal() {gcal --starting-day=monday "$@"}
+fi
 
 # try to use GNU ls
 if [[ -x "`which gls`" ]]; then
