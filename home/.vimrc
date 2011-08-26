@@ -328,6 +328,7 @@ let g:netrw_list_hide='\v(\.DS_Store)|(.*\.py[co])|(\.swp)$'
 
 " learn to type
 ab alais alias
+ab anythong anything
 ab everythong everything
 
 " map alt + colon to colon (my keyboard... don't ask)
