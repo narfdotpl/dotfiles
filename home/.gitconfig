@@ -63,9 +63,10 @@
     root-branch = !python ~/.scripts/git/root-branch.py
     s = status --short
     sd = svn dcommit
+    sf = submodule foreach
     sl = !git stash list | less
+    sm = !git sf git bm && git sf git m && git c
     sp = stash pop
-    spull = submodule foreach git pull --rebase
     sr = svn rebase
     ss = !git add . && git stash save
     t = commit --amend --cleanup=whitespace
