@@ -305,6 +305,9 @@ m() {mkdir -p $1 && cd $1}
 # refresh memory https://github.com/jpalardy/forgetful
 alias mem='rlwrap forgetful `ls ~/forgetful/*.csv | sort --random-sort`'
 
+# scp to narf.pl
+ncp() {scp $1 megi:~/narf.pl/main/100101111/$2}
+
 # exclude matching lines
 alias not='grep --ignore-case --invert-match --perl-regexp'
 
