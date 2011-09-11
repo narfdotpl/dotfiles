@@ -337,6 +337,9 @@ alias s='cd ~/sandbox'
 # save workspace
 alias save='save_workspace'
 
+# run scheme
+alias scm='rlwrap scheme'
+
 # edit todo
 alias t='edit ~/Dropbox/todo.taskpaper'
 
