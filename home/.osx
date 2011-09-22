@@ -1,0 +1,61 @@
+#!/usr/bin/env sh
+
+# copied from:
+#  -  https://github.com/mathiasbynens/dotfiles
+#  -  https://github.com/inky/dotfiles
+
+
+# Disable the Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+killall Dashboard || true
+
+# Turn off Spaces animation
+defaults write com.apple.dock workspaces-swoosh-animation-off -bool true
+
+# Enable full keyboard access for all controls (e.g. enable Tab in modal
+# dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Show all filename extensions in Finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Disable disk image verification
+defaults write com.apple.frameworks.diskimages skip-verify -bool true
+defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+# Automatically open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Turn off some crap in iTunes
+defaults write com.apple.iTunes show-store-arrow-links -bool false
+defaults write com.apple.iTunes hide-ping-dropdown -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Fix the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)
+echo "0x08000100:0" > ~/.CFUserTextEncoding
+
+# Reset Dock, Finder, and Launchpad
+rm ~/Library/Application\ Support/Dock/*.db
+for app in Dock Finder; do killall "$app"; done

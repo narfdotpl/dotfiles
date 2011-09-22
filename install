@@ -8,6 +8,16 @@ import sys
 from time import sleep
 
 
+def ask_yn(question):
+    question += ' (y/n)  '
+    answer = None
+
+    while answer not in ['yes', 'y', 'no', 'n']:
+        answer = raw_input(question).lower()
+
+    return answer.startswith('y')
+
+
 def run(command):
     return call(command, shell=True)
 
@@ -34,6 +44,12 @@ def _main():
     sleep(2)
     run('mvim -c "Helptags | quit"; sleep 1; open -a terminal')
     print 'done'
+
+    # source ~/.osx
+    cmd = 'source ~/.osx'
+    print '\n'
+    if ask_yn(cmd + '?'):
+        run(cmd)
 
     # show tips
     print '\n\ntips:'
