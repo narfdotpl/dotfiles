@@ -1,39 +1,49 @@
 #!/usr/bin/env python
 # encoding: utf-8
-"""
-Update repo, run installer and tell how to switch to zsh.
-"""
 
 from os import environ
 from os.path import dirname, join, realpath
 from subprocess import call
+import sys
+from time import sleep
+
+
+def run(command):
+    return call(command, shell=True)
 
 
 def _main():
     # get dotfiles directory
     dotfiles_dir = dirname(realpath(__file__))
 
-    # update repo and "install" submodules
-    call(' && '.join([
-        'cd ' + dotfiles_dir,
-        'git pull --rebase',
-        'git submodule init',
-        'git submodule update'
-    ]), shell=True)
-
     # run installer
-    installer = join(dotfiles_dir, 'installer/installer.py')
-    call('python ' + installer, shell=True)
+    installer_path = join(dotfiles_dir, 'installer/installer.py')
+    run('python ' + installer_path)
+
+    # "install" git submodules
+    print '\n\n"installing" git submodules...'
+    sys.stdout.flush()
+    sleep(2)
+    run(' && '.join(['cd ' + dotfiles_dir,
+                     'git submodule init',
+                     'git submodule update']))
+
+    # create tags for vim documentation
+    print '\n\ncreating tags for vim documentation...',
+    sys.stdout.flush()
+    sleep(2)
+    run('mvim -c "Helptags | quit"; sleep 1; open -a terminal')
+    print 'done'
+
+    # show tips
+    print '\n\ntips:'
+    print ' -  comment out /etc/zshenv contents to get correct $PATH in MacVim'
 
     # tell how to switch to zsh
     shell = environ.get('SHELL')
     if not shell or not shell.endswith('zsh'):
-        print 'switch to zsh (you may need to relog): ' \
-              'chsh -s `which zsh` $USER'
-
-    # tell how to deal with mvim
-    print 'run ":Helptags" in MacVim'
-    print 'comment out /etc/zshenv contents to get correct $PATH in MacVim'
+        print ' -  run "chsh -s `which zsh` $USER" to switch to zsh ' \
+              '(you may need to relog)'
 
 if __name__ == '__main__':
     _main()

@@ -166,9 +166,9 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                 print '+ ' + name
 
     if fresh:
-        print 'installation/update complete, consider restarting terminal'
+        print 'symlinking complete, consider restarting terminal'
     else:
-        print 'nothing fresh to install'
+        print 'nothing fresh to symlink'
 
 
 def _pretty_basename(path):

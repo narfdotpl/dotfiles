@@ -33,4 +33,5 @@ to backup files that otherwise would be replaced.  Requires Python
 
     cd ~/dotfiles
     git checkout master
+    git pull --rebase
     ./install
