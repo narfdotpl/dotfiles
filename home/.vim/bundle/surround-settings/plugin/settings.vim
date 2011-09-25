@@ -35,6 +35,7 @@ endfunction
 smap " <C-G>s"``a
 smap ' <C-G>s'``a
 smap ` <C-G>s```a
+smap * <C-G>s*``a
 smap ( <C-G>s)``a
 smap [ <C-G>s]``a
 smap { <C-G>s}``a
