@@ -44,9 +44,9 @@ if [[ -x "`which gls`" ]]; then
     ls() {gls "$@"}
 fi
 
-# try to use GNU sort
+# try to use GNU sort (with "version sorting" a'la OS X Finder)
 if [[ -x "`which gsort`" ]]; then
-    sort() {gsort "$@"}
+    sort() {gsort --version-sort "$@"}
 fi
 
 
@@ -92,7 +92,7 @@ column_ls() {
     ls -1F $@ | awk '{
         if (!($0 ~ /\.(py[co]|sw[nop]).?$/))
             printf("%s\n", $0)
-    }' | more
+    }' | sort | more
 }
 
 
