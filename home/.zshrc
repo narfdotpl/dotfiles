@@ -175,6 +175,10 @@ bindkey '^e' end-of-line
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
+# alt + left/right: jump one word backward/forward
+bindkey '^[^[[D' emacs-backward-word
+bindkey '^[^[[C' emacs-forward-word
+
 # forward delete
 bindkey '^[[3~' delete-char
 
