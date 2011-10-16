@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from os import environ
-from os.path import dirname, join, realpath
+from os import environ, listdir
+from os.path import dirname, exists, expanduser, join, realpath
 from subprocess import call
 import sys
 from time import sleep
@@ -16,6 +16,22 @@ def ask_yn(question):
         answer = raw_input(question).lower()
 
     return answer.startswith('y')
+
+
+def brew():
+    # get installed apps
+    cellar_dir = '/usr/local/Cellar'
+    installed = listdir(cellar_dir) if exists(cellar_dir) else []
+
+    # get desired apps
+    with open(expanduser('~/.brew')) as f:
+        desired = map(str.strip, f.readlines())
+
+    # install missing apps
+    for app in sorted(set(desired) - set(installed)):
+        print app
+        run('brew install ' + app)
+        print
 
 
 def run(command):
@@ -37,6 +53,11 @@ def _main():
     run(' && '.join(['cd ' + dotfiles_dir,
                      'git submodule init',
                      'git submodule update']))
+
+    # install homebrew stuff
+    print '\n'
+    if ask_yn('install homebrew stuff?'):
+        brew()
 
     # create tags for vim documentation
     print '\n\ncreating tags for vim documentation...',
