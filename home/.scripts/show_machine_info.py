@@ -7,7 +7,7 @@ If machine name matches first passed argument, show only uptime.
 
 Usage:
 
-    python show_machine_info.py [<machine name>]
+    python show_machine_info.py [<machine name>]...
 
 Example:
 
@@ -41,8 +41,7 @@ def _main():
     # => 5 days
     uptime = ' '.join(read_stdout('uptime').split(',')[0].split()[2:])
 
-    args = argv[1:]
-    if args and args[0] == name:
+    if name in argv[1:]:
         print 'up ' + uptime
     else:
         print '{name} ({system}), up {uptime}'.format(**locals())

@@ -405,7 +405,7 @@ export RUBYOPT=rubygems
 #--------
 
 # example: stallman (Linux), up 29 days
-python ~/.scripts/show_machine_info.py MacBook.local
+python ~/.scripts/show_machine_info.py MacBook.local Air.local
 
 
 #------------
