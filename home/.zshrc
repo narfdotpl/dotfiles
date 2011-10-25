@@ -333,7 +333,7 @@ alias pi='pip install'
 alias pyc='find . -name "*.pyc" -delete'
 
 # run pyflakes
-alias pyf='pyflakes .py'
+alias pyf='pyflakes .py | not __init__.py'
 
 # brutally remove
 alias rf='rm -rf'
