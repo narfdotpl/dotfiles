@@ -49,3 +49,6 @@
 [submodule "home/.vim/bundle/tagbar"]
 	path = home/.vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "home/.vim/bundle/repeat"]
+	path = home/.vim/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
