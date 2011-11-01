@@ -296,6 +296,9 @@ inoremap <S-Enter> <Esc>:call Preserve('s/\s*$/;/')<Enter>a
 " make braced block
 inoremap <A-Enter> <Space>{}<Left><Enter><Esc>O
 
+" open tag definition in a new tab
+nnoremap <D-\> :tab split<Enter>:exec("tag ".expand("<cword>"))<Enter>
+
 " switch between normal and relative line numbers
 nnoremap <Leader>n :set number<Enter>
 nnoremap <Leader>r :set relativenumber<Enter>

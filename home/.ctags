@@ -1,0 +1,4 @@
+--exclude=.git
+--exclude=env
+--languages=-javascript,sql
+--python-kinds=-iv

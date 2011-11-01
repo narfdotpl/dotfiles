@@ -16,6 +16,9 @@
 [hub]
     http-clone = true
 
+[init]
+    templatedir = ~/.gitfiles/template
+
 [merge]
     ff = only
 

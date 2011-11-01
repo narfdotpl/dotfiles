@@ -1,0 +1,2 @@
+#!/bin/sh
+rm -f .git/tags && ctags --tag-relative -Rf.git/tags > /dev/null 2>&1 &

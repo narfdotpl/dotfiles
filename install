@@ -75,6 +75,8 @@ def _main():
     # show tips
     print '\n\ntips:'
     print ' -  comment out /etc/zshenv contents to get correct $PATH in MacVim'
+    print ' -  modify home/.gitfiles/template/hooks -- it\'s an absolute'
+    print '    symlink to /Users/narf/.gitfiles/hooks (sorry)'
 
     # tell how to switch to zsh
     shell = environ.get('SHELL')
