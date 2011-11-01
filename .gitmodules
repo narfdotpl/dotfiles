@@ -37,9 +37,6 @@
 [submodule "home/.vim/bundle/gundo"]
 	path = home/.vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "home/.vim/bundle/tcomment"]
-	path = home/.vim/bundle/tcomment
-	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "home/.vim/bundle/javascript"]
 	path = home/.vim/bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
@@ -49,3 +46,6 @@
 [submodule "home/.vim/bundle/repeat"]
 	path = home/.vim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "home/.vim/bundle/commentary"]
+	path = home/.vim/bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
