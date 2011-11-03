@@ -364,6 +364,9 @@ export PIP_DOWNLOAD_CACHE=~/.pip/download-cache
 export PIP_RESPECT_VIRTUALENV=true
 eval `pip completion --zsh`
 
+# brew-pip
+export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+
 # virtualenv
 source ~/.virtualenvs/virtualenvwrapper_bashrc
 
