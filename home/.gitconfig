@@ -78,3 +78,6 @@
     when-joined = !python ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
     x = !open -a gitx .
+    xa = !git annex add . && git c
+    xl = annex lock
+    xu = annex unlock
