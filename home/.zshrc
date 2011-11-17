@@ -341,6 +341,7 @@ alias wh='which'
 alias wo='workon'
 
 # (schedule) sleep
+# read `man atrun` to enable scheduling
 alias z='zzz'
 zzz() {
     local cmd="osascript -e 'tell application \"System Events\" to sleep'"
