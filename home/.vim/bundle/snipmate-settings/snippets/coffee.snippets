@@ -4,6 +4,8 @@ snippet =
 	=> ${1}
 snippet .f
 	.find(${1})
+snippet 2
+	@$(${1})
 snippet 4
 	$(${1})
 snippet 8
@@ -18,9 +20,27 @@ snippet a
 	alert(${1})
 snippet b
 	break${1}
+snippet bc
+	class ${1}List extends Backbone.Collection
+	    model:
 snippet be
 	beforeEach ->
 	    ${1}
+snippet bm
+	class ${1} extends Backbone.Model
+snippet bv
+	class ${1}View extends Backbone.View
+	    template: Templates.
+	    tagName: ''
+	    className: ''
+
+	    initialize: ->
+	        @model.bind('change', @render, @)
+
+	    render: ->
+	        state = @model.toJSON()
+	        $(@el).html(@template(state))
+	        @
 snippet c
 	class ${1}
 snippet d
