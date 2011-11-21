@@ -1,0 +1,21 @@
+snippet =
+	<%= @${1} %>
+snippet 1
+	<!doctype html>
+	<html lang="en">
+	    <head>
+	        <meta charset="utf-8">
+	        <title>${1}</title>
+	    </head>
+	    <body>
+	    </body>
+	</html>
+snippet e
+	<% else: %>
+	    ${1}
+snippet for
+	<% for ${1}: %>
+	<% end %>
+snippet if
+	<% if @${1}: %>
+	<% end %>
