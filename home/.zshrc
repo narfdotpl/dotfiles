@@ -304,6 +304,9 @@ alias p='python -3'
 alias py='python'
 alias p3='python3'
 
+# list installed python packages
+alias pf='pip freeze'
+
 # ping google
 alias pg='ping -c 5 google.com'
 
