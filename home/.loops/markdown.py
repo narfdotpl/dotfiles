@@ -27,7 +27,7 @@ def _main():
     # compile markdown, enhance it with smartypants, add github styling and
     # refresh chrome
     loop.run("""
-        echo '<!DOCTYPE html><html lang="en"><head><meta content="text/html;charset=utf-8" http-equiv="content-type"><title>Markdown preview</title><link href="http://assets1.github.com/stylesheets/bundle_common.css" rel="stylesheet"><link href="http://assets1.github.com/stylesheets/bundle_github.css" rel="stylesheet"></head><body><div class="site"><div id="files"><div class="file"><div id="readme" class="blob"><div class="wikistyle">' > {html};
+        echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Markdown preview</title><link href="http://assets1.github.com/stylesheets/bundle_common.css" rel="stylesheet"><link href="http://assets1.github.com/stylesheets/bundle_github.css" rel="stylesheet"><style>.site {{ padding: 1.3em }}</style></head><body><div class="site"><div id="files"><div class="file"><div id="readme" class="blob"><div class="wikistyle">' > {html};
         markdown {main_file} | smartypants >> {html};
         echo '</div></div></div></div></div></body></html>' >> {html};
         osascript -e '
