@@ -37,24 +37,15 @@ if has("gui_running")
     set guioptions-=L  " hide left scrollbar in a vertically split window
 endif
 
-" setup that funny lines at the bottom
-set ruler         " show cursor position
-set laststatus=1  " show status line only if there are at least two windows
-set showcmd       " display incomplete commands
-
-" set window size (actual sizing is done by fontsized plugin)
-set number          " show line numbers
-set numberwidth=4   " 4 character line number e.g. __1_#!/usr/bin/env python
-set colorcolumn=80  " highlight 80th column
+" display incomplete commands
+set showcmd
 
 " highlight syntax
 syntax on
 autocmd BufEnter * :syntax sync fromstart
 
-" fight for your eyes
-set background=dark
-let g:solarized_visibility='low'
-colorscheme solarized
+" highlight 80th column
+set colorcolumn=80
 
 " highlight current line
 set cursorline
@@ -62,9 +53,14 @@ set cursorline
 " show matching brackets
 set showmatch
 
-" switch between the sides of the force
-map <Leader><F1> :set background=dark<Enter>
-map <Leader><F2> :set background=light<Enter>
+" fight for your eyes
+set background=dark
+let g:solarized_visibility='low'
+colorscheme solarized
+
+" switch between sides of the force
+map <Leader><F1> :set background=dark<Enter>:Fontsized<Enter>
+map <Leader><F2> :set background=light<Enter>:Fontsized<Enter>
 
 
 "--------------
