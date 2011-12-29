@@ -310,6 +310,18 @@ alias pf='pip freeze'
 # ping google
 alias pg='ping -c 5 google.com'
 
+# (get and) play mp3s in itunes
+# also, always complete paths as if I was in mp3 dir
+compctl -fW ~/Music/mp3 play
+play() {
+    (
+        cd ~/Music/mp3 &&
+        git annex get $1 &&
+        open -a itunes $1 &&
+        open -a terminal
+    )
+}
+
 # install python package
 alias pi='pip install'
 
