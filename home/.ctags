@@ -2,3 +2,10 @@
 --exclude=env
 --languages=-javascript,sql
 --python-kinds=-iv
+
+--langdef=coffee
+--langmap=coffee:.coffee
+--regex-coffee=/^class ([A-Za-z.]+)( extends [A-Za-z.]+)?$/\1/c,class/
+--regex-coffee=/^[ \t]*@?([A-Za-z.]+):.*[-=]>.*$/\1/f,function/
+--regex-coffee=/^[ \t]*([A-Za-z.]+)[ \t]+=.*[-=]>.*$/\1/f,function/
+--regex-coffee=/^[ \t]*([A-Za-z.]+)[ \t]+=[^->\n]*$/\1/v,variable/
