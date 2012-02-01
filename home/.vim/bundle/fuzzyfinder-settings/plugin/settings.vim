@@ -7,6 +7,9 @@ let g:fuf_previewHeight = 0
 " ignore backups, compiled/optimized Python code, Vim swap and SCM directories
 let g:fuf_file_exclude = '\v\~$|\.(py[co]|sw[nop])$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
+" clear cache
+map <Leader>f :FufRenewCache<Enter>
+
 
 " open file starting from current file's directory
 " http://vimcasts.org/episodes/the-edit-command/
