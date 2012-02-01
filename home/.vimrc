@@ -124,6 +124,10 @@ imap <F2> <Esc><F2>a
 vmap <F2> <Esc><F2>gv
 smap <F2> <C-g><F2><C-g>
 
+" replace last search
+nnoremap <Leader>s :%s///gc<Left><Left><Left>
+vnoremap <Leader>s :s///gc<Left><Left><Left>
+
 
 "-----------
 "  windows
