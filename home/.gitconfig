@@ -40,6 +40,7 @@
     car = !git ca && git r
     cl = clean -d --force
     clx = !git cl -x
+    cmp = !python ~/.scripts/git/get-compare-links.py
     co = checkout
     cp = cherry-pick
     cv = commit --verbose
