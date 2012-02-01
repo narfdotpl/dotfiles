@@ -19,8 +19,8 @@ map <Leader>e
    \:exec 'FufFile '.expand('%:p:h').'/'<Enter>
 
 " :sp
-map <Leader>S :sp <C-R>=expand('%:p:h').'/'<Enter>
-map <Leader>s
+map <Leader>H :sp <C-R>=expand('%:p:h').'/'<Enter>
+map <Leader>h
   \ :let g:fuf_file_prompt = ':sp []'<Enter>
    \:let g:fuf_keyOpenSplit = "<Enter\>"<Enter>
    \:exec 'FufFile '.expand('%:p:h').'/'<Enter>
