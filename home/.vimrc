@@ -275,11 +275,17 @@ snoremap <D-S-Left> <C-G>0<C-G>
 " delete current line
 nnoremap <bs> dd
 
-" change selection to lowercase and stay in select mode
-snoremap <C-L> <C-G>uv`]<C-G>
+" change selection/word to lowercase and restore mode
+vnoremap <C-L> uv`]
+imap <C-L> <Esc><C-L>a
+nmap <C-L> viw<C-L><Esc>
+smap <C-L> <C-G><C-L><C-G>
 
-" change selection to uppercase and stay in select mode
-snoremap <C-U> <C-G>Uv`]<C-G>
+" change selection/word to uppercase and restore mode
+vnoremap <C-U> Uv`]
+imap <C-U> <Esc><C-U>a
+nmap <C-U> viw<C-U><Esc>
+smap <C-U> <C-G><C-U><C-G>
 
 " show buffers
 map <Leader>b :buffers<Enter>
