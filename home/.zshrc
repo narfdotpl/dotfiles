@@ -353,12 +353,24 @@ alias t='edit ~/Dropbox/todo.taskpaper'
 vlc() {
     if [[ "$@" = "" ]]; then
         open -a vlc
-    elif [[ -f "$(pwd)/$1" ]]; then
+    elif [[ -f $1 ]]; then
         open -a vlc $1
     else
+        # start download in background
         youtube-dl --no-part --title --continue --quiet $1 &
+
+        # show title
         youtube-dl --get-title $1
-        open -a vlc $(youtube-dl --no-part --title --get-filename $1)
+
+        # open file as soon as it appears
+        local filename="$(youtube-dl --no-part --title --get-filename $1)"
+        while [[ ! -f $filename ]]; do
+            sleep 1
+        done
+        open -a vlc $filename
+
+        # bring download to foreground
+        fg %youtube-dl
     fi
 }
 
