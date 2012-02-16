@@ -63,7 +63,7 @@ def _main():
     print '\n\ncreating tags for vim documentation...',
     sys.stdout.flush()
     sleep(2)
-    run('mvim -c "Helptags | quit"; sleep 1; open -a terminal')
+    run('mvim -c "Helptags | quit"; sleep 1; open -a iterm')
     print 'done'
 
     # source ~/.osx

@@ -39,7 +39,7 @@ if [[ -x `which gvim` ]]; then
     export EDIT='gvim -p'  # -p == open tab for each file
     if [[ -x `which mvim` ]]; then  # gvim is symlink to mvim on my mac
         # go back to terminal after closing editor
-        export EDITOR='sh -c "'$EDIT' --nofork $@ && open -a terminal"'
+        export EDITOR='sh -c "'$EDIT' --nofork $@ && open -a iterm"'
     else
         export EDITOR=$EDIT' --nofork'
     fi
@@ -320,7 +320,7 @@ play() {
         cd ~/Music/mp3 &&
         git annex get $1 &&
         open -a itunes $1 &&
-        open -a terminal
+        open -a iterm
     )
 }
 
