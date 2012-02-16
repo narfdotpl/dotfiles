@@ -130,15 +130,16 @@ autoload -U zmv
 # and arithmetic expansion
 setopt prompt_subst
 
-# set colors
-DEFAULT_COLOR=$'%{\e[0m%}'
-GREY=$'%{\e[0;37m%}'
-BLUE=$'%{\e[0;36m%}'  # I'm color blind, k?
+# set color names
+DEFAULT=$'%{\e[0m%}'
+GREEN=$'%{\e[0;32m%}'
+BLUE=$'%{\e[0;34m%}'
+WHITE=$'%{\e[0;37m%}'
 
 # show short path, git repo info and ">" sign, e.g. "foo/bar/baz master > "
 get_short_path() {python ~/.scripts/short_path.py "$(pwd)"}
 get_git_prompt() {python ~/.scripts/git/prompt.py}
-PROMPT='${BLUE}$(get_short_path)${GREY}$(get_git_prompt) ${DEFAULT_COLOR}> '
+PROMPT='${BLUE}$(get_short_path)${GREEN}$(get_git_prompt) ${WHITE}>${DEFAULT} '
 
 # show non-zero exit code
 RPROMPT='%(0?..%?)'
