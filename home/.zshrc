@@ -132,6 +132,7 @@ setopt prompt_subst
 
 # set color names
 DEFAULT=$'%{\e[0m%}'
+RED=$'%{\e[0;31m%}'
 GREEN=$'%{\e[0;32m%}'
 BLUE=$'%{\e[0;34m%}'
 WHITE=$'%{\e[0;37m%}'
@@ -142,7 +143,7 @@ get_git_prompt() {python ~/.scripts/git/prompt.py}
 PROMPT='${BLUE}$(get_short_path)${GREEN}$(get_git_prompt) ${WHITE}>${DEFAULT} '
 
 # show non-zero exit code
-RPROMPT='%(0?..%?)'
+RPROMPT='${RED}%(0?..%?)${DEFAULT}'
 
 
 #------------
