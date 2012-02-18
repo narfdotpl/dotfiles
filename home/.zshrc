@@ -137,10 +137,61 @@ GREEN=$'%{\e[0;32m%}'
 BLUE=$'%{\e[0;34m%}'
 WHITE=$'%{\e[0;37m%}'
 
-# show short path, git repo info and ">" sign, e.g. "foo/bar/baz master > "
-get_short_path() {python ~/.scripts/short_path.py "$(pwd)"}
-get_git_prompt() {python ~/.scripts/git/prompt.py}
-PROMPT='${BLUE}$(get_short_path)${GREEN}$(get_git_prompt) ${WHITE}>${DEFAULT} '
+# get git info for prompt
+#
+# full example: " ..master+&"
+# (two dirs deep in repo, on branch master, dirty, with stashed changes)
+git_prompt() {
+    # check status and exit if there's no repo
+    local status_dump="$(mktemp /tmp/git_prompt.XXXXXX)"
+    trap "rm $status_dump" EXIT
+    git status --porcelain > $status_dump 2> /dev/null
+    [[ $? -gt 0 ]] && return
+
+    # initial space
+    echo -n ' '
+
+    # depth
+    git rev-parse --show-cdup | awk '{
+        ORS = ""
+
+        split($0, a, "/")
+        depth = length(a) - 1
+        while (depth --> 0)
+            print "."
+    }'
+
+    # branch name
+    git branch | sed -ne 's/* \(.*\)/\1/p' | tr -d '\n'
+
+    # is dirty?
+    [[ "$(head -c1 $status_dump)" != "" ]] && echo -n "+"
+
+    # has stashed changes?
+    [[ "$(git stash list | head -c1)" != "" ]] && echo -n "&"
+}
+
+# zsh has troubles displaying "⚡" with "PROMPT='%3~'", so...
+short_pwd() {
+    pwd | awk '{
+        ORS = ""
+
+        split($0, a, "/")
+        a[3] = "~"
+
+        len = length(a)
+        start = len > 5 ? len - 2 : 3
+
+        for (i = start; i <= len; i++) {
+            print a[i]
+            if (i != len)
+                print "/"
+        }
+    }'
+}
+
+# show short path, git info and ">" sign
+PROMPT='${BLUE}$(short_pwd)${GREEN}$(git_prompt) ${WHITE}>${DEFAULT} '
 
 # show non-zero exit code
 RPROMPT='${RED}%(0?..%?)${DEFAULT}'
