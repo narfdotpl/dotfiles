@@ -22,3 +22,6 @@ tags
 
 # sass cache
 .sass-cache
+
+# {Libre,Open}Office locks
+.~lock*
