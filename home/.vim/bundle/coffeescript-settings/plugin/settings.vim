@@ -1,2 +1,2 @@
 " preview js
-map <Leader>c :CoffeeCompile<Enter>
+map <Leader><Leader> :CoffeeCompile<Enter>
