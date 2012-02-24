@@ -50,6 +50,9 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.iTunes show-store-arrow-links -bool false
 defaults write com.apple.iTunes hide-ping-dropdown -bool true
 
+# Make ⌘F focus the search input in iTunes
+defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
+
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
