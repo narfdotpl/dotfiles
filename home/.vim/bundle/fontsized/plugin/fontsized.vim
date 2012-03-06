@@ -98,12 +98,7 @@ function! s:Fontsized()
     " font size)
     set nofullscreen
     if g:fontsized_fullscreen
-        if g:fontsized_focused
-            set fuoptions=maxvert,background:Normal
-        else
-            set fuoptions=maxvert
-        endif
-
+        set fuoptions=maxvert,background:Normal
         set fullscreen
     else
         if !g:fontsized_external && g:fontsized_wide
