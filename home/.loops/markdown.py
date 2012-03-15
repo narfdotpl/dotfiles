@@ -11,14 +11,21 @@ styling and show everything in [Chrome][].
 """
 
 from subprocess import call
+from os.path import dirname, join, realpath
 
 from loopozorg import Loop
+
+
+CURR_DIR = dirname(realpath(__file__))
 
 
 def _main():
     # set html tempfile path
     loop = Loop()
     loop.html = '/tmp/markdown.html'
+
+    # set bootstrap.css path
+    loop.bootstrap = join(CURR_DIR, 'bootstrap.css')
 
     # create empty html file and open it in chrome
     call('touch {0}; open -a "google chrome" {0}'.format(loop.html),
@@ -27,9 +34,9 @@ def _main():
     # compile markdown, enhance it with smartypants, add github styling and
     # refresh chrome
     loop.run("""
-        echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Markdown preview</title><link href="http://assets1.github.com/stylesheets/bundle_common.css" rel="stylesheet"><link href="http://assets1.github.com/stylesheets/bundle_github.css" rel="stylesheet"><style>.site {{ padding: 1.3em }}</style></head><body><div class="site"><div id="files"><div class="file"><div id="readme" class="blob"><div class="wikistyle">' > {html};
+        echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Markdown preview</title><link href="{bootstrap}" rel="stylesheet"><style>.container {{ padding: 1.3em }}</style></head><body><div class="container">' > {html};
         markdown {main_file} | smartypants >> {html};
-        echo '</div></div></div></div></div></body></html>' >> {html};
+        echo '</div></body></html>' >> {html};
         osascript -e '
             tell application "Google Chrome"
                 activate
