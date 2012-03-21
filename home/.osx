@@ -3,6 +3,7 @@
 # copied from:
 #  -  https://github.com/mathiasbynens/dotfiles
 #  -  https://github.com/inky/dotfiles
+#  -  http://apple.stackexchange.com/questions/19468/suit-up
 
 
 # Disable the Dashboard
@@ -12,6 +13,10 @@ killall Dashboard || true
 # Enable full keyboard access for all controls (e.g. enable Tab in modal
 # dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Fix font smoothing in MacVim, iTerm, Terminal, etc. started when connected
+# to external display
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
