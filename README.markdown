@@ -10,7 +10,7 @@ Plus installer.
 Glimpse
 -------
 
-![screenshot](http://dl.dropbox.com/u/2618196/dotfiles.png?6cac4f4)
+![screenshot](http://dl.dropbox.com/u/2618196/dotfiles.png?d941d07)
 
 
 Installation
