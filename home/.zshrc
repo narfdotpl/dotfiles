@@ -403,6 +403,7 @@ alias scm='rlwrap scheme'
 alias t='edit ~/Dropbox/todo.taskpaper'
 
 # open file or youtube, vimeo, blip, etc. in VLC
+alias v='vlc'
 vlc() {
     if [[ "$@" = "" ]]; then
         open -a vlc
