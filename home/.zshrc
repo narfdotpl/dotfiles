@@ -257,6 +257,9 @@ alias /='cd -P .'
 # clear terminal screen
 alias cl='clear'
 
+# copy directories without fuss
+alias cp='cp -r'
+
 # copy (working directory) path
 cpwd() {
     # get working directory path
