@@ -374,6 +374,7 @@ play() {
         cd ~/Music/mp3 &&
         git annex get $1 &&
         open -a itunes $1 &&
+        osascript -e 'tell application "System Events" to keystroke "l" using command down' &&
         open -a iterm
     )
 }
