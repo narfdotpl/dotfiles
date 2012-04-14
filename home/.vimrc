@@ -322,7 +322,6 @@ nnoremap <silent> <Leader>:: :set spell!<Enter>
 map <Leader>co :set ft=coffee<Enter>
 map <Leader>js :set ft=javascript<Enter>
 map <Leader>py :set ft=python<Enter>
-map <Leader>rb :set ft=ruby<Enter>
 
 " close all windows without saving
 map <Leader>q :qa!<Enter>
