@@ -17,7 +17,9 @@ export LANG=en_US.UTF-8
 
 # try to use GNU cal
 if [[ -x "`which gcal`" ]]; then
-    cal() {gcal --starting-day=monday "$@"}
+    cal() {
+        gcal --starting-day=monday --highlighting=\|:\| "$@" | grcat conf.gcal | tr '|' ' '
+    }
 fi
 
 # try to use GNU ls

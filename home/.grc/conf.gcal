@@ -1,0 +1,15 @@
+# day of week
+regexp=[A-Z][a-z]
+colours=blue
+=======
+# month
+regexp=[A-Z][a-z]{2,666}
+colours=green
+=======
+# year
+regexp=\d{4}
+colours=green
+=======
+# current day
+regexp=\|\d+\|
+colours=white
