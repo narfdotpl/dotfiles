@@ -43,6 +43,7 @@ def _main():
         '--reverse --pretty=format:"%ad %s" --date=short'
     ])
     call(command, shell=True)
+    print
 
 if __name__ == '__main__':
     _main()

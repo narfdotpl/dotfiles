@@ -53,11 +53,10 @@
          git msg \"created repo :$(gshuf -n 1 -e sparkles metal v cake):\"
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
     is = !git gh -- issues
-    l = !python ~/.scripts/git/log.py | less
-    ll = !git log --reverse --pretty=format:'%ad %s' --date=short | less +G
-    lm = !git lo --author=\"$(git config user.name)\" | less +G
+    l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
+    ll = !git lo | grcat conf.git-l | less -R +G
     lo = log --oneline --reverse
-    ls = !git lo --max-count=$(expr 1 + $(git l | wc -l))
+    ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | grcat conf.git-l
     m = !python ~/.scripts/git/update-branch.py
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master

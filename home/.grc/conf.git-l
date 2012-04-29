@@ -1,0 +1,23 @@
+# special characters that titles start with
+regexp=^[\w-]+ ([^ A-Za-z0-9.])+\s
+colours=white
+=======
+# commits to polish
+regexp=^[\w-]+ ~.*
+colours=blue
+=======
+# commits to delete
+regexp=^[\w-]+ --.*
+colours=red
+=======
+# SHAs/dates
+regexp=^[\w-]+
+colours=yellow
+=======
+# interpunction following ticket numbers
+regexp=#\d+[,:]
+colours=cyan
+=======
+# ticket numbers
+regexp=#\d+
+colours=blue
