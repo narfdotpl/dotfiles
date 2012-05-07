@@ -433,6 +433,9 @@ vlc() {
     fi
 }
 
+# open video in ~/Desktop/tmp
+vv() {d && m tmp && vlc "$@"}
+
 # locate app
 alias wh='which'
 
