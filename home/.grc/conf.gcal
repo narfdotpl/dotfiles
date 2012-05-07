@@ -11,5 +11,5 @@ regexp=\d{4}
 colours=green
 =======
 # current day
-regexp=\|\d+\|
+regexp=\| ?\d+\|
 colours=white
