@@ -230,6 +230,7 @@ source ~/.scripts/aliases.zsh
 # find webdev files
 alias -g .coffee='`find . -name "*.coffee"`'
 alias -g .css='`find . -name "*.css"`'
+alias -g .eco='`find . -name "*.eco"`'
 alias -g .html='`find . -name "*.html"`'
 alias -g .js='`find . -name "*.js"`'
 alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
