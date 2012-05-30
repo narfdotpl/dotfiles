@@ -9,7 +9,7 @@
     ui = auto
 
 [core]
-    excludesfile = ~/.gitglobalignore
+    excludesfile = ~/.gitfiles/global-ignore
 
 [hub]
     http-clone = true
