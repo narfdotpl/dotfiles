@@ -58,6 +58,7 @@ def _main():
             command += '--interactive HEAD~' + str(number_of_commits)
 
     call(command, shell=True)
+    call('git ctags', shell=True)
 
 if __name__ == '__main__':
     _main()
