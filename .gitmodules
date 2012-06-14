@@ -49,3 +49,6 @@
 [submodule "home/.vim/bundle/commentary"]
 	path = home/.vim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "home/.vim/bundle/less"]
+	path = home/.vim/bundle/less
+	url = https://github.com/groenewege/vim-less.git
