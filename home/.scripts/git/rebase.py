@@ -11,7 +11,8 @@ When working on a non-master branch, rebase `master..branch`.  When
 working on master, rebase `origin..HEAD`; if there is no origin, rebase
 last seven commits.
 
-If called during a rebase, run `rebase --continue`.  If called with
+If called during a rebase, run `rebase --continue`.  If called with a number
+argument, run `rebase --interactive HEAD~<number>`.  If called with any other
 arguments, act as an alias.
 """
 
@@ -33,7 +34,12 @@ def _main():
     args = ' '.join(argv[1:])
 
     if args:
-        command += args
+        try:
+            number = int(args)
+        except ValueError:
+            command += args
+        else:
+            command += '--interactive HEAD~%d' % number
     else:
         if git.branch == '(no branch)':
             command += '--continue'
