@@ -34,9 +34,9 @@ def _main():
     # compile markdown, enhance it with smartypants, add github styling and
     # refresh chrome
     loop.run("""
-        echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Markdown preview</title><link href="{bootstrap}" rel="stylesheet"><style>.container {{ padding: 1.3em }}</style></head><body><div class="container">' > {html};
+        echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Markdown preview</title><link href="{bootstrap}" rel="stylesheet"><style>.container {{ padding: 1.3em }}</style></head><body><br><div class="container"><div class="row"><div class="span6">' > {html};
         markdown {main_file} | smartypants >> {html};
-        echo '</div></body></html>' >> {html};
+        echo '</div></div></div><br></body></html>' >> {html};
         osascript -e '
             tell application "Google Chrome"
                 activate
