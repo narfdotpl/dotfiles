@@ -24,9 +24,9 @@ __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 class TestGitglobalignorePatterns:
     """
-    Assure that files matching patterns listed in ".gitglobalignore" are
-    not recognized as dotfiles and that installer understands these patterns
-    the same way Git does.
+    Assure that files matching patterns listed in ".gitfiles/global-ignore"
+    are not recognized as dotfiles and that installer understands these
+    patterns the same way Git does.
     """
 
     def setup(self):
@@ -35,7 +35,11 @@ class TestGitglobalignorePatterns:
         """
 
         self.dotfiles_dir = mkdtemp()
-        self.gitglobalignore = join(self.dotfiles_dir, '.gitglobalignore')
+
+        # git ignore
+        gitfiles_dir = join(self.dotfiles_dir, '.gitfiles')
+        mkdir(gitfiles_dir)
+        self.gitglobalignore = join(gitfiles_dir, 'global-ignore')
 
     def teardown(self):
         """
@@ -57,7 +61,7 @@ class TestGitglobalignorePatterns:
 
         # expect these files to get ignored
         dotfiles = get_dotfiles(self.dotfiles_dir)
-        expected = [self.gitglobalignore]
+        expected = [dirname(self.gitglobalignore)]
         assert_no_difference(dotfiles, expected)
 
     def test_patterns_that_start_with_a_star_and_dot(self):
@@ -72,7 +76,7 @@ class TestGitglobalignorePatterns:
 
         # expect these files to get ignored
         dotfiles = get_dotfiles(self.dotfiles_dir)
-        expected = [self.gitglobalignore]
+        expected = [dirname(self.gitglobalignore)]
         assert_no_difference(dotfiles, expected)
 
 
