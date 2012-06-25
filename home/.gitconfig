@@ -26,15 +26,15 @@
 [alias]
     a = !git add . && git c
     aa = !git add . && git ca
-    ap = !git add --patch && git cv
+    ap = !git add --patch && git cv && git q3
     ar = !git add . && git r
     b = !python ~/.scripts/git/branch.py
     ba = !git backup --force
     backup = !python ~/.scripts/git/backup.py
     bb = checkout -
     bm = checkout master
-    c = !git cv --all
-    ca = !git diff HEAD | gvim -R --nofork - && git c --amend
+    c = !git cv --all && git q3
+    ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend && git q3
     car = !git ca && git r
     cmp = !python ~/.scripts/git/get-compare-links.py
     co = checkout
@@ -59,6 +59,9 @@
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     pu2 = !python ~/.scripts/git/push-upto.py
+    q3 = !(afplay $(find ~/sandbox/q3-sounds -name $(gshuf -n 1 -e \
+           excellent impressive perfect defense *holyshit \
+          ).wav) &)
     r = !python ~/.scripts/git/rebase.py
     ra = !git rebase --abort && git ctags
     rh = reset --hard
