@@ -55,6 +55,7 @@
     lo = log --oneline --reverse
     ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | grcat conf.git-l
     m = !python ~/.scripts/git/update-branch.py
+    mm = merge -
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     pu2 = !python ~/.scripts/git/push-upto.py
