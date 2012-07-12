@@ -356,6 +356,13 @@ ncp() {scp $1 megi:~/narf.pl/main/100101111/$2}
 # exclude matching lines
 alias not='grep --ignore-case --invert-match --perl-regexp'
 
+# finish work and go home
+off() {
+    (osascript -e 'tell application "Skype" to quit' &)
+    (afk &)
+    exit
+}
+
 # run python
 alias p='python -3'
 alias py='python'
