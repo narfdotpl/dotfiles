@@ -288,12 +288,6 @@ imap <C-U> <Esc><C-U>a
 nmap <C-U> viw<C-U><Esc>
 smap <C-U> <C-G><C-U><C-G>
 
-" show buffers
-map <Leader>b :buffers<Enter>
-
-" show marks
-map <Leader>m :marks<Enter>
-
 " format paragraph
 nnoremap <Space> :call Preserve(':normal gqip')<Enter>
 
