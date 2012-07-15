@@ -166,6 +166,9 @@ imap <D-2> <Esc><D-2>
 smap <D-1> <Esc><D-1>
 smap <D-2> <Esc><D-2>
 
+" open new tab with full path initialized at current buffer's directory
+map <Leader>t :tabnew <C-R>=expand('%:p:h').'/'<Enter>
+
 
 "------------
 "  movement
