@@ -1,2 +1,2 @@
 " preview js
-map <Leader><Leader> :CoffeeCompile<Enter>
+autocmd FileType coffee :map <buffer> <Leader><Space> :CoffeeCompile<Enter>
