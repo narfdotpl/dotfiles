@@ -67,6 +67,7 @@
     ra = !git rebase --abort && git ctags
     rh = reset --hard
     root-branch = !python ~/.scripts/git/root-branch.py
+    rv = remote --verbose
     s = status --short
     sd = svn dcommit
     sf = submodule foreach
