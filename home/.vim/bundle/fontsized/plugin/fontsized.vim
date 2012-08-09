@@ -37,6 +37,7 @@ function! s:Fontsized()
         set fillchars=
         windo set nonumber
         set showtabline=0 laststatus=0 noruler
+        set colorcolumn=
         let g:fontsized_fullscreen = 1
     else
         " restore colors
@@ -55,6 +56,9 @@ function! s:Fontsized()
 
         " show tabs
         set showtabline=1
+
+        " highlight 80th column
+        set colorcolumn=80
     endif
 
     " set actual font sizes and stuff...

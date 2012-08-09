@@ -44,9 +44,6 @@ set showcmd
 syntax on
 autocmd BufEnter * :syntax sync fromstart
 
-" highlight 80th column
-set colorcolumn=80
-
 " highlight current line
 set cursorline
 
