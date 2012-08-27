@@ -458,6 +458,9 @@ alias wh='which'
 # activate virtualenv
 alias wo='workon'
 
+# open Xcode project(s)
+alias x='open *.xcodeproj'
+
 # (schedule) sleep
 # read `man atrun` to enable scheduling
 alias z='zzz'
