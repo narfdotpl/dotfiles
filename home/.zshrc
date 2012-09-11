@@ -4,6 +4,12 @@
 # https://github.com/narfdotpl/dotfiles
 
 
+# ensure iTerm is the frontmost app (without this when you are in some other
+# app and you open a new terminal window with your mouse, that other other app
+# remains the active one)
+open -a iterm
+
+
 #------------
 #  language
 #------------
