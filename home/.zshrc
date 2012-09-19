@@ -281,6 +281,9 @@ cpwd() {
 # go to desktop
 alias d='cd ~/Desktop'
 
+# go to temporary directory on the desktop
+alias dm='d && m tmp'
+
 # deactivate virtualenv
 alias de='deactivate'
 
