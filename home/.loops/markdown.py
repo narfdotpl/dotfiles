@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Compile [Markdown][], enhance it with [SmartyPants][], add [GitHub][]
-styling and show everything in [Chrome][].
+Compile [Markdown][], enhance it with [SmartyPants][], add [naif.css][]
+stylesheet and show everything in [Chrome][].
 
   [Markdown]: http://daringfireball.net/projects/markdown/
   [SmartyPants]: http://daringfireball.net/projects/smartypants/
-  [GitHub]: https://github.com/
+  [naif.css]: http://lab.narf.pl/naif.css/
   [Chrome]: http://google.com/chrome
 """
 
@@ -24,19 +24,19 @@ def _main():
     loop = Loop()
     loop.html = '/tmp/markdown.html'
 
-    # set bootstrap.css path
-    loop.bootstrap = join(CURR_DIR, 'bootstrap.css')
+    # set naif.css path
+    loop.css = join(CURR_DIR, 'naif.css', 'naif.min.css')
 
     # create empty html file and open it in chrome
     call('touch {0}; open -a "google chrome" {0}'.format(loop.html),
          shell=True)
 
-    # compile markdown, enhance it with smartypants, add github styling and
+    # compile markdown, enhance it with smartypants, use naif.css and
     # refresh chrome
     loop.run("""
-        echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Markdown preview</title><link href="{bootstrap}" rel="stylesheet"><style>.container {{ padding: 1.3em }}</style></head><body><br><div class="container"><div class="row"><div class="span6">' > {html};
+        echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Markdown preview</title><link href="{css}" rel="stylesheet"></head><body><div id="main-wrapper">' > {html};
         markdown {main_file} | smartypants >> {html};
-        echo '</div></div></div><br></body></html>' >> {html};
+        echo '</div></body></html>' >> {html};
         osascript -e '
             tell application "Google Chrome"
                 activate
