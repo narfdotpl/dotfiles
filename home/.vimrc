@@ -320,9 +320,6 @@ map <Leader>co :set ft=coffee<Enter>
 map <Leader>js :set ft=javascript<Enter>
 map <Leader>py :set ft=python<Enter>
 
-" close all windows without saving
-map <Leader>q :qa!<Enter>
-
 
 "--------
 "  else
