@@ -77,7 +77,6 @@
     sp = stash pop
     sr = svn rebase
     ss = !git add . && git stash save
-    ta = tag -a
     u = !git s | grep 'UU' | awk '{ print substr($0, 4) }' | more
     when-joined = !python ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
