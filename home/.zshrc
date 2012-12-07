@@ -420,6 +420,9 @@ alias save='save_workspace'
 # run scheme
 alias scm='rlwrap scheme'
 
+# search stack overflow
+alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
+
 # edit todo
 alias t='edit ~/Dropbox/todo.taskpaper'
 
