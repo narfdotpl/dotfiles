@@ -25,3 +25,6 @@ tags
 
 # {Libre,Open}Office locks
 .~lock*
+
+# some XCode stuff
+xcuserdata
