@@ -22,7 +22,7 @@ inoremap <expr> <bs> <SID>DeletePair()
 function! s:DeletePair()
     let x = col('.') - 1
     let two_chars = getline('.')[x - 1 : x]
-    let pairs = ['""', "''", '``', '()', '[]', '{}']
+    let pairs = ['""', "''", '``', '()', '[]', '{}', '**']
 
     if index(pairs, two_chars) >= 0
         return "\<BS>\<Del>"
