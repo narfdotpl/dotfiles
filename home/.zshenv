@@ -15,4 +15,4 @@ export PATH=~/bin\
 #----------
 
 # put handy symlinks here
-export CDPATH=~/⚡
+export CDPATH=~/+
