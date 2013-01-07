@@ -40,6 +40,9 @@ endif
 " display incomplete commands
 set showcmd
 
+" autocomplete commands using nice menu in place of window status
+set wildmenu
+
 " highlight syntax
 syntax on
 autocmd BufEnter * :syntax sync fromstart
