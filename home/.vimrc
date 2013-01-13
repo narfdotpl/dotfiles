@@ -78,6 +78,9 @@ set shiftwidth=4
 set expandtab   " convert tabs to spaces
 set autoindent  " use automagic indentation
 
+" round indent to multiple of 'shiftwidth'
+set shiftround
+
 " temporarily change tab size
 nnoremap <Leader><Tab>2 :setlocal ts=2 sts=2 sw=2 et<Enter>
 nnoremap <Leader><Tab>4 :setlocal ts=4 sts=4 sw=4 et<Enter>
