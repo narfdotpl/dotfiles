@@ -26,6 +26,11 @@ snippet ex
 snippet for
 	{% for ${1} %}
 	{% endfor %}
+snippet form
+	<form method="post" action="${1}">{% csrf_token %}
+		{{ form }}
+		<input type="submit">
+	</form>
 snippet h1
 	<h1>${1}</h1>
 snippet h2
