@@ -21,6 +21,9 @@ filetype plugin indent on
 " move Leader closer to home row
 let mapleader=','
 
+" use long history
+set history=1000
+
 
 "--------
 "  look
