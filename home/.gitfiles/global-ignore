@@ -10,9 +10,6 @@
 # Python code coverage
 .coverage
 
-# TextMate project
-*.tmproj
-
 # Vim swap
 *.sw[nop]
 
