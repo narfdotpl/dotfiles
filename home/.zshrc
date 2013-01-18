@@ -450,34 +450,30 @@ alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
 # go to temporary directory on the desktop
 alias t='d && m tmp'
 
-# open file or youtube, vimeo, blip, etc. in VLC
-alias v='vlc'
-vlc() {
+# do video business in ~/Desktop/tmp
+alias tv='t && v'
+
+# download video from youtube, vimeo, blip, etc. or play video files
+# from the current folder in VLC
+alias v='setopt noglob; v_helper'
+v_helper() {
+    setopt glob
     if [[ "$@" = "" ]]; then
-        open -a vlc
-    elif [[ -f $1 ]]; then
-        open -a vlc $1
+        open -a vlc *.(mp4|avi|flv|mov)
     else
-        # start download in background
+        # start download in the background
         youtube-dl --no-part --title --continue --quiet $1 &
 
         # show title
         youtube-dl --get-title $1
 
-        # open file as soon as it appears
-        local filename="$(youtube-dl --no-part --title --get-filename $1)"
-        while [[ ! -f $filename ]]; do
-            sleep 1
-        done
-        open -a vlc $filename
-
-        # bring download to foreground
+        # bring download to the foreground
         fg %youtube-dl
     fi
 }
 
-# open video in ~/Desktop/tmp
-vv() {d && m tmp && vlc "$@"}
+# open (file in) vlc
+alias vlc='open -a vlc'
 
 # locate app
 alias wh='which'
