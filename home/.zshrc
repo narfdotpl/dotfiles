@@ -287,9 +287,6 @@ cpwd() {
 # go to desktop
 alias d='cd ~/Desktop'
 
-# go to temporary directory on the desktop
-alias dm='d && m tmp'
-
 # deactivate virtualenv
 alias de='deactivate'
 
@@ -423,8 +420,8 @@ alias scm='rlwrap scheme'
 # search stack overflow
 alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
 
-# edit todo
-alias t='edit ~/Dropbox/todo.taskpaper'
+# go to temporary directory on the desktop
+alias t='d && m tmp'
 
 # open file or youtube, vimeo, blip, etc. in VLC
 alias v='vlc'
