@@ -514,14 +514,6 @@ export RUBYOPT=rubygems
 python ~/.scripts/show_machine_info.py MacBook.local Air.local
 
 
-#------------
-#  keychain
-#------------
-
-# https://github.com/funtoo/keychain
-eval `keychain --eval --quiet --agents ssh id_rsa`
-
-
 #-------------
 #  workspace
 #-------------
