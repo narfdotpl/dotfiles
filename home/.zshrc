@@ -322,6 +322,12 @@ f_helper() {
 }
 alias f='setopt noglob; f_helper'
 
+# don't type so much when using fabric
+alias fh='fab -H'
+alias fl='fh localhost'
+alias fd='fl dev'
+alias ft='fl test'
+
 # flush dns
 alias flushdns='dscacheutil -flushcache'
 
