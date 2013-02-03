@@ -412,6 +412,9 @@ alias pyf='pyflakes .py | not __init__.py'
 # brutally remove
 alias rf='rm -rf'
 
+# remove ~/Desktop/tmp and close terminal
+alias rft='rm -rf ~/Desktop/tmp && exit'
+
 # remove TeX mess
 alias rmx='rm *.(aux|fdb_latexmk|log|nav|out|snm|synctex.gz|toc)'
 
