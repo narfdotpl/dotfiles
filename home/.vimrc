@@ -336,6 +336,7 @@ let g:netrw_list_hide='\v(\.DS_Store)|(.*\.py[co])|(\.swp)$'
 
 " learn to type
 ab addded added
+ab aded added
 ab alais alias
 ab anythong anything
 ab everythong everything
