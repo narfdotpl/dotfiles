@@ -343,6 +343,9 @@ alias his='history -i 1 | less +G'
 # start http server
 alias http='open http://localhost:8000/; python -m SimpleHTTPServer'
 
+# go to ideas
+alias i='c ideas'
+
 # list directory contents
 alias ll='ls -Fal --time-style=long-iso | more'
 alias l='column_ls'
