@@ -424,6 +424,9 @@ alias save='save_workspace'
 # run scheme
 alias scm='rlwrap scheme'
 
+# open skype
+alias sk='open -a skype'
+
 # search stack overflow
 alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
 
