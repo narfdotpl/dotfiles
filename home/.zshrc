@@ -415,6 +415,9 @@ alias rf='rm -rf'
 # remove TeX mess
 alias rmx='rm *.(aux|fdb_latexmk|log|nav|out|snm|synctex.gz|toc)'
 
+# open rss client
+alias rss='open -a netnewswire'
+
 # go to sandbox
 alias s='cd ~/sandbox'
 
