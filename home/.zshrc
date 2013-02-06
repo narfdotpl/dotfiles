@@ -241,6 +241,17 @@ alias -g .html='`find . -name "*.html"`'
 alias -g .js='`find . -name "*.js"`'
 alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
 
+# execute last command and use its output
+#
+# example:
+#
+#     > find . -name "foo*py"
+#     ./qwe/rty/foobar.py
+#     > git log ^
+#     af2a1af added foobar.py
+#
+alias -g ^='$(fc -e - 2> /dev/null)'
+
 # go to login screen
 alias a='afk'
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/'\
