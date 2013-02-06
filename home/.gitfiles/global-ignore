@@ -25,3 +25,6 @@ tags
 
 # some XCode stuff
 xcuserdata
+
+# vagrant dotfiles
+.vagrant
