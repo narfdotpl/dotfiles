@@ -47,9 +47,7 @@
     gca = gc --aggressive
     gh = !hub browse
     h = help
-    i = !git init && git add . && \
-         git msg \"created repo :$(gshuf -n 1 -e sparkles metal v cake):\" && \
-         git q3
+    i = !git init && git add . && git msg \"created repo :cake:\" && git q3
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
     is = !git gh -- issues
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
