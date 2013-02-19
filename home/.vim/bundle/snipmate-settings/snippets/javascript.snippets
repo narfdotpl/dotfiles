@@ -1,3 +1,11 @@
+snippet ]
+	],
+	["`strftime("%H:%M")`", t, "#21s ${1}"]
+snippet ,
+	,
+	"`strftime("%Y-%m-%d")`": [
+	    ["`strftime("%H:%M")`", t, "#21s ${1}"]
+	]
 snippet .
 	this.${1}
 snippet .f
@@ -34,6 +42,8 @@ snippet p
 	preventDefault();${1}
 snippet r
 	return ${1};
+snippet t
+	"`strftime("%H:%M")`"
 snippet to
 	typeof ${1}
 snippet v
