@@ -59,7 +59,7 @@
     msg = commit --allow-empty --message
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     pu2 = !python ~/.scripts/git/push-upto.py
-    q3 = !(afplay -v 0.5 $(find ~/sandbox/q3-sounds -name $(gshuf -n 1 -e \
+    q3 = !(afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $(gshuf -n 1 -e \
            excellent impressive perfect defense *holyshit \
           ).wav) &)
     r = !python ~/.scripts/git/rebase.py
