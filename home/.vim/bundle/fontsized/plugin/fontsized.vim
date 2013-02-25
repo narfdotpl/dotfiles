@@ -61,6 +61,9 @@ function! s:Fontsized()
         set colorcolumn=80
     endif
 
+    " remove ugly yellow line number highlight
+    highlight! link CursorLineNr LineNr
+
     " set actual font sizes and stuff...
 
     if g:fontsized_external
