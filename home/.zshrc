@@ -468,7 +468,7 @@ alias v='setopt noglob; v_helper'
 v_helper() {
     setopt glob
     if [[ "$@" = "" ]]; then
-        open -a vlc *.(mp4|avi|flv|mov)
+        open -a vlc *.(mp4|avi|flv|mov|mkv)
     else
         # start download in the background
         youtube-dl --no-part --title --continue --quiet $1 &
