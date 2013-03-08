@@ -202,15 +202,11 @@ imap <Down> <Esc><Down>a
 set scrolloff=3
 
 " jump around
-nnoremap Q <C-B>H
-nnoremap E <C-F>L
 nnoremap q :set scrolloff=0<Enter>H5gj:set scrolloff=3<Enter>
 nnoremap w M
 nnoremap e :set scrolloff=0<Enter>L5gk:set scrolloff=3<Enter>
 
 " prefix original mappings with <Leader>
-nnoremap <Leader>Q Q
-nnoremap <Leader>E E
 nnoremap <Leader>q q
 nnoremap <Leader>w w
 nnoremap <Leader>e e
