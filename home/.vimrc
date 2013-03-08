@@ -198,6 +198,23 @@ nnoremap <Down> gj
 imap <Up> <Esc><Up>a
 imap <Down> <Esc><Down>a
 
+" keep a few screen lines around the cursor
+set scrolloff=3
+
+" jump around
+nnoremap Q <C-B>H
+nnoremap E <C-F>L
+nnoremap q :set scrolloff=0<Enter>H5gj:set scrolloff=3<Enter>
+nnoremap w M
+nnoremap e :set scrolloff=0<Enter>L5gk:set scrolloff=3<Enter>
+
+" prefix original mappings with <Leader>
+nnoremap <Leader>Q Q
+nnoremap <Leader>E E
+nnoremap <Leader>q q
+nnoremap <Leader>w w
+nnoremap <Leader>e e
+
 " make big jumps with cmd + arrow
 nnoremap <D-Up> gg
 nnoremap <D-Right> g$
@@ -300,9 +317,6 @@ vnoremap <C-U> Uv`]
 imap <C-U> <Esc><C-U>a
 nmap <C-U> viw<C-U><Esc>
 smap <C-U> <C-G><C-U><C-G>
-
-" format paragraph
-nnoremap <Space> :call Preserve(':normal gqip')<Enter>
 
 " insert colon at the end of a line
 inoremap <S-Enter> <Esc>:call Preserve('s/\s*$/;/')<Enter>a
