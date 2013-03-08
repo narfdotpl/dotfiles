@@ -314,6 +314,10 @@ imap <C-U> <Esc><C-U>a
 nmap <C-U> viw<C-U><Esc>
 smap <C-U> <C-G><C-U><C-G>
 
+" change line to titlecase and restore mode
+nnoremap <C-T> V:!title<Enter>$
+imap <C-T> <Esc><C-T>a
+
 " insert colon at the end of a line
 inoremap <S-Enter> <Esc>:call Preserve('s/\s*$/;/')<Enter>a
 
