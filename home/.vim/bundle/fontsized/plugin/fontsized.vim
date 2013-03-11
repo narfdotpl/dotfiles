@@ -69,19 +69,19 @@ function! s:Fontsized()
     " set actual font sizes and stuff...
 
     if g:fontsized_external
-        set guifont=Monaco:h18
+        set guifont=Menlo:h18
     else
         if g:fontsized_wide
             if g:fontsized_focused
-                set guifont=Monaco:h15
+                set guifont=Menlo:h15
             else
-                set guifont=Monaco:h14
+                set guifont=Menlo:h14
             endif
         else
             if g:fontsized_fullscreen
-                set guifont=Monaco:h18
+                set guifont=Menlo:h18
             else
-                set guifont=Monaco:h16
+                set guifont=Menlo:h16
             endif
         endif
     endif
@@ -111,9 +111,9 @@ function! s:Fontsized()
         set fullscreen
     else
         if !g:fontsized_external && g:fontsized_wide
-            set lines=45
+            set lines=53
         else
-            set lines=40
+            set lines=48
         endif
     endif
 endfunction

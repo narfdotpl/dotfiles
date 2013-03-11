@@ -59,6 +59,7 @@ set showmatch
 " fight for your eyes
 set background=dark
 let g:solarized_visibility='low'
+let g:solarized_italic=0
 colorscheme solarized
 
 " switch between sides of the force
