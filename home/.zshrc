@@ -366,6 +366,9 @@ alias http='open http://localhost:8000/; python -m SimpleHTTPServer'
 # go to ideas
 alias i='c ideas'
 
+# pretty print json (`cat foo.json | json`)
+alias json='python -mjson.tool | pygmentize -l js'
+
 # list directory contents
 alias ll='ls -Fal --time-style=long-iso | more'
 alias l='column_ls'
