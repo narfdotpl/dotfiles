@@ -314,6 +314,9 @@ alias e='edit'
 # after `grep --files-with-matches`)
 alias ee='edit $(fc -e - 2> /dev/null)'
 
+# exit
+alias ex='exit'
+
 # find in working directory without expanding wildcards
 # http://www.chiark.greenend.org.uk/~sgtatham/aliases.html
 f_helper() {
