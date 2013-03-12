@@ -29,21 +29,19 @@ function! s:Fontsized()
     endif
 
     " handle 'focused mode' settings
-    " TODO: don't use hardcoded colors of dark solarized colorscheme
     if g:fontsized_focused
         " hide things
         highlight NonText guifg=bg
-        highlight VertSplit guibg=#002b36
-        set fillchars=
         windo set nonumber
         set showtabline=0 laststatus=0 noruler
         set colorcolumn=
+
+        " always use fullscreen
         let g:fontsized_fullscreen = 1
     else
         " restore colors
-        " TODO: as above
+        " TODO: don't use hardcoded colors of dark solarized colorscheme
         highlight NonText term=bold ctermfg=9 gui=bold guifg=#073642
-        highlight VertSplit cterm=reverse guifg=#657b83 guibg=#657b83
 
         " show four-character-long line numbers
         windo set number numberwidth=4
@@ -60,6 +58,10 @@ function! s:Fontsized()
         " highlight 80th column
         set colorcolumn=80
     endif
+
+    " make vertical split line 'invisible'
+    set fillchars=
+    highlight! link VertSplit NonText
 
     " remove ugly yellow line number highlight
     highlight! link CursorLineNr LineNr
