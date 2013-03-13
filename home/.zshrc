@@ -4,6 +4,9 @@
 # https://github.com/narfdotpl/dotfiles
 
 
+# start with a fake prompt
+echo -n '~ > '
+
 # ensure iTerm is the frontmost app (without this when you are in some other
 # app and you open a new terminal window with your mouse, that other other app
 # remains the active one)
@@ -544,14 +547,6 @@ export RUBYOPT=rubygems
 [[ -f ~/.localrc ]] && source ~/.localrc
 
 
-#--------
-#  MOTD
-#--------
-
-# example: stallman (Linux), up 29 days
-python ~/.scripts/show_machine_info.py MacBook.local Air.local
-
-
 #-------------
 #  workspace
 #-------------
@@ -570,3 +565,11 @@ save_workspace() {
         echo "workon `basename $VIRTUAL_ENV`" >> $workspace
     fi
 }
+
+
+#-----------
+#  cleanup
+#-----------
+
+# clear the screen (I might've started typing before prompt was visible)
+clear
