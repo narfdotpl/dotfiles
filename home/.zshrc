@@ -64,7 +64,11 @@ edit() {
     # check if stdin refers to terminal
     if [[ -t 0 ]]; then
         if [[ "$@" = "" ]]; then
-            eval "$EDIT ."
+            if [[ -f "Session.vim" ]]; then
+                eval "$EDIT -S"
+            else
+                eval "$EDIT ."
+            fi
         else
             eval "$EDIT $@"
         fi

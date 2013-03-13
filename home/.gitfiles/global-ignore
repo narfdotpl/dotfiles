@@ -28,3 +28,6 @@ xcuserdata
 
 # vagrant dotfiles
 .vagrant
+
+# vim session files
+Session.vim
