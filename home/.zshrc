@@ -275,8 +275,8 @@ alias 5="awk '{ print \$5 }'"
 
 # go to login screen
 alias a='afk'
-alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/'\
-'Resources/CGSession -suspend && sleep 10'
+alias afk='tell spotify to pause && /System/Library/CoreServices/Menu\ '\
+'Extras/User.menu/Contents/Resources/CGSession -suspend && sleep 10'
 
 # run homebrew
 alias b='brew'
