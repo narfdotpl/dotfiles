@@ -320,6 +320,9 @@ alias ee='edit $(fc -e - 2> /dev/null)'
 # exit
 alias ex='exit'
 
+# edit *this* file
+alias ez='h && e .zshrc'
+
 # find in working directory without expanding wildcards
 # http://www.chiark.greenend.org.uk/~sgtatham/aliases.html
 f_helper() {
