@@ -12,4 +12,4 @@
 Glimpse
 -------
 
-![screenshot](http://dl.dropbox.com/u/2618196/dotfiles-grc.png)
+![screenshot](screenshot.png)
