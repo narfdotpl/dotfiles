@@ -317,6 +317,9 @@ alias e='edit'
 # after `grep --files-with-matches`)
 alias ee='edit $(fc -e - 2> /dev/null)'
 
+# edit .vimrc
+alias ev='h && e .vimrc'
+
 # exit
 alias ex='exit'
 
