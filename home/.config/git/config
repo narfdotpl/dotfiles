@@ -8,14 +8,11 @@
 [color]
     ui = auto
 
-[core]
-    excludesfile = ~/.gitfiles/global-ignore
-
 [hub]
     http-clone = true
 
 [init]
-    templatedir = ~/.gitfiles/template
+    templatedir = ~/.config/git/template
 
 [merge]
     ff = only
@@ -82,3 +79,6 @@
     xa = !git annex add . && git c
     xl = annex lock
     xu = annex unlock
+
+
+# vim: set ft=gitconfig :

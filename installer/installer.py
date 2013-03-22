@@ -51,8 +51,8 @@ def get_dotfiles(dotfiles_dir=None):
     # get everything
     dotfiles_names = listdir(dotfiles_dir)
 
-    # ignore everything that matches .gitglobalignore patterns
-    gitglobalignore = join(dotfiles_dir, '.gitfiles/global-ignore')
+    # ignore everything that matches ~/.config/git/ignore patterns
+    gitglobalignore = join(dotfiles_dir, '.config', 'git', 'ignore')
     if exists(gitglobalignore):
         with open(gitglobalignore) as f:
             for line in f:
