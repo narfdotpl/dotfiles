@@ -449,6 +449,9 @@ alias pyc='find . -name "*.pyc" -delete'
 # run pyflakes
 alias pyf='pyflakes .py | not __init__.py'
 
+# preview using quicklook
+q() {qlmanage -p $* > /dev/null}
+
 # play more promode
 alias q3='(c ~/q3/repo && ./ioquake3.app/Contents/MacOS/ioquake3.ub +set fs_game cpma)'
 
