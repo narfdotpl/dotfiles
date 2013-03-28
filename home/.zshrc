@@ -323,16 +323,16 @@ alias e='edit'
 alias ee='edit $(fc -e - 2> /dev/null)'
 
 # edit .gitconfig
-alias eg='h && e .config/git/config '
+alias eg='(h && e .config/git/config)'
 
 # edit .vimrc
-alias ev='h && e .vimrc'
+alias ev='(h && e .vimrc)'
 
 # exit
 alias ex='exit'
 
 # edit *this* file
-alias ez='h && e .zshrc'
+alias ez='(h && e .zshrc)'
 
 # find in working directory without expanding wildcards
 # http://www.chiark.greenend.org.uk/~sgtatham/aliases.html
