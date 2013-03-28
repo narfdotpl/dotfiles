@@ -322,6 +322,9 @@ alias e='edit'
 # after `grep --files-with-matches`)
 alias ee='edit $(fc -e - 2> /dev/null)'
 
+# edit .gitconfig
+alias eg='h && e .config/git/config '
+
 # edit .vimrc
 alias ev='h && e .vimrc'
 
