@@ -26,6 +26,10 @@ tags
 # some XCode stuff
 xcuserdata
 
+# CocoaPods
+Podfile.lock
+Pods
+
 # vagrant dotfiles
 .vagrant
 
