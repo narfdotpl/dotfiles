@@ -260,6 +260,19 @@ alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
 #
 alias -g ^='$(fc -e - 2> /dev/null)'
 
+# get nth word
+#
+# example:
+#
+#   > echo foo bar baz | 2
+#   bar
+#
+alias 1="awk '{ print \$1 }'"
+alias 2="awk '{ print \$2 }'"
+alias 3="awk '{ print \$3 }'"
+alias 4="awk '{ print \$4 }'"
+alias 5="awk '{ print \$5 }'"
+
 # go to login screen
 alias a='afk'
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/'\
