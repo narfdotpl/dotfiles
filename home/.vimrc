@@ -302,6 +302,9 @@ snoremap <D-S-Left> <C-G>0<C-G>
 " delete current line
 nnoremap <bs> dd
 
+" join upwards
+nnoremap K kJ
+
 " change selection/word to lowercase and restore mode
 vnoremap <C-L> uv`]
 imap <C-L> <Esc><C-L>a
