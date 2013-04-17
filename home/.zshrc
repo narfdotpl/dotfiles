@@ -242,6 +242,7 @@ alias -g .css='`find . -name "*.css"`'
 alias -g .eco='`find . -name "*.eco"`'
 alias -g .html='`find . -name "*.html"`'
 alias -g .js='`find . -name "*.js"`'
+alias -g .pp='`find . -name "*.pp"`'
 alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
 
 # execute last command and use its output
