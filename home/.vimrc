@@ -53,6 +53,9 @@ autocmd BufEnter * :syntax sync fromstart
 " highlight current line
 set cursorline
 
+" disable cursor blinking in normal mode
+set guicursor=n:blinkon0
+
 " show matching brackets
 set showmatch
 
