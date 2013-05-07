@@ -33,7 +33,8 @@
     backup = !python ~/.scripts/git/backup.py
     bb = checkout -
     bm = checkout master
-    bmm = branch --merged master
+    bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
+          | grep -Pv '^master$'
     c = !git cv --all && git q3
     ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend && git q3
     car = !git ca && git r
