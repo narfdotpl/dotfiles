@@ -47,6 +47,7 @@
     ctags = !.git/hooks/ctags
     cv = commit --verbose
     d = !python ~/.scripts/git/diff.py
+    db = branch -D
     e = !$EDIT $(git u)
     gca = gc --aggressive
     gh = !hub browse
