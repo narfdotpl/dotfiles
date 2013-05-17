@@ -15,6 +15,15 @@ for [key, app] in [
     do (app) ->
         bind key, -> slate.shell("/usr/bin/open -a '#{app}'")
 
+# control Spotify with media keys remapped in KeyRemap4MacBook to Hyper+NumPad
+for [key, cmd] in [
+    ['pad7', 'previous track'],
+    ['pad8', 'playpause'],
+    ['pad9', 'next track'],
+]
+    do (cmd) ->
+        bind key, -> slate.shell("/users/narf/bin/tell spotify to #{cmd}")
+
 # show hints
 bind 'z', slate.operation 'hint',
     characters: 'asdwqxcef'
