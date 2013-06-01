@@ -528,8 +528,8 @@ alias vs='vagrant suspend'
 alias vss='vagrant ssh'
 alias vu='vagrant up'
 
-# go to writings and restore vim session
-alias w='c writings && e'
+# go back to writing
+alias w='c narf.pl && e && c content/posts && wo narf.pl'
 
 # locate app
 alias wh='which'
