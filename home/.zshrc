@@ -410,6 +410,15 @@ alias .l='column_ls -d .*'    # hidden stuff
 # create directory (and intermediate directories) and go there
 m() {mkdir -p $1 && cd $1}
 
+# minimize terminal
+min() {
+    osascript -e '
+        tell application "System Events"
+            keystroke "m" using command down
+        end tell
+    '
+}
+
 # refresh memory https://github.com/jpalardy/forgetful
 alias mem='rlwrap forgetful `ls ~/forgetful/*.csv | sort --random-sort`'
 
