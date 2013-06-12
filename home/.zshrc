@@ -387,9 +387,6 @@ alias gr='GR --ignore-case'
 # go to ~/dotfiles/home
 alias h='c home'
 
-# show shell history
-alias his='history -i 1 | less +G'
-
 # start http server
 alias http='open http://localhost:8000/; python -m SimpleHTTPServer'
 
@@ -419,15 +416,6 @@ min() {
     '
 }
 
-# refresh memory https://github.com/jpalardy/forgetful
-alias mem='rlwrap forgetful `ls ~/forgetful/*.csv | sort --random-sort`'
-
-# cd to narf.pl
-ncd() {ssh megi -t "cd ~/narf.pl/main/100101111/$1; bash"}
-
-# scp to narf.pl
-ncp() {scp $1 megi:~/narf.pl/main/100101111/$2}
-
 # exclude matching lines
 alias not='grep --ignore-case --invert-match --perl-regexp'
 
@@ -448,19 +436,6 @@ alias pf='pip freeze'
 
 # ping google
 alias pg='ping -c 5 google.com'
-
-# (get and) play mp3s in itunes
-# also, always complete paths as if I was in mp3 dir
-compctl -fW ~/Music/mp3 play
-play() {
-    (
-        cd ~/Music/mp3 &&
-        git annex get $1 &&
-        open -a itunes $1 &&
-        osascript -e 'tell application "System Events" to keystroke "l" using command down' &&
-        open -a iterm
-    )
-}
 
 # install python package
 alias pi='pip install'
@@ -483,9 +458,6 @@ alias rf='rm -rf'
 # remove ~/Desktop/tmp and close terminal
 alias rft='rm -rf ~/Desktop/tmp && exit'
 
-# remove TeX mess
-alias rmx='rm *.(aux|fdb_latexmk|log|nav|out|snm|synctex.gz|toc)'
-
 # open rss client
 alias rss='open -a netnewswire'
 
@@ -497,9 +469,6 @@ alias save='save_workspace'
 
 # run scheme
 alias scm='rlwrap scheme'
-
-# open skype
-alias sk='open -a skype'
 
 # search stack overflow
 alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
