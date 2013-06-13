@@ -466,7 +466,7 @@ alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
 alias t='d && m tmp'
 
 # do video business in ~/Desktop/tmp
-alias tv='t && v'
+alias tv='min && t && v'
 
 # download video from youtube, vimeo, blip, etc. or play video files
 # from the current folder in VLC
@@ -486,6 +486,9 @@ v_helper() {
 
         # bring download to the foreground
         fg %youtube-dl
+
+        # die when it's time
+        exit
     fi
 }
 
