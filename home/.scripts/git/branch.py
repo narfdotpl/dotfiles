@@ -34,7 +34,7 @@ def _main():
 
     # do the magic
     if args is not None:
-        call('git branch ' + args, shell=True)
+        call('git branch ' + (args or '-vv'), shell=True)
     else:
         if branch in git.branches:
             call('git checkout ' + branch, shell=True)
