@@ -486,6 +486,8 @@ v_helper() {
     setopt glob
     if [[ "$@" = "" ]]; then
         open -a vlc *.(mp4|avi|flv|mov|mkv)
+        sleep 1
+        tell spotify to pause
     else
         # start download in the background
         youtube-dl --no-part --title --continue --quiet $1 &
