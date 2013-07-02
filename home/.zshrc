@@ -186,27 +186,8 @@ git_prompt() {
     [[ "$(git stash list | head -c1)" != "" ]] && echo -n "&"
 }
 
-# zsh has troubles displaying "⚡" with "PROMPT='%3~'", so...
-short_pwd() {
-    pwd | awk '{
-        ORS = ""
-
-        split($0, a, "/")
-        a[3] = "~"
-
-        len = length(a)
-        start = len > 5 ? len - 2 : 3
-
-        for (i = start; i <= len; i++) {
-            print a[i]
-            if (i != len)
-                print "/"
-        }
-    }'
-}
-
 # show short path, git info and ">" sign
-PROMPT='${BLUE}$(short_pwd)${GREEN}$(git_prompt) ${WHITE}>${DEFAULT} '
+PROMPT='${BLUE}%3~${GREEN}$(git_prompt) ${WHITE}>${DEFAULT} '
 
 # show non-zero exit code
 RPROMPT='${RED}%(0?..%?)${DEFAULT}'
