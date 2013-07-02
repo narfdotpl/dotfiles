@@ -13,3 +13,6 @@
 /tmp/*
 /Volumes/*
 */.Trash
+/Users/narf/torrents
+/Users/narf/Desktop/tmp
+/Users/narf/VirtualBox\ VMs/*

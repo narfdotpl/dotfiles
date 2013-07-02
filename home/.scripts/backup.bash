@@ -9,9 +9,9 @@ sudo -v
 # IMPORTANT: Make sure you update the `DST` variable to match the name of the
 # destination backup drive
 
-DST="/Volumes/Macintosh HD/"
+DST="/Volumes/Backup"
 SRC="/"
-EXCLUDE="$HOME/.dotfiles/backup_excludes.txt"
+EXCLUDE="$HOME/.config/backup/excludes.txt"
 
 PROG=$0
 
@@ -23,7 +23,7 @@ PROG=$0
 # --hard-links             preserve hard-links
 # --one-file-system        don't cross device boundaries (ignore mounted volumes)
 # --sparse                 handle spare files efficiently
-# --verbose                increase verbosity
+# --progress               show progress during transfer
 # --xattrs                 update the remote extended attributes to be the same as the local ones
 
 if [ ! -r "$SRC" ]; then
@@ -46,7 +46,7 @@ sudo rsync --acls \
            --hard-links \
            --one-file-system \
            --sparse \
-           --verbose \
+           --progress \
            --xattrs \
            "$SRC" "$DST"
 
