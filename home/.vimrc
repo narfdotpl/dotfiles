@@ -60,14 +60,10 @@ set guicursor=n:blinkon0
 set showmatch
 
 " fight for your eyes
-set background=dark
+let g:holylight_threshold=4000000
 let g:solarized_visibility='low'
 let g:solarized_italic=0
 colorscheme solarized
-
-" switch between sides of the force
-map <Leader><F1> :set background=dark<Enter>:Fontsized<Enter>
-map <Leader><F2> :set background=light<Enter>:Fontsized<Enter>
 
 
 "--------------
