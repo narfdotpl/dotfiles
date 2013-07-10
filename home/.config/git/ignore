@@ -17,7 +17,7 @@
 tags
 !tags/
 
-# sass cache
+# SASS cache
 .sass-cache
 
 # {Libre,Open}Office locks
@@ -30,8 +30,8 @@ xcuserdata
 Podfile.lock
 Pods
 
-# vagrant dotfiles
+# Vagrant dotfiles
 .vagrant
 
-# vim session files
+# Vim session files
 Session.vim
