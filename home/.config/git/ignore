@@ -35,3 +35,6 @@ Pods
 
 # Vim session files
 Session.vim
+
+# R autosaved files
+* (Autosaved).R
