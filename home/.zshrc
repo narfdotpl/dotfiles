@@ -303,6 +303,17 @@ alias d='cd ~/Desktop'
 # deactivate virtualenv
 alias de='deactivate'
 
+# create a "patrol cycle" gif of two images fading to each other
+diffgif() {
+    convert \
+        $1 $2 \
+        -morph 10 \
+        -set delay '%[fx:(t>0&&t<n-1)?10:100]' \
+        -duplicate 1,-2-1 \
+        -layers Optimize \
+        diff.gif
+}
+
 # run django
 alias dj='clear; pyc; open -a "google chrome"; python manage.py runserver'
 
