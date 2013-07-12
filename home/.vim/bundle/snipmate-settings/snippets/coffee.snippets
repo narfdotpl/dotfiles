@@ -35,11 +35,11 @@ snippet bv
 	    className: ''
 
 	    initialize: ->
-	        @model.bind('change', @render, @)
+	        @listenTo(@model, 'change', @render)
 
 	    render: ->
 	        state = @model.toJSON()
-	        $(@el).html(@template(state))
+	        @$el.html(@template(state))
 	        @
 snippet c
 	class ${1}
