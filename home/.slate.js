@@ -114,8 +114,24 @@
   }));
 
   bind('m', function(win) {
-    return win.doOperation(slate.operation('throw', {
+    var dockWidth, height, menuBarHeight, screenHeight, screenRect, screenWidth, thresholdHeight, thresholdWidth, width, _ref8;
+
+    screenRect = win.screen().rect();
+    screenWidth = screenRect.width;
+    screenHeight = screenRect.height;
+    menuBarHeight = 22;
+    dockWidth = 90;
+    thresholdWidth = screenWidth - dockWidth;
+    thresholdHeight = screenHeight - menuBarHeight;
+    _ref8 = win.size(), width = _ref8.width, height = _ref8.height;
+    win.doOperation(slate.operation('throw', {
       screen: (slate.screen().id() + 1) % 2
+    }));
+    return win.doOperation(slate.operation('move', {
+      x: 'windowTopLeftX',
+      y: 'windowTopLeftY',
+      width: width > thresholdWidth ? 'screenSizeX' : width,
+      height: height > thresholdHeight ? 'screenSizeY' : height
     }));
   });
 

@@ -78,7 +78,29 @@ slate.default ['1920x1080', '1440x900'], slate.layout 'foo',
                 height: 'screenSizeY'
         ]
 
-# move window between primary and secondary monitor
+# move window between primary and secondary monitor, preserving maximization
 bind 'm', (win) ->
+    # get screen dimensions
+    screenRect = win.screen().rect()
+    screenWidth = screenRect.width
+    screenHeight = screenRect.height
+
+    # set thresholds
+    menuBarHeight = 22
+    dockWidth = 90
+    thresholdWidth = screenWidth - dockWidth
+    thresholdHeight = screenHeight - menuBarHeight
+
+    # get window dimensions
+    {width, height} = win.size()
+
+    # move window
     win.doOperation slate.operation 'throw',
         screen: (slate.screen().id() + 1) % 2
+
+    # maximize window
+    win.doOperation slate.operation 'move',
+        x: 'windowTopLeftX'
+        y: 'windowTopLeftY'
+        width: if width > thresholdWidth then 'screenSizeX' else width
+        height: if height > thresholdHeight then 'screenSizeY' else height
