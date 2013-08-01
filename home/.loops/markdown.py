@@ -39,10 +39,8 @@ def _main():
         echo '</div></body></html>' >> {html};
         osascript -e '
             tell application "Google Chrome"
-                activate
-                tell application "System Events"
-                    keystroke "r" using command down
-                    keystroke tab using command down
+                tell the active tab of its first window
+                    reload
                 end tell
             end tell
         '
