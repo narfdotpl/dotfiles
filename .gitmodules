@@ -76,3 +76,9 @@
 [submodule "home/.vim/bundle/holylight"]
 	path = home/.vim/bundle/holylight
 	url = https://github.com/Dinduks/vim-holylight.git
+[submodule "home/.vim/bundle/funcoo"]
+	path = home/.vim/bundle/funcoo
+	url = https://github.com/rizzatti/funcoo.vim.git
+[submodule "home/.vim/bundle/hardtime"]
+	path = home/.vim/bundle/hardtime
+	url = https://github.com/takac/vim-hardtime.git
