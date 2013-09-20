@@ -272,10 +272,18 @@ alias bu='brew update 2> /dev/null; brew outdated'
 c() {cd $1 > /dev/null}
 compdef c=cd
 alias ,='c -'
-alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
 alias /='cd -P .'
+
+# change directory or source file
+.() {
+    if [ $# -eq 0 ]; then
+        cd ..
+    else
+        source "$@"
+    fi
+}
 
 # clear terminal screen
 alias cl='clear'
