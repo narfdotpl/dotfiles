@@ -353,9 +353,15 @@ alias ft='fl test'
 # flush dns
 alias flushdns='dscacheutil -flushcache'
 
-# run git
+# run git (use git log alias if no arguments are given)
 alias g='git'
-git() {hub "$@"}  # https://github.com/defunkt/hub
+git() {
+    if [ $# -eq 0 ]; then
+        hub l  # https://github.com/defunkt/hub
+    else
+        hub "$@"
+    fi
+}
 
 # learn to live with typos
 alias gL='g l'
