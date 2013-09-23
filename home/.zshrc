@@ -285,6 +285,9 @@ alias /='cd -P .'
     fi
 }
 
+# change directory to the one opened in finder
+alias cc='c "`tell finder to get the name of the first window`"'
+
 # clear terminal screen
 alias cl='clear'
 
