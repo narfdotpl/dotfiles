@@ -41,6 +41,7 @@
     c = !git cv --all && git q3
     ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend && git q3
     car = !git ca && git r
+    cl = clone
     cmp = !python ~/.scripts/git/get-compare-links.py
     co = checkout
     cp = cherry-pick
