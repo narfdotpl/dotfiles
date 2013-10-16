@@ -9,8 +9,9 @@ for [key, app] in [
     ['d', 'Google Chrome'],
     ['e', 'Spotify'],
     ['r', 'HipChat'],
-    ['f', 'Clear'],
-    ['v', 'Twitter'],
+    ['f', 'Xcode'],
+    ['v', 'Clear'],
+    ['b', 'Twitter'],
 ]
     do (app) ->
         bind key, -> slate.shell("/usr/bin/open -a '#{app}'")
@@ -61,7 +62,6 @@ for [key, obj] in [
     ['y', height: 'screenSizeY', y: 'screenOriginY'],
     ['g', width: 'screenSizeX / 2'],
     ['j', width: 'screenSizeX', x: 'screenOriginX'],
-    ['b', height: 'screenSizeY / 2'],
     ['n', height: 'screenSizeY / 2'],
 ]
     bind key, slate.operation('move', _({}).extend(defaults, obj))
