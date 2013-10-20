@@ -2,9 +2,13 @@
 regexp=^[\w-]+ ([^ A-Za-z0-9.])+\s
 colours=white
 =======
-# commits to polish
-regexp=^[\w-]+ ~.*
-colours=blue
+# colon following "WIP"
+regexp=WIP:
+colours=cyan
+=======
+# "WIP" prefix
+regexp=^[\w-]+ WIP
+colours=white
 =======
 # commits to delete
 regexp=^[\w-]+ --.*
