@@ -82,3 +82,6 @@
 [submodule "home/.vim/bundle/hardtime"]
 	path = home/.vim/bundle/hardtime
 	url = https://github.com/takac/vim-hardtime.git
+[submodule "home/.vim/bundle/sneak"]
+	path = home/.vim/bundle/sneak
+	url = https://github.com/justinmk/vim-sneak.git
