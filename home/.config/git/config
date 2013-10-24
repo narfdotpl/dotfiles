@@ -57,9 +57,9 @@
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
     is = !git gh -- issues
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
-    ll = !git lo | grcat conf.git-l | less -R +G
-    lo = log --oneline --reverse
-    ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | grcat conf.git-l
+    ll = !git lo | less -R +G
+    lo = "!f() { git log --oneline --reverse $* | grcat conf.git-l | less -R; }; f"
+    ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | cat
     m = !python ~/.scripts/git/update-branch.py
     mm = merge -
     msg = "!f() { git commit --allow-empty --message \"$*\" && git q3; }; f"
