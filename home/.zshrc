@@ -482,6 +482,12 @@ alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
 # go to temporary directory on the desktop
 alias t='d && m tmp'
 
+# show file system tree in color, ignoring obvious stuff, directories first,
+# through `less` with line numbers
+tre() {
+    tree -aC -I '.DS_Store|.git|*.py[co]|*.sw[nop]' --dirsfirst "$@" | less -RN
+}
+
 # do video business in ~/Desktop/tmp
 alias tv='min && t && v'
 
