@@ -437,6 +437,9 @@ alias p='python -3'
 alias py='python'
 alias p3='python3'
 
+# use paste board without ⇥
+alias pbc='pbcopy'
+
 # list installed python packages
 alias pf='pip freeze'
 
