@@ -374,10 +374,6 @@ git() {
     fi
 }
 
-# learn to live with typos
-alias gL='g l'
-alias gl='g l'
-
 # grep for file names
 alias GF='grep --files-with-matches --perl-regexp'
 alias gf='GF --ignore-case'
