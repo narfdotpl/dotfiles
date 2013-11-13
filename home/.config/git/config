@@ -55,7 +55,6 @@
     h = help
     i = !git init && git add . && git msg \"created repo :cake:\" && git q3
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
-    is = !git gh -- issues
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
     lo = "!f() { git log --oneline --reverse $* | grcat conf.git-l | less -R; }; f"
@@ -75,12 +74,10 @@
     root-branch = !python ~/.scripts/git/root-branch.py
     rv = remote --verbose
     s = status --short
-    sd = svn dcommit
     sf = submodule foreach
     sl = !git stash list | less
     sm = !git sf git bm && git sf git m && git c
     sp = stash pop
-    sr = svn rebase
     ss = !git add . && git stash save
     u = !git s | grep 'UU' | awk '{ print substr($0, 4) }' | more
     when-joined = !python ~/.scripts/git/when-joined.py
