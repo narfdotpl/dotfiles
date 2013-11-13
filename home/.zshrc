@@ -224,7 +224,6 @@ source ~/.scripts/aliases.zsh
 # find webdev files
 alias -g .co='`find . -name "*.coffee"`'
 alias -g .css='`find . -name "*.css"`'
-alias -g .eco='`find . -name "*.eco"`'
 alias -g .html='`find . -name "*.html"`'
 alias -g .js='`find . -name "*.js"`'
 alias -g .pp='`find . -name "*.pp"`'
