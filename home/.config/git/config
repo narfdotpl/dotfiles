@@ -38,6 +38,7 @@
     bm = checkout master
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
           | grep -Pv '^master$'
+    branch-ticket-prefix = !git branch | sed -n 's/* \\([0-9]*\\).*/\\1/p'
     c = !git cv --all && git q3
     ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend && git q3
     car = !git ca && git r
@@ -51,7 +52,7 @@
     db = branch -D
     e = !$EDIT $(git u)
     gca = gc --aggressive
-    gh = !hub browse
+    gh = "!f() { [[ $1 = '' ]] && hub browse || hub browse -- issues/$1; }; f $(git branch-ticket-prefix)"
     h = help
     i = !git init && git add . && git msg \"created repo :cake:\" && git q3
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
