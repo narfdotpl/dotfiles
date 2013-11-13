@@ -222,7 +222,7 @@ source ~/.loops/aliases.zsh
 source ~/.scripts/aliases.zsh
 
 # find webdev files
-alias -g .coffee='`find . -name "*.coffee"`'
+alias -g .co='`find . -name "*.coffee"`'
 alias -g .css='`find . -name "*.css"`'
 alias -g .eco='`find . -name "*.eco"`'
 alias -g .html='`find . -name "*.html"`'
