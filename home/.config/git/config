@@ -54,7 +54,7 @@
     gca = gc --aggressive
     gh = "!f() { [[ $1 = '' ]] && hub browse || hub browse -- issues/$1; }; f $(git branch-ticket-prefix)"
     h = help
-    i = !git init && git add . && git msg \"created repo :cake:\" && git q3
+    i = !git init && git add . && git msg \"created repo :cake:\"
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
