@@ -393,7 +393,7 @@ alias gr='GR --ignore-case'
 alias h='c home'
 
 # start http server
-alias http='open http://localhost:8000/; python -m SimpleHTTPServer'
+alias http='open http://`ip`:8000/; python -m SimpleHTTPServer'
 
 # go to ideas
 alias i='c ideas'
