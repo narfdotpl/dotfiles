@@ -398,6 +398,10 @@ alias http='open http://localhost:8000/; python -m SimpleHTTPServer'
 # go to ideas
 alias i='c ideas'
 
+# get local IP address
+# http://stackoverflow.com/a/13322549/98763
+alias ip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+
 # pretty print json (`cat foo.json | json`)
 alias json='python -mjson.tool | pygmentize -l js'
 
