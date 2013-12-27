@@ -96,6 +96,10 @@ column_ls() {
 #  completion
 #--------------
 
+# use completion provided by homebrew
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
+# init
 autoload -U compinit && compinit
 
 # make completion lists as compact as possible
