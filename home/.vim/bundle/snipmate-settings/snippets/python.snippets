@@ -95,6 +95,8 @@ snippet nn
 	is not None${1}
 snippet o
 	objects.${1}
+snippet op
+	with open(${1:path}, 'r', encoding='utf-8') as f
 snippet p
 	print ${1}
 snippet pop
@@ -134,7 +136,5 @@ snippet ve
 	ValueError(${1})
 snippet w
 	while ${1:True}
-snippet wi
-	with ${1:open}
 snippet y
 	yield ${1}
