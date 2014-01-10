@@ -168,8 +168,8 @@ map <Leader>= <C-w><C-=>
 "  tabs
 "--------
 
-" limit number of open tabs to 30
-set tabpagemax=30
+" limit number of open tabs to 50
+set tabpagemax=50
 
 " open new tab with full path initialized at current buffer's directory
 map <Leader>t :tabnew <C-R>=expand('%:p:h').'/'<Enter>
