@@ -20,17 +20,7 @@ let g:fontsized_fullscreen = 0
 let g:fontsized_wide = 0
 
 
-function! s:Fontsized(background)
-    " set background
-    if a:background == "holylight"
-        " run holy light
-        if exists("*HolyLight")
-            call HolyLight()
-        endif
-    else
-        let &background=a:background
-    endif
-
+function! s:Fontsized()
     " detect external display
     if system("ioreg -rc AppleDisplay") == ""
         let g:fontsized_external = 0
@@ -129,12 +119,12 @@ function! s:Fontsized(background)
 endfunction
 
 
-" expose command
-command! -nargs=0 Fontsized call s:Fontsized("holylight")
-
 " activate
-Fontsized
-autocmd VimEnter * :Fontsized
+call s:Fontsized()
+
+
+" expose command
+command! -nargs=0 Fontsized call s:Fontsized()
 
 
 " map keys:
@@ -157,7 +147,3 @@ imap <A-C-Right> <Esc><A-C-Right>i
 imap <A-C-Down> <Esc><A-C-Down>i
 imap <A-C-Left> <Esc><A-C-Left>i
 imap <A-C-Enter> <Esc><A-C-Enter>i
-
-" switch between sides of the force
-map <Leader><F1> :call <SID>Fontsized("dark")<Enter>
-map <Leader><F2> :call <SID>Fontsized("light")<Enter>
