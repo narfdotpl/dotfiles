@@ -167,14 +167,6 @@ map <Leader>= <C-w><C-=>
 " limit number of open tabs to 30
 set tabpagemax=30
 
-" move between tabs with cmd + 1/2
-nnoremap <D-1> :tabprev<Enter>
-nnoremap <D-2> :tabnext<Enter>
-imap <D-1> <Esc><D-1>
-imap <D-2> <Esc><D-2>
-smap <D-1> <Esc><D-1>
-smap <D-2> <Esc><D-2>
-
 " open new tab with full path initialized at current buffer's directory
 map <Leader>t :tabnew <C-R>=expand('%:p:h').'/'<Enter>
 
