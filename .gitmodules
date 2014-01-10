@@ -70,9 +70,6 @@
 [submodule "home/.vim/bundle/keyboard_cat"]
 	path = home/.vim/bundle/keyboard_cat
 	url = https://github.com/natw/keyboard_cat.vim.git
-[submodule "home/.vim/bundle/holylight"]
-	path = home/.vim/bundle/holylight
-	url = https://github.com/Dinduks/vim-holylight.git
 [submodule "home/.vim/bundle/funcoo"]
 	path = home/.vim/bundle/funcoo
 	url = https://github.com/rizzatti/funcoo.vim.git
