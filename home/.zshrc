@@ -492,8 +492,9 @@ alias v='setopt noglob; v_helper'
 v_helper() {
     setopt glob
     if [[ "$@" = "" ]]; then
-        open -a vlc *.(mp4|avi|flv|mov|mkv)
+        open -a vlc
         sleep 1
+        open -a vlc *.(mp4|avi|flv|mov|mkv)
         tell spotify to pause
     else
         # start download in the background
