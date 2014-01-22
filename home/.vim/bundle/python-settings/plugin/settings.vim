@@ -5,14 +5,6 @@ let python_no_exception_highlight = 1
 autocmd FileType python :inoremap <buffer> : <Esc>$a:<Esc>o
 autocmd FileType python :snoremap <buffer> : <Esc>$a:<Esc>o
 
-" use pyflakes on save
-function! Pyflakes()
-    silent make
-    redraw
-    try
-        cc
-    catch E42
-    endtry
-endfunction
+" run pyflakes on save
 autocmd BufNewFile,BufRead *.py :compiler pyflakes
-autocmd BufWritePost *.py :call Pyflakes()
+autocmd BufWritePost *.py :silent make | cwindow
