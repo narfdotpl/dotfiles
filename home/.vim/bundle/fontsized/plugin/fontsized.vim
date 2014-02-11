@@ -110,11 +110,7 @@ function! s:Fontsized()
         set fuoptions=maxvert,background:Normal
         set fullscreen
     else
-        if !g:fontsized_external && g:fontsized_wide
-            set lines=53
-        else
-            set lines=48
-        endif
+        set lines=666
     endif
 endfunction
 
