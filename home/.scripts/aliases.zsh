@@ -20,7 +20,12 @@ alias .tar.bz2='script create_archive tar.bz2'
 alias .zip='script create_archive zip'
 alias a2='script a2'
 alias aww='open ~/.scripts/aww.html'
-alias backup='sudo bash ~/.scripts/backup.bash'
+
+backup() {
+    rm -rf ~/Library/Developer/Xcode/DerivedData
+    sudo bash ~/.scripts/backup.bash
+}
+
 alias dcp='script public_dropbox copy'
 alias dmv='script public_dropbox move'
 alias duration='script show_movie_duration'
