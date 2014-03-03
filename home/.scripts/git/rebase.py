@@ -41,7 +41,7 @@ def _main():
         else:
             command += '--interactive HEAD~%d' % number
     else:
-        if git.branch == '(no branch)':
+        if git.branch.startswith('(no branch'):
             command += '--continue'
         else:
             commit_range = git.minimal_commit_range or ''

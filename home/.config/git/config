@@ -27,10 +27,10 @@
     enabled = true
 
 [alias]
-    a = !git add . && git c
-    aa = !git add . && git ca
-    ap = !git add --patch && git cv && git q3
-    ar = !git add . && git r
+    a = !git add --all && git c
+    aa = !git add --all && git ca
+    ap = !git add --all --patch && git cv && git q3
+    ar = !git add --all && git r
     b = !python ~/.scripts/git/branch.py
     ba = !git backup --force
     backup = !python ~/.scripts/git/backup.py
@@ -54,7 +54,7 @@
     gca = gc --aggressive
     gh = "!f() { [[ $1 = '' ]] && hub browse || hub browse -- issues/$1; }; f $(git branch-ticket-prefix)"
     h = help
-    i = !git init && git add . && git msg \"created repo :cake:\"
+    i = !git init && git add --all && git msg \"created repo :cake:\"
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
@@ -80,7 +80,7 @@
     sl = !git stash list | less
     sm = !git sf git bm && git sf git m && git c
     sp = stash pop
-    ss = !git add . && git stash save
+    ss = !git add --all && git stash save
     u = !git s | grep 'UU' | awk '{ print substr($0, 4) }' | more
     when-joined = !python ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
