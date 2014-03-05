@@ -45,6 +45,9 @@ for [key, directions] in [
 # show grid
 bind 'h', slate.operation 'grid',
     grids:
+        '1920x1200':
+            width: 6
+            height: 6
         '1920x1080':
             width: 6
             height: 6
