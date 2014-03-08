@@ -76,3 +76,6 @@
 [submodule "home/.vim/bundle/hardtime"]
 	path = home/.vim/bundle/hardtime
 	url = https://github.com/takac/vim-hardtime.git
+[submodule "home/.vim/bundle/vinegar"]
+	path = home/.vim/bundle/vinegar
+	url = https://github.com/tpope/vim-vinegar.git
