@@ -129,7 +129,7 @@ set ignorecase  " ignore
 set smartcase   " don't ignore if pattern contains upper case characters
 
 " turn off highlighting with F2
-nnoremap <F2> :nohlsearch<Enter>:set scrolloff=3<Enter>
+nnoremap <F2> :nohlsearch<Enter>
 imap <F2> <Esc><F2>a
 vmap <F2> <Esc><F2>gv
 smap <F2> <C-g><F2><C-g>
@@ -195,19 +195,6 @@ imap <Down> <Esc><Down>a
 
 " keep a few screen lines around the cursor
 set scrolloff=3
-
-" use sneak.vim near the top, middle, or bottom of the window
-nmap q :set scrolloff=0<Enter>Hf
-nmap w M3gkf
-nmap e :set scrolloff=0<Enter>L10gkf
-
-" prefix original mappings with <Leader>
-nnoremap <Leader>q q
-nnoremap <Leader>w w
-nnoremap <Leader>e e
-
-" repeat latest f, F, t, T
-map <Space> ;
 
 " make big jumps with cmd + arrow
 nnoremap <D-Up> gg
