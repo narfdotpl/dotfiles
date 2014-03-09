@@ -116,6 +116,9 @@
   bind('m', function(win) {
     var dockWidth, height, menuBarHeight, screenHeight, screenRect, screenWidth, thresholdHeight, thresholdWidth, width, _ref8;
 
+    if (!win) {
+      return;
+    }
     screenRect = win.screen().rect();
     screenWidth = screenRect.width;
     screenHeight = screenRect.height;
@@ -130,8 +133,8 @@
     return win.doOperation(slate.operation('move', {
       x: 'windowTopLeftX',
       y: 'windowTopLeftY',
-      width: width > thresholdWidth ? 'screenSizeX' : width,
-      height: height > thresholdHeight ? 'screenSizeY' : height
+      width: width >= thresholdWidth ? 'screenSizeX' : width,
+      height: height >= thresholdHeight ? 'screenSizeY' : height
     }));
   });
 
