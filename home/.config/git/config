@@ -76,6 +76,7 @@
     root-branch = !python ~/.scripts/git/root-branch.py
     rv = remote --verbose
     s = status --short
+    sd = stash drop
     sf = submodule foreach
     sl = !git stash list | less
     sm = !git sf git bm && git sf git m && git c
