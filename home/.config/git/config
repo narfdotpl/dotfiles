@@ -71,6 +71,7 @@
           ).wav) &)
     r = !python ~/.scripts/git/rebase.py
     ra = !git rebase --abort && git ctags
+    re = revert
     rh = reset --hard
     rh1 = reset --hard HEAD~1
     root-branch = !python ~/.scripts/git/root-branch.py
