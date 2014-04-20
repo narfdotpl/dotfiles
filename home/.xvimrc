@@ -1,2 +1,5 @@
 " join upwards
 nnoremap K kJ
+
+" fix occasional 'broken a' bug
+nnoremap a i<Right>
