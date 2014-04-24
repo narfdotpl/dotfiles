@@ -84,6 +84,7 @@
     sp = stash pop
     ss = !git add --all && git stash save
     u = !git s | grep 'UU' | awk '{ print substr($0, 4) }' | more
+    w = !git wip
     when-joined = !python ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
     wip = !git msg WIP:
