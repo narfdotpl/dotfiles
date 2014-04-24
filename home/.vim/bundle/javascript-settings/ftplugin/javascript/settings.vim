@@ -1,2 +1,2 @@
-" pretty-print json
-noremap <buffer> <Leader>p :%!python -m json.tool<Enter>
+" format JSON with Python
+setlocal formatprg=python\ -m\ json.tool
