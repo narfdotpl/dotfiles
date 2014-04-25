@@ -353,7 +353,7 @@ alias ez='(h && e .zshrc)'
 # find in working directory without expanding wildcards
 # http://www.chiark.greenend.org.uk/~sgtatham/aliases.html
 f_helper() {
-    find . -name "$@"
+    find . -name "$@" 2> /dev/null
     setopt glob
 }
 alias f='setopt noglob; f_helper'
