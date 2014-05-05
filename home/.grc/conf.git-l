@@ -19,9 +19,9 @@ regexp=^[\w-]+
 colours=yellow
 =======
 # interpunction following ticket numbers
-regexp=#\d+[,:]
+regexp=(#\d+)|(#?[A-Z]+-\d+)[,:]
 colours=cyan
 =======
 # ticket numbers
-regexp=#\d+
+regexp=(#\d+)|(#?[A-Z]+-\d+)
 colours=blue
