@@ -484,6 +484,16 @@ alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
 # go to temporary directory on the desktop
 alias t='d && m tmp'
 
+# don't forget about the tea
+tea() {
+    min
+    sleep $1
+    tell spotify to pause
+    say -v agata 'szanowny panie, proszę wybaczyć, że przeszkadzam, ale pragnę poinformować, iż pańska herbata ma optymalną temperaturę do picia'
+    tell spotify to play
+    exit
+}
+
 # show file system tree in color, ignoring obvious stuff, directories first,
 # through `less` with line numbers
 tre() {
