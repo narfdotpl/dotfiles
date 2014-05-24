@@ -381,15 +381,15 @@ git() {
 }
 
 # grep for file names
-alias GF='grep --files-with-matches --perl-regexp'
+alias GF='grep --files-with-matches --perl-regexp --color=auto'
 alias gf='GF --ignore-case'
 
 # grep through shell history
-alias GH='history -i 1 | grep --perl-regexp'
+alias GH='history -i 1 | grep --perl-regexp --color=auto'
 alias gh='GH --ignore-case'
 
 # grep
-alias GR='grep --perl-regexp'
+alias GR='grep --perl-regexp --color=auto'
 alias gr='GR --ignore-case'
 
 # go to ~/dotfiles/home
