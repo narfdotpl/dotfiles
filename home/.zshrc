@@ -233,6 +233,10 @@ alias -g .js='`find . -name "*.js"`'
 alias -g .pp='`find . -name "*.pp"`'
 alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
 
+# alias /dev/null
+alias -g /dn='/dev/null'
+alias -g 2/dn='2> /dev/null'
+
 # alias and
 alias -g :='&&'
 
