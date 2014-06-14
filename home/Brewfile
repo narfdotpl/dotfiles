@@ -13,7 +13,6 @@ install rsync         || true
 install tree          || true
 install unrar         || true
 install wget          || true
-install woof          || true
 install zsh           || true
 
 cleanup
