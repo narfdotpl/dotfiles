@@ -1,0 +1,19 @@
+update
+
+install coreutils     || true
+install ctags         || true
+install gcal          || true
+install git           || true
+install hub           || true
+install markdown      || true
+install p7zip         || true
+install python        || true
+install rlwrap        || true
+install rsync         || true
+install tree          || true
+install unrar         || true
+install wget          || true
+install woof          || true
+install zsh           || true
+
+cleanup

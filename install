@@ -19,19 +19,7 @@ def ask_yn(question):
 
 
 def brew():
-    # get installed apps
-    cellar_dir = '/usr/local/Cellar'
-    installed = listdir(cellar_dir) if exists(cellar_dir) else []
-
-    # get desired apps
-    with open(expanduser('~/.brew')) as f:
-        desired = map(str.strip, f.readlines())
-
-    # install missing apps
-    for app in sorted(set(desired) - set(installed)):
-        print app
-        run('brew install ' + app)
-        print
+    run('brew bundle ~')
 
 
 def run(command):
