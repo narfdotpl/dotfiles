@@ -13,6 +13,7 @@ install rsync         || true
 install tree          || true
 install unrar         || true
 install wget          || true
+install youtube-dl    || true
 install zsh           || true
 
 cleanup
