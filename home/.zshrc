@@ -531,11 +531,6 @@ v_helper() {
 # open (file in) vlc
 alias vlc='open -a vlc'
 
-# don't type so much when using vagrant
-alias vs='vagrant suspend'
-alias vss='vagrant ssh'
-alias vu='vagrant up'
-
 # go back to writing
 alias w='c narf.pl && e && c content/posts && wo narf.pl'
 
