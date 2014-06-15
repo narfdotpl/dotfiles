@@ -422,11 +422,7 @@ m() {mkdir -p $1 && cd $1}
 # minimize terminal
 min() {
     open -a iterm
-    osascript -e '
-        tell application "System Events"
-            keystroke "m" using command down
-        end tell
-    '
+    tell 'System Events' to keystroke '"m"' using command down
 }
 
 # exclude matching lines
@@ -548,7 +544,7 @@ alias x='open "$(ls | grep .xcworkspace$ || ls | grep .xcodeproj$)"'
 # read `man atrun` to enable scheduling
 alias z='zzz'
 zzz() {
-    local cmd="osascript -e 'tell application \"System Events\" to sleep'"
+    local cmd="tell 'System Events' to sleep"
     if [[ "$@" = "" ]]; then
         eval $cmd
     else
