@@ -421,6 +421,7 @@ m() {mkdir -p $1 && cd $1}
 
 # minimize terminal
 min() {
+    open -a iterm
     osascript -e '
         tell application "System Events"
             keystroke "m" using command down
