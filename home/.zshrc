@@ -370,6 +370,16 @@ alias ft='fl test'
 # flush dns
 alias flushdns='dscacheutil -flushcache'
 
+# change video to gif (QuickTime Player, File, New Screen Recording)
+gifify() {
+    local gif=${1%.*}.gif
+
+    ffmpeg -i $1 -pix_fmt rgb24 -r 25 -f gif - 2> /dev/null |
+    gifsicle --optimize=3 --delay=4 > $gif
+
+    qlmanage -p $gif > /dev/null 2>&1
+}
+
 # run git (use git log alias if no arguments are given)
 alias g='git'
 git() {
