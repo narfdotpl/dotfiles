@@ -35,7 +35,6 @@
     ba = !git backup --force
     backup = !python ~/.scripts/git/backup.py
     bb = checkout -
-    bm = checkout master
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
           | grep -Pv '^master$'
     branch-ticket-prefix = !git branch | sed -n 's/* \\([0-9]*\\).*/\\1/p'
@@ -43,6 +42,7 @@
     ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend && git q3
     car = !git ca && git r
     cl = clone
+    cm = checkout master
     cmp = !python ~/.scripts/git/get-compare-links.py
     co = checkout
     cp = cherry-pick
@@ -80,7 +80,7 @@
     sd = stash drop
     sf = submodule foreach
     sl = !git stash list | less
-    sm = !git sf git bm && git sf git m && git c
+    sm = !git sf git cm && git sf git m && git c
     sp = stash pop
     ss = !git add --all && git stash save
     u = !git s | grep 'UU' | awk '{ print substr($0, 4) }' | more
