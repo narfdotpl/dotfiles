@@ -65,6 +65,7 @@
     mm = merge -
     msg = "!f() { git commit --allow-empty --message \"$*\" && git q3; }; f"
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
+    p = pull
     pf = push --force
     pu2 = !python ~/.scripts/git/push-upto.py
     q3 = !(afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $(gshuf -n 1 -e \
