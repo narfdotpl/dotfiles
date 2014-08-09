@@ -56,6 +56,9 @@ set cursorline
 " disable cursor blinking in normal mode
 set guicursor=n:blinkon0
 
+" disable redraw while executing macros, etc.
+set lazyredraw
+
 " show matching brackets
 set showmatch
 
