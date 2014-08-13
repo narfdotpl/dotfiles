@@ -265,6 +265,9 @@ alias a='afk'
 alias afk='tell spotify to pause && /System/Library/CoreServices/Menu\ '\
 'Extras/User.menu/Contents/Resources/CGSession -suspend && sleep 10'
 
+# drown in cuteness
+alias aww='open http://www.panoptikos.com/r/aww/top'
+
 # run homebrew
 alias b='brew'
 

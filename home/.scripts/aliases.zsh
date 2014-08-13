@@ -19,7 +19,6 @@ script() {
 alias .tar.bz2='script create_archive tar.bz2'
 alias .zip='script create_archive zip'
 alias a2='script a2'
-alias aww='open ~/.scripts/aww.html'
 
 backup() {
     rm -rf ~/Library/Developer/Xcode/DerivedData
