@@ -79,6 +79,3 @@
 [submodule "home/.vim/bundle/vinegar"]
 	path = home/.vim/bundle/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
-[submodule "home/.vim/bundle/python-pep8-indent"]
-	path = home/.vim/bundle/python-pep8-indent
-	url = git@github.com:hynek/vim-python-pep8-indent.git
