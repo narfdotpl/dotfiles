@@ -11,7 +11,6 @@ for [key, app] in [
     ['r', 'HipChat'],
     ['f', 'Xcode'],
     ['v', 'Clear'],
-    ['b', 'Twitter'],
 ]
     do (app) ->
         bind key, -> slate.shell("/usr/bin/open -a '#{app}'")
