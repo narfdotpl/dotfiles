@@ -515,12 +515,10 @@ tre() {
     tree -aC -I '.DS_Store|.git|*.py[co]|*.sw[nop]' --dirsfirst "$@" | less -RN
 }
 
-# do video business in ~/Desktop/tmp
-alias tv='min && t && v'
-
 # download video from youtube, vimeo, blip, etc. or play video files
 # from the current folder in VLC
 alias v='setopt noglob; v_helper'
+alias ve='v; exit'
 v_helper() {
     setopt glob
     if [[ "$@" = "" ]]; then
@@ -528,6 +526,9 @@ v_helper() {
         sleep 1
         open -a vlc *.(mp4|avi|flv|mov|mkv)
         tell spotify to pause
+        echo | less
+        tell spotify to play
+        tell vlc to quit
     else
         # start download in the background
         youtube-dl --no-part --title --continue --quiet $1 &
@@ -537,14 +538,25 @@ v_helper() {
 
         # bring download to the foreground
         fg %youtube-dl
-
-        # die when it's time
-        exit
     fi
 }
 
 # open (file in) vlc
 alias vlc='open -a vlc'
+
+# do video business in ~/Desktop/tmp
+tv() {
+    if [[ "$@" = "" ]]; then
+        t
+        v
+        rft
+    else
+        min
+        t
+        v $@
+        ex
+    fi
+}
 
 # go back to writing
 alias w='c narf.pl && e && c content/posts && wo narf.pl'
