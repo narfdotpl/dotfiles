@@ -266,6 +266,7 @@ alias 5="awk '{ print \$5 }'"
 
 # go to login screen
 alias a='afk'
+alias ae='afk; exit'
 alias afk='tell spotify to pause && /System/Library/CoreServices/Menu\ '\
 'Extras/User.menu/Contents/Resources/CGSession -suspend && sleep 10'
 
@@ -568,6 +569,9 @@ zzz() {
         echo $cmd | at $@
     fi
 }
+
+# sleep and close terminal
+alias ze='zzz; exit'
 
 
 #----------
