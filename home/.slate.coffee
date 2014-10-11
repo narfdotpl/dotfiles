@@ -24,10 +24,6 @@ for [key, cmd] in [
     do (cmd) ->
         bind key, -> slate.shell("/users/narf/bin/tell spotify to #{cmd}")
 
-# show hints
-bind 'z', slate.operation 'hint',
-    characters: 'asdwqxcef'
-
 # move windows
 for [key, directions] in [
     ['i', ['up', 'left']],
