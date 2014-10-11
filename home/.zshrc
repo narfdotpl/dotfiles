@@ -495,8 +495,8 @@ alias scm='rlwrap scheme'
 # search stack overflow
 alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
 
-# go to temporary directory on the desktop
-alias t='d && m tmp'
+# go to a temporary directory on the desktop
+alias t='m ~/Desktop/tmp'
 
 # don't forget about the tea
 tea() {
