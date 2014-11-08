@@ -85,3 +85,6 @@
 [submodule "home/.vim/bundle/YUNOcommit"]
 	path = home/.vim/bundle/YUNOcommit
 	url = https://github.com/esneider/YUNOcommit.vim.git
+[submodule "home/.vim/bundle/swift"]
+	path = home/.vim/bundle/swift
+	url = https://github.com/Keithbsmiley/swift.vim.git
