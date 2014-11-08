@@ -82,9 +82,6 @@
 [submodule "home/.vim/bundle/python-pep8-indent"]
 	path = home/.vim/bundle/python-pep8-indent
 	url = https://github.com/hynek/vim-python-pep8-indent.git
-[submodule "home/.vim/bundle/swift"]
-	path = home/.vim/bundle/swift
-	url = https://github.com/toyamarinyon/vim-swift.git
 [submodule "home/.vim/bundle/YUNOcommit"]
 	path = home/.vim/bundle/YUNOcommit
 	url = https://github.com/esneider/YUNOcommit.vim.git
