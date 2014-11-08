@@ -568,7 +568,7 @@ alias wh='which'
 alias wo='workon'
 
 # open Xcode project(s)
-alias x='open "$(ls | grep .xcworkspace$ || ls | grep .xcodeproj$)"'
+alias x='open "$(ls | grep .xcworkspace$ || ls | grep .xcodeproj$ || ls | grep .playground$)"'
 
 # (schedule) sleep
 # read `man atrun` to enable scheduling
