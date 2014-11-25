@@ -87,7 +87,7 @@ bind 'm', (win) ->
     screenHeight = screenRect.height
 
     # set thresholds
-    menuBarHeight = 22
+    menuBarHeight = 23
     dockWidth = 90
     thresholdWidth = screenWidth - dockWidth
     thresholdHeight = screenHeight - menuBarHeight

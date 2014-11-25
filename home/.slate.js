@@ -117,7 +117,7 @@
     screenRect = win.screen().rect();
     screenWidth = screenRect.width;
     screenHeight = screenRect.height;
-    menuBarHeight = 22;
+    menuBarHeight = 23;
     dockWidth = 90;
     thresholdWidth = screenWidth - dockWidth;
     thresholdHeight = screenHeight - menuBarHeight;
