@@ -23,6 +23,8 @@ let mapleader=','
 
 " use long history
 set history=1000
+let g:sneak#s_next = 1
+let g:sneak#streak = 1
 
 
 "--------
