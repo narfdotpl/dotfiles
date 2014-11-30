@@ -61,9 +61,11 @@
     db = branch -D
     e = !$EDIT $(git u)
     gca = gc --aggressive
-    gh = "!f() { [[ $1 = '' ]] && hub browse || hub browse -- issues/$1; }; f $(git branch-ticket-prefix)"
-    ghi = !ghi list --web
+    gh = !hub browse
     h = help
+    i = "!f() { [[ $1 = '' ]] && ghi list --web || ghi show --web $1; }; f $(git branch-ticket-prefix)"
+    if = !ghi list --reverse --label first
+    il = !ghi list --reverse
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
