@@ -8,6 +8,13 @@
 [color]
     ui = auto
 
+[ghi]
+    editor = gvim -p --nofork
+    token = !security find-internet-password -a narfdotpl -s github.com -l 'ghi token' -w
+
+[ghi "highlight"]
+    style = colorful
+
 [hub]
     http-clone = true
 
@@ -55,6 +62,7 @@
     e = !$EDIT $(git u)
     gca = gc --aggressive
     gh = "!f() { [[ $1 = '' ]] && hub browse || hub browse -- issues/$1; }; f $(git branch-ticket-prefix)"
+    ghi = !ghi list --web
     h = help
     i = !git init && git add --all && git msg \"created repo :cake:\"
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
@@ -65,6 +73,8 @@
     m = !python ~/.scripts/git/update-branch.py
     mm = merge -
     msg = "!f() { git commit --allow-empty --message \"$*\" && git q3; }; f"
+    o = !ghi open > /dev/null && git q3 && open -a iterm
+    om = "!f() { ghi open --message \"$*\" > /dev/null && git q3; }; f"
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     p = pull
     pf = push --force
