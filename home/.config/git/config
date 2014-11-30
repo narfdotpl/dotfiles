@@ -64,7 +64,6 @@
     gh = "!f() { [[ $1 = '' ]] && hub browse || hub browse -- issues/$1; }; f $(git branch-ticket-prefix)"
     ghi = !ghi list --web
     h = help
-    i = !git init && git add --all && git msg \"created repo :cake:\"
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
@@ -85,6 +84,7 @@
     r = !python ~/.scripts/git/rebase.py
     ra = !git rebase --abort && git ctags
     re = revert
+    repo = !git init && git add --all && git msg \"created repo :cake:\"
     rh = reset --hard
     rh1 = reset --hard HEAD~1
     root-branch = !python ~/.scripts/git/root-branch.py
