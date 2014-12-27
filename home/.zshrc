@@ -526,6 +526,7 @@ v_helper() {
         sleep 1
         open -a vlc *.(mp4|avi|flv|mov|mkv)
         tell spotify to pause
+        screenbrightness -d 1 0
         echo | less
         tell spotify to play
         tell vlc to quit
