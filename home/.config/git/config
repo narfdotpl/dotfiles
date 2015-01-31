@@ -35,6 +35,7 @@
     ba = !git backup --force
     backup = !python ~/.scripts/git/backup.py
     bb = checkout -
+    bm = !git branch -M
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
           | grep -Pv '^master$'
     branch-ticket-prefix = !git branch | sed -n 's/* \\([0-9]*\\).*/\\1/p'
