@@ -30,9 +30,6 @@
 [push]
     default = current
 
-[rerere]
-    enabled = true
-
 [alias]
     a = !git add --all && git c
     aa = !git add --all && git ca
