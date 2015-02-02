@@ -299,6 +299,9 @@ alias /='cd -P .'
     fi
 }
 
+# run calendar
+alias ca='cal'
+
 # change directory to the one opened in finder
 alias cc='c "`tell finder to get the name of the first window`"'
 
