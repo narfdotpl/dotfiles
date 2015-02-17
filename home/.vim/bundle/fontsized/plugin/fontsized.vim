@@ -103,14 +103,24 @@ function! s:Fontsized()
         endif
     endif
 
+    if g:fontsized_fullscreen
+        set fuoptions=background:Normal
+
+        if g:fontsized_focused && line('$') <= 20
+            set fuoptions-=maxvert
+            set lines=20
+        else
+            set fuoptions+=maxvert
+        endif
+    else
+        set lines=666
+    endif
+
     " restart fullscreen to get maximal window height (needed when changing
     " font size)
     set nofullscreen
     if g:fontsized_fullscreen
-        set fuoptions=maxvert,background:Normal
         set fullscreen
-    else
-        set lines=666
     endif
 endfunction
 
