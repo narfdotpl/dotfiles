@@ -83,7 +83,7 @@
            excellent impressive perfect defense *holyshit \
           ).wav) &)
     r = !python ~/.scripts/git/rebase.py
-    ra = !git rebase --abort && git ctags
+    ra = rebase --abort
     re = revert
     repo = !git init && git add --all && git msg \"created repo :cake:\"
     rh = reset --hard
