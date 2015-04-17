@@ -76,6 +76,7 @@
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     p = pull
     pf = push --force
+    pr = !hub browse -- pulls
     pu2 = !python ~/.scripts/git/push-upto.py
     q3 = !(afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $(gshuf -n 1 -e \
            excellent impressive perfect defense *holyshit \
