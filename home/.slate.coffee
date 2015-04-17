@@ -8,7 +8,6 @@ for [key, app] in [
     ['s', 'MacVim'],
     ['d', 'Google Chrome'],
     ['e', 'Spotify'],
-    ['r', 'HipChat'],
     ['f', 'Xcode'],
     ['v', 'Clear'],
 ]
