@@ -29,6 +29,7 @@
 
 [push]
     default = current
+    followTags = true
 
 [alias]
     a = !git add --all && git c
