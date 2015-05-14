@@ -232,6 +232,7 @@ alias -g .html='`find . -name "*.html"`'
 alias -g .js='`find . -name "*.js"`'
 alias -g .md='`find . -name "*.md"`'
 alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
+alias -g .yaml='`find . -name "*.yaml"`'
 
 # alias /dev/null
 alias -g /dn='/dev/null'
