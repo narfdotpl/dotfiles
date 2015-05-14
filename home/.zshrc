@@ -230,7 +230,6 @@ alias -g .co='`find . -name "*.coffee"`'
 alias -g .css='`find . -name "*.css"`'
 alias -g .html='`find . -name "*.html"`'
 alias -g .js='`find . -name "*.js"`'
-alias -g .pp='`find . -name "*.pp"`'
 alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
 
 # alias /dev/null
