@@ -36,7 +36,7 @@
     aa = !git add --all && git ca
     ap = !git add --all --patch && git cv && git q3
     ar = !git add --all && git r
-    b = "!f() { [[ $1 = '' ]] && git branch -vv || git checkout -b $1; }; f"
+    b = "!f() { [[ $1 = '' ]] && git branch || git checkout -b $1; }; f"
     ba = !git backup --force
     backup = !python ~/.scripts/git/backup.py
     bb = checkout -
