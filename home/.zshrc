@@ -483,7 +483,7 @@ alias q3='(c ~/q3/repo && ./ioquake3.app/Contents/MacOS/ioquake3.ub +set fs_game
 alias rf='rm -rf'
 
 # move ~/Desktop/tmp to Trash and close terminal
-alias rft='mvt ~/Desktop/tmp && exit'
+alias rft='t && mvt . && exit'
 
 # open rss client
 alias rss='open -a netnewswire'
