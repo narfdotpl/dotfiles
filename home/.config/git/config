@@ -10,7 +10,7 @@
 
 [ghi]
     editor = gvim -p --nofork
-    token = !security find-internet-password -a narfdotpl -s github.com -l 'ghi token' -w
+    token = !security find-internet-password -a $(git config github.user) -s github.com -l 'ghi token' -w
 
 [ghi "highlight"]
     style = colorful
