@@ -10,6 +10,8 @@ for [key, app] in [
     ['e', 'Spotify'],
     ['r', 'Messenger'],
     ['f', 'Xcode'],
+    ['x', 'iOS Simulator'],
+    ['c', 'iOS Simulator'],
     ['v', 'Clear'],
 ]
     do (app) ->
