@@ -485,6 +485,9 @@ alias rf='rm -rf'
 # move ~/Desktop/tmp to Trash and close terminal
 alias rft='t && mvt . && exit'
 
+# move screen shots to Trash and close terminal
+alias rfs='mvt ~/Desktop/Screen\ Shot* && exit'
+
 # open rss client
 alias rss='open -a netnewswire'
 
