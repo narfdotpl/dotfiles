@@ -91,3 +91,6 @@
 [submodule "home/.vim/bundle/sneak"]
 	path = home/.vim/bundle/sneak
 	url = https://github.com/justinmk/vim-sneak.git
+[submodule "home/.vim/bundle/carthage"]
+	path = home/.vim/bundle/carthage
+	url = https://github.com/cfdrake/vim-carthage.git
