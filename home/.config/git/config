@@ -71,10 +71,7 @@
     m = !python ~/.scripts/git/update-branch.py
     mm = merge -
     msg = "!f() { git commit --allow-empty --message \"$*\" && git q3; }; f"
-    o = !ghi open > /dev/null && git q3 && open -a iterm
-    om = "!f() { ghi open --message \"$*\" > /dev/null && git q3; }; f"
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
-    p = pull
     pf = push --force
     pr = !hub browse -- pulls
     pu2 = !python ~/.scripts/git/push-upto.py
