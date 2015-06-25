@@ -70,7 +70,7 @@
     ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | cat
     m = !python ~/.scripts/git/update-branch.py
     mm = merge -
-    msg = "!f() { git commit --allow-empty --message \"$*\" && git q3; }; f"
+    msg = "!f() { git commit --allow-empty --message \"$*\" && git q3 talk; }; f"
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     pf = push --force
     pr = !hub browse -- pulls
