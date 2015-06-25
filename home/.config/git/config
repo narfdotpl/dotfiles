@@ -37,8 +37,7 @@
     ap = !git add --all --patch && git cv && git q3
     ar = !git add --all && git r
     b = "!f() { [[ $1 = '' ]] && git branch || git checkout -b $1; }; f"
-    ba = !git backup --force
-    backup = !python ~/.scripts/git/backup.py
+    ba = !python ~/.scripts/git/backup.py --force
     bb = checkout -
     bm = !git branch -M
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
