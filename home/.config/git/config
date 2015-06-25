@@ -53,7 +53,7 @@
     co = checkout
     cp = cherry-pick
     ctags = !.git/hooks/ctags
-    cv = "!f() { git commit --verbose $* && git q3; }; f"
+    cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect defense *holyshit); }; f"
     d = !python ~/.scripts/git/diff.py
     db = branch -D
     e = !$EDIT $(git u)
@@ -75,9 +75,7 @@
     pf = push --force
     pr = !hub browse -- pulls
     pu2 = !python ~/.scripts/git/push-upto.py
-    q3 = !(afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $(gshuf -n 1 -e \
-           excellent impressive perfect defense *holyshit \
-          ).wav) &)
+    q3 = "!f() { (afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $1.wav) &); }; f"
     r = !python ~/.scripts/git/rebase.py
     ra = rebase --abort
     re = revert
