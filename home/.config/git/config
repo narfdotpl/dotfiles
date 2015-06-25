@@ -34,7 +34,7 @@
 [alias]
     a = !git add --all && git c
     aa = !git add --all && git ca
-    ap = !git add --all --patch && git cv && git q3
+    ap = !git add --all --patch && git cv
     ar = !git add --all && git r
     b = "!f() { [[ $1 = '' ]] && git branch || git checkout -b $1; }; f"
     ba = !python ~/.scripts/git/backup.py --force
@@ -43,8 +43,8 @@
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
           | grep -Pv '^master$'
     branch-ticket-prefix = !git branch | sed -n 's/* \\([0-9]*\\).*/\\1/p'
-    c = !git cv --all && git q3
-    ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend && git q3
+    c = !git cv --all
+    ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend
     car = !git ca && git r
     cd = !git co develop
     cl = clone
@@ -53,7 +53,7 @@
     co = checkout
     cp = cherry-pick
     ctags = !.git/hooks/ctags
-    cv = commit --verbose
+    cv = "!f() { git commit --verbose $* && git q3; }; f"
     d = !python ~/.scripts/git/diff.py
     db = branch -D
     e = !$EDIT $(git u)
