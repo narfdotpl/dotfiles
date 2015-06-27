@@ -37,7 +37,7 @@
     ap = !git add --all --patch && git cv
     ar = !git add --all && git r
     b = "!f() { [[ $1 = '' ]] && git branch || git checkout -b $1; }; f"
-    ba = !python ~/.scripts/git/backup.py --force
+    ba = !python ~/.scripts/git/backup.py --force && git q3 voc_red_returned
     bb = !git co -
     bm = !git branch -M
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
@@ -50,17 +50,17 @@
     cl = clone
     cm = !git co master
     cmp = !python ~/.scripts/git/get-compare-links.py
-    co = checkout
+    co = "!f() { git q3 dr1_strt; git checkout $*; }; f"
     cp = cherry-pick
     ctags = !.git/hooks/ctags
-    cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect defense *holyshit); }; f"
+    cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
     d = !python ~/.scripts/git/diff.py
     db = branch -D
     e = !$EDIT $(git u)
     gca = gc --aggressive
-    gh = !hub browse
+    gh = "!f() { hub browse $* && git q3 telein; }; f"
     h = help
-    i = "!f() { [[ $1 = '' ]] && ghi list --web || ghi show --web $1; }; f $(git branch-ticket-prefix)"
+    i = "!f() { [[ $1 = '' ]] && ghi list --web || ghi show --web $1; git q3 telein; }; f $(git branch-ticket-prefix)"
     if = !ghi list --reverse --label first
     il = !ghi list --reverse
     ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
@@ -68,19 +68,19 @@
     ll = !git lo | less -R +G
     lo = "!f() { git log --oneline --reverse $* | grcat conf.git-l | less -R; }; f"
     ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | cat
-    m = !python ~/.scripts/git/update-branch.py
+    m = !python ~/.scripts/git/update-branch.py && git q3 voc_you_flag
     mm = merge -
     msg = "!f() { git commit --allow-empty --message \"$*\" && git q3 talk; }; f"
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
-    pf = push --force
-    pr = !hub browse -- pulls
-    pu2 = !python ~/.scripts/git/push-upto.py
+    pf = "!f() { git push --force $* && git q3 *holyshit; }; f"
+    pr = !git gh -- pulls
+    pu2 = "!f() { python ~/.scripts/git/push-upto.py $* && git q3 accuracy; }; f"
     q3 = "!f() { (afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $1.wav) &); }; f"
-    r = !python ~/.scripts/git/rebase.py
+    r = "!f() { python ~/.scripts/git/rebase.py $* && git q3 respawn1; }; f"
     ra = rebase --abort
-    re = revert
-    repo = !git init && git add --all && git msg \"created repo :cake:\"
-    rh = reset --hard
+    re = "!f() { git revert $* && git q3 defense; }; f"
+    repo = !git init && git q3 intro_01 && git add --all && git msg \"created repo :cake:\"
+    rh = "!f() { git reset --hard $* && git q3 denied; }; f"
     rh1 = !git rh HEAD~1
     root-branch = !python ~/.scripts/git/root-branch.py
     rv = remote --verbose
