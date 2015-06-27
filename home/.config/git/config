@@ -50,7 +50,7 @@
     cl = clone
     cm = !git co master
     cmp = !python ~/.scripts/git/get-compare-links.py
-    co = "!f() { git q3 dr1_strt; git checkout $*; }; f"
+    co = checkout
     cp = cherry-pick
     ctags = !.git/hooks/ctags
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
