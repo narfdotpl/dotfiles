@@ -36,6 +36,9 @@ if [ ! -w "$DST" ]; then
     exit;
 fi
 
+$LOGGER -t $PROG "Delete Caches"
+find "$DST" -name Caches -exec rm -rf {} \;
+
 $LOGGER -t $PROG "Start rsync"
 
 sudo rsync --acls \
