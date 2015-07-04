@@ -22,6 +22,7 @@ alias a2='script a2'
 
 backup() {
     rm -rf ~/Library/Developer/Xcode/DerivedData
+    sudo rm -rf /System/Library/Caches/com.apple.coresymbolicationd
     sudo bash ~/.scripts/backup.bash
 }
 
