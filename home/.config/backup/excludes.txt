@@ -16,3 +16,4 @@
 /Users/narf/torrents
 /Users/narf/Desktop/tmp
 /Users/narf/VirtualBox\ VMs/*
+/Users/narf/Library/Caches/com.spotify.client
