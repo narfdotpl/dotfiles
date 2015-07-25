@@ -480,6 +480,9 @@ q() {qlmanage -p $* > /dev/null}
 # play more promode
 alias q3='(c ~/q3/repo && ./ioquake3.app/Contents/MacOS/ioquake3.ub +set fs_game cpma)'
 
+# quit an app
+quit() { tell $1 to quit }
+
 # brutally remove
 alias rf='rm -rf'
 
@@ -537,7 +540,7 @@ v_helper() {
         screenbrightness -d 1 0
         echo | less
         tell spotify to play
-        tell vlc to quit
+        quit vlc
     else
         # start download in the background
         youtube-dl --no-part --title --continue --quiet $1 &
