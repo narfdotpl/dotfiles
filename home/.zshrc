@@ -269,7 +269,7 @@ alias 5="awk '{ print \$5 }'"
 # go to login screen
 alias a='afk'
 alias ae='afk; exit'
-alias afk='tell spotify to pause && suspend'
+alias afk='tell spotify to pause && suspend && pmset displaysleepnow'
 alias suspend='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend && sleep 4'
 
 # drown in cuteness
