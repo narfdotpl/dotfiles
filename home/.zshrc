@@ -344,6 +344,10 @@ diffgif() {
         diff.gif
 }
 
+# put displays to sleep
+alias ds='pmset displaysleepnow'
+alias dse='ds && exit'
+
 # show date and time (example: 2011-06-04 09:54:07, Saturday)
 alias dt='date "+%Y-%m-%d %H:%M:%S, %A"'
 
