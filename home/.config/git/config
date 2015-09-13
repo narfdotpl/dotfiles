@@ -79,6 +79,7 @@
     r = !python ~/.scripts/git/rebase.py
     ra = rebase --abort
     re = "!f() { git revert $* && git q3 defense; }; f"
+    reh = !git re HEAD
     recent-branches = !git reflog | grep 'checkout: moving from' | awk '{ if (!seen[$NF]++) print $NF }' | head
     repo = !git init && git q3 intro_01 && git add --all && git msg \"created repo :cake:\"
     rh = "!f() { git reset --hard $* && git q3 denied; }; f"
