@@ -387,6 +387,16 @@ alias ft='fl test'
 # flush dns
 alias flushdns='dscacheutil -flushcache'
 
+# srew you, Xcode
+fuxcode() {
+    quit simulator
+    quit xcode
+    rm -rf ~/Library/Developer/Xcode/DerivedData
+    sudo rm -rf /System/Library/Caches/com.apple.coresymbolicationd
+    snapshot reset_simulators
+    # sudo reboot
+}
+
 # change video to gif (QuickTime Player, File, New Screen Recording)
 gifify() {
     local gif=${1%.*}.gif
