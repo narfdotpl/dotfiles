@@ -48,6 +48,9 @@ defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
+# Show build time in Xcode
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
+
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
