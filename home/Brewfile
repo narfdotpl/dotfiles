@@ -1,19 +1,19 @@
 update
 
+install carthage      || true
 install coreutils     || true
-install ctags         || true
 install gcal          || true
+install ghi           || true
 install git           || true
+install grep          || true
 install hub           || true
 install markdown      || true
+install optipng       || true
 install p7zip         || true
-install python        || true
 install rlwrap        || true
 install rsync         || true
-install tree          || true
 install unrar         || true
 install wget          || true
 install youtube-dl    || true
-install zsh           || true
 
 cleanup
