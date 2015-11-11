@@ -19,7 +19,7 @@ def ask_yn(question):
 
 
 def brew():
-    run('brew tap Homebrew/bundle && brew bundle ~')
+    run('brew tap Homebrew/bundle && brew bundle')
 
 
 def run(command):
