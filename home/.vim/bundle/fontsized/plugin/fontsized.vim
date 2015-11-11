@@ -68,23 +68,7 @@ function! s:Fontsized()
 
     " set actual font sizes and stuff...
 
-    if g:fontsized_external
-        set guifont=Menlo:h18
-    else
-        if g:fontsized_wide
-            if g:fontsized_focused
-                set guifont=Menlo:h15
-            else
-                set guifont=Menlo:h14
-            endif
-        else
-            if g:fontsized_fullscreen
-                set guifont=Menlo:h18
-            else
-                set guifont=Menlo:h16
-            endif
-        endif
-    endif
+    set guifont=Menlo:h18
 
     if g:fontsized_wide
         if g:fontsized_focused
