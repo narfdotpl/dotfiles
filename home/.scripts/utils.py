@@ -34,4 +34,4 @@ def which(app):
 from git import Git
 from move_to_trash import move_to_trash
 from public_dropbox import move_to_public_dropbox
-from quicklook import preview
+# from quicklook import preview
