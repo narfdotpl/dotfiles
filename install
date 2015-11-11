@@ -60,6 +60,13 @@ def _main():
     if ask_yn(cmd + '?'):
         run(cmd)
 
+    # symlink karabiner
+    print '\n'
+    if ask_yn('Symlink Karabiner mappings?'):
+        run('mv {dst}{{,~}} && ln -s {src} {dst}'.format(
+            dst='~/Library/Application\ Support/Karabiner/private.xml',
+            src='~/.config/karabiner/private.xml'))
+
     # show tips
     print '\n\ntips:'
     print ' -  comment out /etc/zshenv contents to get correct $PATH in MacVim'

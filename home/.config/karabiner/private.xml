@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<root>
+
+    <item>
+        <name>F19  →  Backspace/Hyper</name>
+        <identifier>narfdotpl.hyper</identifier>
+        <autogen>
+            __KeyOverlaidModifier__
+            KeyCode::F19,
+
+            KeyCode::COMMAND_L,
+            ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+            KeyCode::DELETE
+        </autogen>
+    </item>
+
+    <item>
+        <name>Hyper + Q  →  ⌘⇧[</name>
+        <identifier>narfdotpl.hyper_q</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::Q,
+            ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+            KeyCode::BRACKET_LEFT,
+            ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+        </autogen>
+    </item>
+
+    <item>
+        <name>Hyper + W  →  ⌘⇧]</name>
+        <identifier>narfdotpl.hyper_w</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::W,
+            ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+            KeyCode::BRACKET_RIGHT,
+            ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+        </autogen>
+    </item>
+
+    <item>
+        <name>R⇧  →  ⌃/F1</name>
+        <identifier>narfdotpl.shift_r</identifier>
+        <autogen>
+            __KeyOverlaidModifier__
+            KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+            KeyCode::CONTROL_L,
+            KeyCode::F1
+        </autogen>
+    </item>
+
+    <item>
+        <name>F7  →  Hyper n7</name>
+        <identifier>narfdotpl.hyper_f7</identifier>
+        <autogen>
+            __ConsumerToKey__
+
+            ConsumerKeyCode::MUSIC_PREV,
+
+            KeyCode::KEYPAD_7,
+            ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        </autogen>
+    </item>
+
+    <item>
+        <name>F8  →  Hyper n8</name>
+        <identifier>narfdotpl.hyper_f8</identifier>
+        <autogen>
+            __ConsumerToKey__
+
+            ConsumerKeyCode::MUSIC_PLAY,
+
+            KeyCode::KEYPAD_8,
+            ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        </autogen>
+    </item>
+
+    <item>
+        <name>F9  →  Hyper n9</name>
+        <identifier>narfdotpl.hyper_f9</identifier>
+        <autogen>
+            __ConsumerToKey__
+
+            ConsumerKeyCode::MUSIC_NEXT,
+
+            KeyCode::KEYPAD_9,
+            ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        </autogen>
+    </item>
+
+
+    <item>
+        <name>Das Keyboard: F6  →  Hyper n7</name>
+        <identifier>narfdotpl.das_hyper_f7</identifier>
+        <autogen>
+            __KeyToKey__
+
+            KeyCode::F6,
+
+            KeyCode::KEYPAD_7,
+            ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        </autogen>
+    </item>
+
+    <item>
+        <name>Das Keyboard: F7  →  Hyper n8</name>
+        <identifier>narfdotpl.das_hyper_f8</identifier>
+        <autogen>
+            __KeyToKey__
+
+            KeyCode::F7,
+
+            KeyCode::KEYPAD_8,
+            ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        </autogen>
+    </item>
+
+    <item>
+        <name>Das Keyboard: F8  →  Hyper n9</name>
+        <identifier>narfdotpl.das_hyper_f9</identifier>
+        <autogen>
+            __KeyToKey__
+
+            KeyCode::F8,
+
+            KeyCode::KEYPAD_9,
+            ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        </autogen>
+    </item>
+
+    <item>
+        <name>Das Keyboard: Insert  →  Fn</name>
+        <identifier>narfdotpl.das_insert</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::PC_INSERT,
+            KeyCode::FN,
+        </autogen>
+    </item>
+
+</root>
