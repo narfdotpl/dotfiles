@@ -1,19 +1,24 @@
-update
-
-install carthage      || true
-install coreutils     || true
-install gcal          || true
-install ghi           || true
-install git           || true
-install grep          || true
-install hub           || true
-install markdown      || true
-install optipng       || true
-install p7zip         || true
-install rlwrap        || true
-install rsync         || true
-install unrar         || true
-install wget          || true
-install youtube-dl    || true
-
-cleanup
+tap 'caskroom/cask'
+tap 'homebrew/bundle'
+brew 'git'
+brew 'carthage'
+brew 'cloc'
+brew 'coreutils'
+brew 'python'
+brew 'gcal'
+brew 'ghi'
+brew 'graphviz', args: ['with-app']
+brew 'grc'
+brew 'hub'
+brew 'imagemagick'
+brew 'markdown'
+brew 'mtr'
+brew 'optipng'
+brew 'p7zip'
+brew 'rename'
+brew 'rlwrap'
+brew 'smartypants'
+brew 'unrar'
+brew 'wget'
+brew 'youtube-dl'
+brew 'zsh'
