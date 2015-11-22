@@ -28,6 +28,10 @@
     fn1(cmd);
   }
 
+  bind('z', slate.operation('hint', {
+    characters: 'asdwqxcef'
+  }));
+
   ref4 = [['i', ['up', 'left']], ['o', ['up', 'right']], ['k', ['down', 'left']], ['l', ['down', 'right']]];
   for (k = 0, len2 = ref4.length; k < len2; k++) {
     ref5 = ref4[k], key = ref5[0], directions = ref5[1];
