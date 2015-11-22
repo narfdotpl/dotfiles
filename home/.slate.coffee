@@ -9,6 +9,7 @@ for [key, app] in [
     ['d', 'Google Chrome'],
     ['e', 'Spotify'],
     ['r', 'Messenger'],
+    ['t', 'Slack'],
     ['f', 'Xcode'],
     ['x', 'Simulator'],
     ['c', 'Simulator'],
