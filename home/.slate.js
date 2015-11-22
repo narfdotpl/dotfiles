@@ -99,6 +99,20 @@
     bind(key, slate.operation('move', _({}).extend(defaults, obj)));
   }
 
+  bind('b', function(win) {
+    var r;
+    if (!win) {
+      return;
+    }
+    r = win.rect();
+    return win.doOperation(slate.operation('move', {
+      x: "(screenSizeX - " + r.width + ")  / 2",
+      y: "(screenSizeY - " + r.height + ") / 2",
+      width: r.width,
+      height: r.height
+    }));
+  });
+
   slate["default"](['1920x1080', '1440x900'], slate.layout('foo', {
     Spotify: {
       operations: [
