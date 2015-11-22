@@ -627,7 +627,8 @@ eval `pip completion --zsh`
 export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
 
 # virtualenv
-source /usr/local/share/python/virtualenvwrapper.sh
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 
 #--------
