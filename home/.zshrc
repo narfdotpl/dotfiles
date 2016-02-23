@@ -628,7 +628,7 @@ export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
 
 # virtualenv
 export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+source virtualenvwrapper.sh
 
 
 #--------
