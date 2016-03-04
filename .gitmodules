@@ -1,6 +1,3 @@
-[submodule "home/.loops/loopozorg"]
-	path = home/.loops/loopozorg
-	url = https://github.com/narfdotpl/loopozorg.git
 [submodule "home/.vim/bundle/pathogen"]
 	path = home/.vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
@@ -58,9 +55,6 @@
 [submodule "home/.vim/bundle/sexyscroll"]
 	path = home/.vim/bundle/sexyscroll
 	url = https://github.com/daylilyfield/sexyscroll.vim.git
-[submodule "home/.loops/naif.css"]
-	path = home/.loops/naif.css
-	url = https://github.com/narfdotpl/naif.css.git
 [submodule "home/.vim/bundle/puppet"]
 	path = home/.vim/bundle/puppet
 	url = https://github.com/rodjek/vim-puppet.git

@@ -221,8 +221,7 @@ bindkey '^[[3~' delete-char
 #  aliases
 #-----------
 
-# load loop and script aliases
-source ~/.loops/aliases.zsh
+# load script aliases
 source ~/.scripts/aliases.zsh
 
 # find webdev files
