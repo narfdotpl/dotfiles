@@ -466,11 +466,19 @@ alias not='grep --ignore-case --invert-match --perl-regexp'
 
 # run python
 alias p='python -3'
-alias py='python'
 alias p3='python3'
+alias pp='peat1 python -3'
 
 # use paste board without ⇥
 alias pbc='pbcopy'
+
+# (re)peat command on one file
+# https://github.com/sjl/peat
+peat1() {
+    local last=${@[-1]}
+    edit "$last"
+    echo "$last" | peat --quiet "$*"
+}
 
 # list installed python packages
 alias pf='pip freeze'
