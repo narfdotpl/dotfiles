@@ -16,9 +16,6 @@
 [submodule "home/.vim/bundle/surround"]
 	path = home/.vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "home/.vim/bundle/taskpaper"]
-	path = home/.vim/bundle/taskpaper
-	url = https://github.com/davidoc/taskpaper.vim.git
 [submodule "home/.vim/bundle/selfdot"]
 	path = home/.vim/bundle/selfdot
 	url = https://github.com/narfdotpl/selfdot.vim.git
