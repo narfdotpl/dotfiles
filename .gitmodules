@@ -13,24 +13,15 @@
 [submodule "home/.vim/bundle/fugitive"]
 	path = home/.vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "home/.vim/bundle/haml"]
-	path = home/.vim/bundle/haml
-	url = https://github.com/tpope/vim-haml.git
 [submodule "home/.vim/bundle/surround"]
 	path = home/.vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "home/.vim/bundle/taskpaper"]
-	path = home/.vim/bundle/taskpaper
-	url = https://github.com/davidoc/taskpaper.vim.git
 [submodule "home/.vim/bundle/selfdot"]
 	path = home/.vim/bundle/selfdot
 	url = https://github.com/narfdotpl/selfdot.vim.git
 [submodule "home/.vim/bundle/indent-object"]
 	path = home/.vim/bundle/indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
-[submodule "home/.vim/bundle/strftimedammit"]
-	path = home/.vim/bundle/strftimedammit
-	url = https://github.com/sjl/strftimedammit.vim.git
 [submodule "home/.vim/bundle/gundo"]
 	path = home/.vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
@@ -52,24 +43,9 @@
 [submodule "home/.vim/bundle/ctrlp"]
 	path = home/.vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "home/.vim/bundle/sexyscroll"]
-	path = home/.vim/bundle/sexyscroll
-	url = https://github.com/daylilyfield/sexyscroll.vim.git
-[submodule "home/.vim/bundle/puppet"]
-	path = home/.vim/bundle/puppet
-	url = https://github.com/rodjek/vim-puppet.git
 [submodule "home/.vim/bundle/obsession"]
 	path = home/.vim/bundle/obsession
 	url = https://github.com/tpope/vim-obsession.git
-[submodule "home/.vim/bundle/keyboard_cat"]
-	path = home/.vim/bundle/keyboard_cat
-	url = https://github.com/natw/keyboard_cat.vim.git
-[submodule "home/.vim/bundle/funcoo"]
-	path = home/.vim/bundle/funcoo
-	url = https://github.com/rizzatti/funcoo.vim.git
-[submodule "home/.vim/bundle/hardtime"]
-	path = home/.vim/bundle/hardtime
-	url = https://github.com/takac/vim-hardtime.git
 [submodule "home/.vim/bundle/vinegar"]
 	path = home/.vim/bundle/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
