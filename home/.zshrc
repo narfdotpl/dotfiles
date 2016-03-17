@@ -422,6 +422,11 @@ git() {
 # go to ~/dotfiles/home
 alias h='c home'
 
+# search zsh history
+hi() {
+    history -i 1 | fzf -q "$*"
+}
+
 # start http server
 alias http='open http://`ip`:8000/; python -m SimpleHTTPServer'
 
