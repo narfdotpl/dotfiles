@@ -79,6 +79,7 @@
     q3 = "!f() { (afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $1.wav) &); }; f"
     r = !python ~/.scripts/git/rebase.py
     ra = rebase --abort
+    rb = !git checkout $(git recent-branches | fzf)
     re = "!f() { git revert $* && git q3 defense; }; f"
     reh = !git re HEAD
     recent-branches = !git reflog | grep 'checkout: moving from' | awk '{ if (!seen[$NF]++) print $NF }' | head
