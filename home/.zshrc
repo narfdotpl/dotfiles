@@ -360,6 +360,12 @@ alias e='edit'
 # after `ag --files-with-matches`)
 alias ee='edit $(fc -e - 2> /dev/null)'
 
+# edit file selected with fzf
+ef() {
+    local file="$(fzf -0 -1 -q "$*")"
+    [[ "$file" != "" ]] && edit "$file"
+}
+
 # edit .gitconfig
 alias eg='(h && e .config/git/config)'
 
