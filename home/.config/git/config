@@ -57,6 +57,7 @@
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
     d = !python ~/.scripts/git/diff.py
     db = branch -D
+    df = "!f() { git d $(git lo | fzf --ansi --no-sort --query \"$*\" | awk '{ print $1 }'); }; f"
     e = !$EDIT $(git u)
     gca = gc --aggressive
     gh = "!f() { hub browse $* && git q3 telein; }; f"
