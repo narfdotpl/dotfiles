@@ -67,9 +67,6 @@
 [submodule "home/.vim/bundle/flake8"]
 	path = home/.vim/bundle/flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule "home/.vim/bundle/ack"]
-	path = home/.vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
 [submodule "home/.vim/bundle/jshint"]
 	path = home/.vim/bundle/jshint
 	url = https://github.com/Shutnik/jshint2.vim.git
