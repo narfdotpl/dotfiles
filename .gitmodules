@@ -73,3 +73,6 @@
 [submodule "home/.vim/bundle/ag"]
 	path = home/.vim/bundle/ag
 	url = https://github.com/rking/ag.vim.git
+[submodule "home/.vim/bundle/goyo"]
+	path = home/.vim/bundle/goyo
+	url = https://github.com/junegunn/goyo.vim.git

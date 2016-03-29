@@ -8,3 +8,6 @@ autocmd FileType markdown :inoremap <buffer> * **<Left>
 " underline titles with \= and \-
 autocmd FileType markdown :nnoremap \= yypVr=o<Esc>
 autocmd FileType markdown :nnoremap \- yypVr-o<Esc>
+
+" wrap nicely
+autocmd FileType markdown :set wrap linebreak nolist
