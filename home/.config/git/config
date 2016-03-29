@@ -36,7 +36,8 @@
     aa = !git add --all && git ca
     ap = !git add --all --patch && git cv
     ar = !git add --all && git r
-    b = "!f() { [[ $1 = '' ]] && git branch || git checkout -b $1; }; f"
+    branch-fzf = !git branch | cut -c 3- | fzf
+    b = "!f() { [[ $1 = '' ]] && git checkout $(git branch-fzf) || git checkout -b $1; }; f"
     ba = !python ~/.scripts/git/backup.py --force && git q3 voc_red_returned
     bb = !git co -
     bm = !git branch -M
@@ -56,6 +57,7 @@
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
     d = !python ~/.scripts/git/diff.py
     db = branch -D
+    df = "!f() { git d $(git lo | fzf --ansi --no-sort --query \"$*\" | awk '{ print $1 }'); }; f"
     e = !$EDIT $(git u)
     gca = gc --aggressive
     gh = "!f() { hub browse $* && git q3 telein; }; f"
@@ -78,6 +80,7 @@
     q3 = "!f() { (afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $1.wav) &); }; f"
     r = !python ~/.scripts/git/rebase.py
     ra = rebase --abort
+    rb = !git checkout $(git recent-branches | fzf)
     re = "!f() { git revert $* && git q3 defense; }; f"
     reh = !git re HEAD
     recent-branches = !git reflog | grep 'checkout: moving from' | awk '{ if (!seen[$NF]++) print $NF }' | head

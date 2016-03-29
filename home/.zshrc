@@ -92,6 +92,15 @@ column_ls() {
 }
 
 
+#-------
+#  fzf
+#  https://github.com/junegunn/fzf
+#-------
+
+export FZF_DEFAULT_COMMAND="ag -l '.'"
+export FZF_DEFAULT_OPTS="--reverse"
+
+
 #--------------
 #  completion
 #--------------
@@ -351,6 +360,12 @@ alias e='edit'
 # after `ag --files-with-matches`)
 alias ee='edit $(fc -e - 2> /dev/null)'
 
+# edit file selected with fzf
+ef() {
+    local file="$(fzf -0 -1 -q "$*")"
+    [[ "$file" != "" ]] && edit "$file"
+}
+
 # edit .gitconfig
 alias eg='(h && e .config/git/config)'
 
@@ -412,6 +427,11 @@ git() {
 
 # go to ~/dotfiles/home
 alias h='c home'
+
+# search zsh history
+hi() {
+    history -i 1 | fzf -q "$*"
+}
 
 # start http server
 alias http='open http://`ip`:8000/; python -m SimpleHTTPServer'
