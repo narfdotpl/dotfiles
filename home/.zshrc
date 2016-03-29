@@ -224,16 +224,6 @@ bindkey '^[[3~' delete-char
 # load script aliases
 source ~/.scripts/aliases.zsh
 
-# find webdev files
-alias -g .co='`find . -name "*.coffee"`'
-alias -g .css='`find . -name "*.css"`'
-alias -g .html='`find . -name "*.html"`'
-alias -g .js='`find . -name "*.js"`'
-alias -g .md='`find . -name "*.md"`'
-alias -g .py='`find . -name "*.py" | grep --invert-match migrations`'
-alias -g .swift='`find . -name "*.swift"`'
-alias -g .yaml='`find . -name "*.yaml"`'
-
 # alias /dev/null
 alias -g /dn='/dev/null'
 alias -g 2/dn='2> /dev/null'
@@ -264,6 +254,10 @@ alias 2="awk '{ print \$2 }'"
 alias 3="awk '{ print \$3 }'"
 alias 4="awk '{ print \$4 }'"
 alias 5="awk '{ print \$5 }'"
+
+# ag
+alias agg="ag -l '.' | ag"
+alias agl='ag --nocolor -l'
 
 # go to login screen
 alias a='afk'
@@ -354,7 +348,7 @@ alias dt='date "+%Y-%m-%d %H:%M:%S, %A"'
 alias e='edit'
 
 # edit files (and directories) returned by previous command (I use this
-# after `grep --files-with-matches`)
+# after `ag --files-with-matches`)
 alias ee='edit $(fc -e - 2> /dev/null)'
 
 # edit .gitconfig
@@ -416,18 +410,6 @@ git() {
     fi
 }
 
-# grep for file names
-alias GF='grep --files-with-matches --perl-regexp --color=auto'
-alias gf='GF --ignore-case'
-
-# grep through shell history
-alias GH='history -i 1 | grep --perl-regexp --color=auto'
-alias gh='GH --ignore-case'
-
-# grep
-alias GR='grep --perl-regexp --color=auto'
-alias gr='GR --ignore-case'
-
 # go to ~/dotfiles/home
 alias h='c home'
 
@@ -462,7 +444,7 @@ min() {
 }
 
 # exclude matching lines
-alias not='grep --ignore-case --invert-match --perl-regexp'
+alias not='ag --invert-match'
 
 # run python
 alias p='python -3'
@@ -601,7 +583,7 @@ alias wh='which'
 alias wo='workon'
 
 # open Xcode project(s)
-alias x='open "$(ls | grep .xcworkspace$ || ls | grep .xcodeproj$ || ls | grep .playground$)"'
+alias x='open "$(ls | ag .xcworkspace$ || ls | ag .xcodeproj$ || ls | ag .playground$)"'
 
 # (schedule) sleep
 # read `man atrun` to enable scheduling
