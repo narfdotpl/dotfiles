@@ -94,11 +94,9 @@ column_ls() {
 
 #-------
 #  fzf
-#  https://github.com/junegunn/fzf
 #-------
 
-export FZF_DEFAULT_COMMAND="ag -l '.'"
-export FZF_DEFAULT_OPTS="--reverse"
+source ~/.fzf.zsh
 
 
 #--------------

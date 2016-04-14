@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# based on https://github.com/junegunn/fzf/wiki/On-MacVim-with-iTerm2
+osascript -e \
+'on run argv
+    tell application "iTerm"
+        activate
+        set myterm to (make new terminal)
+        set number of columns of myterm to 115
+        set number of rows of myterm to 33
+
+        tell myterm
+            set mysession to (make new session at the end of sessions)
+            tell mysession
+                exec command "bash"
+                write text "source ~/.fzf.zsh && cd " & quoted form of (item 2 of argv)
+                write text (item 1 of argv) & "; exit"
+            end tell
+            repeat while (exists myterm)
+                delay 0.016
+            end repeat
+        end tell
+    end tell
+
+    tell application "MacVim" to activate
+end run' "$1" "$PWD"
