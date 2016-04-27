@@ -1,7 +1,7 @@
 " take advantage of TextMate muscle memory
-nmap <D-/> \\\
+nmap <D-/> gcc
 imap <D-/> <Esc><D-/>a
-vmap <D-/> \\gv
+vmap <D-/> gcgv
 smap <D-/> <C-G><D-/><C-G>
 
 " delete comment character when joining commented lines
