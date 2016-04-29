@@ -428,7 +428,7 @@ alias h='c home'
 
 # search zsh history
 hi() {
-    history -i 1 | fzf -q "$*"
+    tell iterm to tell current session of current terminal to write text '"'$(history -i 1 | fzf -q "$*" | cut -c 26-)' "'
 }
 
 # start http server
