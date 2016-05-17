@@ -266,6 +266,12 @@ alias 5="awk '{ print \$5 }'"
 alias agg="ag -l '.' | ag"
 alias agl='ag --nocolor -l'
 
+# run ag search, choose file with fzf, open it in vim
+agf() {
+    local target=$(ag -l $* | fzf)
+    [[ "$target" != "" ]] && edit "$target"
+}
+
 # go to login screen
 alias a='afk'
 alias ae='afk; exit'
