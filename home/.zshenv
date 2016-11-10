@@ -8,7 +8,6 @@ export PATH=~/bin\
 :/usr/local/Cellar/ruby/1.9/bin\
 :/usr/local/share/npm/bin\
 :/usr/local/bin\
-:/Applications/git-annex.app/Contents/MacOS\
 :$PATH
 
 
