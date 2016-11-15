@@ -56,9 +56,9 @@ snippet TAB
 snippet UP
 	↑
 snippet 3
-	#`system("git recent-branches -50 | ag -o '^\\d+'")`
+	#`system("git recent-branches -50 | ag -o '^\\d+' | head -1")`
 snippet 33
-	 #`system("git recent-branches -50 | ag -o '^\\d+'")`: ${1}
+	 #`system("git recent-branches -50 | ag -o '^\\d+' | head -1")`: ${1}
 snippet dt
 	`strftime("%Y-%m-%d %H:%M")`
 snippet date
