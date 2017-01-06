@@ -12,6 +12,7 @@ for [key, app] in [
     ['t', 'Slack'],
     ['f', 'Xcode'],
     ['x', 'Simulator'],
+    ['c', 'Blender'],
     ['v', 'Clear'],
 ]
     do (app) ->
@@ -25,10 +26,6 @@ for [key, cmd] in [
 ]
     do (cmd) ->
         bind key, -> slate.shell("/users/narf/bin/tell spotify to #{cmd}")
-
-# show hints
-bind 'c', slate.operation 'hint',
-    characters: 'asdwqxcef'
 
 # move windows
 for [key, directions] in [
