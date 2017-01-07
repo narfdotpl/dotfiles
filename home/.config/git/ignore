@@ -38,3 +38,6 @@ Session.vim
 
 # R autosaved files
 * (Autosaved).R
+
+# Blender backup
+*.blend1
