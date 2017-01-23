@@ -203,6 +203,13 @@ PROMPT='${BLUE}%3~${GREEN}$(git_prompt) ${WHITE}>${DEFAULT} '
 # show non-zero exit code
 RPROMPT='${RED}%(0?..%?)${DEFAULT}'
 
+# iTerm tab title: repo name
+precmd() {
+    local _path=$(git rev-parse --show-toplevel 2> /dev/null || dirs)
+    local title=$(basename $_path)
+    echo -ne "\033]0;"$title"\007"
+}
+
 
 #------------
 #  bindings
