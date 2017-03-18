@@ -17,3 +17,11 @@ export PATH=~/bin\
 
 # put handy symlinks here
 export CDPATH=~/+
+
+
+#---------
+#  ESP32
+#---------
+
+export PATH=$PATH:~/esp/xtensa-esp32-elf/bin
+export IDF_PATH=~/esp/esp-idf
