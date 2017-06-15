@@ -113,32 +113,16 @@
     }));
   });
 
-  slate["default"](['1920x1080', '1440x900'], slate.layout('foo', {
-    Spotify: {
-      operations: [
-        slate.operation('move', {
-          screen: 1,
-          x: 'screenOriginX',
-          y: 'screenOriginY',
-          width: 'screenSizeX',
-          height: 'screenSizeY'
-        })
-      ]
-    }
-  }));
-
   bind('m', function(win) {
-    var dockWidth, height, menuBarHeight, ref8, screenHeight, screenRect, screenWidth, thresholdHeight, thresholdWidth, width;
+    var height, ref8, screenHeight, screenRect, screenWidth, thresholdHeight, thresholdWidth, width;
     if (!win) {
       return;
     }
     screenRect = win.screen().rect();
     screenWidth = screenRect.width;
     screenHeight = screenRect.height;
-    menuBarHeight = 23;
-    dockWidth = 90;
-    thresholdWidth = screenWidth - dockWidth;
-    thresholdHeight = screenHeight - menuBarHeight;
+    thresholdWidth = screenWidth;
+    thresholdHeight = screenHeight;
     ref8 = win.size(), width = ref8.width, height = ref8.height;
     win.doOperation(slate.operation('throw', {
       screen: (slate.screen().id() + 1) % 2

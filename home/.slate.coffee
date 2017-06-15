@@ -82,18 +82,6 @@ bind 'b', (win) ->
         width: r.width
         height: r.height
 
-# use spotify maximized on the smaller monitor
-slate.default ['1920x1080', '1440x900'], slate.layout 'foo',
-    Spotify:
-        operations: [
-            slate.operation 'move',
-                screen: 1
-                x: 'screenOriginX'
-                y: 'screenOriginY'
-                width: 'screenSizeX'
-                height: 'screenSizeY'
-        ]
-
 # move window between primary and secondary monitor, preserving maximization
 bind 'm', (win) ->
     # fail fast
@@ -105,10 +93,8 @@ bind 'm', (win) ->
     screenHeight = screenRect.height
 
     # set thresholds
-    menuBarHeight = 23
-    dockWidth = 90
-    thresholdWidth = screenWidth - dockWidth
-    thresholdHeight = screenHeight - menuBarHeight
+    thresholdWidth = screenWidth
+    thresholdHeight = screenHeight
 
     # get window dimensions
     {width, height} = win.size()
