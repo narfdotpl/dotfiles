@@ -6,7 +6,7 @@
     return slate.bind(key + ":shift;ctrl;alt;cmd", x);
   };
 
-  ref = [['a', 'iTerm'], ['s', 'MacVim'], ['d', 'Google Chrome'], ['e', 'Spotify'], ['r', 'Messenger'], ['t', 'Slack'], ['f', 'Xcode'], ['x', 'Simulator'], ['c', 'Blender'], ['v', 'Clear']];
+  ref = [['a', 'iTerm'], ['s', 'MacVim'], ['d', 'Google Chrome'], ['e', 'Spotify'], ['r', 'Messenger'], ['t', 'Slack'], ['f', 'Xcode'], ['x', 'Simulator'], ['c', 'Blender'], ['v', 'Things3']];
   fn = function(app) {
     return bind(key, function() {
       return slate.shell("/usr/bin/open -a '" + app + "'");

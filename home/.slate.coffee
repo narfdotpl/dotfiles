@@ -13,7 +13,7 @@ for [key, app] in [
     ['f', 'Xcode'],
     ['x', 'Simulator'],
     ['c', 'Blender'],
-    ['v', 'Clear'],
+    ['v', 'Things3'],
 ]
     do (app) ->
         bind key, -> slate.shell("/usr/bin/open -a '#{app}'")
