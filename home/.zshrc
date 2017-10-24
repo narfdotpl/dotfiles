@@ -274,6 +274,11 @@ alias 5="awk '{ print \$5 }'"
 alias agg="ag -l '.' | ag"
 alias agl='ag --nocolor -l'
 
+# ag | peat
+ap() {
+    ag -g . | peat -i 500 "$*"
+}
+
 # run ag search, choose file with fzf, open it in vim
 agf() {
     local target=$(ag -l $* | fzf)
