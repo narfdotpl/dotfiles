@@ -73,3 +73,6 @@
 [submodule "home/.vim/bundle/goyo"]
 	path = home/.vim/bundle/goyo
 	url = https://github.com/junegunn/goyo.vim.git
+[submodule "home/.vim/bundle/yin-yang"]
+	path = home/.vim/bundle/yin-yang
+	url = https://github.com/pgdouyon/vim-yin-yang.git
