@@ -18,4 +18,4 @@
 /Users/narf/VirtualBox VMs/*
 /Users/narf/Library/Caches/com.spotify.client
 /Users/narf/Library/Application Support/Steam
-/Users/narf/Movies/iMovie Library.imovielibrary
+/Users/narf/Movies/*
