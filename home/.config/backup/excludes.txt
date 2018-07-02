@@ -19,3 +19,4 @@
 /Users/narf/Library/Caches/com.spotify.client
 /Users/narf/Library/Application Support/Steam
 /Users/narf/Movies/*
+/Applications/Heroes of the Storm
