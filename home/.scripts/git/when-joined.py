@@ -51,7 +51,7 @@ def _main():
             accessions[author] = date
 
     # list authors in chronological order
-    for author, date in sorted(accessions.iteritems(), key=lambda tpl: tpl[1]):
+    for author, date in sorted(accessions.items(), key=lambda tpl: tpl[1]):
         print date, author
 
 if __name__ == '__main__':

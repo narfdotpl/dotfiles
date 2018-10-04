@@ -50,7 +50,7 @@ class Git(object):
         current = None
 
         for line in Popen('git branch', shell=True, stdout=PIPE).stdout:
-            branch = line.strip()
+            branch = line.decode('utf8').strip()
             if branch.startswith('*'):
                 current = branch = branch.lstrip('* ')
 
@@ -85,7 +85,7 @@ class Git(object):
     @property
     def is_clean(self):
         return 'clean' in Popen('git status', shell=True,
-                                stdout=PIPE).stdout.readlines()[-1]
+                                stdout=PIPE).stdout.readlines()[-1].decode('utf8')
 
     @property
     def minimal_commit_range(self):
@@ -112,7 +112,7 @@ class ListWithAttributes(list):
 
     def __init__(self, sequence, **kwargs):
         # set attributes
-        for attribute, value in kwargs.iteritems():
+        for attribute, value in kwargs.items():
             setattr(self, attribute, value)
 
         # create list

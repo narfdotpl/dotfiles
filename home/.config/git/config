@@ -44,11 +44,11 @@
     cd = !git co develop
     cl = clone
     cm = !git co master
-    cmp = !python ~/.scripts/git/get-compare-links.py
+    cmp = !python3 ~/.scripts/git/get-compare-links.py
     co = checkout
     cp = cherry-pick
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
-    d = !python ~/.scripts/git/diff.py
+    d = !python3 ~/.scripts/git/diff.py
     db = branch -D
     df = "!f() { git d $(git lo | fzf --ansi --no-sort --query \"$*\" | awk '{ print $1 }'); }; f"
     e = !$EDIT $(git u)
@@ -56,19 +56,19 @@
     gh = "!f() { hub browse $* && git q3 telein; }; f"
     h = help
     ig = !git s --ignored | ag '!!' | awk '{ print substr($0, 4) }' | more
-    l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
+    l = !python3 ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
     lo = "!f() { git log --oneline --reverse $* | grcat conf.git-l | less -R; }; f"
     ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | cat
-    m = !python ~/.scripts/git/update-branch.py && git q3 voc_you_flag
+    m = !python3 ~/.scripts/git/update-branch.py && git q3 voc_you_flag
     mm = merge -
     msg = "!f() { git commit --allow-empty --message \"$*\" && git q3 talk; }; f"
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     p = pull
     pf = "!f() { git push --force-with-lease $* && git q3 *holyshit; }; f"
-    pu2 = "!f() { python ~/.scripts/git/push-upto.py $* && git q3 accuracy; }; f"
+    pu2 = "!f() { python3 ~/.scripts/git/push-upto.py $* && git q3 accuracy; }; f"
     q3 = "!f() { (afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $1.wav) &); }; f"
-    r = !python ~/.scripts/git/rebase.py
+    r = !python3 ~/.scripts/git/rebase.py
     ra = rebase --abort
     rb = !git checkout $(git recent-branches | fzf)
     re = "!f() { git revert $* && git q3 defense; }; f"
@@ -77,7 +77,7 @@
     repo = !git init && git q3 intro_01 && git msg \"created repo :cake:\" && git a
     rh = "!f() { git reset --hard $* && git q3 denied; }; f"
     rh1 = !git rh HEAD~1
-    root-branch = !python ~/.scripts/git/root-branch.py
+    root-branch = !python3 ~/.scripts/git/root-branch.py
     rv = remote --verbose
     s = status --short
     sd = stash drop
@@ -88,7 +88,7 @@
     ss = !git add --all && git stash save
     u = !git s | ag 'UU' | awk '{ print substr($0, 4) }' | more
     w = !git wip
-    when-joined = !python ~/.scripts/git/when-joined.py
+    when-joined = !python3 ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
     wip = !git msg WIP:
 
