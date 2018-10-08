@@ -39,6 +39,17 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Space → Shift",
+                        "manipulators": [
+                            {
+                                "from": {"key_code": "spacebar"},
+                                "to": [{"key_code": "left_shift"}],
+                                "to_if_alone": [{"key_code": "spacebar"}],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
