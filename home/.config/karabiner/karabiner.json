@@ -100,9 +100,19 @@
                         "description": "Space → ⇧",
                         "manipulators": [
                             {
-                                "from": {"key_code": "spacebar"},
-                                "to": [{"key_code": "left_shift"}],
-                                "to_if_alone": [{"key_code": "spacebar"}],
+                                "from": {
+                                    "key_code": "spacebar"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar"
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -111,9 +121,19 @@
                         "description": "⇧ → ⎋",
                         "manipulators": [
                             {
-                                "from": {"key_code": "left_shift"},
-                                "to": [{"key_code": "left_shift"}],
-                                "to_if_alone": [{"key_code": "escape"}],
+                                "from": {
+                                    "key_code": "left_shift"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
