@@ -424,7 +424,7 @@ gifify() {
     local gif=${1%.*}.gif
 
     ffmpeg -i $1 -pix_fmt rgb24 -r 25 -f gif - 2> /dev/null |
-    gifsicle --optimize=3 --delay=4 > $gif
+    gifsicle --scale=0.5 --optimize=3 --delay=4 > $gif
 
     qlmanage -p $gif > /dev/null 2>&1
 }
