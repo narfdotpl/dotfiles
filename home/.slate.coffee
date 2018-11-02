@@ -10,7 +10,7 @@ for [key, app] in [
     ['e', 'Spotify'],
     ['r', 'Messenger'],
     ['t', 'Slack'],
-    ['f', 'Xcode'],
+    ['f', 'Visual Studio Code'],
     ['x', 'Simulator'],
     ['c', 'Blender'],
     ['v', 'Things3'],
