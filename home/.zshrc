@@ -347,7 +347,7 @@ cpwd() {
 alias d='cd ~/Desktop'
 
 # deactivate virtualenv
-alias de='deactivate'
+alias de='pyenv deactivate'
 
 # create a "patrol cycle" gif of two images fading to each other
 diffgif() {
@@ -403,7 +403,7 @@ alias f='setopt noglob; f_helper'
 # don't type so much when using fabric
 alias fh='fab -H'
 alias fl='fh localhost'
-alias fd='workon $(basename $(pwd)); fl dev'
+alias fd='pyenv activate $(basename $(pwd)); fl dev'
 alias ft='fl test'
 
 # flush dns
@@ -489,21 +489,8 @@ o() {
     fi
 }
 
-# run python
-alias p='python -3'
-alias p3='python3'
-alias pp='peat1 python -3'
-
 # use paste board without ⇥
 alias pbc='pbcopy'
-
-# (re)peat command on one file
-# https://github.com/sjl/peat
-peat1() {
-    local last=${@[-1]}
-    edit "$last"
-    echo "$last" | peat --quiet "$*"
-}
 
 # list installed python packages
 alias pf='pip freeze'
@@ -622,9 +609,6 @@ alias w='c narf.pl && e && c content/posts && wo narf.pl'
 # locate app
 alias wh='which'
 
-# activate virtualenv
-alias wo='workon'
-
 # open Xcode project(s)
 alias x='open "$(ls | ag .xcworkspace$ || ls | ag .xcodeproj$ || ls | ag .playground$)"'
 
@@ -648,18 +632,13 @@ alias ze='zzz; exit'
 #  python
 #----------
 
-export PYTHONSTARTUP=~/.pythonrc.py
+# pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # pip
 export PIP_DOWNLOAD_CACHE=~/.pip/download-cache
 export PIP_RESPECT_VIRTUALENV=true
-
-# brew-pip
-export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
-
-# virtualenv
-export WORKON_HOME=~/.virtualenvs
-source virtualenvwrapper.sh
 
 
 #--------
@@ -691,7 +670,7 @@ fi
 save_workspace() {
     echo "cd '`pwd`'" > $workspace
     if [[ $VIRTUAL_ENV != '' ]]; then
-        echo "workon `basename $VIRTUAL_ENV`" >> $workspace
+        echo "pyenv activate `basename $VIRTUAL_ENV`" >> $workspace
     fi
 }
 
