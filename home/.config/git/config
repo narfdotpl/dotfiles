@@ -56,7 +56,6 @@
     cmp = !python ~/.scripts/git/get-compare-links.py
     co = checkout
     cp = cherry-pick
-    ctags = !.git/hooks/ctags
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
     d = !python ~/.scripts/git/diff.py
     db = branch -D
