@@ -45,7 +45,7 @@
     bb = !git co -
     bm = !git branch -M
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
-          | grep -Pv '^master$'
+          | ag -Pv '^master$'
     branch-ticket-prefix = !git branch | sed -n 's/* \\([0-9]*\\).*/\\1/p'
     c = !git cv --all
     ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend
@@ -68,7 +68,7 @@
     i = "!f() { [[ $1 = '' ]] && ghi list --web || ghi show --web $1; git q3 telein; }; f $(git branch-ticket-prefix)"
     if = !ghi list --reverse --label first
     il = !ghi list --reverse
-    ig = !git s --ignored | grep '!!' | awk '{ print substr($0, 4) }' | more
+    ig = !git s --ignored | ag '!!' | awk '{ print substr($0, 4) }' | more
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
     lo = "!f() { git log --oneline --reverse $* | grcat conf.git-l | less -R; }; f"
@@ -86,7 +86,7 @@
     rb = !git checkout $(git recent-branches | fzf)
     re = "!f() { git revert $* && git q3 defense; }; f"
     reh = !git re HEAD
-    recent-branches = !git reflog | grep 'checkout: moving from' | awk '{ if (!seen[$NF]++) print $NF }' | grep -vP '[a-z0-9]{40}' | head
+    recent-branches = !git reflog | ag 'checkout: moving from' | awk '{ if (!seen[$NF]++) print $NF }' | ag -v '[a-z0-9]{40}' | head
     repo = !git init && git q3 intro_01 && git msg \"created repo :cake:\" && git a
     rh = "!f() { git reset --hard $* && git q3 denied; }; f"
     rh1 = !git rh HEAD~1
@@ -99,7 +99,7 @@
     sm = !git sf git cm && git sf git m && git c
     sp = stash pop
     ss = !git add --all && git stash save
-    u = !git s | grep 'UU' | awk '{ print substr($0, 4) }' | more
+    u = !git s | ag 'UU' | awk '{ print substr($0, 4) }' | more
     w = !git wip
     when-joined = !python ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
