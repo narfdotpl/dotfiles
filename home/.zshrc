@@ -360,6 +360,9 @@ diffgif() {
         diff.gif
 }
 
+# dokku
+alias dokku='bash ~/github/dokku/contrib/dokku_client.sh'
+
 # put displays to sleep
 alias ds='pmset displaysleepnow'
 alias dse='ds && exit'
