@@ -480,6 +480,15 @@ min() {
 # exclude matching lines
 alias not='ag --invert-match'
 
+# open
+o() {
+    if [ $# -eq 0 ]; then
+        open .
+    else
+        open $*
+    fi
+}
+
 # run python
 alias p='python -3'
 alias p3='python3'
