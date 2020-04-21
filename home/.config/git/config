@@ -76,6 +76,7 @@
     mm = merge -
     msg = "!f() { git commit --allow-empty --message \"$*\" && git q3 talk; }; f"
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
+    p = pull
     pf = "!f() { git push --force-with-lease $* && git q3 *holyshit; }; f"
     pr = !git gh -- pulls
     pu2 = "!f() { python ~/.scripts/git/push-upto.py $* && git q3 accuracy; }; f"
