@@ -6,7 +6,7 @@ bind = (key, x) ->
 for [key, app] in [
     ['a', 'iTerm'],
     ['s', 'MacVim'],
-    ['d', 'Google Chrome'],
+    ['d', 'Safari'],
     ['e', 'Spotify'],
     ['r', 'Messenger'],
     ['t', 'Slack'],
