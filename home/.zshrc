@@ -323,6 +323,11 @@ alias ca='cal'
 # change directory to the one opened in finder
 alias cc='c "`tell finder to get the name of the first window`"'
 
+# use fuzzy search to change directories
+cf() {
+    cd "$(find . -not -path '*/\.*' -type dir | fzf || echo .)"
+}
+
 # clear terminal screen
 alias cl='clear'
 
