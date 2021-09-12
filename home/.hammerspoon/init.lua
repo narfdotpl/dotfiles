@@ -17,8 +17,11 @@ for key, app in pairs({
     a="iTerm",
     s="MacVim",
     d="Safari",
-    e="Spotify",
     f="Visual Studio Code",
+
+    e="Spotify",
+
+    x="Ableton Live 11 Standard",
     c="Blender",
     v="Things3",
 }) do
