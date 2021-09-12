@@ -78,33 +78,32 @@ end))
 -- resize windows --
 --------------------
 
--- set full height
-hs.hotkey.bind(hyper, "y", updateWindowFrame(function (w, s)
-    w.y = 0
-    w.h = s.h
-end))
+-- set height
+for key, ratio in pairs({
+    n=1/2,
+    y=1,
+}) do
+    hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
+        w.h = ratio * s.h
 
--- set half height
-hs.hotkey.bind(hyper, "n", updateWindowFrame(function (w, s)
-    w.h = s.h / 2
-end))
+        if w.y + w.h > s.h then
+            w.y = s.h - w.h
+        end
+    end))
+end
 
--- set full width
-hs.hotkey.bind(hyper, "j", updateWindowFrame(function (w, s)
-    w.x = 0
-    w.w = s.w
-end))
+-- set width
+for key, ratio in pairs({
+    g=1/2,
+    u=1/3,
+    h=2/3,
+    j=1,
+}) do
+    hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
+        w.w = ratio * s.w
 
--- set half width
-hs.hotkey.bind(hyper, "g", updateWindowFrame(function (w, s)
-    w.w = s.w / 2
-end))
-
--- set 5/8 width
-hs.hotkey.bind(hyper, "h", updateWindowFrame(function (w, s)
-    w.w = 5.0 / 8.0 * s.w
-
-    if w.x + w.w > s.w then
-        w.x = s.w - w.w
-    end
-end))
+        if w.x + w.w > s.w then
+            w.x = s.w - w.w
+        end
+    end))
+end
