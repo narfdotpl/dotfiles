@@ -73,6 +73,36 @@ hs.hotkey.bind(hyper, "b", updateWindowFrame(function (w, s)
     w.y = (s.h - w.h) / 2
 end))
 
+-- move window on one axis at a time, stopping at the center
+function moveWindow(dx, dy)
+    return updateWindowFrame(function (w, s)
+        local xLeft = s.x
+        local xRight = s.w - w.w
+        local xCenter = (xRight - xLeft) // 2
+
+        if dx < 0 then
+            w.x = w.x <= xCenter and xLeft or xCenter
+        elseif dx > 0 then
+            w.x = xCenter <= w.x and xRight or xCenter
+        end
+
+        local yTop = s.y
+        local yBottom = s.h - w.h
+        local yCenter = (yBottom - yTop) // 2
+
+        if dy < 0 then
+            w.y = w.y <= yCenter and yTop or yCenter
+        elseif dy > 0 then
+            w.y = yCenter <= w.y and yBottom or yCenter
+        end
+    end)
+end
+
+hs.hotkey.bind(hyper, "left", moveWindow(-1, 0))
+hs.hotkey.bind(hyper, "right", moveWindow(1, 0))
+hs.hotkey.bind(hyper, "up", moveWindow(0, -1))
+hs.hotkey.bind(hyper, "down", moveWindow(0, 1))
+
 
 --------------------
 -- resize windows --
