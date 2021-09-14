@@ -117,7 +117,15 @@ for key, ratio in pairs({
     y=1,
 }) do
     hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
+        local oldRatio = w.h / s.h
+
         w.h = ratio * s.h
+
+        -- center
+        if oldRatio == 1 and ratio < 1 then
+            w.y = (s.h - w.h) / 2
+            return
+        end
 
         local isOverTheEdge = w.y + w.h > s.h
         if isOverTheEdge then
@@ -134,9 +142,16 @@ for key, ratio in pairs({
     j=1,
 }) do
     hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
+        local oldRatio = w.w / s.w
         local wasOnRightEdge = w.x + w.w >= s.w - 2
 
         w.w = ratio * s.w
+
+        -- center
+        if oldRatio == 1 and ratio < 1 then
+            w.x = (s.w - w.w) / 2
+            return
+        end
 
         local isOverTheEdge = w.x + w.w > s.w
         if wasOnRightEdge or isOverTheEdge then
