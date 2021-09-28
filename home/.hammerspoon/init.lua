@@ -46,30 +46,6 @@ function updateWindowFrame(callback)
     end
 end
 
--- move window to top left
-hs.hotkey.bind(hyper, "i", updateWindowFrame(function (w, s)
-    w.x = 0
-    w.y = 0
-end))
-
--- move window to top right
-hs.hotkey.bind(hyper, "o", updateWindowFrame(function (w, s)
-    w.x = s.w - w.w
-    w.y = 0
-end))
-
--- move window to bottom left
-hs.hotkey.bind(hyper, "k", updateWindowFrame(function (w, s)
-    w.x = 0
-    w.y = s.h - w.h
-end))
-
--- move window to bottom right
-hs.hotkey.bind(hyper, "l", updateWindowFrame(function (w, s)
-    w.x = s.w - w.w
-    w.y = s.h - w.h
-end))
-
 -- center window
 hs.hotkey.bind(hyper, "b", updateWindowFrame(function (w, s)
     w.x = (s.w - w.w) / 2
