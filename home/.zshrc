@@ -483,6 +483,15 @@ alias save='save_workspace'
 # go to a temporary directory on the desktop
 alias t='m ~/Desktop/tmp'
 
+# open Visual Studio Code
+v() {
+    if [[ "$@" = "" ]]; then
+        code .
+    else
+        code $@
+    fi
+}
+
 # locate app
 alias wh='which'
 
