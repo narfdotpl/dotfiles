@@ -7,11 +7,6 @@
 # start with a fake prompt
 echo -n '~ > '
 
-# ensure iTerm is the frontmost app (without this when you are in some other
-# app and you open a new terminal window with your mouse, that other other app
-# remains the active one)
-open -a iterm
-
 
 #------------
 #  language
@@ -239,10 +234,6 @@ bindkey '^[[3~' delete-char
 # load script aliases
 source ~/.scripts/aliases.zsh
 
-# alias /dev/null
-alias -g /dn='/dev/null'
-alias -g 2/dn='2> /dev/null'
-
 # alias and
 alias -g :='&&'
 
@@ -279,20 +270,11 @@ ap() {
     ag -g . | peat -i 500 "$*"
 }
 
-# run ag search, choose file with fzf, open it in vim
-agf() {
-    local target=$(ag -l $* | fzf)
-    [[ "$target" != "" ]] && edit "$target"
-}
-
 # go to login screen
 alias a='afk'
 alias ae='afk; exit'
 alias afk='tell spotify to pause && suspend && pmset displaysleepnow'
 alias suspend='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend && sleep 4'
-
-# drown in cuteness
-alias aww='open http://www.panoptikos.com/r/aww/top'
 
 # run homebrew
 alias b='brew'
@@ -354,17 +336,6 @@ alias d='cd ~/Desktop'
 # deactivate virtualenv
 alias de='pyenv deactivate'
 
-# create a "patrol cycle" gif of two images fading to each other
-diffgif() {
-    convert \
-        $1 $2 \
-        -morph 10 \
-        -set delay '%[fx:(t>0&&t<n-1)?10:100]' \
-        -duplicate 1,-2-1 \
-        -layers Optimize \
-        diff.gif
-}
-
 # dokku
 alias dokku='bash ~/github/dokku/contrib/dokku_client.sh'
 
@@ -417,7 +388,7 @@ alias ft='fl test'
 # flush dns
 alias flushdns='dscacheutil -flushcache'
 
-# srew you, Xcode
+# screw you, Xcode
 fuxcode() {
     quit simulator
     quit xcode
@@ -450,22 +421,11 @@ git() {
 # go to ~/dotfiles/home
 alias h='c home'
 
-# search zsh history
-hi() {
-    tell iterm to tell current session of current terminal to write text '"'$(history -i 1 | fzf -q "$*" | cut -c 26-)' "'
-}
-
 # start http server
 alias http='open http://`ip`:8000/; python -m SimpleHTTPServer'
 
-# go to ideas
-alias i='c ideas'
-
 # get local IP addresses
 alias ip="ifconfig | ag 'inet 192' | awk '{ print \$2 }' | sort -u"
-
-# pretty print json (`cat foo.json | json`)
-alias json='python -mjson.tool | pygmentize -l js'
 
 # list directory contents
 alias ll='ls -Fal --time-style=long-iso | more'
@@ -477,12 +437,6 @@ alias .l='column_ls -d .*'    # hidden stuff
 
 # create directory (and intermediate directories) and go there
 m() {mkdir -p $1 && cd $1}
-
-# minimize terminal
-min() {
-    open -a iterm
-    tell 'System Events' to keystroke '"m"' using command down
-}
 
 # exclude matching lines
 alias not='ag --invert-match'
@@ -508,15 +462,6 @@ alias pg='ping -c 5 google.com'
 # install python package
 alias pi='pip install'
 
-# remove *.pyc files
-alias pyc='find . -name "*.pyc" -delete'
-
-# run pyflakes
-alias pyf='pyflakes .py | not __init__.py'
-
-# preview using quicklook
-q() {qlmanage -p $* > /dev/null}
-
 # play more promode
 alias q3='(c ~/q3/repo && ./ioquake3.app/Contents/MacOS/ioquake3.ub +set fs_game cpma)'
 
@@ -529,89 +474,14 @@ alias rf='rm -rf'
 # move ~/Desktop/tmp to Trash and close terminal
 alias rft='t && mvt . && exit'
 
-# move screen shots to Trash and close terminal
-alias rfs='mvt ~/Desktop/Screen\ Shot* && exit'
-
-# open rss client
-alias rss='open -a netnewswire'
-
 # go to sandbox
 alias s='cd ~/sandbox'
 
 # save workspace
 alias save='save_workspace'
 
-# run scheme
-alias scm='rlwrap scheme'
-
-# search stack overflow
-alias so='open https://www.google.com/search\?q=site:stackoverflow.com'
-
 # go to a temporary directory on the desktop
 alias t='m ~/Desktop/tmp'
-
-# don't forget about the tea
-tea() {
-    min
-    sleep $1
-    tell spotify to pause
-    say -v agata 'szanowny panie, proszę wybaczyć, że przeszkadzam, ale pragnę poinformować, iż pańska herbata ma optymalną temperaturę do picia'
-    tell spotify to play
-    exit
-}
-
-# show file system tree in color, ignoring obvious stuff, directories first,
-# through `less` with line numbers
-tre() {
-    tree -aC -I '.DS_Store|.git|*.py[co]|*.sw[nop]' --dirsfirst "$@" | less -RN
-}
-
-# download video from youtube, vimeo, blip, etc. or play video files
-# from the current folder in VLC
-alias v='setopt noglob; v_helper'
-alias ve='v; exit'
-v_helper() {
-    setopt glob
-    if [[ "$@" = "" ]]; then
-        open -a vlc
-        sleep 1
-        open -a vlc *.(mp4|avi|flv|mov|mkv)
-        tell spotify to pause
-        screenbrightness -d 1 0
-        echo | less
-        tell spotify to play
-        quit vlc
-    else
-        # start download in the background
-        youtube-dl --no-part --title --continue --quiet $1 &
-
-        # show title
-        youtube-dl --get-title $1
-
-        # bring download to the foreground
-        fg %youtube-dl
-    fi
-}
-
-# open (file in) vlc
-alias vlc='open -a vlc'
-
-# do video business in ~/Desktop/tmp
-tv() {
-    if [[ "$@" = "" ]]; then
-        t
-        v
-        rft
-    else
-        min
-        t
-        v $@
-        ex
-    fi
-}
-
-# go back to writing
-alias w='c narf.pl && e && c content/posts && wo narf.pl'
 
 # locate app
 alias wh='which'
@@ -646,13 +516,6 @@ eval "$(pyenv virtualenv-init -)"
 # pip
 export PIP_DOWNLOAD_CACHE=~/.pip/download-cache
 export PIP_RESPECT_VIRTUALENV=true
-
-
-#--------
-#  ruby
-#--------
-
-export RUBYOPT=rubygems
 
 
 #---------------

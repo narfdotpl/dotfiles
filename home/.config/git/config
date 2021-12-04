@@ -11,13 +11,6 @@
 [diff]
     compactionHeuristic = true
 
-[ghi]
-    editor = gvim -p --nofork
-    token = !security find-internet-password -a $(git config github.user) -s github.com -l 'ghi token' -w
-
-[ghi "highlight"]
-    style = colorful
-
 [hub]
     http-clone = true
 
@@ -41,7 +34,6 @@
     ar = !git add --all && git r
     branch-fzf = !git branch | cut -c 3- | fzf
     b = "!f() { [[ $1 = '' ]] && git checkout $(git branch-fzf) || git checkout -b $1; }; f"
-    ba = !python ~/.scripts/git/backup.py --force && git q3 voc_red_returned
     bb = !git co -
     bm = !git branch -M
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
@@ -64,9 +56,6 @@
     gca = gc --aggressive
     gh = "!f() { hub browse $* && git q3 telein; }; f"
     h = help
-    i = "!f() { [[ $1 = '' ]] && ghi list --web || ghi show --web $1; git q3 telein; }; f $(git branch-ticket-prefix)"
-    if = !ghi list --reverse --label first
-    il = !ghi list --reverse
     ig = !git s --ignored | ag '!!' | awk '{ print substr($0, 4) }' | more
     l = !python ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
@@ -104,10 +93,6 @@
     when-joined = !python ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
     wip = !git msg WIP:
-    x = annex
-    xa = !git annex add . && git c
-    xl = annex lock
-    xu = annex unlock
 
 
 # vim: set ft=gitconfig :
