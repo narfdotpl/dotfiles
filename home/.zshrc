@@ -461,9 +461,8 @@ alias http='open http://`ip`:8000/; python -m SimpleHTTPServer'
 # go to ideas
 alias i='c ideas'
 
-# get local IP address
-# http://stackoverflow.com/a/13322549/98763
-alias ip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+# get local IP addresses
+alias ip="ifconfig | ag 'inet 192' | awk '{ print \$2 }' | sort -u"
 
 # pretty print json (`cat foo.json | json`)
 alias json='python -mjson.tool | pygmentize -l js'
