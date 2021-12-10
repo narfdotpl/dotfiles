@@ -128,10 +128,11 @@ end
 
 -- set width
 for key, ratio in pairs({
-    g=1/2,
     u=1/3,
+    g=1/2,
     h=2/3,
-    j=1,
+    j=5/6,
+    k=1,
 }) do
     hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
         local oldRatio = w.w / s.w
