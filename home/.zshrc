@@ -468,6 +468,11 @@ alias q3='(c ~/q3/repo && ./ioquake3.app/Contents/MacOS/ioquake3.ub +set fs_game
 # quit an app
 quit() { tell $1 to quit }
 
+# reload safari
+reload-safari() {
+    ag -l . | peat -i 500 "tell Safari to 'do JavaScript \"window.location.reload()\" in front document'"
+}
+
 # brutally remove
 alias rf='rm -rf'
 
