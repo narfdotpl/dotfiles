@@ -40,7 +40,7 @@ highlight! link VertSplit NonText
 highlight! link CursorLineNr LineNr
 
 " set font size
-set guifont=Menlo:h18
+set guifont=FiraCode-Retina:h20
 
 
 function! s:Fontsized()
