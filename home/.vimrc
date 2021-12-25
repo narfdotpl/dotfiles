@@ -66,7 +66,7 @@ set showmatch
 set background=dark
 let g:solarized_visibility='low'
 let g:solarized_italic=0
-colorscheme solarized
+colorscheme onedark
 
 " switch between sides of the force
 map <Leader><F1> :set background=dark<Enter>:Fontsized<Enter>
