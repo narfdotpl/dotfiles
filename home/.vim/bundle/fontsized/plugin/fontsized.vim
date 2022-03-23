@@ -40,6 +40,7 @@ highlight! link VertSplit NonText
 highlight! link CursorLineNr LineNr
 
 " set font size
+set macligatures
 set guifont=FiraCode-Retina:h20
 
 
