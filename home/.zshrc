@@ -231,9 +231,6 @@ bindkey '^[[3~' delete-char
 #  aliases
 #-----------
 
-# load script aliases
-source ~/.scripts/aliases.zsh
-
 # alias and
 alias -g :='&&'
 
@@ -475,9 +472,6 @@ reload-safari() {
 
 # brutally remove
 alias rf='rm -rf'
-
-# move ~/Desktop/tmp to Trash and close terminal
-alias rft='t && mvt . && exit'
 
 # go to sandbox
 alias s='cd ~/sandbox'

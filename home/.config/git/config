@@ -38,7 +38,6 @@
     bm = !git branch -M
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
           | ag -Pv '^master$'
-    branch-ticket-prefix = !git branch | sed -n 's/* \\([0-9]*\\).*/\\1/p'
     c = !git cv --all
     ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend
     car = !git ca && git r
@@ -67,7 +66,6 @@
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     p = pull
     pf = "!f() { git push --force-with-lease $* && git q3 *holyshit; }; f"
-    pr = !git gh -- pulls
     pu2 = "!f() { python ~/.scripts/git/push-upto.py $* && git q3 accuracy; }; f"
     q3 = "!f() { (afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $1.wav) &); }; f"
     r = !python ~/.scripts/git/rebase.py

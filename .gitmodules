@@ -1,9 +1,6 @@
 [submodule "home/.vim/bundle/pathogen"]
 	path = home/.vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "home/.vim/bundle/coffeescript"]
-	path = home/.vim/bundle/coffeescript
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "home/.vim/bundle/solarized"]
 	path = home/.vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
@@ -22,24 +19,15 @@
 [submodule "home/.vim/bundle/indent-object"]
 	path = home/.vim/bundle/indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
-[submodule "home/.vim/bundle/gundo"]
-	path = home/.vim/bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
 [submodule "home/.vim/bundle/javascript"]
 	path = home/.vim/bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "home/.vim/bundle/tagbar"]
-	path = home/.vim/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
 [submodule "home/.vim/bundle/repeat"]
 	path = home/.vim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "home/.vim/bundle/commentary"]
 	path = home/.vim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "home/.vim/bundle/less"]
-	path = home/.vim/bundle/less
-	url = https://github.com/groenewege/vim-less.git
 [submodule "home/.vim/bundle/obsession"]
 	path = home/.vim/bundle/obsession
 	url = https://github.com/tpope/vim-obsession.git
@@ -49,24 +37,9 @@
 [submodule "home/.vim/bundle/python-pep8-indent"]
 	path = home/.vim/bundle/python-pep8-indent
 	url = https://github.com/hynek/vim-python-pep8-indent.git
-[submodule "home/.vim/bundle/YUNOcommit"]
-	path = home/.vim/bundle/YUNOcommit
-	url = https://github.com/esneider/YUNOcommit.vim.git
-[submodule "home/.vim/bundle/swift"]
-	path = home/.vim/bundle/swift
-	url = https://github.com/Keithbsmiley/swift.vim.git
 [submodule "home/.vim/bundle/sneak"]
 	path = home/.vim/bundle/sneak
 	url = https://github.com/justinmk/vim-sneak.git
-[submodule "home/.vim/bundle/carthage"]
-	path = home/.vim/bundle/carthage
-	url = https://github.com/cfdrake/vim-carthage.git
-[submodule "home/.vim/bundle/flake8"]
-	path = home/.vim/bundle/flake8
-	url = https://github.com/nvie/vim-flake8.git
-[submodule "home/.vim/bundle/jshint"]
-	path = home/.vim/bundle/jshint
-	url = https://github.com/Shutnik/jshint2.vim.git
 [submodule "home/.vim/bundle/ag"]
 	path = home/.vim/bundle/ag
 	url = https://github.com/rking/ag.vim.git
