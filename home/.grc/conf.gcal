@@ -12,4 +12,4 @@ colours=green
 =======
 # current day
 regexp=\| ?\d+\|
-colours=white
+colours=bold
