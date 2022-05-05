@@ -4,10 +4,6 @@
 # https://github.com/narfdotpl/dotfiles
 
 
-# start with a fake prompt
-echo -n '~ > '
-
-
 #------------
 #  language
 #------------
@@ -551,11 +547,3 @@ save_workspace() {
         echo "pyenv activate `basename $VIRTUAL_ENV`" >> $workspace
     fi
 }
-
-
-#-----------
-#  cleanup
-#-----------
-
-# clear the screen (I might've started typing before prompt was visible)
-clear
