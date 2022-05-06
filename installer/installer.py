@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 """
 Install dotfiles by creating symbolic links in $HOME directory.
@@ -140,7 +140,7 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                 else:
                     answer = None
                     while answer not in ['yes', 'y', 'no', 'n']:
-                        answer = raw_input(
+                        answer = input(
                             'backup {0}? '.format(name)
                         ).lower()
                     backup = answer.startswith('y')
@@ -153,22 +153,22 @@ def install_and_ask_whether_to_backup(fresh, home_dir=None,
                     rename(destination, new_destination)
 
                     new_name = _pretty_basename(new_destination)
-                    print '{0} -> {1}'.format(name, new_name)
+                    print(f'{name} -> {new_name}')
                 else:
                     if isdir(destination) and not islink(destination):
                         rmtree(destination)
                     else:
                         remove(destination)
 
-                    print '- ' + name
+                    print('- ' + name)
             else:
                 installed = True
-                print '+ ' + name
+                print('+ ' + name)
 
     if fresh:
-        print 'symlinking complete, consider restarting terminal'
+        print('symlinking complete, consider restarting terminal')
     else:
-        print 'nothing fresh to symlink'
+        print('nothing fresh to symlink')
 
 
 def _pretty_basename(path):
@@ -186,7 +186,7 @@ def uninstall(obsolete):
     for link in obsolete:
         remove(link)
         name = _pretty_basename(link)
-        print '- ' + name
+        print('- ' + name)
 
 
 def _main():
