@@ -1,16 +1,10 @@
-[narfdotpl][]'s dotfiles
-========================
+[narf][]'s dotfiles
+===================
 
-Some of my configuration files and scripts used on OS X.
+Some of my configuration files and scripts used on macOS.
 Plus installer.
 
-  [narfdotpl]: http://narf.pl/
-
-
-Glimpse
--------
-
-![screenshot](screenshot.png)
+  [narf]: http://narf.pl
 
 
 Installation
@@ -18,7 +12,9 @@ Installation
 
 Installer creates symbolic links in your `$HOME`.  It asks whether
 to backup files that otherwise would be replaced.  Requires Python
-(2.6 ≤ version < 3) and Git.
+and [Homebrew][].
+
+  [Homebrew]: https://brew.sh
 
 
 ### Fresh
@@ -31,7 +27,8 @@ to backup files that otherwise would be replaced.  Requires Python
 
 ### Update
 
-    cd ~/dotfiles
-    git checkout master
-    git pull --rebase
+    h
+    /
+    .
+    g m
     ./install
