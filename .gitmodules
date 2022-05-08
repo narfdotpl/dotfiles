@@ -49,3 +49,6 @@
 [submodule "home/.vim/bundle/onedark"]
 	path = home/.vim/bundle/onedark
 	url = https://github.com/joshdick/onedark.vim.git
+[submodule "home/.scripts/tell"]
+	path = home/.scripts/tell
+	url = https://github.com/narfdotpl/tell.git
