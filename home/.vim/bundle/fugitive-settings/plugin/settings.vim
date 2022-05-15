@@ -1,2 +1,2 @@
 " blame
-map <Leader>g :Gblame<Enter>
+map <Leader>g :Git blame<Enter>
