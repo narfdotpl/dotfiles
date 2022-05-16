@@ -372,11 +372,8 @@ f_helper() {
 }
 alias f='setopt noglob; f_helper'
 
-# don't type so much when using fabric
-alias fh='fab -H'
-alias fl='fh localhost'
-alias fd='pyenv activate $(basename $(pwd)); fl dev'
-alias ft='fl test'
+# don't type so much when working on my websites
+alias fd='pyenv activate $(basename $(pwd)); ./manage.py runserver'
 
 # flush dns
 alias flushdns='dscacheutil -flushcache'
