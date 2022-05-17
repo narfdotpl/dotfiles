@@ -51,8 +51,8 @@ def _main():
     run('mvim -c "Helptags | quit"; sleep 1; open -a iterm')
     print('done')
 
-    # source ~/.osx
-    cmd = 'source ~/.osx'
+    # source macOS
+    cmd = 'source "%s/macOS"' % dotfiles_dir
     print('\n')
     if ask_yn(cmd + '?'):
         run(cmd)
