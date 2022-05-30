@@ -412,7 +412,7 @@ git() {
 alias h='c home'
 
 # start http server
-alias http='open http://`ip`:8000/; python -m SimpleHTTPServer'
+alias http='open http://`ip`:8000/; python3 -m http.server'
 
 # get local IP addresses
 alias ip="ifconfig | ag 'inet 192' | awk '{ print \$2 }' | sort -u"
