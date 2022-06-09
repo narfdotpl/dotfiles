@@ -1,10 +1,11 @@
 [narf][]’s dotfiles
 ===================
 
-Some of my configuration files and scripts used on macOS.
+Some of my configuration files and scripts used on [macOS][].
 Plus installer.
 
   [narf]: http://narf.pl
+  [macOS]: http://narf.pl/posts/mac-software-2022
 
 
 Installation
