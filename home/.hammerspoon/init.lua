@@ -156,35 +156,3 @@ for key, ratio in pairs({
         end
     end))
 end
-
-
----------------------
--- connect display --
----------------------
-
-hasInternalScreen = true
-hasExternalScreen = false
-
--- disable internal screen when external one is connected
-function screenCallback(activeScreenChanged)
-    local screensByName = {}
-    for i, screen in pairs(hs.screen.allScreens()) do
-        screensByName[screen:name()] = screen
-    end
-
-    local internal = screensByName["Built-in Retina Display"]
-    local external = screensByName["Luna Display"]
-
-    local hadOnlyInternal = hasInternalScreen and not hasExternalScreen
-    hasInternalScreen = internal ~= nil
-    hasExternalScreen = external ~= nil
-
-    local connectedExternal = hadOnlyInternal and hasInternalScreen and hasExternalScreen
-    if connectedExternal then
-        internal:setBrightness(0.0)
-        internal:mirrorOf(external)
-    end
-end
-
-screenWatcher = hs.screen.watcher.newWithActiveScreen(screenCallback)
-screenWatcher:start()
