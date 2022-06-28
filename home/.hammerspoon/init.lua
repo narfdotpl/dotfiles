@@ -53,15 +53,6 @@ hs.hotkey.bind(hyper, "b", updateWindowFrame(function (w, s)
     w.y = (s.h - w.h) / 2
 end))
 
--- resize window to 2/3 and center it
-hs.hotkey.bind(hyper, "o", updateWindowFrame(function (w, s)
-    w.w = 2/3 * s.w
-    w.h = s.h
-
-    w.x = (s.w - w.w) / 2
-    w.y = s.y
-end))
-
 -- move window on one axis at a time, stopping at the center
 function moveWindow(dx, dy)
     return updateWindowFrame(function (w, s)
@@ -165,3 +156,21 @@ for key, ratio in pairs({
         end
     end))
 end
+
+-- resize window to 2/3x1 and center it
+hs.hotkey.bind(hyper, "o", updateWindowFrame(function (w, s)
+    w.w = 2/3 * s.w
+    w.h = s.h
+
+    w.x = (s.w - w.w) / 2
+    w.y = s.y
+end))
+
+-- resize window to 1/2x1/2 and center it
+hs.hotkey.bind(hyper, "l", updateWindowFrame(function (w, s)
+    w.w = 1/2 * s.w
+    w.h = 1/2 * s.h
+
+    w.x = (s.w - w.w) / 2
+    w.y = (s.h - w.h) / 2
+end))
