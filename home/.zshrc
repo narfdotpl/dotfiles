@@ -440,6 +440,9 @@ o() {
     fi
 }
 
+# run python
+alias p='python3'
+
 # use paste board without ⇥
 alias pbc='pbcopy'
 
