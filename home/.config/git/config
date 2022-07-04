@@ -5,6 +5,10 @@
 [github]
     user = narfdotpl
 
+[core]
+    fsmonitor = true
+    untrackedcache = true
+
 [color]
     ui = auto
 
