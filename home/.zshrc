@@ -329,13 +329,6 @@ alias d='cd ~/Desktop'
 # deactivate virtualenv
 alias de='pyenv deactivate'
 
-# dokku
-alias dokku='bash ~/github/dokku/contrib/dokku_client.sh'
-
-# put displays to sleep
-alias ds='pmset displaysleepnow'
-alias dse='ds && exit'
-
 # show date and time (example: 2011-06-04 09:54:07, Saturday)
 alias dt='date "+%Y-%m-%d %H:%M:%S, %A"'
 
@@ -454,9 +447,6 @@ alias pg='ping -c 5 google.com'
 
 # install python package
 alias pi='pip install'
-
-# play more promode
-alias q3='(c ~/q3/repo && ./ioquake3.app/Contents/MacOS/ioquake3.ub +set fs_game cpma)'
 
 # quit an app
 quit() { tell $1 to quit }
