@@ -1,6 +1,7 @@
 tap 'homebrew/cask'
 tap 'homebrew/bundle'
 brew 'coreutils'
+brew 'fd'
 brew 'fzf'
 brew 'gcal'
 brew 'git'

@@ -300,7 +300,7 @@ alias cc='c "`tell finder to get the name of the first window`"'
 
 # use fuzzy search to change directories
 cf() {
-    cd "$(find . -not -path '*/\.*' -type dir | fzf || echo .)"
+    cd "$(fd --type d | fzf || echo .)"
 }
 
 # clear terminal screen
@@ -356,17 +356,6 @@ alias ex='exit'
 
 # edit *this* file
 alias ez='(h && e .zshrc)'
-
-# find in working directory without expanding wildcards
-# http://www.chiark.greenend.org.uk/~sgtatham/aliases.html
-f_helper() {
-    find . -name "$@" 2> /dev/null
-    setopt glob
-}
-alias f='setopt noglob; f_helper'
-
-# don't type so much when working on my websites
-alias fd='pyenv activate $(basename $(pwd)); ./manage.py runserver'
 
 # flush dns
 alias flushdns='dscacheutil -flushcache'
@@ -436,6 +425,9 @@ o() {
 # run python
 alias p='python3'
 
+# activate virtualenv
+alias pa='pyenv activate $(basename $(pwd))'
+
 # use paste board without ⇥
 alias pbc='pbcopy'
 
@@ -447,6 +439,9 @@ alias pg='ping -c 5 google.com'
 
 # install python package
 alias pi='pip install'
+
+# don't type so much when working on my websites
+alias r='pa; ./manage.py runserver'
 
 # quit an app
 quit() { tell $1 to quit }
