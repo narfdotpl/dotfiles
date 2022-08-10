@@ -43,7 +43,7 @@ def _main():
 
     # read one commit at a time
     for line in Popen(command, shell=True, stdout=PIPE).stdout:
-        split = line.split()
+        split = line.decode('utf8').split()
         date = split[0]
         author = ' '.join(split[1:])
 
@@ -52,7 +52,7 @@ def _main():
 
     # list authors in chronological order
     for author, date in sorted(accessions.items(), key=lambda tpl: tpl[1]):
-        print date, author
+        print(date, author)
 
 if __name__ == '__main__':
     _main()
