@@ -29,9 +29,6 @@ set ruler
 " show tabs
 set showtabline=1
 
-" highlight 80th column
-set colorcolumn=80
-
 " make vertical split line 'invisible'
 set fillchars=
 highlight! link VertSplit NonText
