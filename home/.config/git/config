@@ -11,6 +11,10 @@
 [diff]
     compactionHeuristic = true
 
+[diff "ableton"]
+    binary = true
+    textconv = "f() { cat \"$1\" | gunzip; }; f"
+
 [hub]
     http-clone = true
 
