@@ -332,6 +332,9 @@ alias de='pyenv deactivate'
 # show date and time (example: 2011-06-04 09:54:07, Saturday)
 alias dt='date "+%Y-%m-%d %H:%M:%S, %A"'
 
+# show duplicate lines, e.g.: `ag --nofilename '^class' | dup`
+alias dup='sort | uniq -D | uniq'
+
 # edit
 alias e='edit'
 
