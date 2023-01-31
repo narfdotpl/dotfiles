@@ -360,6 +360,9 @@ alias ex='exit'
 # edit *this* file
 alias ez='(h && e .zshrc)'
 
+# open Things
+alias f="open 'things:///show?id=today&filter=focus'"
+
 # flush dns
 alias flushdns='dscacheutil -flushcache'
 
