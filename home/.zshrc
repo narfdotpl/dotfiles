@@ -472,6 +472,9 @@ alias save='save_workspace'
 # go to a temporary directory on the desktop
 alias t='m ~/Desktop/tmp'
 
+# show TODOs added in the current branch
+alias todo='g diff master...HEAD | ag "^\+" | ag TODO'
+
 # open Visual Studio Code
 v() {
     if [[ "$@" = "" ]]; then
