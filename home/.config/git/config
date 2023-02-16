@@ -20,9 +20,6 @@
 [merge]
     ff = only
 
-[pull]
-    rebase = true
-
 [push]
     autoSetupRemote = true
     followTags = true
