@@ -367,7 +367,10 @@ alias f="open 'things:///show?id=today&filter=focus'"
 alias flushdns='dscacheutil -flushcache'
 
 # screw you, Docker
-alias fudocker='docker system prune'
+fudocker() {
+    docker image prune --all
+    docker system prune
+}
 
 # screw you, Xcode
 fuxcode() {
