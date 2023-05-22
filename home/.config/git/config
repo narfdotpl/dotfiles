@@ -5,6 +5,9 @@
 [github]
     user = narfdotpl
 
+[advice]
+    skippedCherryPicks = false
+
 [color]
     ui = auto
 
