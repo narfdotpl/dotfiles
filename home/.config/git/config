@@ -78,6 +78,7 @@
     rh = "!f() { git reset --hard $* && git q3 denied; }; f"
     rh1 = !git rh HEAD~1
     root-branch = !python3 ~/.scripts/git/root-branch.py
+    rs = rebase --skip
     rv = remote --verbose
     s = status --short
     sd = stash drop
