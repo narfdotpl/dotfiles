@@ -37,7 +37,7 @@
     bb = !git co -
     bm = !git branch -M
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
-          | ag -Pv '^master$'
+          | ag -v '^master$'
     c = !git cv --all
     ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend
     car = !git ca && git r
