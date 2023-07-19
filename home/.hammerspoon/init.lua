@@ -14,17 +14,20 @@ configWatcher:start()
 ---------------
 
 for key, app in pairs({
-    a="iTerm",
-    s="MacVim",
-    d="Safari",
-    f="Visual Studio Code",
+    a="Spotify",
+    b="Signal",
 
-    e="Spotify",
+    c="Ableton Live 11 Standard",
+    d="iTerm",
+    e="MacVim",
+    f="Safari",
+    g="Visual Studio Code",
 
-    z="Ableton Live 11 Standard",
-    x="Xcode",
-    c="Blender",
-    v="Things3",
+    h="Simulator",
+    i="Xcode",
+    j="Blender",
+    k="Things3",
+    l="Slack",
 }) do
     hs.hotkey.bind(hyper, key, function()
         hs.application.launchOrFocus(app)
@@ -48,7 +51,7 @@ function updateWindowFrame(callback)
 end
 
 -- center window
-hs.hotkey.bind(hyper, "b", updateWindowFrame(function (w, s)
+hs.hotkey.bind(hyper, "y", updateWindowFrame(function (w, s)
     w.x = (s.w - w.w) / 2
     w.y = (s.h - w.h) / 2
 end))
@@ -110,7 +113,7 @@ hs.hotkey.bind(hyper, "down", moveWindow(0, 1))
 -- set height
 for key, ratio in pairs({
     n=1/2,
-    y=1,
+    m=1,
 }) do
     hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
         local oldRatio = w.h / s.h
@@ -132,11 +135,11 @@ end
 
 -- set width
 for key, ratio in pairs({
-    u=1/3,
-    g=1/2,
-    h=2/3,
-    j=5/6,
-    k=1,
+    o=2/6,
+    p=3/6,
+    q=4/6,
+    r=5/6,
+    s=6/6,
 }) do
     hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
         local oldRatio = w.w / s.w
@@ -158,7 +161,7 @@ for key, ratio in pairs({
 end
 
 -- resize window to 2/3x1 and center it
-hs.hotkey.bind(hyper, "o", updateWindowFrame(function (w, s)
+hs.hotkey.bind(hyper, "x", updateWindowFrame(function (w, s)
     w.w = 2/3 * s.w
     w.h = s.h
 
@@ -167,7 +170,7 @@ hs.hotkey.bind(hyper, "o", updateWindowFrame(function (w, s)
 end))
 
 -- resize window to 1/2x1/2 and center it
-hs.hotkey.bind(hyper, "l", updateWindowFrame(function (w, s)
+hs.hotkey.bind(hyper, "z", updateWindowFrame(function (w, s)
     w.w = 1/2 * s.w
     w.h = 1/2 * s.h
 
