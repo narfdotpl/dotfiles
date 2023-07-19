@@ -2,10 +2,11 @@
 ===================
 
 Some of my configuration files and scripts used on [macOS][].
-Plus installer.
+Plus installer. My keyboard config is in a [separate repo][zmk].
 
   [narf]: http://narf.pl
   [macOS]: http://narf.pl/posts/mac-software-2022
+  [zmk]: https://github.com/narfdotpl/zmk-config
 
 
 Installation
