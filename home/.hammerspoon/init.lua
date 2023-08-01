@@ -14,6 +14,8 @@ configWatcher:start()
 ---------------
 
 for key, app in pairs({
+    t="Finder",
+
     a="Spotify",
     b="Signal",
 
