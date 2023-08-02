@@ -362,6 +362,7 @@ alias ez='(h && e .zshrc)'
 
 # open Things
 alias f="open 'things:///show?id=today&filter=focus'"
+alias ff="open 'things:///show?id=anytime&filter=focus'"
 
 # flush dns
 alias flushdns='dscacheutil -flushcache'
