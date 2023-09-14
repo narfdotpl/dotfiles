@@ -19,7 +19,6 @@ for key, app in pairs({
     a="Spotify",
     b="Signal",
 
-    c="Ableton Live 11 Standard",
     d="iTerm",
     e="MacVim",
     f="Safari",
