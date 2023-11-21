@@ -64,29 +64,10 @@ function moveWindow(dx, dy)
         local xRight = s.w - w.w
         local xCenter = (xRight - xLeft) // 2
 
-        local xSteps = {xLeft, xCenter, xRight}
-
-        -- move Slack almost off screen, so that only a split view is visible
-        local xSlackLeft = -w.w + s.w // 6 + 25
-        if xSlackLeft < xLeft then
-            table.insert(xSteps, 1, xSlackLeft)
-        end
-
         if dx < 0 then
-            for i = #xSteps, 1, -1 do
-                local x = xSteps[i]
-                if w.x > x then
-                    w.x = x
-                    break
-                end
-            end
+            w.x = w.x <= xCenter and xLeft or xCenter
         elseif dx > 0 then
-            for _, x in pairs(xSteps) do
-                if w.x < x then
-                    w.x = x
-                    break
-                end
-            end
+            w.x = xCenter <= w.x and xRight or xCenter
         end
 
         local yTop = s.y
