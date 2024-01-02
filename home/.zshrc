@@ -394,12 +394,11 @@ gifify() {
 }
 
 # run git (use git log alias if no arguments are given)
-alias g='git'
-git() {
+g() {
     if [ $# -eq 0 ]; then
-        hub l  # https://github.com/defunkt/hub
+        git l
     else
-        hub "$@"
+        git "$@"
     fi
 }
 

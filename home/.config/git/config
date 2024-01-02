@@ -14,9 +14,6 @@
 [diff]
     compactionHeuristic = true
 
-[hub]
-    http-clone = true
-
 [init]
     templatedir = ~/.config/git/template
 
@@ -53,7 +50,7 @@
     df = "!f() { git d $(git lo | fzf --ansi --no-sort --query \"$*\" | awk '{ print $1 }'); }; f"
     e = !$EDIT $(git u)
     gca = gc --aggressive
-    gh = !hub browse -- / && git q3 telein
+    gh = !gh browse
     h = help
     ig = !git s --ignored | ag '!!' | awk '{ print substr($0, 4) }' | more
     l = !python3 ~/.scripts/git/log.py | grcat conf.git-l | less -R
