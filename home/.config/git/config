@@ -17,6 +17,9 @@
 [init]
     templatedir = ~/.config/git/template
 
+[maintenance "prefetch"]
+    enabled = true
+
 [merge]
     ff = only
 
@@ -59,6 +62,7 @@
     ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | cat
     m = !python3 ~/.scripts/git/update-branch.py && git q3 voc_you_flag
     mm = merge -
+    ms = maintenance start
     msg = "!f() { git commit --allow-empty --message \"$*\" && git q3 talk; }; f"
     ohm = symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master
     p = pull
