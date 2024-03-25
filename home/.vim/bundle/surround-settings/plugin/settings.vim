@@ -32,13 +32,13 @@ function! s:DeletePair()
 endfunction
 
 " surround selection
-smap " <C-G>S"``a
-smap ' <C-G>S'``a
-smap ` <C-G>S```a
-smap * <C-G>S*``a
-smap ( <C-G>S)``a
-smap [ <C-G>S]``a
-smap { <C-G>S}``a
+smap " <C-G>S"<Esc>``i
+smap ' <C-G>S'<Esc>``i
+smap ` <C-G>S`<Esc>``i
+smap * <C-G>S*<Esc>``i
+smap ( <C-G>S)<Esc>``i
+smap [ <C-G>S]<Esc>``i
+smap { <C-G>S}<Esc>``i
 
 " fix backspace and delete
 snoremap <BS> .<BS>
