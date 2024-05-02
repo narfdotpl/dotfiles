@@ -522,6 +522,13 @@ export PIP_DOWNLOAD_CACHE=~/.pip/download-cache
 export PIP_RESPECT_VIRTUALENV=true
 
 
+#-------
+#  bun
+#-------
+
+source ~/.bun/_bun
+
+
 #---------------
 #  local stuff
 #---------------
