@@ -8,7 +8,7 @@ export FZF_DEFAULT_OPTS="--reverse"
 
 
 # auto-completion
-[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" 2> /dev/null
 
 # key bindings
-source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"

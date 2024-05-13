@@ -2,7 +2,7 @@
 let g:fzf_launcher = "~/.vim/bundle/fzf/bin/iterm-macvim %s"
 
 " use fzf from Homebrew
-source /opt/homebrew/opt/fzf/plugin/fzf.vim
+source $HOMEBREW_PREFIX/opt/fzf/plugin/fzf.vim
 
 " invoke FZF
 map <Leader>, :FZF<Enter>

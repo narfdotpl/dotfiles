@@ -96,7 +96,7 @@ source ~/.fzf.zsh
 #--------------
 
 # use completion provided by homebrew
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 
 # init
 autoload -U compinit && compinit
