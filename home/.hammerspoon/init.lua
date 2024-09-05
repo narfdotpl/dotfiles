@@ -26,7 +26,6 @@ for key, app in pairs({
 
     h="Simulator",
     i="Xcode",
-    j="Blender",
     k="Things3",
     l="Slack",
 }) do
