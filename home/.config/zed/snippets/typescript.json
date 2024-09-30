@@ -1,0 +1,17 @@
+{
+  "const": {
+    "prefix": "co",
+    "body": "const ",
+    "description": "const"
+  },
+  "Log to the console": {
+    "prefix": "lo",
+    "body": "console.log($0)",
+    "description": "Log to the console"
+  },
+  "return": {
+    "prefix": "re",
+    "body": "return ",
+    "description": "return"
+  }
+}
