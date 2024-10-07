@@ -39,7 +39,7 @@
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
           | ag -v '^master$'
     c = !git cv --all
-    ca = !git diff HEAD | zed --wait - && git cv --all --amend
+    ca = !git diff HEAD | gvim -R --nofork - && git cv --all --amend
     car = !git ca && git r
     cd = !git co develop
     cl = clone
