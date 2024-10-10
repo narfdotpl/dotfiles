@@ -22,7 +22,7 @@ for key, app in pairs({
     d="iTerm",
     e="MacVim",
     f="Safari",
-    g="Visual Studio Code",
+    g="Cursor",
 
     h="Simulator",
     i="Xcode",
