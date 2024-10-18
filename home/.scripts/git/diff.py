@@ -52,9 +52,9 @@ def _main():
     arguments = argv[1:]
     if not arguments:
         if git.is_clean:
-            command = 'show HEAD@{0}'
+            command = 'show --ignore-all-space HEAD@{0}'
         else:
-            command = 'diff HEAD'
+            command = 'diff --ignore-all-space HEAD'
     else:
         argument = arguments.pop(0)
         if len(argument) <= 2:  # n
