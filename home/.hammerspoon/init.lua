@@ -24,7 +24,7 @@ for key, app in pairs({
     f="Safari",
     g="Cursor",
 
-    h="Simulator",
+    h="Firefox",
     i="Xcode",
     k="Things3",
     l="Slack",
