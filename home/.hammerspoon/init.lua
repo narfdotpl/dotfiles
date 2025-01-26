@@ -35,6 +35,20 @@ for key, app in pairs({
 end
 
 
+-------------------------
+-- change input source --
+-------------------------
+
+for key, layout in pairs({
+    u="com.apple.keylayout.UnicodeHexInput",
+    v="com.apple.keylayout.PolishPro",
+}) do
+    hs.hotkey.bind(hyper, key, function()
+        hs.keycodes.currentSourceID(layout)
+    end)
+end
+
+
 ------------------
 -- move windows --
 ------------------
