@@ -14,6 +14,9 @@
 [diff]
     compactionHeuristic = true
 
+[diff "svg-short"]
+    textconv = head -n 10
+
 [init]
     templatedir = ~/.config/git/template
 
