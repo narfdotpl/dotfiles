@@ -27,7 +27,7 @@ for key, app in pairs({
     h="Firefox",
     i="Xcode",
     k="Things3",
-    l="Slack",
+    l="Ableton Live 12 Suite",
 }) do
     hs.hotkey.bind(hyper, key, function()
         hs.application.launchOrFocus(app)
