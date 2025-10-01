@@ -516,9 +516,13 @@ alias ze='zzz; exit'
 #  python
 #----------
 
-# pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# wrapped in an one-off function to lazy-load on first use
+pyenv() {
+    unset -f pyenv
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+    pyenv "$@"
+}
 
 # pip
 export PIP_DOWNLOAD_CACHE=~/.pip/download-cache
