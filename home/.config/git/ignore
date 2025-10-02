@@ -45,3 +45,5 @@ Session.vim
 
 # VS Code settings
 .vscode
+
+**/.claude/settings.local.json
