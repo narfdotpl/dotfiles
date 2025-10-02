@@ -155,42 +155,8 @@ GREEN=$'%{\e[0;32m%}'
 BLUE=$'%{\e[0;34m%}'
 WHITE=$'%{\e[0;37m%}'
 
-# get git info for prompt
-#
-# full example: " ..master+&"
-# (two dirs deep in repo, on branch master, dirty, with stashed changes)
-git_prompt() {
-    # check status and exit if there's no repo
-    local status_dump="$(mktemp /tmp/git_prompt.XXXXXX)"
-    trap "rm $status_dump" EXIT
-    git status --porcelain > $status_dump 2> /dev/null
-    [[ $? -gt 0 ]] && return
-
-    # initial space
-    echo -n ' '
-
-    # depth
-    git rev-parse --show-cdup | awk '{
-        ORS = ""
-
-        split($0, a, "/")
-        depth = length(a) - 1
-        while (depth --> 0)
-            print "."
-    }'
-
-    # branch name
-    git branch | sed -ne 's/* \(.*\)/\1/p' | tr -d '\n'
-
-    # is dirty?
-    [[ "$(head -c1 $status_dump)" != "" ]] && echo -n "+"
-
-    # has stashed changes?
-    [[ "$(git stash list | head -c1)" != "" ]] && echo -n "&"
-}
-
 # show short path, git info and ">" sign
-PROMPT='${BLUE}%3~${GREEN}$(git_prompt) ${WHITE}>${DEFAULT} '
+PROMPT='${BLUE}%3~${GREEN}$(~/.scripts/git/prompt/git-prompt) ${WHITE}>${DEFAULT} '
 
 # show non-zero exit code
 RPROMPT='${RED}%(0?..%?)${DEFAULT}'
