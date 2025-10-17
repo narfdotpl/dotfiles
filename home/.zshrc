@@ -333,6 +333,11 @@ alias fff="open 'things:///show?id=anytime&filter=focus'"
 alias fk="open 'things:///show?id=anytime&filter=focus,komputer'"
 alias fn="open 'things:///show?id=today&filter=now'"
 
+# find with fuzzy matching
+fdf() {
+    fd | fzf -1 -q "$*"
+}
+
 # flush dns
 alias flushdns='dscacheutil -flushcache'
 
