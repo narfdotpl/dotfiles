@@ -17,6 +17,9 @@
 [diff "svg-short"]
     textconv = head -n 10
 
+[fetch]
+    prune = true
+
 [init]
     templatedir = ~/.config/git/template
 
