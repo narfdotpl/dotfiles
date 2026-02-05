@@ -331,7 +331,7 @@ alias f="open 'things:///show?id=today&filter=focus'"
 alias ff="open 'things:///show?id=anytime&filter=priorytet'"
 alias fff="open 'things:///show?id=anytime&filter=focus'"
 alias fk="open 'things:///show?id=anytime&filter=focus,komputer'"
-alias fn="open 'things:///show?id=today&filter=now'"
+alias n="open 'things:///show?id=today&filter=now'"
 
 # find with fuzzy matching
 fdf() {
