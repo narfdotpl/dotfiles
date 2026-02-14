@@ -24,7 +24,7 @@ for key, app in pairs({
     f="Safari",
     g="Visual Studio Code",
 
-    h="Firefox",
+    h="Blender",
     i="Xcode",
     k="Things3",
     l="Ableton Live 12 Suite",
