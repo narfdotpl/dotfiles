@@ -19,7 +19,7 @@ for key, app in pairs({
     a="Spotify",
     b="Signal",
 
-    d="iTerm",
+    d="Ghostty",
     e="MacVim",
     f="Safari",
     g="Cursor",
