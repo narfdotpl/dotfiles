@@ -44,7 +44,7 @@ def _main():
     # create tags for vim documentation
     print('\n\ncreating tags for vim documentation...', end='', flush=True)
     sleep(2)
-    run('mvim -c "Helptags | quit"; sleep 1; open -a iterm')
+    run('mvim -c "Helptags | quit"; sleep 1; open -a ghostty')
     print('done')
 
     # source macOS

@@ -42,7 +42,7 @@ if [[ -x `which gvim` ]]; then
     export EDIT='gvim -p'  # -p == open tab for each file
     if [[ -x `which mvim` ]]; then  # gvim is symlink to mvim on my mac
         # go back to terminal after closing editor
-        export EDITOR='sh -c "'$EDIT' --nofork \"$@\" && open -a iterm"'
+        export EDITOR='sh -c "'$EDIT' --nofork \"$@\" && open -a ghostty"'
     else
         export EDITOR=$EDIT' --nofork'
     fi
@@ -160,13 +160,6 @@ PROMPT='${BLUE}%3~${GREEN}$(~/.scripts/git/prompt/git-prompt) ${WHITE}>${DEFAULT
 
 # show non-zero exit code
 RPROMPT='${RED}%(0?..%?)${DEFAULT}'
-
-# iTerm tab title: repo name
-precmd() {
-    local _path=$(git rev-parse --show-toplevel 2> /dev/null || dirs)
-    local title=$(basename $_path)
-    echo -ne "\033]0;"$title"\007"
-}
 
 
 #------------
