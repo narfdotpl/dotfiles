@@ -20,9 +20,9 @@ for key, app in pairs({
     b="Signal",
 
     d="Ghostty",
-    e="MacVim",
+    e="Zed",
     f="Safari",
-    g="Cursor",
+    g="Zed",
 
     h="Firefox",
     i="Xcode",

@@ -38,34 +38,20 @@ fi
 #  editor
 #----------
 
-if [[ -x `which gvim` ]]; then
-    export EDIT='gvim -p'  # -p == open tab for each file
-    if [[ -x `which mvim` ]]; then  # gvim is symlink to mvim on my mac
-        # go back to terminal after closing editor
-        export EDITOR='sh -c "'$EDIT' --nofork \"$@\" && open -a ghostty"'
-    else
-        export EDITOR=$EDIT' --nofork'
-    fi
-else
-    export EDIT='vim'
-    export EDITOR=$EDIT
-fi
+# go back to terminal after closing editor
+export EDITOR='sh -c "zed --wait \"$@\" && open -a ghostty"'
 
 # `edit .zshrc`, `echo foo | edit`, `edit` == `edit .`
 edit() {
     # check if stdin refers to terminal
     if [[ -t 0 ]]; then
         if [[ "$@" = "" ]]; then
-            if [[ -f "Session.vim" ]]; then
-                eval "$EDIT -S"
-            else
-                eval "$EDIT ."
-            fi
+            zed --new .
         else
-            eval "$EDIT $@"
+            zed $@
         fi
     else
-        eval "$EDIT -"
+        zed -
     fi
 }
 
