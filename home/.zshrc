@@ -310,6 +310,9 @@ ef() {
 # edit .gitconfig
 alias eg='(h && e .config/git/config)'
 
+# edit ghostty config
+alias et='(h && e .config/ghostty/config)'
+
 # edit .vimrc
 alias ev='(h && e .vimrc)'
 
