@@ -3,6 +3,8 @@ font-family = 0xProto
 font-size = 18
 theme = One Dark
 adjust-cursor-thickness = 3
+window-padding-x = 8
+window-padding-y = 4
 
 # feel
 auto-update = download
