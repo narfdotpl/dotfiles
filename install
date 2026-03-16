@@ -17,10 +17,6 @@ def ask_yn(question):
     return answer.startswith('y')
 
 
-def brew():
-    run('brew tap Homebrew/bundle && brew bundle')
-
-
 def run(command):
     return call(command, shell=True)
 
@@ -43,7 +39,7 @@ def _main():
     # install homebrew stuff
     print('\n')
     if ask_yn('install homebrew stuff?'):
-        brew()
+        run('brew bundle')
 
     # create tags for vim documentation
     print('\n\ncreating tags for vim documentation...', end='', flush=True)

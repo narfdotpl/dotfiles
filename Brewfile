@@ -1,4 +1,3 @@
-tap 'homebrew/bundle'
 brew 'coreutils'
 brew 'fd'
 brew 'fzf'
