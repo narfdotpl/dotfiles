@@ -321,7 +321,7 @@ alias ez='(h && e .zshrc)'
 
 # open Things
 alias f="open 'things:///show?id=today&filter=focus'"
-alias ff="open 'things:///show?id=anytime&filter=priorytet'"
+alias ff="open 'things:///show?id=anytime&filter=cele'"
 alias fff="open 'things:///show?id=anytime&filter=focus'"
 alias fk="open 'things:///show?id=anytime&filter=focus,komputer'"
 alias n="open 'things:///show?id=today&filter=now'"
