@@ -60,7 +60,7 @@
     co = checkout
     cp = cherry-pick
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
-    d = !python3 ~/.scripts/git/diff.py
+    d = "!f() { if [ $# -gt 0 ]; then git show $1; else git diff --quiet && git show || git diff; fi; }; f"
     db = branch -D
     df = "!f() { git d $(git lo | fzf --ansi --no-sort --query \"$*\" | awk '{ print $1 }'); }; f"
     e = !$EDIT $(git u)
