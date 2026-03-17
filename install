@@ -40,6 +40,7 @@ def _main():
     print('\n')
     if ask_yn('install homebrew stuff?'):
         run('brew bundle')
+        run('open -a hammerspoon')
 
     # create tags for vim documentation
     print('\n\ncreating tags for vim documentation...', end='', flush=True)
