@@ -16,3 +16,7 @@ export PATH=~/.scripts/bin\
 
 # put handy symlinks here
 export CDPATH=~/+
+
+
+# manually close the pager
+export LESS='R'

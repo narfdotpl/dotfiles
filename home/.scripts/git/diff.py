@@ -69,7 +69,7 @@ def _main():
         exit(1)
 
     # just do it
-    call('git {0} | gvim -R -'.format(command), shell=True)
+    call('git {0}'.format(command), shell=True)
 
 if __name__ == '__main__':
     _main()
