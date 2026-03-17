@@ -11,6 +11,15 @@
 [color]
     ui = auto
 
+[core]
+    pager = delta
+
+[delta]
+    dark = true
+    line-numbers = true
+    navigate = true
+    syntax-theme = ansi
+
 [diff]
     compactionHeuristic = true
 
@@ -42,7 +51,7 @@
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
           | ag -v '^master$'
     c = !git cv --all
-    ca = !git diff HEAD | less && git cv --all --amend
+    ca = !git diff HEAD && git cv --all --amend
     car = !git ca && git r
     cd = !git co develop
     cl = clone

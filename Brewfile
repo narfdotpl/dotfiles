@@ -1,4 +1,5 @@
 brew 'coreutils'
+brew 'delta'
 brew 'fd'
 cask 'font-0xproto'
 brew 'fzf'
