@@ -1,5 +1,6 @@
 brew 'coreutils'
 brew 'fd'
+cask 'font-0xproto'
 brew 'fzf'
 brew 'gcal'
 brew 'gh'

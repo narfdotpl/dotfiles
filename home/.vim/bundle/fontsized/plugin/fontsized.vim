@@ -39,7 +39,6 @@ highlight! link CursorLineNr LineNr
 " set font size
 set macligatures
 set guifont=0xProto:h20
-set linespace=5
 
 
 function! s:Fontsized()
