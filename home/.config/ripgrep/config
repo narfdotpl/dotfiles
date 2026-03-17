@@ -1,0 +1,6 @@
+# search hidden files but don't look inside the `.git` dir
+--hidden
+--glob=!.git/*
+
+# behave like the silver searcher
+--smart-case

@@ -49,7 +49,7 @@
     bb = !git co -
     bm = !git branch -M
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
-          | ag -v '^master$'
+          | rg -v '^master$'
     c = !git cv --all
     ca = !git diff HEAD && git cv --all --amend
     car = !git ca && git r
@@ -67,7 +67,7 @@
     gca = gc --aggressive
     gh = !gh browse
     h = help
-    ig = !git s --ignored | ag '!!' | awk '{ print substr($0, 4) }' | more
+    ig = !git s --ignored | rg '!!' | awk '{ print substr($0, 4) }' | more
     l = !python3 ~/.scripts/git/log.py | grcat conf.git-l | less -R
     ll = !git lo | less -R +G
     lo = "!f() { git log --oneline --reverse $* | grcat conf.git-l | less -R; }; f"
@@ -88,7 +88,7 @@
     rb = !git checkout $(git recent-branches | fzf)
     re = "!f() { git revert $* && git q3 defense; }; f"
     reh = !git re HEAD
-    recent-branches = !git reflog | ag 'checkout: moving from' | awk '{ if (!seen[$NF]++) print $NF }' | ag -v '[a-z0-9]{40}' | head
+    recent-branches = !git reflog | rg 'checkout: moving from' | awk '{ if (!seen[$NF]++) print $NF }' | rg -v '[a-z0-9]{40}' | head
     repo = !git init && git q3 intro_01 && git msg \"created repo :cake:\" && git a
     rh = "!f() { git reset --hard $* && git q3 denied; }; f"
     rh1 = !git rh HEAD~1
@@ -102,7 +102,7 @@
     sm = !git sf git cm && git sf git m && git c
     sp = stash pop
     ss = !git add --all && git stash save
-    u = !git s | ag 'UU' | awk '{ print substr($0, 4) }' | more
+    u = !git s | rg 'UU' | awk '{ print substr($0, 4) }' | more
     w = !git wip
     when-joined = !python3 ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email

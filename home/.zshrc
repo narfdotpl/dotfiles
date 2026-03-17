@@ -213,15 +213,6 @@ alias 3="awk '{ print \$3 }'"
 alias 4="awk '{ print \$4 }'"
 alias 5="awk '{ print \$5 }'"
 
-# ag
-alias agg="ag -l '.' | ag"
-alias agl='ag --nocolor -l'
-
-# ag | peat
-ap() {
-    ag -g . | peat -i 500 "$*"
-}
-
 # go to login screen
 alias a='afk'
 alias ae='afk; exit'
@@ -291,14 +282,14 @@ alias de='pyenv deactivate'
 # show date and time (example: 2011-06-04 09:54:07, Saturday)
 alias dt='date "+%Y-%m-%d %H:%M:%S, %A"'
 
-# show duplicate lines, e.g.: `ag --nofilename '^class' | dup`
+# show duplicate lines, e.g.: `rg --no-filename '^class' | dup`
 alias dup='sort | uniq -D | uniq'
 
 # edit
 alias e='edit'
 
 # edit files (and directories) returned by previous command (I use this
-# after `ag --files-with-matches`)
+# after `rg --files-with-matches`)
 alias ee='edit $(fc -e - 2> /dev/null)'
 
 # edit file selected with fzf
@@ -379,7 +370,7 @@ alias h='c home'
 alias http='open http://`ip`:8000/; python3 -m http.server'
 
 # get local IP addresses
-alias ip="ifconfig | ag 'inet 192' | awk '{ print \$2 }' | sort -u"
+alias ip="ifconfig | rg 'inet 192' | awk '{ print \$2 }' | sort -u"
 
 # list directory contents
 alias ll='ls -Fal --time-style=long-iso | more'
@@ -393,7 +384,7 @@ alias .l='column_ls -d .*'    # hidden stuff
 m() {mkdir -p $1 && cd $1}
 
 # exclude matching lines
-alias not='ag --invert-match'
+alias not='rg --invert-match'
 
 # open
 o() {
@@ -422,6 +413,9 @@ alias pg='ping -c 5 google.com'
 # install python package
 alias pi='pip install'
 
+# ripgrep
+alias rgl='rg -l'
+
 # don't type so much when working on my websites
 alias r='pa; ./manage.py runserver'
 
@@ -430,7 +424,7 @@ quit() { tell $1 to quit }
 
 # reload safari
 reload-safari() {
-    ag -l . | peat -i 500 "tell Safari to 'do JavaScript \"window.location.reload()\" in front document'"
+    rg -l . | peat -i 500 "tell Safari to 'do JavaScript \"window.location.reload()\" in front document'"
 }
 
 # brutally remove
@@ -446,7 +440,7 @@ alias save='save_workspace'
 alias t='m ~/Desktop/tmp'
 
 # show TODOs added in the current branch
-alias todo='g diff master...HEAD | ag "^\+" | ag TODO'
+alias todo='g diff master...HEAD | rg "^\+" | rg TODO'
 
 # open Cursor
 v() {
@@ -459,9 +453,6 @@ v() {
 
 # locate app
 alias wh='which'
-
-# open Xcode project(s)
-alias x='open "$(ls | ag .xcworkspace$ || ls | ag .xcodeproj$ || ls | ag .playground$)"'
 
 # (schedule) sleep
 # read `man atrun` to enable scheduling
