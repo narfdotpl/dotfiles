@@ -58,6 +58,7 @@
     cm = !git co master
     cmp = !python3 ~/.scripts/git/get-compare-links.py
     co = checkout
+    count-days = "!f() { git log --pretty=format:'%ad' --date=short -- $(fd $1) | sort -u | wc -l; }; f"
     cp = cherry-pick
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
     d = "!f() { if [ $# -gt 0 ]; then git show $1; else git diff --quiet && git show || git diff; fi; }; f"
