@@ -433,9 +433,6 @@ alias rf='rm -rf'
 # go to sandbox
 alias s='cd ~/sandbox'
 
-# save workspace
-alias save='save_workspace'
-
 # go to a temporary directory on the desktop
 alias t='m ~/Desktop/tmp'
 
@@ -499,23 +496,3 @@ source ~/.bun/_bun
 #---------------
 
 [[ -f ~/.localrc ]] && source ~/.localrc
-
-
-#-------------
-#  workspace
-#-------------
-
-workspace=~/.workspace
-
-# restore workspace (working directory and virtualenv) on startup
-if [[ -f $workspace ]]; then
-    source $workspace
-    rm $workspace
-fi
-
-save_workspace() {
-    echo "cd '`pwd`'" > $workspace
-    if [[ $VIRTUAL_ENV != '' ]]; then
-        echo "pyenv activate `basename $VIRTUAL_ENV`" >> $workspace
-    fi
-}
