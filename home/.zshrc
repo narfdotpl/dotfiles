@@ -439,12 +439,12 @@ alias t='m ~/Desktop/tmp'
 # show TODOs added in the current branch
 alias todo='g diff master...HEAD | rg "^\+" | rg TODO'
 
-# open Cursor
+# open Visual Studio Code
 v() {
     if [[ "$@" = "" ]]; then
-        cursor . || code .
+        code .
     else
-        cursor $@ || code $@
+        code $@
     fi
 }
 
