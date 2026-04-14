@@ -362,6 +362,7 @@ g() {
         git "$@"
     fi
 }
+compdef g=git
 
 # go to ~/dotfiles/home
 alias h='c home'
