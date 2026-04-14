@@ -1,0 +1,10 @@
+theme = "onedark"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+K = ["move_line_up", "join_selections"]
