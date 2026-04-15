@@ -8,3 +8,8 @@ hidden = false
 
 [keys.normal]
 K = ["move_line_up", "join_selections"]
+
+[keys.normal.q]
+q = ":quit"
+w = ":write-quit"
+
