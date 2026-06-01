@@ -16,7 +16,7 @@ configWatcher:start()
 for key, app in pairs({
     t="Finder",
 
-    a="Spotify",
+    a="Obsidian",
     b="Signal",
 
     d="Ghostty",
