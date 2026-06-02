@@ -303,11 +303,8 @@ alias ex='exit'
 alias ez='(h && e .zshrc)'
 
 # open Things
-alias f="open 'things:///show?id=today&filter=focus'"
-alias ff="open 'things:///show?id=anytime&filter=cele'"
-alias fff="open 'things:///show?id=anytime&filter=focus'"
-alias fk="open 'things:///show?id=anytime&filter=focus,komputer'"
-alias n="open 'things:///show?id=today&filter=now'"
+alias f="t.focus"
+alias n="t.now"
 
 # find with fuzzy matching
 fdf() {
@@ -423,8 +420,17 @@ alias rf='rm -rf'
 # go to sandbox
 alias s='cd ~/sandbox'
 
-# go to a temporary directory on the desktop
-alias t='m ~/Desktop/tmp'
+# open Things
+t.cele()        { open 'things:///show?id=anytime&filter=cele' }
+t.focus()       { open 'things:///show?id=today&filter=focus' }
+t.komputer()    { open 'things:///show?id=anytime&filter=focus,komputer' }
+t.nadchodzace() { open 'things:///show?id=upcoming&filter=wa%C5%BCne' }
+t.now()         { open 'things:///show?id=today&filter=now' }
+t.poranek()     { open 'things:///show?id=today&filter=poranek' }
+t.wazne()       { open 'things:///show?id=today&filter=wa%C5%BCne' }
+t() {
+    eval $(print -l ${(k)functions[(I)t.*]} | sort | fzf --cycle)
+}
 
 # show TODOs added in the current branch
 alias todo='g diff master...HEAD | rg "^\+" | rg TODO'
