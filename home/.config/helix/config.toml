@@ -6,6 +6,9 @@ insert = "bar"
 [editor.file-picker]
 hidden = false
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 K = ["move_line_up", "join_selections"]
 
