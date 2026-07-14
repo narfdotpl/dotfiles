@@ -51,7 +51,7 @@
     bmm = !git branch --merged master | sed 's/^[\\* ]*//g' \
           | rg -v '^master$'
     c = !git cv --all
-    ca = !git diff HEAD && git cv --all --amend
+    ca = !git diff -w HEAD && git cv --all --amend
     car = !git ca && git r
     cd = !git co develop
     cl = clone
@@ -61,7 +61,7 @@
     count-days = "!f() { git log --pretty=format:'%ad' --date=short -- $(fd $1) | sort -u | wc -l; }; f"
     cp = cherry-pick
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
-    d = "!f() { if [ $# -gt 0 ]; then git show $1; else git diff --quiet && git show || git diff; fi; }; f"
+    d = "!f() { if [ $# -gt 0 ]; then git show -w $1; else git diff -w --quiet && git show -w || git diff -w; fi; }; f"
     db = branch -D
     df = "!f() { git d $(git lo | fzf --ansi --no-sort --query \"$*\" | awk '{ print $1 }'); }; f"
     e = !$EDIT $(git u)
