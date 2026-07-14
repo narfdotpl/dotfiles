@@ -29,6 +29,9 @@
 [init]
     templatedir = ~/.config/git/template
 
+[interactive]
+    diffFilter = delta --color-only
+
 [maintenance "prefetch"]
     enabled = true
 
