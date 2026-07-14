@@ -15,11 +15,15 @@
     pager = delta
 
 [delta]
-    dark = true
     line-numbers = true
     navigate = true
-    syntax-theme = ansi
 
+    dark = true
+    minus-style = syntax "#662222"
+    minus-emph-style = syntax "#bb2222"
+    plus-style = syntax "#222288"
+    plus-emph-style = syntax "#2222ee"
+    
 [diff]
     compactionHeuristic = true
 
