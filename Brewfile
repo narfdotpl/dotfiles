@@ -1,3 +1,4 @@
+brew 'bat'
 brew 'coreutils'
 brew 'delta'
 brew 'fd'
