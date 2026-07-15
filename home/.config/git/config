@@ -108,6 +108,7 @@
     when-joined = !python3 ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
     wip = !git msg WIP:
+    wt = worktree
 
 
 # vim: set ft=gitconfig :
