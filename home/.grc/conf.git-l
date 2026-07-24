@@ -1,5 +1,5 @@
 # special characters that titles start with
-regexp=^[\w-]+ ([^ A-Za-z0-9.])+\s
+regexp=^[\w-]+ \w+ ([^ A-Za-z0-9.])+\s
 colours=white
 =======
 # colon following "WIP"
@@ -7,14 +7,18 @@ regexp=WIP:
 colours=cyan
 =======
 # "WIP" prefix
-regexp=^[\w-]+ WIP
+regexp=^[\w-]+ \w+ WIP
 colours=white
 =======
 # commits to delete
-regexp=^[\w-]+ --.*
+regexp=^[\w-]+ \w+ --.*
 colours=red
 =======
-# SHAs/dates
+# dates
+regexp=^[\w-]+ \w+
+colours=blue
+=======
+# SHAs
 regexp=^[\w-]+
 colours=yellow
 =======

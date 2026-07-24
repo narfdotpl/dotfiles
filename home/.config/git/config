@@ -68,7 +68,7 @@
     count-days = "!f() { git log --pretty=format:'%ad' --date=short -- $(fd $1) | sort -u | wc -l; }; f"
     cp = cherry-pick
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
-    d = "!f() { if [ $# -gt 0 ]; then git show -w $1; else git diff -w --quiet && git show -w || git diff -w; fi; }; f"
+    d = "!f() { if [ $# -gt 0 ]; then git show --color=always -w $1; else git diff -w --quiet && git show -w || git diff -w; fi; }; f"
     db = branch -D
     df = "!f() { git d $(git lo | fzf --ansi --no-sort --query \"$*\" | awk '{ print $1 }'); }; f"
     e = !$EDIT $(git u)
@@ -76,10 +76,11 @@
     gh = !gh browse
     h = help
     ig = !git s --ignored | rg '!!' | awk '{ print substr($0, 4) }' | more
-    l = !python3 ~/.scripts/git/log.py | grcat conf.git-l | less -R
-    ll = !git lo | less -R +G
-    lo = "!f() { git log --oneline --reverse $* | grcat conf.git-l | less -R; }; f"
-    ls = !git lo --max-count=$(git l | wc -l | tr -d ' ') | cat
+    log-range = ![ "$(git rev-list --count master..HEAD)" -gt 0 ] && echo master..HEAD
+    l = !git lof $(git log-range)
+    ls = !git lo $(git log-range)
+    lo = "!f() { git log --reverse --pretty=format:'%ad %h %s' --date=short $* | grcat conf.git-l; }; f"
+    lof = "!f() { local cmd='git d {2} | delta'; git lo $* | fzf --ansi --sync --bind 'start:last' --cycle --style full --preview \"$cmd\" --bind \"enter:become($cmd)\"; }; f"
     m = !python3 ~/.scripts/git/update-branch.py && git q3 voc_you_flag
     mm = merge -
     ms = maintenance start
