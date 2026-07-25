@@ -11,8 +11,12 @@ auto-update = download
 copy-on-select = clipboard
 window-save-state = always
 
-# keybindings
+# helix
 macos-option-as-alt = true
+keybind = cmd+[=unbind
+keybind = cmd+]=unbind
+ 
+# keybindings
 keybind = shift+enter=text:\x1b\r
 
 # notifications

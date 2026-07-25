@@ -9,10 +9,30 @@ hidden = false
 [editor.soft-wrap]
 enable = true
 
-[keys.normal]
-K = ["move_line_up", "join_selections"]
-
 [keys.normal.q]
 q = ":quit"
 w = ":write-quit"
 
+[keys.normal]
+K = ["move_line_up", "join_selections"]
+
+# following mappings are shared by all modes
+"Cmd-r" = [":config-reload", ":reload"]
+"Cmd-s" = ":write!"
+"Cmd-[" = "unindent"
+"Cmd-]" = "indent"
+"Cmd-/" = "toggle_comments"
+
+[keys.insert]
+"Cmd-r" = [":config-reload", ":reload"]
+"Cmd-s" = ":write!"
+"Cmd-[" = "unindent"
+"Cmd-]" = "indent"
+"Cmd-/" = "toggle_comments"
+
+[keys.select]
+"Cmd-r" = [":config-reload", ":reload"]
+"Cmd-s" = ":write!"
+"Cmd-[" = "unindent"
+"Cmd-]" = "indent"
+"Cmd-/" = "toggle_comments"
