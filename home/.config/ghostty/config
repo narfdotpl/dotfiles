@@ -9,8 +9,11 @@ window-padding-y = 4
 # feel
 auto-update = download
 copy-on-select = clipboard
-keybind = shift+enter=text:\x1b\r
 window-save-state = always
+
+# keybindings
+macos-option-as-alt = true
+keybind = shift+enter=text:\x1b\r
 
 # notifications
 notify-on-command-finish = unfocused
