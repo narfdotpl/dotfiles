@@ -10,6 +10,7 @@ hidden = false
 enable = true
 
 [keys.normal.q]
+m = "replay_macro"
 q = ":quit"
 w = ":write-quit"
 
