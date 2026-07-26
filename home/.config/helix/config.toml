@@ -15,6 +15,7 @@ q = ":quit"
 w = ":write-quit"
 
 [keys.normal]
+D = ["select_mode", "goto_line_end", "delete_selection"]
 K = ["move_line_up", "join_selections"]
 
 # following mappings are shared by all modes
