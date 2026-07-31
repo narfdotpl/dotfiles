@@ -42,6 +42,10 @@ def _main():
         run('brew bundle')
         run('open -a hammerspoon')
 
+        # install python tools
+        for tool in ['ruff', 'ty']:
+            run(f'uv tool install {tool}@latest')
+
     # create tags for vim documentation
     print('\n\ncreating tags for vim documentation...', end='', flush=True)
     sleep(2)
