@@ -89,6 +89,7 @@
     p = pull
     pf = "!f() { git push --force-with-lease $* && git q3 *holyshit; }; f"
     pp = !git p --rebase && git ps
+    pr = !gh pr view --web
     ps = push
     pu2 = "!f() { python3 ~/.scripts/git/push-upto.py $* && git q3 accuracy; }; f"
     q3 = "!f() { (afplay -v 0.15 $(find ~/sandbox/q3-sounds -name $1.wav) &); }; f"
