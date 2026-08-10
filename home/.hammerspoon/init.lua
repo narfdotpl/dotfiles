@@ -49,6 +49,15 @@ for key, layout in pairs({
 end
 
 
+---------------------------
+-- toggle grayscale mode --
+---------------------------
+
+hs.hotkey.bind(hyper, "w", function()
+    hs.shortcuts.run("Toggle Color Filters")
+end)
+
+
 ------------------
 -- move windows --
 ------------------
