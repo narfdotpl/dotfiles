@@ -116,6 +116,7 @@
     w = !git wip
     when-joined = !python3 ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
+    who-recently = who --since='3 months ago' -- .
     wip = !git msg WIP:
     wt = worktree
 
