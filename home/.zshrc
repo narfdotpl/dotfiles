@@ -12,6 +12,15 @@ export LANG=en_US.UTF-8
 export LC_ALL=$LANG
 
 
+#--------------
+#  dark magic
+#--------------
+
+# increase file descriptor limit:
+# macOS defaults to 256(?), too low for git repos with many objects
+ulimit -n 4096
+
+
 #-------------
 #  GNU stuff
 #-------------

@@ -41,8 +41,20 @@ fn git_prompt() -> String {
     }
 
     // Is dirty?
-    if is_dirty(&repo) {
-        result.push('+');
+    let mut opts = StatusOptions::new();
+    opts.include_untracked(true);
+    opts.recurse_untracked_dirs(true);
+
+    match repo.statuses(Some(&mut opts)) {
+        Ok(statuses) => {
+            if !statuses.is_empty() {
+                result.push('+');
+            }
+        }
+        Err(e) => {
+            eprintln!("git-prompt: status check failed: {}", e);
+            result.push('!');
+        }
     }
 
     // Has stashed changes?
@@ -57,17 +69,4 @@ fn git_prompt() -> String {
     }
 
     result
-}
-
-fn is_dirty(repo: &Repository) -> bool {
-    // Use libgit2 status check for accurate dirty detection
-    let mut opts = StatusOptions::new();
-    opts.include_untracked(true);
-    opts.recurse_untracked_dirs(true);
-
-    if let Ok(statuses) = repo.statuses(Some(&mut opts)) {
-        !statuses.is_empty()
-    } else {
-        false
-    }
 }
