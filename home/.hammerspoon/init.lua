@@ -19,7 +19,7 @@ for key, app in pairs({
     a="Obsidian",
     b="Signal",
 
-    d="Ghostty",
+    d="cmux",
     e="MacVim",
     f="Safari",
     g="Visual Studio Code",
