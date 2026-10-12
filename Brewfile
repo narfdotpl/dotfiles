@@ -1,4 +1,5 @@
 brew 'bat'
+cask 'cmux'
 brew 'coreutils'
 brew 'delta'
 brew 'fd'
