@@ -386,6 +386,11 @@ alias .l='column_ls -d .*'    # hidden stuff
 # create directory (and intermediate directories) and go there
 m() {mkdir -p $1 && cd $1}
 
+# open markdown file in cmux
+md() { cmux markdown "$@" }
+_md() { _path_files -g '*.md *.markdown' }
+compdef _md md
+
 # exclude matching lines
 alias not='rg --invert-match'
 
