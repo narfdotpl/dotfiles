@@ -451,8 +451,13 @@ w() {
     date "+%Y-%m-%d %H:%M,$1" >> weight.csv
     g msg ...
     g ca
-    g pp
     open 'things:///show?id=today&filter=poranek,komputer'
+    g pp
+}
+
+we() {
+    w $*
+    exit
 }
 
 # locate app
