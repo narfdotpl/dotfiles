@@ -466,6 +466,17 @@
   //     }
   //   },
 
+  // open all websites in the macOS default browser, not in cmux's own
+  "browser" : {
+    "interceptTerminalOpenCommandInCmuxBrowser" : false,
+    "openTerminalLinksInCmuxBrowser" : false
+  },
+
+  "sidebar" : {
+    "openPullRequestLinksInCmuxBrowser" : false,
+    "openPortLinksInCmuxBrowser" : false
+  },
+
   // cmd+r is left to the terminal so it reaches helix
   "shortcuts" : {
     "bindings" : {
