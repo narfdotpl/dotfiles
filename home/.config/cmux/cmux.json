@@ -465,4 +465,11 @@
   //       "diffViewerScrollDown" : "j"
   //     }
   //   },
+
+  // cmd+r is left to the terminal so it reaches helix
+  "shortcuts" : {
+    "bindings" : {
+      "renameTab" : ""
+    }
+  }
 }
