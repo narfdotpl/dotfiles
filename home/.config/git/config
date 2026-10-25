@@ -117,7 +117,7 @@
     when-joined = !python3 ~/.scripts/git/when-joined.py
     who = shortlog --summary --numbered --email
     who-recently = who --since='3 months ago' -- .
-    wip = !git msg WIP:
+    wip = "!f() { git msg \"WIP: $*\n\n_Disclosure: Throughout this work, I did not use probabilistic automation._\n\n_Disclosure: Throughout this work, I used probabilistic automation in the form of Claude Code Sonnet 5.5. I reviewed, edited, and approved all changes._\"; }; f"
     wt = worktree
 
 
