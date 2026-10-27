@@ -406,9 +406,6 @@ alias pf='pip freeze'
 # ping google
 alias pg='ping -c 5 google.com'
 
-# install python package
-alias pi='pip install'
-
 # ripgrep
 alias rgl='rg -l'
 
