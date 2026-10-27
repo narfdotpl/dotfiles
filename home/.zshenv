@@ -13,3 +13,6 @@ export LESS='R'
 
 # configure ripgrep
 export RIPGREP_CONFIG_PATH=~/.config/ripgrep/config
+
+# make lazygit read `~/.config` instead of `~/Library/Application Support`
+export XDG_CONFIG_HOME=~/.config
