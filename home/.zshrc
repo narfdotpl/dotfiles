@@ -365,6 +365,13 @@ alias h='c home'
 # start http server
 alias http='open http://`ip`:8000/; python3 -m http.server'
 
+# update dotfiles
+hup() {
+    c ~/dotfiles
+    g m
+    ./install
+}
+
 # get local IP addresses
 alias ip="ifconfig | rg 'inet 192' | awk '{ print \$2 }' | sort -u"
 

@@ -29,8 +29,4 @@ and [Homebrew][].
 
 ### Update
 
-    h
-    /
-    .
-    g m
-    ./install
+    hup
