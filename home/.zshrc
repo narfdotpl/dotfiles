@@ -433,6 +433,9 @@ alias rf='rm -rf'
 # go to sandbox
 alias s='cd ~/sandbox'
 
+# open claude code
+alias son='claude --model sonnet'
+
 # open Things
 t.cele()        { open 'things:///show?id=anytime&filter=cele' }
 t.focus()       { open 'things:///show?id=today&filter=focus' }
