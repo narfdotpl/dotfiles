@@ -27,6 +27,9 @@
 [diff]
     compactionHeuristic = true
 
+[diff "image"]
+    command = ~/.scripts/git/image-diff.sh
+
 [diff "svg-short"]
     textconv = head -n 10
 
