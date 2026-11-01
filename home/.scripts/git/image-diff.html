@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>$path</title>
+<style>
+    :root { color-scheme: light dark; }
+    body { font: 14px system-ui, sans-serif; margin: 16px; }
+    h1 { font-size: 16px; font-family: ui-monospace, monospace; }
+    main { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+    figure { margin: 0; }
+    figcaption { margin-bottom: 6px; font-weight: 600; }
+    #fade input { width: min(500px, 100vw); display: block; margin: 0 0 6px; }
+    #fade .stack { display: grid; }
+    #fade .stack img { grid-area: 1 / 1; }
+    img {
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 32px);
+        display: block;
+        background: repeating-conic-gradient(#8884 0 25%, transparent 0 50%) 0 0 / 16px 16px;
+    }
+</style>
+</head>
+<body>
+<h1>$path</h1>
+<main>
+$figures
+</main>
+<script>
+    const slider = document.querySelector("#fade input");
+    if (slider) {
+        const newImg = document.querySelector("#fade img:last-child");
+        const update = () => { newImg.style.opacity = slider.value / 100; };
+        slider.addEventListener("input", update);
+        update();
+    }
+</script>
+</body>
+</html>

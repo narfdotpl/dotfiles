@@ -27,6 +27,9 @@
 [diff]
     compactionHeuristic = true
 
+[diff "image"]
+    command = ~/.scripts/git/image-diff.py
+
 [diff "svg-short"]
     textconv = head -n 10
 
