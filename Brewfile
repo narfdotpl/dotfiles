@@ -1,4 +1,5 @@
 brew 'bat'
+brew 'chafa'
 brew 'coreutils'
 brew 'delta'
 brew 'fd'
