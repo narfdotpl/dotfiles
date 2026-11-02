@@ -8,7 +8,7 @@ window-padding-y = 4
 
 # feel
 auto-update = download
-copy-on-select = both
+copy-on-select = clipboard
 window-save-state = always
 
 # helix
