@@ -16,6 +16,7 @@
 
 [delta]
     line-numbers = true
+    pager = less -FRX
     navigate = true
 
     dark = true
