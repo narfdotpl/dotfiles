@@ -8,7 +8,7 @@
   // cmux creates this template on launch when ~/.config/cmux/cmux.json is missing.
   // Legacy settings.json files are read only as fallback for keys not present here.
 
-  //   "app" : {
+  "app" : {
   //     "defaultWorkspacePath" : "",
   //     "preferredEditor" : "",
   //     "workspaceInheritWorkingDirectory" : true,
@@ -22,7 +22,7 @@
   //     "sendAnonymousTelemetry" : true,
   //     "warnBeforeClosingWindow" : true,
   //     "confirmQuit" : "always",
-  //     "minimalMode" : false,
+    "minimalMode" : true,
   //     "reorderOnNotification" : true,
   //     "focusHistoryIncludesPanesAndTabs" : false,
   //     "openMarkdownInCmuxViewer" : true,
@@ -40,7 +40,7 @@
   //     "tabBarVisibility" : "always",
   //     "newWorkspacePlacement" : "afterCurrent",
   //     "keepWorkspaceOpenWhenClosingLastSurface" : false
-  //   },
+  },
 
   //   "workspaceGroups" : {
   //     "newWorkspacePlacement" : "afterCurrent"
