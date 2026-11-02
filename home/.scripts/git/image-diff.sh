@@ -7,6 +7,15 @@ show() {
     chafa -f kitty "$1" > /dev/tty
 }
 
+# cross-fade old -> new -> old in a loop, for a few seconds
+fade() {
+    gif=$(mktemp -d)/fade.gif
+    size=$(magick identify -format '%wx%h' "$1[0]")
+    magick "$1[0]" \( "$2[0]" -resize "$size!" \) "$1[0]" \
+        -morph 10 -set delay 5 -loop 0 "$gif" &&
+        chafa -f kitty --duration 6 "$gif" > /dev/tty
+}
+
 if [ "$old" = /dev/null ]; then
     echo "$path: image added"
     show "$new"
@@ -20,6 +29,7 @@ else
     else
         echo "$path: images differ"
         [ -f "$out" ] && show "$out"
+        fade "$old" "$new"
     fi
 fi
 exit 0
