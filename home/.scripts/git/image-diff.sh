@@ -8,14 +8,17 @@ show() {
 }
 
 if [ "$old" = /dev/null ]; then
+    echo "$path: image added"
     show "$new"
 elif [ "$new" = /dev/null ]; then
+    echo "$path: image removed"
     show "$old"
 else
     out=$(mktemp -d)/diff.png
     if odiff "$old" "$new" "$out"; then
         echo "$path: images are identical"
     else
+        echo "$path: images differ"
         [ -f "$out" ] && show "$out"
     fi
 fi
