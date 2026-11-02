@@ -26,6 +26,6 @@ notify-on-command-finish-after = 1m
 
 # working directory
 working-directory = home
-window-inherit-working-directory = false
-tab-inherit-working-directory = false
+window-inherit-working-directory = true
+tab-inherit-working-directory = true
 split-inherit-working-directory = true
