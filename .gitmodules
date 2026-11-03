@@ -52,3 +52,6 @@
 [submodule "home/.scripts/tell"]
 	path = home/.scripts/tell
 	url = https://github.com/narfdotpl/tell.git
+[submodule "home/.config/helix/catppuccin"]
+	path = home/.config/helix/catppuccin
+	url = https://github.com/catppuccin/helix
