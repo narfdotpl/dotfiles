@@ -55,3 +55,6 @@
 [submodule "home/.config/helix/catppuccin"]
 	path = home/.config/helix/catppuccin
 	url = https://github.com/catppuccin/helix
+[submodule "home/.config/ghostty/catppuccin"]
+	path = home/.config/ghostty/catppuccin
+	url = https://github.com/catppuccin/ghostty
