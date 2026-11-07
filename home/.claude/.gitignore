@@ -1,0 +1,10 @@
+*
+!.gitignore
+!settings.json
+!CLAUDE.md
+!keybindings.json
+!commands/
+!agents/
+!hooks/
+!skills/
+skills/synced/
