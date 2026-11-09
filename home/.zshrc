@@ -462,12 +462,11 @@ v() {
 
 # log weight
 w() {
+    open 'things:///show?id=today&filter=poranek,komputer'
     cd ~/repos/data
     g pp
     date "+%Y-%m-%d %H:%M,$1" >> weight.csv
-    g msg ...
-    g ca
-    open 'things:///show?id=today&filter=poranek,komputer'
+    g commit -am ...
     g pp
 }
 
