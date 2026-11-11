@@ -4,6 +4,11 @@
 
 hyper = {"shift", "ctrl", "alt", "cmd"}
 
+-- make it easier for ZMK keymap renderer to figure out key labels
+function bindHyper(key, label, fn)
+    hs.hotkey.bind(hyper, key, fn)
+end
+
 -- reload config on change
 configWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon", hs.reload)
 configWatcher:start()
@@ -54,7 +59,7 @@ end
 -- toggle grayscale mode --
 ---------------------------
 
-hs.hotkey.bind(hyper, "w", function()
+bindHyper("w", "toggle greyscale filter", function()
     hs.shortcuts.run("Toggle Color Filters")
 end)
 
@@ -75,7 +80,7 @@ function updateWindowFrame(callback)
 end
 
 -- center window
-hs.hotkey.bind(hyper, "y", updateWindowFrame(function (w, s)
+bindHyper("y", "center", updateWindowFrame(function (w, s)
     w.x = (s.w - w.w) / 2
     w.y = (s.h - w.h) / 2
 end))
@@ -105,10 +110,10 @@ function moveWindow(dx, dy)
     end)
 end
 
-hs.hotkey.bind(hyper, "left", moveWindow(-1, 0))
-hs.hotkey.bind(hyper, "right", moveWindow(1, 0))
-hs.hotkey.bind(hyper, "up", moveWindow(0, -1))
-hs.hotkey.bind(hyper, "down", moveWindow(0, 1))
+bindHyper("left",  "←", moveWindow(-1, 0))
+bindHyper("right", "→", moveWindow(1, 0))
+bindHyper("up",    "↑", moveWindow(0, -1))
+bindHyper("down",  "↓", moveWindow(0, 1))
 
 
 --------------------
@@ -116,11 +121,8 @@ hs.hotkey.bind(hyper, "down", moveWindow(0, 1))
 --------------------
 
 -- set height
-for key, ratio in pairs({
-    n=1/2,
-    m=1,
-}) do
-    hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
+function setRelativeWindowHeight(ratio)
+    return updateWindowFrame(function (w, s)
         local oldRatio = w.h / s.h
 
         w.h = ratio * s.h
@@ -135,18 +137,15 @@ for key, ratio in pairs({
         if isOverTheEdge then
             w.y = s.h - w.h
         end
-    end))
+    end)
 end
 
+bindHyper("n", "H:1/2", setRelativeWindowHeight(1/2))
+bindHyper("m", "H:1",   setRelativeWindowHeight(1))
+
 -- set width
-for key, ratio in pairs({
-    o=2/6,
-    p=3/6,
-    q=4/6,
-    r=5/6,
-    s=6/6,
-}) do
-    hs.hotkey.bind(hyper, key, updateWindowFrame(function (w, s)
+function setRelativeWindowWidth(ratio)
+    return updateWindowFrame(function (w, s)
         local oldRatio = w.w / s.w
         local wasOnRightEdge = w.x + w.w >= s.w - 2
 
@@ -162,11 +161,17 @@ for key, ratio in pairs({
         if wasOnRightEdge or isOverTheEdge then
             w.x = s.w - w.w
         end
-    end))
+    end)
 end
 
+bindHyper("o", "W:2/6", setRelativeWindowWidth(2/6))
+bindHyper("p", "W:3/6", setRelativeWindowWidth(3/6))
+bindHyper("q", "W:4/6", setRelativeWindowWidth(4/6))
+bindHyper("r", "W:5/6", setRelativeWindowWidth(5/6))
+bindHyper("s", "W:6/6", setRelativeWindowWidth(6/6))
+
 -- resize window to 2/3x1 and center it
-hs.hotkey.bind(hyper, "x", updateWindowFrame(function (w, s)
+bindHyper("x", "center W:2/3 H:1", updateWindowFrame(function (w, s)
     w.w = 2/3 * s.w
     w.h = s.h
 
@@ -175,7 +180,7 @@ hs.hotkey.bind(hyper, "x", updateWindowFrame(function (w, s)
 end))
 
 -- resize window to 1/2x1/2 and center it
-hs.hotkey.bind(hyper, "z", updateWindowFrame(function (w, s)
+bindHyper("z", "center W:1/2 H:1/2", updateWindowFrame(function (w, s)
     w.w = 1/2 * s.w
     w.h = 1/2 * s.h
 
