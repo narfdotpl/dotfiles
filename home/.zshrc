@@ -439,6 +439,7 @@ alias rf='rm -rf'
 alias s='cd ~/sandbox'
 
 # open claude code
+alias hai='claude --model haiku'
 alias son='claude --model sonnet'
 
 # open Things
