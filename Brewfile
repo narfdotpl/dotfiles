@@ -1,4 +1,5 @@
 brew 'bat'
+brew 'chafa'
 cask 'cmux'
 brew 'coreutils'
 brew 'delta'

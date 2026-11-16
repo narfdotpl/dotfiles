@@ -29,6 +29,9 @@
 [diff]
     compactionHeuristic = true
 
+[diff "image"]
+    command = ~/.scripts/git/image-diff.py
+
 [diff "svg-short"]
     textconv = head -n 10
 
@@ -70,7 +73,7 @@
     count-days = "!f() { git log --pretty=format:'%ad' --date=short -- $(fd $1) | sort -u | wc -l; }; f"
     cp = cherry-pick
     cv = "!f() { git commit --verbose $* && git q3 $(gshuf -n 1 -e excellent impressive perfect); }; f"
-    d = "!f() { if [ $# -gt 0 ]; then git show --color=always -w $1; else git diff -w --quiet && git show -w || git diff -w; fi; }; f"
+    d = "!f() { if [ $# -gt 0 ]; then git show --ext-diff --color=always -w $1; else git diff -w --quiet && git show --ext-diff -w || git diff -w; fi; }; f"
     db = branch -D
     df = "!f() { git d $(git lo | fzf --ansi --no-sort --query \"$*\" | awk '{ print $1 }'); }; f"
     e = !$EDIT $(git u)
