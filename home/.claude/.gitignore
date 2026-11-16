@@ -7,4 +7,6 @@
 !agents/
 !hooks/
 !skills/
+!themes/
+!themes/**
 skills/synced/

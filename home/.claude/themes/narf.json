@@ -1,0 +1,10 @@
+{
+  "name": "narf",
+  "base": "dark-daltonized",
+  "overrides": {
+    "diffAdded": "#222288",
+    "diffRemoved": "#662222",
+    "diffAddedWord": "#2222ee",
+    "diffRemovedWord": "#bb2222"
+  }
+}
