@@ -21,9 +21,11 @@
     dark = true
     minus-style = syntax "#662222"
     minus-emph-style = syntax "#bb2222"
+    line-numbers-minus-style = "#bb2222"
     plus-style = syntax "#222288"
     plus-emph-style = syntax "#2222ee"
-    
+    line-numbers-plus-style = "#2222ee"
+
 [diff]
     compactionHeuristic = true
 
