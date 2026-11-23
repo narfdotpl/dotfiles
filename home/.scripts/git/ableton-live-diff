@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""Summarize changes between two Ableton Live projects (.als) for a commit title.
+
+Usage: ableton-live-diff <(old) <(new)
+"""
+import gzip
+import os
+import re
+import subprocess
+import sys
+import threading
+
+PROMPT = """\
+Please give me a short summary, suitable for a commit title, of changes visible in the diff of a binary Ableton Live project, where there might be some noise in the diff. Try to not exceed 80 characters. When possible, start with a lowercase verbe in a past tense, e.g. "changed", "added", "removed", "tweaked". Here's the diff:
+
+{diff}
+"""
+
+
+def read(path):
+    with open(path, "rb") as f:
+        data = f.read()
+    return gzip.decompress(data) if data[:2] == b"\x1f\x8b" else data
+
+
+def feed(fd, data):
+    with os.fdopen(fd, "wb") as f:
+        f.write(data)
+
+
+def clean(text):
+    """Keep the first paragraph as the title, comment out the rest."""
+    first, *rest = re.split(r"\n\s*\n", text.strip())
+    title = first.strip().strip("`\"' \n")
+    comments = ["\n".join(f"# {line}" for line in p.splitlines()) for p in rest]
+    return "\n\n".join([title, *comments])
+
+
+def main():
+    if len(sys.argv) != 3:
+        sys.exit(f"usage: {sys.argv[0]} OLD NEW")
+
+    # hand decompressed data to diff through pipes, no temp files
+    pipes = [os.pipe() for _ in range(2)]
+    proc = subprocess.Popen(
+        ["diff", *(f"/dev/fd/{r}" for r, _ in pipes)],
+        stdout=subprocess.PIPE,
+        text=True,
+        pass_fds=[r for r, _ in pipes],
+    )
+    for r, _ in pipes:
+        os.close(r)
+    writers = [
+        threading.Thread(target=feed, args=(w, read(arg)))
+        for (_, w), arg in zip(pipes, sys.argv[1:])
+    ]
+    for t in writers:
+        t.start()
+    diff = proc.stdout.read()
+    proc.wait()  # exits with 1 when files differ
+    for t in writers:
+        t.join()
+
+    if not diff.strip():
+        sys.exit("no changes")
+
+    result = subprocess.run(
+        ["claude", "--model", "haiku", "--print"],
+        input=PROMPT.format(diff=diff),
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        sys.exit(result.stderr)
+    print(clean(result.stdout))
+
+
+if __name__ == "__main__":
+    main()
